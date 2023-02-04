@@ -49,7 +49,7 @@ class CalcController extends Controller
     {
 
         /** If $id finds an existing id in database.sqlite, then pass in data and display
-         * CalcPageView 
+         * CalcPageView. Turn variables into php array
          */
         $calc_page = CalcPage::findOrFail($id);
 
@@ -62,8 +62,6 @@ class CalcController extends Controller
             'title' => $calc_page->formula_name,
             'description' => $calc_page->formula_description,
             'formula_sympi' => $calc_page->formula_sympi,
-            
-            /** variables_json is converted into a PHP array from the CalcPage model */
             'variables' => $calc_page->variables_json,
         ]
     );}

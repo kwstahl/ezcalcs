@@ -14,8 +14,8 @@ class CalcPage extends Model
     protected $keyType = 'string';
     /** Remove timestamp requirements */
     public $timestamps = false;
-    /** Make variables_json into a PHP array */
+
     protected $casts = [
-        'variables_json' => 'array',
+        'variables_json' => 'array'
     ];
 }

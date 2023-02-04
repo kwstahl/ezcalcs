@@ -21,8 +21,6 @@
         <div>Hello world</div>
 
         @isset($id)
-
-
             {{ $id }} <br>
             {{ $title }} <br>
             {{ $description }} <br>
@@ -30,7 +28,7 @@
 
             @livewire('page-form', [
                 'formula_sympi' => $formula_sympi,
-                'variables_json' => $variables,
+                'variables' => $variables,
             ])
 
         @endisset

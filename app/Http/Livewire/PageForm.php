@@ -7,7 +7,9 @@ use App\Models\CalcPage;
 
 class PageForm extends Component
 {
-    /** $id passed in from CalcPageView */
+    public $formula_sympi;
+    public $variables;
+
     public function render()
     {
         return view('livewire.page-form');
