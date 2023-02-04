@@ -19,6 +19,10 @@
 
         <div>Hello world</div>
         
+        @isset($id)
+            {{ $id }}
+        @endisset
+
         <script src="" async defer></script>
     </body>
 </html>

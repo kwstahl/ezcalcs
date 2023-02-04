@@ -14,7 +14,7 @@ class CalcController extends Controller
      */
     public function index()
     {
-        return view('CalcPage');
+        return view('CalcPageView');
     }
 
     /**
@@ -47,7 +47,13 @@ class CalcController extends Controller
      */
     public function show($id)
     {
-        //
+
+        /** If $id finds an existing id in database.sqlite, then pass in data and display
+         * CalcPageView 
+         */
+        $calc_page = CalcPage::findOrFail($id);
+        return view('CalcPageView', ['id' => $id]);
+
     }
 
     /**
