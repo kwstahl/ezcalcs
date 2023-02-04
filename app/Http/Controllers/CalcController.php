@@ -52,9 +52,19 @@ class CalcController extends Controller
          * CalcPageView 
          */
         $calc_page = CalcPage::findOrFail($id);
-        return view('CalcPageView', ['id' => $id]);
 
-    }
+        /**
+         * return CalcPageView with Model data array 
+         */
+        return view('CalcPageView', 
+        [
+            'id' => $calc_page->id,
+            'title' => $calc_page->formula_name,
+            'description' => $calc_page->formula_description,
+            'formula_sympi' => $calc_page->formula_sympi,
+            'variables_json' => $calc_page->variables_json,
+        ]
+    );}
 
     /**
      * Show the form for editing the specified resource.

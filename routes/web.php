@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\CalcController;
+/** CalcController connects the CalcPageView to the CalcPage model */
 Route::resources([
     'eqn' => CalcController::class
 ]);
