@@ -62,7 +62,9 @@ class CalcController extends Controller
             'title' => $calc_page->formula_name,
             'description' => $calc_page->formula_description,
             'formula_sympi' => $calc_page->formula_sympi,
-            'variables_json' => $calc_page->variables_json,
+            
+            /** variables_json is converted into a PHP array from the CalcPage model */
+            'variables' => $calc_page->variables_json,
         ]
     );}
 

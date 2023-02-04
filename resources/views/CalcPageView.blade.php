@@ -21,11 +21,18 @@
         <div>Hello world</div>
 
         @isset($id)
+
+
             {{ $id }} <br>
             {{ $title }} <br>
             {{ $description }} <br>
             {{ $formula_sympi }} <br>
-            {{ $variables_json }} <br>
+
+            @livewire('page-form', [
+                'formula_sympi' => $formula_sympi,
+                'variables_json' => $variables,
+            ])
+
         @endisset
 
         <script src="" async defer></script>
