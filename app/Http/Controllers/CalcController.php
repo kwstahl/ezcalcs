@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CalcPage;
+use Illuminate\Support\Arr;
 
 class CalcController extends Controller
 {
@@ -24,7 +25,7 @@ class CalcController extends Controller
      */
     public function create()
     {
-        //
+        return view('PageCreator');    
     }
 
     /**
@@ -35,7 +36,19 @@ class CalcController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        $jsonData = json_encode($data['data']);
+        
+        $model = CalcPage::updateOrCreate(
+        [
+            'variables_json' => $jsonData,
+            'id' => $request->id,
+            'formula_name' => $request->formula_name,
+            'formula_description' => $request->formula_description,
+            'formula_sympi' => $request->formula_sympi,
+        ]
+        );
     }
 
     /**

@@ -18,4 +18,8 @@ class CalcPage extends Model
     protected $casts = [
         'variables_json' => 'array'
     ];
+
+    protected $fillable = ['variables_json'];
+    protected $guarded = [];
+    
 }

@@ -9,6 +9,8 @@ class PageForm extends Component
 {
     public $formula_sympi;
     public $variables;
+    public $title;
+    public $undotted;
 
     public function render()
     {
