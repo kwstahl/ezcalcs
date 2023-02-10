@@ -39,14 +39,18 @@ class CalcController extends Controller
         $data = $request->all();
         
         $jsonData = json_encode($data['data']);
+        $id = $request->id;
+        $formula_name = $request->formula_name;
+        $formula_description = $request->formula_description;
+        $formula_sympi = $request->formula_sympi;
         
         $model = CalcPage::updateOrCreate(
         [
             'variables_json' => $jsonData,
-            'id' => $request->id,
-            'formula_name' => $request->formula_name,
-            'formula_description' => $request->formula_description,
-            'formula_sympi' => $request->formula_sympi,
+            'id' => $id,
+            'formula_name' => $formula_name,
+            'formula_description' => $formula_description,
+            'formula_sympi' => $formula_sympi,
         ]
         );
     }

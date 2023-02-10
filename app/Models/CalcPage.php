@@ -19,7 +19,6 @@ class CalcPage extends Model
         'variables_json' => 'array'
     ];
 
-    protected $fillable = ['variables_json'];
-    protected $guarded = [];
+    protected $fillable = ['variables_json', 'id', 'formula_description', 'formula_sympi', 'formula_name'];
     
 }
