@@ -15,7 +15,7 @@ class CalcController extends Controller
      */
     public function index()
     {
-        return view('CalcPageView');
+        return view('index');
     }
 
     /**
@@ -39,6 +39,7 @@ class CalcController extends Controller
         $data = $request->all();
         
         $jsonData = json_encode($data['data']);
+        $jsonData = json_decode($jsonData, true);
         $id = $request->id;
         $formula_name = $request->formula_name;
         $formula_description = $request->formula_description;
@@ -50,7 +51,7 @@ class CalcController extends Controller
             'id' => $id,
             'formula_name' => $formula_name,
             'formula_description' => $formula_description,
-            'formula_sympi' => $formula_sympi,
+            'formula_sympi' => $formula_sympi
         ]
         );
     }
