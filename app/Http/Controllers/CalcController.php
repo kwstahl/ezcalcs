@@ -117,4 +117,15 @@ class CalcController extends Controller
     {
         //
     }
+
+    /**
+     * 
+     * takes in input from the request with name my_input, return output as JSON response
+     * 
+     */
+    public function handleInput(Request $request)
+    {
+        $input = $request->input('my_input');
+        return response()->json(['output' => $output]);
+    }
 }

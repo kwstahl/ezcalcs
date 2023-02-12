@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\CalcController;
+use App\Http\Controllers\SympiAPIController;
 /** CalcController connects the CalcPageView to the CalcPage model */
 Route::resources([
-    'eqn' => CalcController::class
+    'eqn' => CalcController::class,
 ]);
+
+Route::get('/apitestview', function(){
+    return view('apiTestView');
+});
