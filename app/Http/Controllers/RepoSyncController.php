@@ -10,5 +10,6 @@ class RepoSyncController extends Controller
     {
         // use the Git command to sync the repository here
         exec('git pull');
+        return view('sync-repo');
     }
 }

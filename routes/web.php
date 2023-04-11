@@ -32,4 +32,4 @@ Route::get('/gitupdate', function() {
     return view('gitUpdate');
 });
 
-Route::get('/sync-repo', 'App\Http\Controllers\RepoSyncController');
+Route::get('/sync-repo', 'App\Http\Controllers\RepoSyncController@syncRepo');
