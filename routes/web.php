@@ -33,3 +33,5 @@ Route::get('/gitupdate', function() {
 });
 
 Route::get('/sync-repo', 'App\Http\Controllers\RepoSyncController@syncRepo');
+
+Route::post('/webhook', 'App\Http\Controllers\WebhookController@handlePayload');
