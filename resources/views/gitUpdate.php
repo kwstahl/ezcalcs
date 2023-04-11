@@ -1,5 +1,5 @@
 <button id = "sync-btn"> Sync Repository </button>
-
+<strong>pls</strong>
 <script>
     document.getElementById('sync-btn').addEventListener('click', function() {
         let xhr = new XMLHttpRequest();
