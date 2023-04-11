@@ -1,7 +1,7 @@
 <button id = "sync-btn"> Sync Repository </button>
 <strong>pls</strong>
 <strong>again</strong>
-<strong> lord </strong>
+<strong> suck </strong>
 <script>
     document.getElementById('sync-btn').addEventListener('click', function() {
         let xhr = new XMLHttpRequest();
