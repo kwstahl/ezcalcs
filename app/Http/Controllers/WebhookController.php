@@ -11,8 +11,6 @@ class WebhookController extends Controller
         $event = $request->header('X-GitHub-Event');
         if ($event === 'push') {
             exec('cd /var/www/html/ezcalcs && git pull origin main');
-
-            return view('index');
         }
     }
 }
