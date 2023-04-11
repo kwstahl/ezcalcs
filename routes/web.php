@@ -27,3 +27,7 @@ Route::resources([
 Route::get('/apitestview', function(){
     return view('apiTestView');
 });
+
+Route::get('/gitupdate', function() {
+    return view('gitUpdate');
+});
