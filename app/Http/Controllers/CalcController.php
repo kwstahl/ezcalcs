@@ -131,6 +131,11 @@ class CalcController extends Controller
         return response()->json(['output' => $output]);
     }
 
+    public function testprocess()
+    {
+        return view('apiTestView');
+    }
+
     public function process(Request $request) 
     {
         $testdata = $request->input('testdata');
