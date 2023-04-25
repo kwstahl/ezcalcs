@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CalcPage;
 use Illuminate\Support\Arr;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class CalcController extends Controller
 {
@@ -128,4 +130,14 @@ class CalcController extends Controller
         $input = $request->input('my_input');
         return response()->json(['output' => $output]);
     }
+
+    public function process(Request $request) 
+    {
+        $testdata = $request->input('testdata');
+        $process = new Process(['python3', '/ezcalcs/sympyScript.py', $testdata]);
+        $process->run();
+        $output = $process->getOutput();
+        return 'hello ' + $output;
+    }
+
 }
