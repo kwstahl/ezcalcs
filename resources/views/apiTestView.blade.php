@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form action="{{ route('process-formula.process') }}" method="POST">
+    <form action="{{ route('process-formula') }}" method="POST">
         @method('POST')
         @csrf
         <input name="testdata">test<br>
