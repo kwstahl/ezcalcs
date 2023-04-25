@@ -22,3 +22,4 @@ use App\Http\Controllers\SympiAPIController;
 Route::resources([
     'sympiApi' => SympiAPIController::class,
 ]);
+

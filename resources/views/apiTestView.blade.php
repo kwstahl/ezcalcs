@@ -7,7 +7,9 @@
 </head>
 
 <body>
-    <form action="{{ route('sympiApi.store') }}" method="POST">
+    <form action="{{ route('process-formula.process') }}" method="POST">
+        @method('POST')
+        @csrf
         <input name="testdata">test<br>
         <input type="submit" id="testButton">
     </form>
@@ -15,29 +17,5 @@
     <div id="test">
         Test DATA
     </div>
-
-    <script>
-        $(document).ready(function() {
-            $("#testButton").click(function() {
-                const formData = new FormData(document.querySelector('form'));
-                formData.append('name', formData.get('testdata'));
-                $.ajax({
-                    url: '/api/sympiApi',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(data) {
-                        // Display the result returned by the PHP script.
-                        $("#test").text(data.output);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.error(errorThrown);
-                    }
-                });
-            });
-        });
-    </script>
 </body>
-
 </html>
