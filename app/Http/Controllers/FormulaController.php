@@ -8,7 +8,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 
-class SympiAPIController extends Controller
+class FormulaController extends Controller
 {
     /**
      * Direct incoming request data from to symfony
