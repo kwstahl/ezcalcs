@@ -136,13 +136,5 @@ class CalcController extends Controller
         return view('apiTestView');
     }
 
-    public function process(Request $request) 
-    {
-        $testdata = $request->input('testdata');
-        $process = new Process(['python3', '/ezcalcs/sympyScript.py', $testdata]);
-        $process->run();
-        $output = $process->getOutput();
-        return 'hello ' + $output;
-    }
 
 }

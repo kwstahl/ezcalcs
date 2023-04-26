@@ -5,10 +5,11 @@
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+@livewireStyles
 
 <body>
-    <form action="{{ route('eqn.process') }}" method="POST">
-        @method('POST')
+    <form action="/testprocessAPI.update" method="PUT">
+        @method('PUT')
         @csrf
         <input name="testdata">test<br>
         <input type="submit" id="testButton">
@@ -17,5 +18,6 @@
     <div id="test">
         Test DATA
     </div>
+@livewireStyles
 </body>
 </html>

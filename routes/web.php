@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CalcController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,25 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
-use App\Http\Controllers\CalcController;
-use App\Http\Controllers\SympiAPIController;
-use App\Http\Controllers\FormulaController;
 /** CalcController connects the CalcPageView to the CalcPage model */
+
+Route::get('/eqn/testprocess', [CalcController::class, 'testprocess']);
 Route::resources([
     'eqn' => CalcController::class,
 ]);
-
-Route::get('/apitestview', function(){
-    return view('apiTestView');
-});
-
-Route::get('/gitupdate', function() {
-    return view('gitUpdate');
-});
-
-Route::get('/sync-repo', 'App\Http\Controllers\RepoSyncController@syncRepo');
-
-Route::post('/webhook', 'App\Http\Controllers\WebhookController@handlePayload')->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
-
-Route::post('/process-formula', 'App\Http\Controllers\FormulaController@process');

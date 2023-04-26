@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\calcControllerAPI;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-use App\Http\Controllers\SympiAPIController;
-Route::resources([
-    'sympiApi' => SympiAPIController::class,
-]);
-
+Route::apiResource('testprocessAPI', calcControllerAPI::class);
