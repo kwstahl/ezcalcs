@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class calcControllerAPI extends Controller
 {
@@ -27,7 +29,17 @@ class calcControllerAPI extends Controller
     {
         $data = $request->all();
         $testdata = $request->testdata;
-        return "sup " . $testdata;
+
+        $command = 'python3 /ezcalcs/sympyScript.py';
+        $process = new Process([$command]);
+        $process->setInput($testdata);
+
+        $process->run();
+        $output = $process->getOuput();
+
+        $output .= "hi";
+
+        return $output;
     }
 
     /**
