@@ -8,7 +8,7 @@
 @livewireStyles
 
 <body>
-    <form action="/testprocessAPI.update" method="PUT">
+    <form action="{{ route('testprocessAPI.store') }}" method="PUT">
         @method('PUT')
         @csrf
         <input name="testdata">test<br>

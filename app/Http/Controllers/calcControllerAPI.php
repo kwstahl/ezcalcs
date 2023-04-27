@@ -25,7 +25,9 @@ class calcControllerAPI extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $testdata = $request->testdata;
+        return view('index');
     }
 
     /**
@@ -48,7 +50,7 @@ class calcControllerAPI extends Controller
      */
     public function update(Request $request, $id)
     {
-        return "hello";        
+        //
     }
 
     /**
