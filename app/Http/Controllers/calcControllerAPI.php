@@ -27,7 +27,7 @@ class calcControllerAPI extends Controller
     {
         $data = $request->all();
         $testdata = $request->testdata;
-        return view('index');
+        return "sup " . $testdata;
     }
 
     /**
