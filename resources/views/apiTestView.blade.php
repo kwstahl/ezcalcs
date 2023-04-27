@@ -8,8 +8,8 @@
 @livewireStyles
 
 <body>
-    <form action="{{ route('testprocessAPI.store') }}" method="PUT">
-        @method('PUT')
+    <form action="{{ route('testprocessAPI.store') }}" method="POST">
+        @method('POST')
         @csrf
         <input name="testdata">test<br>
         <input type="submit" id="testButton">
@@ -18,6 +18,6 @@
     <div id="test">
         Test DATA
     </div>
-@livewireStyles
+@livewireScripts
 </body>
 </html>
