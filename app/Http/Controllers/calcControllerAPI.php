@@ -33,7 +33,7 @@ class calcControllerAPI extends Controller
 
         $output = shell_exec($command);
 
-        $output .= "hi";
+        $output = "hi ". $output;
 
         return $output;
     }
