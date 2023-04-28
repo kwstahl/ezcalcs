@@ -31,7 +31,7 @@ class calcControllerAPI extends Controller
         $testdata = $request->testdata;
         $command = 'python3 /ezcalcs/sympyScript.py '.$testdata;
 
-        $output = shell_exec(string $command);
+        $output = shell_exec($command);
 
         $output .= "hi";
 
