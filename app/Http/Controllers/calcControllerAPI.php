@@ -29,7 +29,7 @@ class calcControllerAPI extends Controller
     {
         $data = $request->all();
         $testdata = $request->testdata;
-        $command = 'python3 /ezcalcs/sympyScript.py '.$testdata;
+        $command = 'python3 /var/www/html/ezcalcs/sympyScript.py '.$testdata;
 
         $output = shell_exec($command);
 
