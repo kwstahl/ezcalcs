@@ -118,4 +118,11 @@ class CalcController extends Controller
     {
         //
     }
+
+    
+    public function testprocess()
+    {
+        return view('apiTestView');
+    }
+
 }
