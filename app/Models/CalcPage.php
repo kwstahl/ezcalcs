@@ -15,10 +15,12 @@ class CalcPage extends Model
     /** Remove timestamp requirements */
     public $timestamps = false;
 
+    /* Allows casting into json array */
     protected $casts = [
-        'variables_json' => 'array'
+        'variables' => 'array',
     ];
 
-    protected $fillable = ['variables_json', 'id', 'formula_description', 'formula_sympi', 'formula_name'];
+    /* Allow filling into these for the database */
+    protected $fillable = ['variables', 'id', 'formula_description', 'formula_sympi', 'formula_name'];
     
 }

@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CalcPage;
 use Illuminate\Support\Arr;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
+
 
 class CalcController extends Controller
 {
@@ -49,7 +48,7 @@ class CalcController extends Controller
         
         $model = CalcPage::updateOrCreate(
         [
-            'variables_json' => $jsonData,
+            'variables' => $jsonData,
             'id' => $id,
             'formula_name' => $formula_name,
             'formula_description' => $formula_description,
@@ -82,7 +81,7 @@ class CalcController extends Controller
             'title' => $calc_page->formula_name,
             'description' => $calc_page->formula_description,
             'formula_sympi' => $calc_page->formula_sympi,
-            'variables' => $calc_page->variables_json,
+            'variables' => $calc_page->variables,
         ]
     );}
 
@@ -119,22 +118,4 @@ class CalcController extends Controller
     {
         //
     }
-
-    /**
-     * 
-     * takes in input from the request with name my_input, return output as JSON response
-     * 
-     */
-    public function handleInput(Request $request)
-    {
-        $input = $request->input('my_input');
-        return response()->json(['output' => $output]);
-    }
-
-    public function testprocess()
-    {
-        return view('apiTestView');
-    }
-
-
 }
