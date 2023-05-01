@@ -26,10 +26,7 @@
             {{ $description }} <br>
             {{ $formula_sympi }} <br>
 
-            @livewire('page-form', [
-                'formula_sympi' => $formula_sympi,
-                'variables' => $variables,
-            ])
+            @livewire('var-input', ['variables' => $variables])
 
         @endisset
 
