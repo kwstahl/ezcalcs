@@ -5,7 +5,7 @@
         <input name={{ $variable }} id={{ $variable }}> {{ $variable }} </input> 
 
         <select name={{ $val['unit'] }} id={{ $val['unit'] }}></select> <label for={{ $val['unit'] }}> {{ $val['unit'] }} </label>
-        
+        meh
         <br>
     @endforeach
 
