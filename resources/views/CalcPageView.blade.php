@@ -26,7 +26,7 @@
             {{ $description }} <br>
             {{ $formula_sympi }} <br>
 
-            @livewire('var-input', ['variables' => $variables])
+            @livewire('var-inputs', ['variables' => $variables])
 
         @endisset
 
