@@ -44,6 +44,3 @@ Route::resources([
     'eqn' => CalcController::class,
 ]);
 
-Route::get('/testfacade', function(){
-    CustomFacade::sayHello();
-});
