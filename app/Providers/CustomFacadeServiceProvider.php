@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\CustomFacade;
+
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class CustomFacadeServiceProvider extends ServiceProvider
@@ -11,7 +14,9 @@ class CustomFacadeServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind('customfacade', function(){
+            return new CustomFacade();
+        });
     }
 
     /**
@@ -22,3 +27,4 @@ class CustomFacadeServiceProvider extends ServiceProvider
         //
     }
 }
+
