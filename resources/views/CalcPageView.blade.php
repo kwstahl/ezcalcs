@@ -26,11 +26,8 @@
             {{ $description }} <br>
             {{ $formula_sympi }} <br>
 
-            <div>
-                @foreach($variables as $key=>$value)
-                <input name = {{ $key }}> <select name = {{ $key }}>Hey</select> {{ $value }}<br>
-                @endforeach
-            </div>
+            <livewire:page-form />
+            
 
         @endisset
             <input type = 'submit'> 
