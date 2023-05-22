@@ -1,3 +1,7 @@
 <div>
 Suh
+
+{{ $variables }}
+
+
 </div>
