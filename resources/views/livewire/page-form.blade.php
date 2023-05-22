@@ -1,7 +1,7 @@
 <div>
 Suh
 
-@foreach ({{ $variable }} as $variables)
+@foreach ($variable as {{ $variables }})
     This is $variable
 @endforeach
 
