@@ -2,7 +2,7 @@
 Suh
 
 @foreach ($variable as {{ $variables }})
-    This is $variable
+    This is {{ $variable }}
 @endforeach
 
 
