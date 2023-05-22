@@ -16,9 +16,31 @@ use App\Http\Controllers\CalcController;
 Route::get('/', function () {
     return view('index');
 });
-/** CalcController connects the CalcPageView to the CalcPage model */
 
+
+/** 
+ * 
+ * The route 'testprocess' used to send data from the calc_pages model to the API for the calculator sympi logic.
+ *  
+ * This is declared before Route::resoures() because it is defined outside of the normal CRUD functions
+ * 
+ * @return view('apiTestView')
+ * 
+ * This view contains the form action {{ testprocessAPI.store }}, which sends form input in JSON form to the API calculator
+ * 
+  */
 Route::get('/eqn/testprocess', [CalcController::class, 'testprocess']);
+
+/** 
+ * 
+ * Accesses the CalcController with CRUD functionality for created, showing, and updating pages from the CalcPage model 
+ * 
+ * Uses App\Http\Models\CalcPage
+ * 
+ * 
+ * 
+*/
 Route::resources([
     'eqn' => CalcController::class,
 ]);
+

@@ -1,5 +1,3 @@
 <div>
-    {{ $variables }}
-
-
+    hi this is {{ $variables }}
 </div>

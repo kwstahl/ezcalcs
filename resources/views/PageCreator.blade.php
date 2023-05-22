@@ -57,10 +57,10 @@
                     var txt1 = `
                         <div id="${prompt}">
                             <text>${prompt}</text><br> 
-                            <input id="unit" name="data[${prompt}][unit]" class="variable">Unit of ${prompt}</input><br> 
-                            <input id="sympi_symbol" name="data[${prompt}][sympi_symbol]">Sympi Symbol of ${prompt}</input><br> 
-                            <input id="latex_symbol" name="data[${prompt}][latex_symbol]">Latex Symbol of ${prompt}</input><br> 
-                            <input id="description"  name="data[${prompt}][description]"> Description of ${prompt}</input>
+                            <input id="unit" name="variable_data[${prompt}][unit]" class="variable">Unit of ${prompt}</input><br> 
+                            <input id="sympi_symbol" name="variable_data[${prompt}][sympi_symbol]">Sympi Symbol of ${prompt}</input><br> 
+                            <input id="latex_symbol" name="variable_data[${prompt}][latex_symbol]">Latex Symbol of ${prompt}</input><br> 
+                            <input id="description"  name="variable_data[${prompt}][description]"> Description of ${prompt}</input>
                         </div>
                         `
                     $("#variablesContainer").append(txt1);          

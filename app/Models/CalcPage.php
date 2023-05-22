@@ -17,10 +17,10 @@ class CalcPage extends Model
 
     /* Allows casting into json array */
     protected $casts = [
-        'variables' => 'array',
+        'variables_json' => 'array',
     ];
 
     /* Allow filling into these for the database */
-    protected $fillable = ['variables', 'id', 'formula_description', 'formula_sympi', 'formula_name'];
+    protected $fillable = ['variables_json', 'id', 'formula_description', 'formula_sympi', 'formula_name'];
     
 }

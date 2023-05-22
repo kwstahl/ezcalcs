@@ -19,17 +19,22 @@
         <![endif]-->
 
         <div>Hello world</div>
-
+        <form>
         @isset($id)
             {{ $id }} <br>
             {{ $title }} <br>
             {{ $description }} <br>
             {{ $formula_sympi }} <br>
 
-            @livewire('var-inputs', ['variables' => $variables])
+            <div>
+                @foreach($variables as $key=>$value)
+                <input name = {{ $key }}> <select name = {{ $key }}>Hey</select> {{ $value }}<br>
+                @endforeach
+            </div>
 
         @endisset
-
+            <input type = 'submit'> 
+        </form>
         <script src="" async defer></script>
         @livewireScripts
     </body>
