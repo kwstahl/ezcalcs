@@ -1,7 +1,9 @@
 <div>
 Suh
 
-{{ $variables }}
+@foreach ($variable as $variables)
+    This is $variable
+@endforeach
 
 
 </div>
