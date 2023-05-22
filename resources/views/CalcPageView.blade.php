@@ -26,8 +26,9 @@
             {{ $description }} <br>
             {{ $formula_sympi }} <br>
 
-            <livewire:page-form />
-            
+
+            @livewire('page-form', ['variables' => $variables])
+
 
         @endisset
             <input type = 'submit'> 
