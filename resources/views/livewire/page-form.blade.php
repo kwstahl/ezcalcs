@@ -2,6 +2,9 @@
     Suh
 
     @foreach ($variables as $variable)
-        {{ $variable }}
+        {{ json_decode($variable) }}
     @endforeach
+
+
+
 </div>
