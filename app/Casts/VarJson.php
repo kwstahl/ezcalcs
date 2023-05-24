@@ -8,13 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class VarJson implements CastsAttributes
 {
     /**
-     * Cast the given value.
+     * Cast JSON variables and variable JSON to arrays
      *
      * @param  array<string, mixed>  $attributes
      */
     public function get(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return $value;
+        $variables = json_decode($value, true);
+        foreach ($variables as $variable_name=>$variable_json_properties){
+            json_decode($variable_json_properties, true);
+            $variables[$variable_name] = $variable_json_properties;
+        }
+        return $variables;
     }
 
     /**
@@ -24,6 +29,9 @@ class VarJson implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return $value;
+        
+
+        return json_encode($value);
+
     }
 }
