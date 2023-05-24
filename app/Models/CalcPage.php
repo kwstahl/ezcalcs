@@ -18,7 +18,7 @@ class CalcPage extends Model
 
     /* Allows casting into json array */
     protected $casts = [
-        'variables_json' => VarJson::class,
+        'variables_json' => 'array',
     ];
 
     /* Allow filling into these for the database */
