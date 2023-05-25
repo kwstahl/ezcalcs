@@ -16,7 +16,7 @@ class VarJson implements CastsAttributes
     {
         $variables = json_decode($value, true);
         foreach ($variables as $variable_name=>$variable_json_properties){
-            json_encode($variable_json_properties, true);
+            $variable_json_properties = json_encode($variable_json_properties, true);
             $variables[$variable_name] = $variable_json_properties;
         }
         return $variables;
