@@ -1,7 +1,6 @@
 <div>
 
-    @foreach ($variables as $variable_name => $variable_prop)
-        <h1>{{ $variable_name }}:</h1>
+    @foreach ($variables as $variable_name)
         <label>{{ $variable_name['unit'] }}</label> <br>
         <label>{{ $variable_name['sympi_symbol'] }}</label> <br>
         <label>{{ $variable_name['latex_symbol'] }}</label> <br>
