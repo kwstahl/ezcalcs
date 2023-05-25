@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Casts\VarJson;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 
 class CalcPage extends Model
 {
@@ -18,7 +19,7 @@ class CalcPage extends Model
 
     /* Allows casting into json array */
     protected $casts = [
-        'variables_json' => VarJson::class,
+        'variables_json' => AsArrayObject::class,
     ];
 
     /* Allow filling into these for the database */
