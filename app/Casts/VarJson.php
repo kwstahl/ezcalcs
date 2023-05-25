@@ -15,10 +15,6 @@ class VarJson implements CastsAttributes
     public function get(Model $model, string $key, mixed $value, array $attributes): mixed
     {
         $variables = json_decode($value, true);
-        foreach ($variables as $variable_name=>$variable_json_properties){
-            $variable_json_properties = json_encode($variable_json_properties, true);
-            $variables[$variable_name] = $variable_json_properties;
-        }
         return $variables;
     }
 

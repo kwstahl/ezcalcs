@@ -3,7 +3,8 @@
 
     @foreach ($variables as $variable_name => $variable_props)
         {{ $variable_name }}:
-        {{ $variable_props }}
+
+        {{ json_encode($variable_props) }}
     @endforeach
 
 
