@@ -19,7 +19,7 @@ class VarJson implements CastsAttributes
             json_decode($variable_json_properties, true);
             $variables[$variable_name] = $variable_json_properties;
         }
-        return $variables;
+        return json_encode($variables);
     }
 
     /**
