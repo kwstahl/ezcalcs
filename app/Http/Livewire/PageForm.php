@@ -16,8 +16,7 @@ class PageForm extends Component
     public $no_table;
     public $variables_as_collection;
     public $dumped_vars;
-    public $has_table_dump;
-    public $no_table_dump;
+
 
     public function mount()
     {
@@ -49,8 +48,8 @@ class PageForm extends Component
                 $this->no_table->push($variable);
             }
             
-            $this->has_table_dump = collect($this->has_table);
-            $this->no_table_dump = collect($this->no_table);
+            $this->has_table = collect($this->has_table);
+            $this->no_table = collect($this->no_table);
         
         });
 
