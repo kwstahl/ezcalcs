@@ -20,7 +20,13 @@
         <p> {{ $this->no_table->dump() }}</p>
     </div>
     <div>
-        <p> {{ $this->has_table_print_contents() }} </p>
+        <p> 
+            {{ 
+                $this->has_table_print_contents()->each(function($option){
+                    
+            }) 
+            }} 
+        </p>
     </div>
 
 

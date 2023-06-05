@@ -56,11 +56,13 @@ class PageForm extends Component
         Dump the contents of each variable unit from the database. 
         Queries for the table, then pulls all the data from that table
         */
+        $table_options = collect();
 
-        $this->has_table->each(function($variable){
-            $table_options = DB::table($variable['unit'])->get()->dump();
-            echo $table_options;
+        $this->has_table->each(function($variable, $table_options){
+            $table_options = DB::table($variable['unit'])->get();
         });
+
+        return $table_options;
     }
 
     public function render()
