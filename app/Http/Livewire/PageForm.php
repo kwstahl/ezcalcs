@@ -12,6 +12,8 @@ class PageForm extends Component
 {
     #passed in as array of var_name:var_props, ...,
     public $variables;
+    public $has_table;
+    public $no_table;
     public $variables_as_collection;
     public $dumped_vars;
 
@@ -19,6 +21,8 @@ class PageForm extends Component
     {
         $this->variables_as_collection = collect($this->variables);
         $this->dumped_vars = $this->variables_as_collection->dump();
+        $this->has_table = collect();
+        $this->no_table = collect();
 
     }
 
@@ -35,9 +39,11 @@ class PageForm extends Component
             $tableName = $variable['unit'];
             if (Schema::hasTable($tableName)){
                 $this->message .= "it do has ". $variable['unit'];
+                $this->has_table->push($variable);
             }
             else {
                 $this->message .= "it don't has". $variable['unit'];
+                $this->no_table->push($variable);
             }
 
         });
