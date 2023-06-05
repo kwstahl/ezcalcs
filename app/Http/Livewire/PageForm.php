@@ -25,6 +25,7 @@ class PageForm extends Component
         $this->dumped_vars = $this->variables_as_collection->dump();
         $this->has_table = collect();
         $this->no_table = collect();
+        $this->check_if_unit_matches_table();
 
     }
 
