@@ -52,6 +52,11 @@ class PageForm extends Component
     }
 
     public function has_table_print_contents(){
+        /* 
+        Dump the contents of each variable unit from the database. 
+        Queries for the table, then pulls all the data from that table
+        */
+
         $this->has_table->each(function($variable){
             echo $table_options = DB::table($variable['unit'])->get()->dump();
         });
