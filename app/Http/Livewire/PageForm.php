@@ -49,8 +49,8 @@ class PageForm extends Component
                 $this->no_table->push($variable);
             }
             
-            $this->has_table_dump = $this->has_table->dump();
-            $this->no_table_dump = $this->no_table->dump();
+            $this->has_table_dump = collect($this->has_table);
+            $this->no_table_dump = collect($this->no_table);
         
         });
 
