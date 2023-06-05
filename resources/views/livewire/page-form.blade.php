@@ -16,11 +16,13 @@
     </div>
 
     <div>
-        <p> 
-            {{ $this->has_table->dump() }}
-        </p>
+        <p> {{ $this->has_table->dump() }}</p>
         <p> {{ $this->no_table->dump() }}</p>
     </div>
+    <div>
+        <p> {{ $this->has_table_print_contents() }} </p>
+    </div>
+
 
 
 </div>

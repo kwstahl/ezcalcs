@@ -7,6 +7,7 @@ use App\Models\CalcPage;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Process;
+use Illuminate\Support\Facades\DB;
 
 class PageForm extends Component
 {
@@ -31,7 +32,6 @@ class PageForm extends Component
     public function check_if_unit_matches_table()
     {
         $variables_as_collection = $this->variables_as_collection;
-        $this->message = "";
 
         /* 
         Using laravel's "each" method, check that each variable['unit'] has a table by referencing
@@ -40,21 +40,23 @@ class PageForm extends Component
         $variables_as_collection->each(function ($variable){
             $tableName = $variable['unit'];
             if (Schema::hasTable($tableName)){
-                $this->message .= "it do has ". $variable['unit'];
                 $this->has_table->push($variable);
             }
             else {
-                $this->message .= "it don't has". $variable['unit'];
                 $this->no_table->push($variable);
             }
             
             $this->has_table = collect($this->has_table);
             $this->no_table = collect($this->no_table);
-        
         });
-
     }
 
+    public function has_table_print_contents(){
+        $this->has_table->each(function($variable){
+            echo $table_options = DB::table($variable['unit'])->get();
+        });
+    }
+    
     public function render()
     {
         return view('livewire.page-form');
