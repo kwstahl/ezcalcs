@@ -11,6 +11,10 @@
     @endforeach
     <br>
 
+    <div>
+        <p>{{ $this->check_if_unit_matches_table() }}</p>
+    </div>
+
 
 
 </div>
