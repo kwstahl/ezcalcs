@@ -15,6 +15,12 @@
         <p>{{ $this->check_if_unit_matches_table() }}</p>
     </div>
 
+    <div>
+        <p> 
+            {{ $this->has_table_dump() }}
+        </p>
+        <p> {{ $this->no_table_dump() }}</p>
+    </div>
 
 
 </div>
