@@ -21,11 +21,7 @@
     </div>
     <div>
         <p> 
-            {{ 
-                $this->has_table_print_contents()->each(function($option){
-                    
-            }) 
-            }} 
+            {{ $this->has_table_print_contents()->dump() }} 
         </p>
     </div>
 
