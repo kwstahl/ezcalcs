@@ -17,9 +17,9 @@
 
     <div>
         <p> 
-            {{ $this->has_table_dump->dump() }}
+            {{ $this->has_table->dump() }}
         </p>
-        <p> {{ $this->no_table_dump->dump() }}</p>
+        <p> {{ $this->no_table->dump() }}</p>
     </div>
 
 
