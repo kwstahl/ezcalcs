@@ -48,7 +48,10 @@ class PageForm extends Component
                 $this->message .= "it don't has". $variable['unit'];
                 $this->no_table->push($variable);
             }
-
+            
+            $this->has_table_dump = $this->has_table->dump();
+            $this->no_table_dump = $this->no_table->dump();
+        
         });
 
     }
