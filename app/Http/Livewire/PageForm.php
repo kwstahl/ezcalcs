@@ -17,6 +17,7 @@ class PageForm extends Component
     public $no_table;
     public $variables_as_collection;
     public $dumped_vars;
+    public $dumpies;
 
 
     public function mount()
@@ -26,6 +27,7 @@ class PageForm extends Component
         $this->has_table = collect();
         $this->no_table = collect();
         $this->check_if_unit_matches_table();
+        $this->dumpies = $this->has_table_print_contents();
 
     }
 
@@ -56,13 +58,9 @@ class PageForm extends Component
         Dump the contents of each variable unit from the database. 
         Queries for the table, then pulls all the data from that table
         */
-        $table_options = collect();
-
         $this->has_table->each(function($variable, $table_options){
-            $table_options = DB::table($variable['unit'])->get();
+            yield $table_options = DB::table($variable['unit'])->get();
         });
-
-        return $table_options;
     }
 
     public function render()

@@ -21,7 +21,7 @@
     </div>
     <div>
         <p> 
-            {{ $this->has_table_print_contents()->dump() }} 
+            {{ $this->dumpies }} 
         </p>
     </div>
 
