@@ -25,8 +25,6 @@ class PageForm extends Component
         $this->dumped_vars = $this->variables_as_collection->dump();
         $this->has_table = collect();
         $this->no_table = collect();
-        $this->has_table_dump = $this->has_table->dump();
-        $this->no_table_dump = $this->no_table->dump();
 
     }
 
@@ -51,7 +49,6 @@ class PageForm extends Component
             }
 
         });
-        return $this->message;
 
     }
 
