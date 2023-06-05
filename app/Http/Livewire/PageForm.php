@@ -58,7 +58,8 @@ class PageForm extends Component
         */
 
         $this->has_table->each(function($variable){
-            echo $table_options = DB::table($variable['unit'])->get()->dump();
+            $table_options = DB::table($variable['unit'])->get()->dump();
+            echo $table_options;
         });
     }
 
