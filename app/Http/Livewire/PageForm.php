@@ -53,10 +53,10 @@ class PageForm extends Component
 
     public function has_table_print_contents(){
         $this->has_table->each(function($variable){
-            echo $table_options = DB::table($variable['unit'])->pluck('convsersion_factor');
+            echo $table_options = DB::table($variable['unit'])->get();
         });
     }
-
+    
     public function render()
     {
         return view('livewire.page-form');
