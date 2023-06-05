@@ -21,7 +21,7 @@
     </div>
     <div>
         <p> 
-            {{ $this->dumpies }} 
+         DUMPIES:   {{ $this->dumpies }} 
         </p>
     </div>
 
