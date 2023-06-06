@@ -12,7 +12,7 @@
     <br>
 
     <div>
-        <p>{{ $this->collect_matching_strings("distance") }}</p>
+        <p>{{ $this->collect_matching_strings('distance') }}</p>
     </div>
 
 </div>
