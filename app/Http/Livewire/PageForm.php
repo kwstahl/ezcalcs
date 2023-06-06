@@ -12,7 +12,6 @@ use Illuminate\Support\Str;
 
 class PageForm extends Component
 {
-    #passed in as array of var_name:var_props, ...,
     public $variables;
     public $variables_as_collection;
     public $variable_option_collection;
@@ -44,7 +43,7 @@ class PageForm extends Component
         $expressions_to_match = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
         foreach($expressions_to_match as $expression){
             $matching_strings = Str::of($unit_string)->matchAll('/' . $expression .'/');
-            $collection_of_matches = $collection_of_matches->merge($matching_strings);
+            $collection_of_matches = $collection_of_matches->push($matching_strings);
         }
         return $collection_of_matches;
     }
