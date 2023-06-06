@@ -12,7 +12,7 @@
     <br>
 
     <div>
-        <p>{{ $this->collect_matching_strings('distance/time') }}</p>
+        <p>{{ $this->variable_unit_retriever('distance/time') }}</p>
         
     </div>
 
