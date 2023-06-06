@@ -13,6 +13,7 @@
 
     <div>
         <p>{{ $this->collect_matching_strings('distance/time') }}</p>
+        
     </div>
 
 </div>
