@@ -8,60 +8,60 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PageForm extends Component
 {
     #passed in as array of var_name:var_props, ...,
     public $variables;
-    public $has_table;
-    public $no_table;
     public $variables_as_collection;
-    public $dumped_vars;
-    public $dumpies;
+
 
 
     public function mount()
     {
         $this->variables_as_collection = collect($this->variables);
-        $this->dumped_vars = $this->variables_as_collection->dump();
-        $this->has_table = collect();
-        $this->no_table = collect();
-        $this->check_if_unit_matches_table();
-        $this->dumpies = $this->has_table_print_contents();
-
+      
     }
 
-    public function check_if_unit_matches_table()
+    public function collect_matching_strings($unit_string)
     {
-        $variables_as_collection = $this->variables_as_collection;
-
         /* 
-        Using laravel's "each" method, check that each variable['unit'] has a table by referencing
-        the Schema::hasTable
+        Used in variable_unit_table_retriever to check the complex variable's unit
+        for matching names of table. 
+        
+        @Param input: unit string name from variable
+        @Param outpue: collection of matching strings 
+
         */
-        $variables_as_collection->each(function ($variable){
-            $tableName = $variable['unit'];
-            if (Schema::hasTable($tableName)){
-                $this->has_table->push($variable);
-            }
-            else {
-                $this->no_table->push($variable);
-            }
-            
-            $this->has_table = collect($this->has_table);
-            $this->no_table = collect($this->no_table);
-        });
+        $collection_of_matches = collect();
+        $expressions_to_match = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
+        foreach($expressions_to_match as $expression){
+            $matching_strings = Str::of($unit_string)->matchAll($expression);
+            $collection_of_matches = $collection_of_matches->merge($matching_strings);
+        }
+        return $collection_of_matches;
     }
 
-    public function has_table_print_contents(){
+    public function variable_unit_table_retriever($variable)
+    {
         /* 
-        Dump the contents of each variable unit from the database. 
-        Queries for the table, then pulls all the data from that table
+        Checks what the variable's unit is, and if it simple, returns the table records as a collection. If not, uses cross join and retrieves all possible 
+        combinations of all units for that variable as collection.
+
+        @input: variable collection class
+        @output: all variable's unit table records from DB as collection class
+
         */
-        $this->has_table->each(function($variable, $table_options){
-            yield $table_options = DB::table($variable['unit'])->get();
-        });
+        $unit = $variable['unit'];
+        if (Schema::hasTable($unit)){
+            $variable_unit_options = DB::table($unit)->get();
+            return $variable_unit_options;
+        } else {
+            $variable_unit_options = $this->collect_matching_strings($unit);
+        }
     }
+
 
     public function render()
     {

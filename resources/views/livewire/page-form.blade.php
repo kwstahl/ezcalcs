@@ -12,19 +12,7 @@
     <br>
 
     <div>
-        <p>{{ $this->check_if_unit_matches_table() }}</p>
+        <p>{{ $this->collect_matching_strings("distance/time") }}</p>
     </div>
-
-    <div>
-        <p> {{ $this->has_table->dump() }}</p>
-        <p> {{ $this->no_table->dump() }}</p>
-    </div>
-    <div>
-        <p> 
-         DUMPIES:   {{ $this->dumpies }} 
-        </p>
-    </div>
-
-
 
 </div>
