@@ -37,7 +37,7 @@ class PageForm extends Component
         $collection_of_matches = collect();
         $expressions_to_match = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
         foreach($expressions_to_match as $expression){
-            $matching_strings = Str::of($unit_string)->matchAll($expression);
+            $matching_strings = Str::of($unit_string)->matchAll('/' . $expression .'/');
             $collection_of_matches = $collection_of_matches->merge($matching_strings);
         }
         return $collection_of_matches;
