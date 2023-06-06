@@ -15,19 +15,18 @@ class PageForm extends Component
     #passed in as array of var_name:var_props, ...,
     public $variables;
     public $variables_as_collection;
+    public $variable_option_collection;
 
 
 
     public function mount()
     {
         $this->variables_as_collection = collect($this->variables);
-      
-    }
 
-    public function parse_variables()
-    {
-        $variables_as_collection = $this->variables_as_collection;
-
+        $this->variable_option_collection = collect();
+        foreach($this->variables_as_collection as $variable){
+            $this->variable_unit_table_retriever($variable)->dump();
+        }
     }
 
     public function collect_matching_strings($unit_string)
