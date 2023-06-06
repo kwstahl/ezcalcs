@@ -12,7 +12,7 @@
     <br>
 
     <div>
-        <p>{{ $this->variable_unit_table_retriever('distance/time') }}</p>
+        <p>{{  }}</p>
         
     </div>
 

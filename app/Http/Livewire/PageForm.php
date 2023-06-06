@@ -56,7 +56,8 @@ class PageForm extends Component
         combinations of all units for that variable as collection.
 
         @input: variable collection class
-        @output: all variable's unit table records from DB as collection class
+        @output: all variable's unit table records from DB as collection class. Simple units are just the table's records;
+            complex units are returned as a cross join of all the units in the complex unit
 
         */
 
@@ -81,7 +82,7 @@ class PageForm extends Component
                 $unit_collection = DB::table($unit)->get();
                 $cross_joined_collection = $unit_collection->crossJoin($cross_joined_collection);
             }
-            
+
             return $cross_joined_collection;
         }
     }
