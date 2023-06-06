@@ -25,7 +25,8 @@ class PageForm extends Component
 
         $this->variable_option_collection = collect();
         foreach($this->variables_as_collection as $variable){
-            $this->variable_unit_table_retriever($variable)->dump();
+            $retrieved_tables = $this->variable_unit_table_retriever($variable);
+            $this->variable_option_collection->push($retrieved_tables);
         }
     }
 
