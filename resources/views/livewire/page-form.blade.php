@@ -12,6 +12,7 @@
     <br>
 
     <div>
+        {{ $this->collect_matching_strings('length/time') }}
         {{ $this->retrieve_complex_units('length/time') }}
     </div>
 
