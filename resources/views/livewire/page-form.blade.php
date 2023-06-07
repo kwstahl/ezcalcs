@@ -12,7 +12,7 @@
     <br>
 
     <div>
-        {{ $this->variable_unit_table_retriever() }}
+        {{ $this->variable_option_collection }}
     </div>
 
 </div>
