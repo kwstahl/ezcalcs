@@ -48,6 +48,24 @@ class PageForm extends Component
         return $collection_of_matches;
     }
 
+    public function retrieve_base_unit_table($unit)
+    {
+        $variable_unit_options = DB::table($unit)->get();
+        return $variable_unit_options;
+    }
+
+    public function retrieve_complex_units($unit)
+    {
+        $cross_joined_collection = collect();
+        $collection_of_units_in_complex_unit = $this->collect_matching_strings($unit);
+        foreach($collection_of_units_in_complex_unit as $complex_unit)
+        {
+            $unit_collection = DB::table($complex_unit)->get();
+            $cross_joined_collection = $unit_collection->crossJoin($cross_joined_collection);
+        }
+        return $cross_joined_collection;
+    }
+
     public function variable_unit_table_retriever($variable)
     {
         /* 
@@ -63,26 +81,12 @@ class PageForm extends Component
         $unit = $variable['unit'];
         if (Schema::hasTable($unit))
         {
-            $variable_unit_options = DB::table($unit)->get();
-            return $variable_unit_options;
+            $this->retrieve_base_unit_table($unit);
         } 
 
         else 
         {
-            $cross_joined_collection = collect();
-
-            /* 
-            Sends to regular expression function that parses, and finds all the base units, outputs back as collection
-            of strings
-            */
-            $collection_of_units_in_complex_unit = $this->collect_matching_strings($unit);
-            foreach($collection_of_units_in_complex_unit as $unit)
-            {
-                $unit_collection = DB::table($unit)->get();
-                $cross_joined_collection = $unit_collection->crossJoin($cross_joined_collection);
-            }
-
-            return $cross_joined_collection;
+           $this->retrieve_complex_units($unit);
         }
     }
 
