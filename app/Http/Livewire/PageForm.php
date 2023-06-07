@@ -62,9 +62,8 @@ class PageForm extends Component
         foreach($collection_of_units_in_complex_unit as $complex_unit)
         {
             $unit_collection = DB::table($complex_unit)->get();
-            $cross_joined_collection = $unit_collection->crossJoin($cross_joined_collection);
+            yield $unit_collection;
         }
-        return $cross_joined_collection;
     }
     
 
