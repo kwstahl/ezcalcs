@@ -12,7 +12,7 @@
     <br>
 
     <div>
-        {{ $this->variable_option_collection }}
+        {{ $this->variable_option_collection->dump() }}
     </div>
 
 </div>
