@@ -30,7 +30,6 @@ class PageForm extends Component
         }
     }
 
-    public function 
 
     public function complex_unit_strings($unit_name)
     {
