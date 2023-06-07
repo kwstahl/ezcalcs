@@ -83,7 +83,7 @@ class PageForm extends Component
         $unit = $variable['unit'];
         if (Schema::hasTable($unit))
         {
-            $this->retrieve_base_unit_table($unit);
+            return $this->retrieve_base_unit_table($unit);
         } 
 
         else 
