@@ -13,80 +13,98 @@ use Illuminate\Support\Str;
 class PageForm extends Component
 {
     public $variables;
-    public $variables_as_collection;
-    public $variable_option_collection;
+    public $variablesCollection;
+    public $unitOptionsCollection;
 
 
 
     public function mount()
     {
-        $this->variables_as_collection = collect($this->variables);
+        $this->variablesCollection = collect($this->variables);
 
-        $this->variable_option_collection = collect();
-        foreach($this->variables_as_collection as $variable){
-            $retrieved_tables = $this->variable_unit_table_retriever($variable);
-            $this->variable_option_collection->push($retrieved_tables);
+        /* Loop creates a collection containing each variable's unit's table for use in creating list options. Collection of collections. */
+        $this->unitOptionsCollection = collect();
+        foreach($this->variablesCollection as $variable){
+            $unitTable = $this->findAllUnitTables($variable);
+            $this->unitOptionsCollection->push($unitTable);
         }
     }
 
-    public function collect_matching_strings($unit_string)
+    public function dot_test($unit_name)
+    {
+        $dot_this = $this->find_tables_of_complex_unit($unit_name);
+        return $dot_this->dot();
+    }
+
+    public function complex_unit_strings($unit_name)
     {
         /* 
-        Used in variable_unit_table_retriever to check the complex variable's unit
-        for matching names of table. 
+        Compares string of a complex unit to existing tables and returns all found tables as collection.
         
-        @Param input: unit string name from variable
-        @Param outpue: collection of matching strings 
+        @Param input: unit table name as string
+        @Param output: collection of names of tables in a complex unit
 
         */
-        $collection_of_matches = collect();
-        $expressions_to_match = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
-        foreach($expressions_to_match as $expression){
-            $matching_strings = Str::of($unit_string)->matchAll('/' . $expression .'/');
-            $collection_of_matches = $collection_of_matches->merge($matching_strings);
+        $unit_table_names = collect();
+        $table_names = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
+        foreach($table_names as $table_name){
+            $found_table = Str::of($unit_name)->matchAll('/' . $table_name .'/');
+            $unit_table_names = $unit_table_names->merge($found_table);
         }
-        return $collection_of_matches;
+        return $unit_table_names;
     }
 
-    public function retrieve_base_unit_table($unit)
-    {
-        $variable_unit_options = DB::table($unit)->get();
-        return $variable_unit_options;
-    }
-
-    
-    public function retrieve_complex_units($unit)
-    {
-        $crossed_collection = collect();
-        $parsed_units = $this->collect_matching_strings($unit);
-        foreach($parsed_units as $parsed_unit){
-            $crossed_collection->push(DB::table($parsed_unit)->get());            
-        }
-        return $crossed_collection;
-    }
-    
-
-    public function variable_unit_table_retriever($variable)
+    public function find_table_of_base_unit($unit_name)
     {
         /* 
-        Checks what the variable's unit is, and if it simple, returns the table records as a collection. If not, uses cross join and retrieves all possible 
-        combinations of all units for that variable as collection.
 
+        For base unit. Returns the table as a collection.
+        @Pram input: unit table name as string
+        @Param output: unit table as collection
+
+        */
+        $unit_table = DB::table($unit_name)->get();
+        return $unit_table;
+    }
+
+    
+    public function find_tables_of_complex_unit($unit_name)
+    {
+        /* 
+
+        For complex unit. Returns a the tables of each table in a complex unit 
+        @Param input: complex unit name as string
+        @Param output: unit tables as collections, in a collection.
+
+        */
+        $tables_of_complex_unit = collect();
+        $unit_strings = $this->complex_unit_strings($unit_name);
+        foreach($unit_strings as $unit_string){
+            $tables_of_complex_unit->push(DB::table($unit_string)->get());            
+        }
+        return $tables_of_complex_unit;
+    }
+    
+
+    public function findAllUnitTables($variable)
+    {
+        /* 
+        
+        Checks for simple or complex unit. Returns collections of the found table based on the Variable[unit] name.
         @input: variable collection class
-        @output: all variable's unit table records from DB as collection class. Simple units are just the table's records;
-            complex units are returned as a cross join of all the units in the complex unit
+        @output: variable unit table as collection. If complex, returns a collection of the multiple table collections.
 
         */
 
         $unit = $variable['unit'];
         if (Schema::hasTable($unit))
         {
-            return $this->retrieve_base_unit_table($unit);
+            return $this->find_table_of_base_unit($unit);
         } 
 
         else 
         {
-            return $this->retrieve_complex_units($unit);
+            return $this->find_tables_of_complex_unit($unit);
         }
     }
 

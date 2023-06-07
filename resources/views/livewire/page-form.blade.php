@@ -13,6 +13,7 @@
 
     <div>
         {{ $this->variable_option_collection->dump() }}
+        {{ $this->dot_test('length/time') }}
     </div>
 
 </div>
