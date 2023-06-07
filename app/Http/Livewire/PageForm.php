@@ -57,12 +57,10 @@ class PageForm extends Component
     
     public function retrieve_complex_units($unit)
     {
-        $cross_joined_collection = collect();
-        $collection_of_units_in_complex_unit = $this->collect_matching_strings($unit);
-        foreach($collection_of_units_in_complex_unit as $complex_unit)
-        {
-            $unit_collection = DB::table($complex_unit)->get();
-            $cross_joined_collection->merge($unit_collection);
+        $parsed_units = $this->collect_matching_strings($unit);
+        foreach($parsed_units as $parsed_unit){
+            DB::table($parsed_unit)->get()->dump();
+
         }
     }
     
