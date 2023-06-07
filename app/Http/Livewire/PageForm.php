@@ -33,7 +33,7 @@ class PageForm extends Component
     public function dot_test($unit_name)
     {
         $dot_this = $this->find_tables_of_complex_unit($unit_name);
-        return $dot_this->dot();
+        return $dot_this->dot()->all();
     }
 
     public function complex_unit_strings($unit_name)
