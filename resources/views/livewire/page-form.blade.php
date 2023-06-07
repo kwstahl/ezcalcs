@@ -13,7 +13,7 @@
 
     <div>
         {{ $this->collect_matching_strings('length/time') }}
-        {{ $this->retrieve_complex_units('length/time')->dump() }}
+        {{ $this->retrieve_complex_units('length/time') }}
     </div>
 
 </div>
