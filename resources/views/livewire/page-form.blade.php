@@ -13,7 +13,6 @@
 
     <div>
         {{ $this->unitOptionsCollection->dump() }}
-        {{ $this->dot_test('length/time') }}
     </div>
 
 </div>

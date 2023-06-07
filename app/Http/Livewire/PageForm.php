@@ -30,11 +30,7 @@ class PageForm extends Component
         }
     }
 
-    public function dot_test($unit_name)
-    {
-        $dot_this = $this->find_tables_of_complex_unit($unit_name);
-        return $dot_this->dot()->dump();
-    }
+    public function 
 
     public function complex_unit_strings($unit_name)
     {
@@ -49,6 +45,7 @@ class PageForm extends Component
         $table_names = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
         foreach($table_names as $table_name){
             $found_table = Str::of($unit_name)->matchAll('/' . $table_name .'/');
+            $found_table->prepend($table_name);
             $unit_table_names = $unit_table_names->merge($found_table);
         }
         return $unit_table_names;
