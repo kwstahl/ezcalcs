@@ -54,6 +54,7 @@ class PageForm extends Component
         return $variable_unit_options;
     }
 
+    /*
     public function retrieve_complex_units($unit)
     {
         $cross_joined_collection = collect();
@@ -65,7 +66,8 @@ class PageForm extends Component
         }
         return $cross_joined_collection;
     }
-
+    */
+    
     public function variable_unit_table_retriever($variable)
     {
         /* 
