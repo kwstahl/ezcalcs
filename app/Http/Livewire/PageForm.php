@@ -62,7 +62,7 @@ class PageForm extends Component
         foreach($collection_of_units_in_complex_unit as $complex_unit)
         {
             $unit_collection = DB::table($complex_unit)->get();
-            yield $unit_collection;
+            $cross_joined_collection->merge($unit_collection);
         }
     }
     
@@ -87,10 +87,7 @@ class PageForm extends Component
 
         else 
         {
-            foreach($this->retrieve_complex_units($unit) as $thing){
-                echo 'yp' .$thing;
-            }
-
+            return $this->retrieve_complex_units($unit);
         }
     }
 
