@@ -60,10 +60,9 @@ class PageForm extends Component
         $crossed_collection = collect();
         $parsed_units = $this->collect_matching_strings($unit);
         foreach($parsed_units as $parsed_unit){
-            $crossed_collection->push(DB::table($parsed_unit)->get());
-            $crossed_collection->dump();
-            
+            $crossed_collection->push(DB::table($parsed_unit)->get());            
         }
+        return $crossed_collection;
     }
     
 
