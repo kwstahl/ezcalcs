@@ -87,7 +87,10 @@ class PageForm extends Component
 
         else 
         {
-           return $this->retrieve_complex_units($unit);
+            foreach($this->retrieve_complex_units($unit) as $thing){
+                echo 'yp' .$thing;
+            }
+
         }
     }
 
