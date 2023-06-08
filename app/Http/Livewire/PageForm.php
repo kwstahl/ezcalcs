@@ -28,11 +28,7 @@ class PageForm extends Component
         }
     }
 
-    public function push_table_names($tables_of_complex_unit)
-    {
-
-    }
-
+ 
     public function complex_unit_strings($unit_name)
     {
         /* 
@@ -79,10 +75,8 @@ class PageForm extends Component
         $unit_strings = $this->complex_unit_strings($unit_name);
         foreach($unit_strings as $unit_string){
             $unit_table = DB::table($unit_string)->get();
-            $tables_of_complex_unit->put($unit_string, $unit_table); 
+            $tables_of_complex_unit->put($unit_string, $unit_name, $unit_table); 
         }
-
-
         return $tables_of_complex_unit;
     }
     
