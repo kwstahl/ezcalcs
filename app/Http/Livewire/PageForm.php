@@ -78,11 +78,10 @@ class PageForm extends Component
         $unit_strings = $this->complex_unit_strings($unit_name);
         foreach($unit_strings as $unit_string){
             $unit_table = DB::table($unit_string)->get();
-            $unit_table->map(function($item, $unit_string){
-                return $item->put('table name', $unit_string);
-            });
-            $tables_of_complex_unit->push($unit_table); 
+            $tables_of_complex_unit->put($unit_string, $unit_table); 
         }
+
+
         return $tables_of_complex_unit;
     }
     
