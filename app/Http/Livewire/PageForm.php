@@ -62,7 +62,7 @@ class PageForm extends Component
     }
 
     
-    public function find_tables_of_complex_unit($unit_name)
+    public function find_tables_of_complex_unit($complex_unit_name)
     {
         /* 
 
@@ -72,12 +72,12 @@ class PageForm extends Component
 
         */
         $tables_of_complex_unit = collect();
-        $unit_strings = $this->complex_unit_strings($unit_name);
+        $unit_strings = $this->complex_unit_strings($complex_unit_name);
         foreach($unit_strings as $unit_string){
             $unit_table = DB::table($unit_string)->get();
             $tables_of_complex_unit->put($unit_string, $unit_table); 
         }
-        $tables_of_complex_unit->put("complex variable", $unit_name);
+        $tables_of_complex_unit->put("complex_unit", $complex_unit_name);
         return $tables_of_complex_unit;
     }
     
