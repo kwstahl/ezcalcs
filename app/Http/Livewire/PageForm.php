@@ -61,7 +61,7 @@ class PageForm extends Component
 
         */
         $unit_table = DB::table($unit_name)->get();
-        $unit_table = $unit_table->put($unit_name, $unit_table);
+        $unit_table = collect([$unit_name => $unit_table]);
         return $unit_table;
     }
 
