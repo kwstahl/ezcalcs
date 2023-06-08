@@ -16,8 +16,6 @@ class PageForm extends Component
     public $variablesCollection;
     public $unitOptionsCollection;
 
-
-
     public function mount()
     {
         $this->variablesCollection = collect($this->variables);
@@ -30,6 +28,10 @@ class PageForm extends Component
         }
     }
 
+    public function push_table_names($tables_of_complex_unit)
+    {
+
+    }
 
     public function complex_unit_strings($unit_name)
     {
@@ -44,7 +46,6 @@ class PageForm extends Component
         $table_names = ['counting', 'current', 'distance', 'length', 'luminosity', 'mass', 'temperature', 'time'];
         foreach($table_names as $table_name){
             $found_table = Str::of($unit_name)->matchAll('/' . $table_name .'/');
-            $found_table->prepend($table_name);
             $unit_table_names = $unit_table_names->merge($found_table);
         }
         return $unit_table_names;
@@ -68,7 +69,7 @@ class PageForm extends Component
     {
         /* 
 
-        For complex unit. Returns a the tables of each table in a complex unit 
+        For complex unit. Returns the tables of each unit in a complex unit 
         @Param input: complex unit name as string
         @Param output: unit tables as collections, in a collection.
 
@@ -76,7 +77,11 @@ class PageForm extends Component
         $tables_of_complex_unit = collect();
         $unit_strings = $this->complex_unit_strings($unit_name);
         foreach($unit_strings as $unit_string){
-            $tables_of_complex_unit->push(DB::table($unit_string)->get());            
+            $unit_table = DB::table($unit_string)->get();
+            $unit_table->map(function($item, $unit_string){
+                return $item->put('table name', $unit_string);
+            });
+            $tables_of_complex_unit->push($unit_table); 
         }
         return $tables_of_complex_unit;
     }
