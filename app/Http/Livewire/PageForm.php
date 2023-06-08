@@ -77,7 +77,7 @@ class PageForm extends Component
             $unit_table = DB::table($unit_string)->get();
             $tables_of_complex_unit->put($unit_string, $unit_table); 
         }
-        $tables_of_complex_unit->prepend($unit_name);
+        $tables_of_complex_unit->prepend(["complex variable", $unit_name]);
         return $tables_of_complex_unit;
     }
     
