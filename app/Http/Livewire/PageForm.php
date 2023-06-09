@@ -62,7 +62,7 @@ class PageForm extends Component
         */
         $unit_table = DB::table($unit_name)->get();
         $unit_table = collect([$unit_name => $unit_table]);
-        $this->baseVariables->put([$unit_name => $unit_table]);
+        $this->baseVariables->put($unit_name, $unit_table);
     }
 
     
@@ -82,7 +82,7 @@ class PageForm extends Component
             $tables_of_complex_unit->put($unit_string, $unit_table); 
         }
         $tables_of_complex_unit->put("complex_unit", $complex_unit_name);
-        $this->complexVariables->put([$complex_unit_name => $tables_of_complex_unit]);
+        $this->complexVariables->put($complex_unit_name, $tables_of_complex_unit);
     }
     
 
