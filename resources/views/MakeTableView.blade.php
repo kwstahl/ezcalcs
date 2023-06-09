@@ -1,7 +1,7 @@
 <html>
     <body>
         <div>
-            what it do boogaloo
+            What it do boogaloo
         </div>
     </body>
 </html>
