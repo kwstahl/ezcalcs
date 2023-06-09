@@ -15,20 +15,24 @@ class PageForm extends Component
     public $variables;
     public $variablesCollection;
     public $unitOptionsCollection;
+    public $complexVariables;
+    public $baseVariables;
 
     public function mount()
     {
         $this->variablesCollection = collect($this->variables);
+        $this->complexVariables = collect();
+        $this->baseVariables = collect();
 
         /* Loop creates a collection containing each variable's unit's table for use in creating list options. Collection of collections. */
         $this->unitOptionsCollection = collect();
         foreach($this->variablesCollection as $variable){
-            $unitTable = $this->findAllUnitTables($variable);
-            $this->unitOptionsCollection->push($unitTable);
+            $this->findAllUnitTables($variable);
         }
     }
 
  
+
     public function complex_unit_strings($unit_name)
     {
         /* 
@@ -58,7 +62,7 @@ class PageForm extends Component
         */
         $unit_table = DB::table($unit_name)->get();
         $unit_table = collect([$unit_name => $unit_table]);
-        return $unit_table;
+        $this->baseVariables->put([$unit_name => $unit_table]);
     }
 
     
@@ -78,7 +82,7 @@ class PageForm extends Component
             $tables_of_complex_unit->put($unit_string, $unit_table); 
         }
         $tables_of_complex_unit->put("complex_unit", $complex_unit_name);
-        return $tables_of_complex_unit;
+        $this->complexVariables->put([$complex_unit_name => $tables_of_complex_unit]);
     }
     
 
@@ -95,12 +99,12 @@ class PageForm extends Component
         $unit = $variable['unit'];
         if (Schema::hasTable($unit))
         {
-            return $this->find_table_of_base_unit($unit);
+            $this->find_table_of_base_unit($unit);
         } 
 
         else 
         {
-            return $this->find_tables_of_complex_unit($unit);
+            $this->find_tables_of_complex_unit($unit);
         }
     }
 
