@@ -43,3 +43,5 @@ Route::get('/eqn/testprocess', [CalcController::class, 'testprocess']);
 Route::resources([
     'eqn' => CalcController::class,
 ]);
+
+Route::get('/tables', [])

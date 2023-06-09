@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('testprocessAPI', calcControllerAPI::class);
+
+Route::apiResource('tablemaker', TableController::class);
