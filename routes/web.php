@@ -44,4 +44,4 @@ Route::resources([
     'eqn' => CalcController::class,
 ]);
 
-Route::get('/tables', TableMaker::class);
+Route::get('/tables', TableController::class);
