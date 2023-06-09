@@ -12,8 +12,8 @@
     <br>
 
     <div>
-        {{ $this->baseVariables->dump() }}
-        {{ $this->complexVariables->dump() }}
+        {{ $this->baseVariableTables->dump() }}
+        {{ $this->complexVariableTables->dump() }}
     </div>
 
 </div>
