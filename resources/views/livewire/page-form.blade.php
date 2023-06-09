@@ -12,7 +12,8 @@
     <br>
 
     <div>
-        {{ $this->unitOptionsCollection->dump() }}
+        {{ $this->baseVariables->dump() }}
+        {{ $this->complexVariables->dump() }}
     </div>
 
 </div>
