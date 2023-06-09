@@ -15,8 +15,8 @@ class PageForm extends Component
     public $variables;
     public $variablesCollection;
     public $unitOptionsCollection;
-    public $complexVariables;
-    public $baseVariables;
+    public $complexVariableTables;
+    public $baseVariableTables;
 
     public function mount()
     {
