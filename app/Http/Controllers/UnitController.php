@@ -19,7 +19,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('UnitCreator');
     }
 
     /**
