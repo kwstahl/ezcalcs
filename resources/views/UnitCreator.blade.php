@@ -32,6 +32,8 @@
             <input type="submit">
         </form>
 
+        @livewire('unit-creator-pre-compiler')
+
 
         <script src="" async defer></script>
 
