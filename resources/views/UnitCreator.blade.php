@@ -26,13 +26,16 @@
             </ul>
 
         </h2>
-        <form action="{{ route('unit.store') }}" method="POST">
-            @method('POST')
-            @csrf
-            <input type="submit">
-        </form>
+    <form>
+        <input type="text">id</input><br>
+        <input type="text">base</input><br>
+        <input type="text">base_breakdown</input><br>
+        <input type = "text">symbol</input><br>
+        <input type="text">json_units</input><br>
+        <input type="number" id="units_to_add">
+    </form>
 
-        @livewire('unit-creator-pre-compiler')
+
 
 
         <script src="" async defer></script>

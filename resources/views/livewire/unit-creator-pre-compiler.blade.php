@@ -1,8 +1,8 @@
 <form>
-    <input type="text">id</input>
-    <input type="text">base</input>
-    <input type="text">base_breakdown</input>
-    <input type = "text">symbol</input>
-    <input type="text">json_units</input>
+    <input type="text">id</input><br>
+    <input type="text">base</input><br>
+    <input type="text">base_breakdown</input><br>
+    <input type = "text">symbol</input><br>
+    <input type="text">json_units</input><br>
 
 </form>
