@@ -3,7 +3,8 @@
 namespace App\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
+use Jenseggers\Mongodb\Casts\BaseCast;
 
 class VarJson implements CastsAttributes
 {

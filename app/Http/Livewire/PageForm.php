@@ -7,7 +7,7 @@ use App\Models\CalcPage;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Process;
-use Illuminate\Support\Facades\DB;
+use Jenssegers\Mongodb\Facades\DB;
 use Illuminate\Support\Str;
 
 class PageForm extends Component

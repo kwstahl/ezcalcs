@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Casts\VarJson;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Factories\HasFactory;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class CalcPage extends Model
 {
