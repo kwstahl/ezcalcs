@@ -33,6 +33,7 @@
         <input type = "text">symbol</input><br>
         <input type="text">json_units</input><br>
         <input type="number" id="units_to_add">
+        <input type="submit">
     </form>
 
 
