@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalcController;
+use App\Http\Controllers\UnitController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,4 +43,5 @@ Route::get('/eqn/testprocess', [CalcController::class, 'testprocess']);
 */
 Route::resources([
     'eqn' => CalcController::class,
+    'unit' => UnitController::class,
 ]);
