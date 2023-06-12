@@ -31,7 +31,6 @@ Route::get('/', function () {
   */
 Route::get('/eqn/testprocess', [CalcController::class, 'testprocess']);
 
-Route::get('/eqn/maketable', [CalcController::class, 'maketable']);
 /** 
  * 
  * Accesses the CalcController with CRUD functionality for created, showing, and updating pages from the CalcPage model 
@@ -44,3 +43,5 @@ Route::get('/eqn/maketable', [CalcController::class, 'maketable']);
 Route::resources([
     'eqn' => CalcController::class,
 ]);
+
+Route::get('/tables', TableController::class);

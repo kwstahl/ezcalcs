@@ -144,9 +144,4 @@ class CalcController extends Controller
         return view('apiTestView');
     }
 
-    public function maketable()
-    {
-        return view('MakeTableView');
-    }
-
 }
