@@ -1,3 +1,9 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+    <button wire:click = "incrementCount">+</button>
+    <button wire:click = "decrementCount">-</button>
+
+    @for ($i = 0; $i<$inputCount; $i++)
+        <input type="text" name = "input{{$i}}">
+    @endfor
+
 </div>
