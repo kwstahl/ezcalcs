@@ -28,7 +28,6 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        $unit_inputs_to_create_model = $request->all();
         $id = $request->id;
         $unit_class = $request->unit_class;
         $base_unit = $request->base_unit;
