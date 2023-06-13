@@ -32,20 +32,40 @@
         <input type="text">base_breakdown</input><br>
         <input type = "text">symbol</input><br>
         <input type="text">json_units</input><br>
-        <input type="number" id="units_to_add">
-        <input type="submit">
-        <livewire:input-maker />
-    </form>
+        <div id="unitContainer">
 
+        </div>
+        <input type="submit">
+
+    </form>
+    <button id = "addUnitButton"></button>
+    <button id = "removeUnitButton"></button>
 
 
 
         <script src="" async defer></script>
-
-
-
+        
         <script>
+            $("#addUnitButton").click(function(){
 
+                var prompt = window.prompt("Enter unit name");
+
+                var txt1 = `
+                    <div id="${prompt}">
+                        <text>${prompt}</text><br> 
+                        <input id="unit" name="${prompt}">Conversion factor of ${prompt}</input><br> 
+                    </div>
+                    `
+                $("#unitContainer").append(txt1);          
+
+            });
+
+            $(document).ready(function(){
+                $("#removeUnitButton").click(function(){
+                    $("#unitContainer").children().last().remove();
+                });
+            });
+        </script>
         </script>
         @livewireScripts
     </body>
