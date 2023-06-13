@@ -37,12 +37,12 @@ class UnitController extends Controller
 
         $model = Unit::updateOrCreate(
         [
-            'id' = $id,
-            'unit_class' = $unit_class,
-            'base_unit' = $base_unit,
-            'symbol' = $symbol,
-            'conversion_to_base' = $conversion_to_base,
-            'description' = $description,
+            'id' => $id,
+            'unit_class' => $unit_class,
+            'base_unit' => $base_unit,
+            'symbol' => $symbol,
+            'conversion_to_base' => $conversion_to_base,
+            'description' => $description,
         ]
         );
         
