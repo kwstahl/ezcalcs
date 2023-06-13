@@ -27,8 +27,30 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $unit_inputs_to_create_model = $request->all();
+        $id = $request->id;
+        $unit_class = $request->unit_class;
+        $base_unit = $request->base_unit;
+        $symbol = $request->symbol;
+        $conversion_to_base = $request->conversion_to_base;
+        $description = $request->description;
+
+        $model = Unit::updateOrCreate(
+        [
+            'id' = $id,
+            'unit_class' = $unit_class,
+            'base_unit' = $base_unit,
+            'symbol' = $symbol,
+            'conversion_to_base' = $conversion_to_base,
+            'description' = $description,
+        ]
+        );
+        
+        return view('UnitCreator');
+        
     }
+
+
 
     /**
      * Display the specified resource.
