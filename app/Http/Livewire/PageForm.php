@@ -4,9 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\CalcPage;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 

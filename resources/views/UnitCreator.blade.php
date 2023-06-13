@@ -38,7 +38,7 @@
         <input type="submit">
     </form>
 
-
+        @livewire('unit-table')
 
 
         <script src="" async defer></script>
