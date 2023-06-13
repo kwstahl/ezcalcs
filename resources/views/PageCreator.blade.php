@@ -36,13 +36,13 @@
                 units correspond to a unit in the "units" database.
             </h2>
             <div id="variablesContainer">
+                
             </div>
             <input type="submit">
         </form>
 
         <button id="addVarButton">Add Variable</button>
         <button id="removeVarButton">Removes Last Added Variable</button>
-        <button id="commitArrays">Commit Arrays</button>
 
         <script src="" async defer></script>
 

@@ -26,46 +26,22 @@
             </ul>
 
         </h2>
-    <form>
-        <input type="text">id</input><br>
-        <input type="text">base</input><br>
-        <input type="text">base_breakdown</input><br>
-        <input type = "text">symbol</input><br>
-        <input type="text">json_units</input><br>
-        <div id="unitContainer">
-
-        </div>
+    <form action = "{{ route('unit.store') }}" method = "POST">
+        @method('POST')
+        @csrf
+        <input type="text" name="id">id</input><br>
+        <input type="text" name="base_unit">base</input><br>
+        <input type="text" name="conversion_to_base">base_breakdown</input><br>
+        <input type ="text" name="description">symbol</input><br>
+        <input type="text" name="unit_class">json_units</input><br>
         <input type="submit">
-
     </form>
-    <button id = "addUnitButton"></button>
-    <button id = "removeUnitButton"></button>
+
 
 
 
         <script src="" async defer></script>
-        
-        <script>
-            $("#addUnitButton").click(function(){
-
-                var prompt = window.prompt("Enter unit name");
-
-                var txt1 = `
-                    <div id="${prompt}">
-                        <text>${prompt}</text><br> 
-                        <input id="unit" name="${prompt}">Conversion factor of ${prompt}</input><br> 
-                    </div>
-                    `
-                $("#unitContainer").append(txt1);          
-
-            });
-
-            $(document).ready(function(){
-                $("#removeUnitButton").click(function(){
-                    $("#unitContainer").children().last().remove();
-                });
-            });
-        </script>
+    
         </script>
         @livewireScripts
     </body>
