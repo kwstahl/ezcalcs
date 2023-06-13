@@ -32,8 +32,9 @@
         <input type="text" name="id">id</input><br>
         <input type="text" name="base_unit">base</input><br>
         <input type="text" name="conversion_to_base">base_breakdown</input><br>
-        <input type ="text" name="description">symbol</input><br>
+        <input type ="text" name="description">description</input><br>
         <input type="text" name="unit_class">json_units</input><br>
+        <input type="text" name="symbol">symbol</input><br>
         <input type="submit">
     </form>
 
