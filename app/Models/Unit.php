@@ -12,5 +12,5 @@ class Unit extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
-    protected $fillable = ['id', 'base', 'base_breakdown', 'symbol', 'json_units'];
+    protected $fillable = ['id', 'unit_class', 'base_unit', 'symbol', 'conversion_to_base', 'description'];
 }
