@@ -6,5 +6,24 @@
         @endforeach
         </select>
 
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Unit Class</th>
+                <th>symbol</th>
+                <th>Base Unit</th>
+            </tr>
+
+            <tr>
+                <td></td>
+            </tr>
+
+            <tr></tr>
+
+            <tr></tr>
+
+            <tr></tr>
+        </table>
+
 
 </div>
