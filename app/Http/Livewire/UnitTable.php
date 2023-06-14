@@ -7,6 +7,7 @@ use App\Models\Unit;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+
 class UnitTable extends Component
 {
     public $unitsTable;
@@ -14,8 +15,8 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $this->unitsTable = DB::table('units');
-        $this->unitClasses = collect($this->unitsTable->distinct('unit_class')->get());
+        $this->unitsTable = DB::table('units')->get();
+        $this->unitClasses = $this->unitsTable->distinct('unit_class')->get();
     }
 
     public function render()
