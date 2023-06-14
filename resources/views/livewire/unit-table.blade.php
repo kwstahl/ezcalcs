@@ -1,4 +1,4 @@
 <div>
-    {{ $this->units }} 
+    {{ $this->units->dump() }} 
 
 </div>
