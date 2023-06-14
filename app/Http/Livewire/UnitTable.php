@@ -15,7 +15,7 @@ class UnitTable extends Component
     public function mount()
     {
         $this->unitsTable = DB::table('units');
-        $this->unitClasses = $this->unitsTable->distinct('unit_class')->get();
+        $this->unitClasses = $this->unitsTable->distinct('unit_class')->groupBy('unit_class')->get();
     }
 
     public function render()
