@@ -9,11 +9,13 @@ use Illuminate\Support\Str;
 
 class UnitTable extends Component
 {
-    public $units;
+    public $unitsTable;
+    public $unitClasses;
 
     public function mount()
     {
-        $this->units = DB::table('units')->get();
+        $this->unitsTable = DB::table('units');
+        $this->unitClasses = $this->unitsTable->distinct('unit_class')->get();
     }
 
     public function render()

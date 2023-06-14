@@ -1,4 +1,5 @@
 <div>
-    {{ $this->units->dump() }} 
+
+    {{ $this->unitClasses->dump() }}
 
 </div>
