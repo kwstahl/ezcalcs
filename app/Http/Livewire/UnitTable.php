@@ -7,15 +7,14 @@ use App\Models\Unit;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-
 class UnitTable extends Component
 {
-    public $unitsTable;
+    private $unitsTable;
     public $unitClasses;
 
     public function mount()
     {
-        $this->unitsTable = DB::table('units')->get();
+        $this->unitsTable = DB::table('units');
         $this->unitClasses = $this->unitsTable->distinct('unit_class')->get();
     }
 
