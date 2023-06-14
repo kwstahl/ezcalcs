@@ -13,7 +13,7 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $units = Unit::all();
+        $units = DB::table('units')->get();
     }
 
     public function render()
