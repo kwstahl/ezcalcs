@@ -2,7 +2,7 @@
 
         <select>
         @foreach($this->unitClasses as $unitClass)
-            <option>{{ echo $unitClass }}</option>
+            <option>{{ $unitClass->unit_class }}</option>
         @endforeach
         </select>
 
