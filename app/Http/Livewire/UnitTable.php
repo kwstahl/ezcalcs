@@ -11,14 +11,19 @@ class UnitTable extends Component
 {
     private $unitsTable;
     public $unitClasses;
+    public $unitData;
 
     public function mount()
     {
         $this->unitsTable = DB::table('units');
         $this->unitClasses = $this->unitsTable
-                                    ->select('unit_class')
-                                    ->groupBy('unit_class')
-                                    ->get();
+            ->select('unit_class')
+            ->groupBy('unit_class')
+            ->get();
+    
+        $this->unitData = $this->unitsTable
+            ->select('unit_class', 'id', 'base_unit', 'symbol')
+            ->get();
     }
 
     public function render()
