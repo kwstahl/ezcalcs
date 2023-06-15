@@ -14,12 +14,15 @@
                 <th>Base Unit</th>
             </tr>
 
+            
+            @foreach($this->unitData as $unitData)
             <tr>
-                <td>cheese</td>
-                <td>burger</td>
-                <td>sandwich</td>
-                <td>poopy</td>
+                <td>{{ $unitData->id }}</td>
+                <td>{{ $unitData->unit_class }}</td>
+                <td>{{ $unitData->symbol }}</td>
+                <td>{{ $unitData->base_unit }}</td>
             </tr>
+            @endforeach
         </table>
 
 
