@@ -16,17 +16,8 @@
 
             <tr>
                 <td>cheese</td>
-            </tr>
-
-            <tr>
                 <td>burger</td>
-            </tr>
-
-            <tr>
                 <td>sandwich</td>
-            </tr>
-
-            <tr>
                 <td>poopy</td>
             </tr>
         </table>
