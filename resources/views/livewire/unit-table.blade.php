@@ -6,7 +6,7 @@
         @endforeach
         </select>
 
-        <table>
+        <table border-style="solid 1px">
             <tr>
                 <th>ID</th>
                 <th>Unit Class</th>
