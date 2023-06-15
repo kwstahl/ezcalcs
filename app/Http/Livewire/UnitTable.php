@@ -21,7 +21,7 @@ class UnitTable extends Component
             ->groupBy('unit_class')
             ->get();
     
-        $this->unitData = $this->unitsTable
+        $this->unitData = DB::table('units')
             ->select('unit_class', 'id', 'base_unit', 'symbol')
             ->get();
     }
