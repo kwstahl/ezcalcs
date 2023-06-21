@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class UnitTable extends Component
 {
     public $unitClasses;
-    public Unit $unitData;
+    public $unitData;
     public $selectedUnitClass;
 
     protected $rules = [
@@ -25,8 +25,7 @@ class UnitTable extends Component
     public function mount()
     {
         $this->unitClasses = Unit::pluck('unit_class')->unique();
-
-        
+        $this->unitData = Unit::select('unit_class', 'id', 'base_unit', 'symbol')->get();
     }
 
     public function save()
