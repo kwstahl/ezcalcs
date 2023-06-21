@@ -20,19 +20,19 @@
                 <tbody>
                     @foreach($unitData as $index => $unitData)
                         <tr>
-                            <td wire:key="unitData-field-{{ $unitData->id }}">
+                            <td>
                                 <input type="text" wire:model="unitData.{{ $index }}.id">
                             </td>
 
-                            <td wire:key="unitData-field-{{ $unitData->unit_class }}">
+                            <td>
                                 <input type="text" wire:model="unitData.{{ $index }}.unit_class">
                             </td>
 
-                            <td wire:key="unitData-field-{{ $unitData->symbol }}">
+                            <td>
                                 <input type="text" wire:model="unitData.{{ $index }}.symbol">
                             </td>
 
-                            <td wire:key="unitData-field-{{ $unitData->base_unit }}">
+                            <td>
                                 <input type="text" wire:model="unitData.{{ $index }}.base_unit">
                             </td>
                         </tr>
