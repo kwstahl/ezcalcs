@@ -1,12 +1,12 @@
 <div>
         <label for="unitClass">Unit Classes</label>
         <select id="unitClass" wire:model="selectedUnitClass">
-            @foreach($unitClasses as $unitClass)
-                <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
-            @endforeach
+        @foreach($unitClasses as $unitClass)
+            <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
+        @endforeach
         </select>
 
-        <form wire:submit.self="save">
+        <form wire:submit.prevent="save">
             <table>
                 <thead>
                     <tr>
@@ -18,25 +18,25 @@
                 </thead>
 
                 <tbody>
-                    @foreach($unitData as $index => $unitData)
-                        <tr>
-                            <td wire:key="unitData-field-{{ $index }}-{{ $unitData->id }}">
-                                <input type="text" wire:model="unitData.{{ $index }}.id">
-                            </td>
+                @foreach($unitData as $index => $unitData)
+                    <tr wire:key="unitData-field-{{ $unitData->id }}">
+                        <td>
+                            <input type="text" wire:model="unitData.{{ $index }}.id">
+                        </td>
 
-                            <td wire:key="unitData-field-{{ $index }}-{{ $unitData->unit_class }}">
-                                <input type="text" wire:model="unitData.{{ $index }}.unit_class">
-                            </td>
+                        <td>
+                            <input type="text" wire:model="unitData.{{ $index }}.unit_class">
+                        </td>
 
-                            <td wire:key="unitData-field-{{ $index }}-{{ $unitData->symbol }}">
-                                <input type="text" wire:model="unitData.{{ $index }}.symbol">
-                            </td>
+                        <td>
+                            <input type="text" wire:model="unitData.{{ $index }}.symbol">
+                        </td>
 
-                            <td wire:key="unitData-field-{{ $index }}-{{ $unitData->base_unit }}">
-                                <input type="text" wire:model="unitData.{{ $index }}.base_unit">
-                            </td>
-                        </tr>
-                    @endforeach
+                        <td>
+                            <input type="text" wire:model="unitData.{{ $index }}.base_unit">
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
                 
             </table>
