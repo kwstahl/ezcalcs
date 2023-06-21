@@ -1,8 +1,8 @@
 <div>
         <label for="unitClasses">Unit Classes</label>
-        <select name="unitClasses" id="unitClasses">
-        @foreach($unitClasses as $index => $unitClass)
-            <option wire:model="unitClass.{{ $index }}.unit_class"></option>
+        <select id="unitClass" wire:model="selectedUnitClass">
+        @foreach($unitClasses as $unitClass)
+            <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
         @endforeach
         </select>
 

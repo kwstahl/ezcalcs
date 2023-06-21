@@ -11,6 +11,7 @@ class UnitTable extends Component
 {
     public $unitClasses;
     public $unitData;
+    public $selectedUnitClass;
 
     protected $rules = [
         'unitData.*.unit_class' => 'required|string|max:500',
@@ -23,9 +24,8 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $this->unitClasses = Unit::select('unit_class')
-                            ->groupBy('unit_class')
-                            ->get();
+        $this->unitClasses = Unit::pluck('unit_class')
+                            ->unique();
     
         $this->unitData = Unit::select('unit_class', 'id', 'base_unit', 'symbol')
                             ->get();
@@ -36,6 +36,11 @@ class UnitTable extends Component
         foreach ($this->unitData as $unitData){
             $unitData->save();
         }
+    }
+
+    public function updatedSelectedUnitClass($value)
+    {
+        
     }
 
     public function render()
