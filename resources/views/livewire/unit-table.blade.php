@@ -21,10 +21,6 @@
                 <td>{{ $unitData->unit_class }}</td>
                 <td>{{ $unitData->symbol }}</td>
                 <td>{{ $unitData->base_unit }}</td>
-                <td>
-                    <button id={{ $unitData->id }} class="edit">Edit</button>
-                    <button id={{ $unitData->id }} class="delete">Delete</button>
-                </td>
             </tr>
             @endforeach
         </table>

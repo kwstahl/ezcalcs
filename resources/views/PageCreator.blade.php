@@ -14,6 +14,29 @@
         <script type="text/javascript" src="/var/www/html/ezcalcs/resources/js/scripts.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         @livewireStyles
+
+        <script>
+            $(document).ready(function(){
+                $("td").dblclick(function(){
+                    var td = $(this);
+                    var value = td.text();
+                    
+                    var input = $("<input>", {
+                        "type": "text",
+                        "class": "suh",
+                        "value": value
+                    });
+                    
+                    input.blur(function(){
+                        td.text(input.val());
+                        input.remove();
+                    });
+                    
+                    td.empty().append(input);
+                    input.focus();
+                });
+            });
+        </script>
     </head>
     <body>
         <h1>Formula Data</h1>
