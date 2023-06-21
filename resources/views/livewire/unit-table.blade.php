@@ -6,24 +6,39 @@
         @endforeach
         </select>
 
-        <table border-style="solid 1px">
-            <tr>
-                <th>ID</th>
-                <th>Unit Class</th>
-                <th>symbol</th>
-                <th>Base Unit</th>
-            </tr>
+        <form wire:submit.prevent="save">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Unit Class</th>
+                    <th>symbol</th>
+                    <th>Base Unit</th>
+                </tr>
 
-            
-            @foreach($this->unitData as $unitData)
-            <tr>
-                <td>{{ $unitData->id }}</td>
-                <td>{{ $unitData->unit_class }}</td>
-                <td>{{ $unitData->symbol }}</td>
-                <td>{{ $unitData->base_unit }}</td>
-            </tr>
-            @endforeach
-        </table>
+                
+                @foreach($unitData as $index => $unitData)
+                <tr>
+                    <td wire:key="unitData-field-{{ $unitData->id }}">
+                        <input type="text" wire:model="unitData.{{ $index }}.id">
+                    </td>
 
+                    <td wire:key="unitData-field-{{ $unitData->unit_class }}">
+                        <input type="text" wire:model="unitData.{{ $index }}.unit_class">
+                    </td>
+
+                    <td wire:key="unitData-field-{{ $unitData->symbol }}">
+                        <input type="text" wire:model="unitData.{{ $index }}.symbol ">
+                    </td>
+
+                    <td wire:key="unitData-field-{{ $unitData->base_unit }}">
+                        <input type="text" wire:model="unitData.{{ $index }}.base_unit ">
+                    </td>
+                </tr>
+                @endforeach
+
+                
+            </table>
+            <button type="submit">Save</button>
+        </form>
 
 </div>

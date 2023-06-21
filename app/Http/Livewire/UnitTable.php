@@ -13,6 +13,15 @@ class UnitTable extends Component
     public $unitClasses;
     public $unitData;
 
+    protected $rules = [
+        'unitData.*.unit_class' => 'required|string|max:500',
+        'unitData.*.id' => 'required|string|max:500',
+        'unitData.*.base_unit' => 'required|string|max:500',
+        'unitData.*.symbol' => 'required|string|max:500',
+    ];
+
+
+
     public function mount()
     {
         $this->unitsTable = DB::table('units');
@@ -24,6 +33,13 @@ class UnitTable extends Component
         $this->unitData = DB::table('units')
             ->select('unit_class', 'id', 'base_unit', 'symbol')
             ->get();
+    }
+
+    public function save(){
+        $this->validate();
+        foreach ($this->unitData as $unitData){
+            $unitData->save();
+        }
     }
 
     public function render()
