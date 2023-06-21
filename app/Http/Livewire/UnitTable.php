@@ -12,6 +12,7 @@ class UnitTable extends Component
     public $unitClasses;
     public $unitData;
     public $selectedUnitClass;
+    public $units;
 
     protected $rules = [
         'unitData.*.unit_class' => 'required|string|max:500',
@@ -25,7 +26,7 @@ class UnitTable extends Component
     public function mount()
     {
         $this->unitClasses = Unit::pluck('unit_class')->unique();
-    
+        $this->units = Unit::all();
         $this->unitData = Unit::select('unit_class', 'id', 'base_unit', 'symbol')->get();
     }
 
