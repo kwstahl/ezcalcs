@@ -9,8 +9,8 @@ use Illuminate\Support\Str;
 
 class UnitTable extends Component
 {
-    public Unit $unitClasses;
-    public Unit $unitData;
+    public $unitClasses;
+    public $unitData;
 
     protected $rules = [
         'unitData.*.unit_class' => 'required|string|max:500',
@@ -23,7 +23,7 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $this->unitClasses = UnitClasses::select('unit_class')
+        $this->unitClasses = Unit::select('unit_class')
                             ->groupBy('unit_class')
                             ->get();
     
