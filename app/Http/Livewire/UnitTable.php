@@ -27,8 +27,7 @@ class UnitTable extends Component
         $this->unitClasses = Unit::pluck('unit_class')
                             ->unique();
     
-        $this->unitData = Unit::select('unit_class', 'id', 'base_unit', 'symbol')
-                            ->get();
+        $this->unitData = Unit::select('unit_class', 'id', 'base_unit', 'symbol');
     }
 
     public function save(){
@@ -40,7 +39,7 @@ class UnitTable extends Component
 
     public function updatedSelectedUnitClass($value)
     {
-        
+
     }
 
     public function render()

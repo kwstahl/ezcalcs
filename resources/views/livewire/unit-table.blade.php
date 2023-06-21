@@ -1,5 +1,5 @@
 <div>
-        <label for="unitClasses">Unit Classes</label>
+        <label for="unitClass">Unit Classes</label>
         <select id="unitClass" wire:model="selectedUnitClass">
         @foreach($unitClasses as $unitClass)
             <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
