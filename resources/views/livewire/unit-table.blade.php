@@ -27,11 +27,11 @@
                     </td>
 
                     <td wire:key="unitData-field-{{ $unitData->symbol }}">
-                        <input type="text" wire:model="unitData.{{ $index }}.symbol ">
+                        <input type="text" wire:model="unitData.{{ $index }}.symbol">
                     </td>
 
                     <td wire:key="unitData-field-{{ $unitData->base_unit }}">
-                        <input type="text" wire:model="unitData.{{ $index }}.base_unit ">
+                        <input type="text" wire:model="unitData.{{ $index }}.base_unit">
                     </td>
                 </tr>
                 @endforeach
