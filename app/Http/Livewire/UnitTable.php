@@ -23,7 +23,7 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $this->unitClasses = Unit::select('unit_class')
+        $this->unitClasses = UnitClasses::select('unit_class')
                             ->groupBy('unit_class')
                             ->get();
     
