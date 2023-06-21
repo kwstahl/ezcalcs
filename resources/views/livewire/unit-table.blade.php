@@ -24,13 +24,13 @@
                                 {{ $unit->id }}
                             </td>
 
-                            <td><input type="text" wire:model.defer="units.{{ $loop->index }}.id"></td>
+                            <td><input type="text" wire:model="units.{{ $loop->index }}.id"></td>
 
-                            <td><input type="text" wire:model.defer="units.{{ $loop->index }}.symbol"></td>
+                            <td><input type="text" wire:model="units.{{ $loop->index }}.symbol"></td>
 
-                            <td><input type="text" wire:model.defer="units.{{ $loop->index }}.unit_class"></td>
+                            <td><input type="text" wire:model="units.{{ $loop->index }}.unit_class"></td>
 
-                            <td><input type="text" wire:model.defer="units.{{ $loop->index }}.base_unit"></td>
+                            <td><input type="text" wire:model="units.{{ $loop->index }}.base_unit"></td>
                         </tr>
                     @endforeach
                 </tbody>
