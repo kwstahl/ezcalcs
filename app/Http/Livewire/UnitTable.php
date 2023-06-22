@@ -31,7 +31,7 @@ class UnitTable extends Component
     public function save()
     {
         dd("Save method triggered");
-        $this->validate();
+        //$this->validate();
 
         foreach ($this->units as $index => $unit){
             $unitModel = Unit::find($unit['id']);
