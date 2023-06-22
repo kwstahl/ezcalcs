@@ -34,11 +34,10 @@ class UnitTable extends Component
 
         foreach ($this->units as $index => $unit){
             $unitModel = Unit::find($unit['id']);
-            $unitModel->update([
-                'unit_class' => $unit['unit_class'],
-                'base_unit' => $unit['base_unit'],
-                'symbol' => $unit['symbol'],
-            ]);
+            $unitModel->unit_class = $unit['unit_class'];
+            $unitModel->base_unit = $unit['base_unit'];
+            $unitModel->symbol = $unit['symbol'];
+            $unitModel->save();
         }
     }
 
