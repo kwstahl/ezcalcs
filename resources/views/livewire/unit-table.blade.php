@@ -19,7 +19,7 @@
 
                 <tbody>
                 @foreach($units as $index => $unit)
-                    <tr wire:key="unit-field-{{ $unit->id }}">
+                    <tr wire:key="units-field-{{ $unit->id }}">
                         <td>
                             <input type="text" wire:model="unit.{{ $index }}.id">
                         </td>
