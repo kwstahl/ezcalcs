@@ -32,13 +32,13 @@ class UnitTable extends Component
     {
         $this->validate();
 
-        foreach ($this->units as $unit){
-            Unit::where('id', $unit->id)
-                ->update([
-                    'unit_class' => $unit->unit_class,
-                    'base_unit' => $unit->base_unit,
-                    'symbol' => $unit->symbol,
-                ]); 
+        foreach ($this->units as $index => $unit){
+            $unitModel = Unit::find($unit['id']);
+            $unitModel->update([
+                'unit_class' => $unit['unit_class'],
+                'base_unit' => $unit['base_unit'],
+                'symbol' => $unit['symbol'],
+            ]);
         }
     }
 
