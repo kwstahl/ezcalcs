@@ -14,10 +14,10 @@ class UnitTable extends Component
     public $selectedUnitClass;
 
     protected $rules = [
-        'unit.*.unit_class' => 'required|string|max:500',
-        'unit.*.id' => 'required|string|max:500',
-        'unit.*.base_unit' => 'required|string|max:500',
-        'unit.*.symbol' => 'required|string|max:500',
+        'units.*.unit_class' => 'required|string|max:500',
+        'units.*.id' => 'required|string|max:500',
+        'units.*.base_unit' => 'required|string|max:500',
+        'units.*.symbol' => 'required|string|max:500',
     ];
 
 
@@ -44,7 +44,6 @@ class UnitTable extends Component
 
     public function render()
     {
-
         return view('livewire.unit-table');
     }
 }
