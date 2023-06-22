@@ -14,10 +14,10 @@ class UnitTable extends Component
     public $selectedUnitClass;
 
     protected $rules = [
-        'units.*.unit_class' => 'required|string|max:500',
-        'units.*.id' => 'required|string|max:500',
-        'units.*.base_unit' => 'required|string|max:500',
-        'units.*.symbol' => 'required|string|max:500',
+        'units.*.unit_class' => 'nullable|string|max:500',
+        'units.*.id' => 'nullable|string|max:500',
+        'units.*.base_unit' => 'nullable|string|max:500',
+        'units.*.symbol' => 'nullable|string|max:500',
     ];
 
 
@@ -30,7 +30,7 @@ class UnitTable extends Component
 
     public function save()
     {
-        //$this->validate();
+        $this->validate();
         $savemessage = "";
         foreach ($this->units as $index => $unit){
             $unitModel = Unit::find($unit['id']);
