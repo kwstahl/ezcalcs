@@ -16,6 +16,8 @@
                         <th>Unit Class</th>
                         <th>symbol</th>
                         <th>Base Unit</th>
+                        <th>Description</th>
+                        <th>Conversion to Base</th>
                     </tr>
                 </thead>
 

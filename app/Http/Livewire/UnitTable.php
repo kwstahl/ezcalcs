@@ -28,7 +28,7 @@ class UnitTable extends Component
     public function mount()
     {
         $this->unitClasses = Unit::pluck('unit_class')->unique();
-        $this->units = Unit::select('unit_class', 'id', 'base_unit', 'symbol')->get();
+        $this->units = Unit::all();
     }
 
     public function save()
