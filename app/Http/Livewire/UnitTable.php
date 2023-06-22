@@ -18,6 +18,9 @@ class UnitTable extends Component
         'units.*.id' => 'nullable|string|max:500',
         'units.*.base_unit' => 'nullable|string|max:500',
         'units.*.symbol' => 'nullable|string|max:500',
+        'units.*.description' => 'nullable|string|max:500',
+        'units.*.conversion_to_base' => 'nullable|string|max:500',
+
     ];
 
 
@@ -31,17 +34,15 @@ class UnitTable extends Component
     public function save()
     {
         $this->validate();
-        $savemessage = "";
         foreach ($this->units as $index => $unit){
             $unitModel = Unit::find($unit['id']);
             $unitModel->unit_class = $unit['unit_class'];
             $unitModel->base_unit = $unit['base_unit'];
             $unitModel->symbol = $unit['symbol'];
+            $unitModel->conversion_to_base = $unit['conversion_to_base'];
+            $unitModel->description = $unit['description'];
             $unitModel->save();
-
-            $savemessage = $savemessage . " " . $unit['unit_class'];
         }
-        dd($savemessage);
     }
 
     public function updatedSelectedUnitClass($value)

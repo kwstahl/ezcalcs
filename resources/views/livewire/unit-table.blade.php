@@ -37,6 +37,14 @@
                         <td>
                             <input type="text" wire:model="units.{{ $index }}.base_unit">
                         </td>
+
+                        <td>
+                            <input type="text" wire:model="units.{{ $index }}.description">
+                        </td>
+
+                        <td>
+                            <input type="text" wire:model="units.{{ $index }}.conversion_to_base">
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
