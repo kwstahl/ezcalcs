@@ -27,7 +27,7 @@
                         </td>
 
                         <td>
-                            <input type="text" wire:model="units.{{ $unit->id }}.unit_class">
+                            <input type="text" wire:model="units.{{ $index }}.unit_class">
                         </td>
 
                         <td>
