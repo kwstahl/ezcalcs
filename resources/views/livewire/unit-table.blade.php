@@ -7,6 +7,8 @@
         </select>
 
         <form wire:submit.prevent="save">
+            @method('POST')
+            @csrf
             <table>
                 <thead>
                     <tr>
