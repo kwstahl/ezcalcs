@@ -39,7 +39,7 @@ class UnitTable extends Component
             $unitModel->symbol = $unit['symbol'];
             $unitModel->save();
 
-            $savemessage = $savemessage . $unit['unit_class'];
+            $savemessage = $savemessage . " " . $unit['unit_class'];
         }
         dd($savemessage);
     }
