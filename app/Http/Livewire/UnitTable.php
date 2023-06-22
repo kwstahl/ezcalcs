@@ -30,6 +30,7 @@ class UnitTable extends Component
 
     public function save()
     {
+        dd("Save method triggered");
         $this->validate();
 
         foreach ($this->units as $index => $unit){
