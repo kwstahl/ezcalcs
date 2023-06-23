@@ -23,6 +23,8 @@ class UnitTable extends Component
 
     ];
 
+    protected $listeners = ['deleteRow'];
+
 
 
     public function mount()
@@ -47,7 +49,8 @@ class UnitTable extends Component
 
     public function deleteRow()
     {
-        $unitModel = Unit::find($this->units['id']);
+        $unitModel = Unit::find(units['id']);
+        $unitModel->id = $unit['id'];
         $unitModel->delete();
     }
 
