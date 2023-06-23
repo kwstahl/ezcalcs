@@ -51,6 +51,11 @@ class UnitTable extends Component
         if ($unit) {
             $unit->delete();
 
+            // this portion uses the collection reject function to filter out some thing from the collection.
+            // the reject has a closure that uses the $unitId (outer scope) passed as $item. 
+            // the conditional statement checks if $item['id'] is equal to the collection's $unitId, and when found returns the item.
+            // it is then filtered out.
+
             $this->units = $this->units->reject(function($item) use ($unitId){
                 return $item['id'] == $unitId;
             });
