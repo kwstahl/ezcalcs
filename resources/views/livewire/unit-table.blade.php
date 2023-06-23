@@ -1,12 +1,12 @@
 <div>
         <form>
-            <input wire:model="new_id"><text>id, separate by ;</text><br>
-            <input wire:model="new_base_unit"><text>base unit sep by ;</text><br>
-            <input wire:model="new_conversion_to_base"><text>conversion factor sep by ;</text><br>
-            <input wire:model="new_unit_class"><text>unit class</text><br>
-            <input wire:model="new_symbol"><text>Symbol</text><br>
-            <input wire:model="new_description"><text>description</text><br>
-            <button wire:click="newUnit">Save</button>
+            <input type="text" wire:model="new_id"><text>id, separate by ;</text><br>
+            <input type="text" wire:model="new_base_unit"><text>base unit sep by ;</text><br>
+            <input type="text" wire:model="new_conversion_to_base"><text>conversion factor sep by ;</text><br>
+            <input type="text" wire:model="new_unit_class"><text>unit class</text><br>
+            <input type="text" wire:model="new_symbol"><text>Symbol</text><br>
+            <input type="text" wire:model="new_description"><text>description</text><br>
+            <button type="button" wire:click="newUnit">Save</button>
         </form>
 
 
