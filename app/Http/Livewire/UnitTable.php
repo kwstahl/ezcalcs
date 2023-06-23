@@ -50,6 +50,7 @@ class UnitTable extends Component
     public function deleteRow($id)
     {
         $unitModel = Unit::find($unit[$id]);
+        $unitModel->delete();
     }
 
     public function render()
