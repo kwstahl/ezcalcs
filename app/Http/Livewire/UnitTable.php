@@ -74,6 +74,7 @@ class UnitTable extends Component
 
     public function newUnit()
     {
+        $this->validate();
         $ids = $this->new_id->explode('; ');
         $symbols = $this->new_symbol->explode('; ');
         $unit_conversions = $this->new_conversion_to_base->explode('; ');
