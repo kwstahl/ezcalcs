@@ -47,6 +47,10 @@
                         <td>
                             <input type="text" wire:model="units.{{ $index }}.conversion_to_base">
                         </td>
+
+                        <td>
+                            <input type="button" wire:model="{{ $unit->id }}" wire:click="delete">Delete</input>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

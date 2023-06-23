@@ -45,9 +45,10 @@ class UnitTable extends Component
         }
     }
 
-    public function updatedSelectedUnitClass($value)
+    public function delete($id)
     {
-
+        $unitModel = Unit::find($this->units[$id]);
+        $unitModel->delete();
     }
 
     public function render()
