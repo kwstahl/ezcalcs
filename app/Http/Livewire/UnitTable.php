@@ -47,7 +47,7 @@ class UnitTable extends Component
 
     public function delete($id)
     {
-        $unitModel = Unit::find($this->units[$id]);
+        $unitModel = Unit::find($this->units['id']);
         $unitModel->delete();
     }
 
