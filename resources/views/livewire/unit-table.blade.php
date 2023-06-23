@@ -49,7 +49,7 @@
                         </td>
 
                         <td>
-                            <button type="button" wire:model="{{ $units.{{ $index }}.id }}" wire:click="deleteRow">Delete</button>
+                            <button type="button" wire:model="$units.{{ $index }}.id" wire:click="deleteRow">Delete</button>
                         </td>
                     </tr>
                 @endforeach
