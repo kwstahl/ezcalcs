@@ -85,17 +85,14 @@ class UnitTable extends Component
 
         foreach ($ids as $index => $id){
             dd($id . $symbols[$index] . $unit_conversions[$index] . $base_unit);
-            $unit = Unit::updateOrCreate(
-                ['id' => $id],
-
-                [
+            $unit = Unit::create([
+                'id' => $id,
                 'base_unit' => $base_unit,
                 'unit_class' => $unit_class,
                 'description' => $description,
                 'symbol' => $symbols[$index],
                 'unit_conversion' => $unit_conversions[$index] ?? "null",
             ]);
-            $unit->save();
         }
     }
 
