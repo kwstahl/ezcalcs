@@ -49,7 +49,7 @@
                         </td>
 
                         <td>
-                            <button type="button" wire:click="$emitSelf('deletePost', {{ $unit->id }}">Delete</button>
+                            <button type="button" wire:click="$emitSelf('deleteRow', {{ $unit->id }})">Delete</button>
                         </td>
                     </tr>
                 @endforeach
