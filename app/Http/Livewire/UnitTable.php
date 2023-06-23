@@ -89,7 +89,7 @@ class UnitTable extends Component
                 'base_unit' => $base_unit,
                 'unit_class' => $unit_class,
                 'description' => $description,
-                'symbol' => $symbols[$index],
+                'symbol' => $symbols[$index] ?? "null",
                 'unit_conversion' => $unit_conversions[$index] ?? "null",
             ]);
         }
