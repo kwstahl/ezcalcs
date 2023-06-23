@@ -77,7 +77,7 @@ class UnitTable extends Component
         $this->validate();
         $ids = Str::of($this->new_id)->explode('; ');
         $symbols = Str::of($this->new_symbol)->explode('; ');
-        $unit_conversions = Str::of($this->new_conversion_to_base)->implode('; ');
+        $unit_conversions = Str::of($this->new_conversion_to_base)->explode('; ');
         
         $base_unit = $this->new_base_unit;
         $unit_class = $this->new_unit_class;
