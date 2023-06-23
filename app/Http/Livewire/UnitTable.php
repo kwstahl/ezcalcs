@@ -93,6 +93,7 @@ class UnitTable extends Component
                 'unit_conversion' => $unit_conversions[$index] ?? "null",
             ]);
         }
+        $this->render();
     }
 
     public function deleteUnit($unitId)
