@@ -49,7 +49,7 @@
                         </td>
 
                         <td>
-                            <button type="button" wire:click="{{ $this->deleteRow($units.$index.id) }}">Delete</button>
+                            <button type="button" wire:click="deleteUnit('{{ $unit['id'] }}')">Delete</button>
                         </td>
                     </tr>
                 @endforeach

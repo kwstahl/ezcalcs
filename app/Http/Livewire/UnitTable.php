@@ -23,9 +23,6 @@ class UnitTable extends Component
 
     ];
 
-    protected $listeners = ['deleteRow'];
-
-
 
     public function mount()
     {
@@ -47,11 +44,17 @@ class UnitTable extends Component
         }
     }
 
-    public function deleteRow($id)
+    public function deleteUnit($unitId)
     {
-        //dd($id);
-        //$unitModel = Unit::find($unit[$id]);
-        //$unitModel->delete();
+        $unit = Unit::find($unitId);
+        
+        if ($unit) {
+            $unit->delete();
+
+            $this->units = $this->units->reject(function($item) use ($unitId){
+                return $item['id'] == $unitId;
+            });
+        }
     }
 
     public function render()
