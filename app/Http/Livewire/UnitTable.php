@@ -84,11 +84,8 @@ class UnitTable extends Component
         $description = $this->new_description;
 
         foreach ($ids as $index => $id){
-            dd($ids . $symbols[$index] . $unit_conversions[$index] . $base_unit);
+            dd($id . $symbols[$index] . $unit_conversions[$index] . $base_unit);
             $unit = Unit::updateOrCreate(
-
-
-
                 ['id' => $id],
 
                 [
@@ -96,7 +93,7 @@ class UnitTable extends Component
                 'unit_class' => $unit_class,
                 'description' => $description,
                 'symbol' => $symbols[$index],
-                'unit_conversions' => $unit_conversions[$index] ?? "null",
+                'unit_conversion' => $unit_conversions[$index] ?? "null",
             ]);
             $unit->save();
         }
