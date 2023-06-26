@@ -31,14 +31,14 @@ class UnitTable extends Component
         'units.*.conversion_to_base' => 'nullable|string|max:500',
         
         //for make new entry, probably need new component
-        /*
-        'new_unit_class' => 'required',
-        'new_base_unit' => 'required',
-        'new_id' => 'required',
-        'new_symbol' => 'required',
-        'new_description' => 'required',
-        'new_conversion_to_base' => 'required',
-            */
+        
+        'new_unit_class' => 'nullable',
+        'new_base_unit' => 'nullable',
+        'new_id' => 'nullable',
+        'new_symbol' => 'nullable',
+        'new_description' => 'nullable',
+        'new_conversion_to_base' => 'nullable',
+            
     ];
 
 
