@@ -45,3 +45,4 @@ Route::resources([
     'eqn' => CalcController::class,
     'unit' => UnitController::class,
 ]);
+
