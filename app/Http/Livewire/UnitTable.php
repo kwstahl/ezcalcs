@@ -93,7 +93,7 @@ class UnitTable extends Component
                 'conversion_to_base' => $unit_conversions[$index] ?? "null",
             ]);
         }
-        return redirect()->to('/views/UnitCreator.blade.php');
+        return redirect()->to('UnitCreator');
     }
 
     public function deleteUnit($unitId)
