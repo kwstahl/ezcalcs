@@ -13,21 +13,17 @@ class PageForm extends Component
 {
     public $variables;
     public $variablesCollection;
-    public Unit $units;
+    public $units;
 
     public function mount()
     {
         $this->variablesCollection = collect($this->variables);
-
+        $this->units = Unit::all();
     }
 
     private function createUnitDropdownItems($variableUnit)
     {
-        $unitOptions =  Unit::select(['id', 'symbol', 'conversion_to_base'])
-                        ->where('unit_class', $variableUnit)
-                        ->get();
-        dd($unitOptions);
-        return $unitOptions;
+        
     }
 
     public function render()
