@@ -28,6 +28,7 @@ class PageForm extends Component
         $this->unitNames[$variable] = $this->units->filter(function($item) use ($variableUnit){
             return $item['symbol'] == $variableUnit;
         });
+        dd($this->unitNames[$variable]);
     }
 
     public function render()
