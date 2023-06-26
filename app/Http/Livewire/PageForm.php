@@ -16,7 +16,6 @@ class PageForm extends Component
     public function mount()
     {
         $this->variablesCollection = collect($this->variables);
-        dd($this->variablesCollection);
     }
 
     public function render()
