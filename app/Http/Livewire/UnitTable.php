@@ -48,7 +48,9 @@ class UnitTable extends Component
     {
         $this->unitClasses = Unit::pluck('unit_class')->unique();
         $this->baseUnits = Unit::pluck('base_unit')->unique();
-        $this->units = Unit::all();
+        $this->units = Unit::all()->orderBy('unit_class', 'asc')
+                                    ->orderBy('base_unit', 'asc');
+
 
         //probably need new component
 
