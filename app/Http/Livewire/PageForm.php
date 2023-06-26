@@ -14,16 +14,20 @@ class PageForm extends Component
     public $variables;
     public $variablesCollection;
     public $units;
+    public $unitNames;
 
     public function mount()
     {
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
+        $this->unitNames = collect();
     }
 
-    private function createUnitDropdownItems($variableUnit)
+    private function createUnitDropdownItems($variable, $variableUnit)
     {
-        
+        $this->unitNames[$variable] = $this->units->filter(function($item) use ($variableUnit){
+            return $item['symbol'] == $variableUnit;
+        });
     }
 
     public function render()

@@ -5,7 +5,7 @@
             <text>{{ $variable['unit'] }}</text>
             <input type="text" id="{{ $index }}" wire:model="variable.{{ $index }}.unit">
             <text>
-                {{ $this->createUnitDropdownItems($variable['unit']) }}
+                {{ $this->createUnitDropdownItems($index, $variable['unit']) }}
             </text>
         </div>    
     @endforeach
