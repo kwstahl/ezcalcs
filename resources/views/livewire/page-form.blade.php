@@ -11,7 +11,7 @@
             </text>
 
             <select>
-                foreach($unitOptions[$index][0] as $option)
+                @foreach($unitOptions[$index][0] as $option)
                     <option>{{ $option }}</option>
                 @endforeach
             </select>
