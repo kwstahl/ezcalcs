@@ -28,7 +28,10 @@ class PageForm extends Component
         $filtered = $this->units->filter(function ($item) use ($variableUnit){
             return $item['unit_class'] == $variableUnit;
         });    
-        dump($filtered);
+
+        foreach ($filtered as $index => $filter){
+            dump($filter);
+        }
     }
 
     public function render()
