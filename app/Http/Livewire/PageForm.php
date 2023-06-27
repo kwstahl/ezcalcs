@@ -34,7 +34,7 @@ class PageForm extends Component
 
 
         foreach($unitsOfVariable as $unit){
-            $optionsCollection->push($unit->symbol, $unit->conversion_to_base);
+            $optionsCollection->push([$unit->symbol, $unit->conversion_to_base]);
         }
 
 
