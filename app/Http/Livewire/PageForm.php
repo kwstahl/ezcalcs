@@ -29,12 +29,16 @@ class PageForm extends Component
             return $item['unit_class'] == $variableUnit;
         });    
 
-        $this->unitOptions[$variable] = collect();
+        $this->unitOptions[$variable]['symbol'] = collect();
+        $this->unitOptions[$variable]['conversion_to_base'] = collect();
+
+        $optionsCollection = collect();
 
         foreach($unitsOfVariable as $unit){
-            $this->unitOptions[$variable]->put('symbol', $unit->symbol);
-            $this->unitOptions[$variable]->put('conversion_to_base', $unit->conversion_to_base);
+            $optionsCollection->push($unit->symbol, $unit->conversion_to_base);
         }
+
+        $this->unitOptions->push($optionsCollection);
 
         dump($this->unitOptions[$variable]);
     }
