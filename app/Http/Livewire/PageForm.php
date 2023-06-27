@@ -23,11 +23,18 @@ class PageForm extends Component
         $this->unitNames = collect();
     }
 
-    private function createUnitDropdownItems($variable, $variableUnit)
+    public function createUnitDropdownItems($variable, $variableUnit)
     {
+        $variableUnitCollection = collect();
+        foreach($this->units as $unit){
+            if ($unit['unit_class'] = $variableUnit){
+                $variableUnitCollection->push($unit);
+            }
+        }
 
-        $unit = Unit::where('unit_class', $variableUnit)->get('symbol');
-        dump($unit['attributes']['symbol']);
+        $this->unitNames->put($variable, $variableUnitCollection);
+
+        dump($variableUnitCollection);
     }
 
     public function render()
