@@ -14,15 +14,13 @@ class PageForm extends Component
     public $variables;
     public $variablesCollection;
     public $units;
-    public $unitConversions;
-    public $unitSymbols;
+    public $unitOptions;
 
     public function mount()
     {
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
-        $this->unitConversions = collect();
-        $this->unitSymbols = collect();
+        $this->unitOptions = collect();
     }
 
     public function createUnitDropdownItems($variable, $variableUnit)
@@ -34,10 +32,14 @@ class PageForm extends Component
         $this->unitSymbols[$variable] = collect();
 
         foreach($unitsOfVariable as $unit){
-            $this->unitSymbols[$variable]->push($unit->symbol);
+            $this->unitOptions[$variable]->put([
+                ['symbol', $unit->symbol],
+                ['conversion_to_base', $unit->conversion_to_base]
+            ]);
         }
 
         dump($this->unitSymbols[$variable]);
+        dump($this->unitConversions[$variable]);
     }
 
     public function render()
