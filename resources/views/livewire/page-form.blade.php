@@ -14,7 +14,7 @@
             <text>{{ $variable['unit'] }}</text>
             <input type="text" id="variableValue.{{ $index }}">
                 {{ $this->createUnitDropdownItems($index, $variable['unit']) }}
-            <select id="variable.UnitOption.{{ $loop->parent->index }}">
+            <select id="variable.UnitOption.{{ $index }}">
                 @foreach($unitOptions[$index][0] as $option)
                     <option>{{ $option[0] }}</option>
                 @endforeach
