@@ -12,7 +12,7 @@
     @foreach($variablesCollection as $index => $variable)
         <div wire:key="variable-field-{{ $index }}">
             <text>{{ $variable['unit'] }}</text>
-            <input type="text" id="{{ $index }}" wire:model="variable.{{ $index }}.unit">
+            <input type="text" id="{{ $index }}">
                 {{ $this->createUnitDropdownItems($index, $variable['unit']) }}
             <select>
                 @foreach($unitOptions[$index][0] as $option)
