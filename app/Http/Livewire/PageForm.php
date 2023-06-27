@@ -34,7 +34,7 @@ class PageForm extends Component
 
         $this->unitNames->put($variable, $variableUnitCollection);
 
-        dump($variableUnitCollection);
+        dump($this->unitNames);
     }
 
     public function render()
