@@ -18,25 +18,29 @@ class PageForm extends Component
 
     public function mount()
     {
+        //$variables comes in as an array with many arguments, including the "unit" argument. This is used to query the model for matching to the Unit "unit_class" property.
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
+
+        //will be created by page-form template, and adds the unitOptions[$variable] = ... some collection with the units from the Units table
         $this->unitOptions = collect();
     }
 
-    public function createUnitDropdownItems($variable, $variableUnit)
+    //called in the page-form template
+    public function createUnitDropdownItems($variableName, $variableUnit)
     {
         $unitsOfVariable = $this->units->filter(function ($item) use ($variableUnit){
             return $item['unit_class'] == $variableUnit;
         });    
 
-        $optionsCollection = collect();
-        $this->unitOptions[$variable] = collect();
+        $unitOptionsCollection = collect();
+        $this->unitOptions[$variableName] = collect();
 
 
-        foreach($unitsOfVariable as $unit){
-            $optionsCollection->push([$unit->symbol, $unit->conversion_to_base]);
+        foreach($unitsOfVariable as $unitOfVariable){
+            $unitOptionsCollection->push([$unitOfVariable->symbol, $unitOfVariable->conversion_to_base]);
         }
-        $this->unitOptions[$variable]->push($optionsCollection);
+        $this->unitOptions[$variableName]->push($unitOptionsCollection);
     }
 
     public function render()
