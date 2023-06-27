@@ -26,15 +26,8 @@ class PageForm extends Component
     private function createUnitDropdownItems($variable, $variableUnit)
     {
 
-        $unit = Unit::find($variableUnit);
-
-        if ($unit){
-            $this->unitNames[$variable] = $this->units->filter(function($item) use ($variableUnit){
-                return $item['unit_class'] == $variableUnit;
-            })->get('unit_class');
-            dump($variableUnit);
-            dump($this->units->get('unit_class'));
-        }
+        $unit = Unit::select('symbol')->where('unit_class', $variableUnit);
+        dump($unit);
     }
 
     public function render()
