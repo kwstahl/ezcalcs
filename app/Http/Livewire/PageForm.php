@@ -29,9 +29,6 @@ class PageForm extends Component
             return $item['unit_class'] == $variableUnit;
         });    
 
-        $this->unitOptions[$variable]['symbol'] = collect();
-        $this->unitOptions[$variable]['conversion_to_base'] = collect();
-
         $optionsCollection = collect();
 
         foreach($unitsOfVariable as $unit){
