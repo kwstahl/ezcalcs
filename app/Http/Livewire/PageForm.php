@@ -27,6 +27,7 @@ class PageForm extends Component
         $this->unitOptions = collect();
 
         foreach($this->variablesCollection as $index => $variable){
+            collect($variable);
             $variable->put('inputValue', "");
             $variable->put('unitOption', "");
             $variable->put('unitOptionConversion', "");
