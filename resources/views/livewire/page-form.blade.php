@@ -12,7 +12,7 @@
 
             <select>
                 @foreach($unitOptions[$index][0] as $option)
-                    <option>{{ $option }}</option>
+                    <option>{{ $option[0] }}</option>
                 @endforeach
             </select>
         </div>    
