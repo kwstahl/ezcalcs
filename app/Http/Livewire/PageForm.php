@@ -38,8 +38,7 @@ class PageForm extends Component
             ]);
         }
 
-        dump($this->unitSymbols[$variable]);
-        dump($this->unitConversions[$variable]);
+        dump($this->unitOptions[$variable]);
     }
 
     public function render()
