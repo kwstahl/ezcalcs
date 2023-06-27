@@ -32,7 +32,7 @@ class PageForm extends Component
         });    
 
         foreach($unitsOfVariable as $unit){
-            $this->unitSymbols[$variable] = $unit->symbol;
+            $this->unitSymbols[$variable]->push($unit->symbol);
         }
 
         dump($this->unitSymbols[$variable]);
