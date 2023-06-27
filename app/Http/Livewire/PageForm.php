@@ -29,7 +29,7 @@ class PageForm extends Component
             return $item['unit_class'] == $variableUnit;
         })->get('unit_class');
         dump($variableUnit);
-        dump($this->units['unit_class']);
+        dump($this->units->get('unit_class'));
     }
 
     public function render()
