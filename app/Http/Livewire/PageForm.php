@@ -30,7 +30,7 @@ class PageForm extends Component
         });    
 
         foreach ($filtered as $index => $filter){
-            dump($filter);
+            dump($filter->unit_class);
         }
     }
 
