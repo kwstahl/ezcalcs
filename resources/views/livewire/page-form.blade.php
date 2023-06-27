@@ -13,7 +13,7 @@
         <div wire:key="variable-field-{{ $index }}">
             <text>{{ $variable['unit'] }}</text>
             <input type="text" id="variableValue.{{ $index }}">
-            <select id="variable.UnitOption.{{ $index }}" wire:model="variablesCollection[{{ $index }}]['unitOptionsCollection']">
+            <select id="variable.UnitOption.{{ $index }}" wire:model="variablesCollection.{{ $index }}.unitOptionsCollection">
                 @foreach($variable['unitOptionsCollection'] as $option)
                     <option>{{ $option['symbol'] }}</option>
                 @endforeach
