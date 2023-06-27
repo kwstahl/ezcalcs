@@ -31,9 +31,11 @@ class PageForm extends Component
             return $item['unit_class'] == $variableUnit;
         });    
 
+        foreach($unitsOfVariable as $unit){
+            $this->unitSymbols[$variable] = $unit->symbol;
+        }
 
-
-        dump($unitsOfVariable->value('unit_class'));
+        dump($this->unitSymbols->$variable);
     }
 
     public function render()
