@@ -25,16 +25,9 @@ class PageForm extends Component
 
     public function createUnitDropdownItems($variable, $variableUnit)
     {
-        $variableUnitCollection = collect();
-        foreach($this->units as $unit){
-            if ($unit['unit_class'] = $variableUnit){
-                $variableUnitCollection->push($unit);
-            }
-        }
-
-        $this->unitNames->put($variable, $variableUnitCollection);
-
-        dump($this->unitNames);
+        $filtered = $this->units->filter(function ($item) use ($variableUnit){
+            return $item['unit_class'] == $variableUnit;
+        });    
     }
 
     public function render()
