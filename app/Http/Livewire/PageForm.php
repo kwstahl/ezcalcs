@@ -27,7 +27,7 @@ class PageForm extends Component
     {
 
         $unit = Unit::where('unit_class', $variableUnit)->get('symbol');
-        dump($unit['symbol']);
+        dump($unit['attributes']['symbol']);
     }
 
     public function render()
