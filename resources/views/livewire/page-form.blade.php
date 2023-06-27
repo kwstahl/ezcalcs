@@ -9,6 +9,12 @@
                 Variable: {{ $index }} <br>
                 Unit: {{ $variable['unit'] }}
             </text>
+
+            <select>
+                foreach($unitOptions[$index][0] as $option)
+                    <option>{{ $option }}</option>
+                @endforeach
+            </select>
         </div>    
     @endforeach
 
