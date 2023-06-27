@@ -26,13 +26,30 @@ class PageForm extends Component
         //will be created by page-form template, and adds the unitOptions[$variable] = ... some collection with the units from the Units table
         $this->unitOptions = collect();
 
-        foreach($this->variablesCollection as $index => $variable){
-            $variable = collect($variable);
-            $variable->put('inputValue', "");
-            $variable->put('unitOption', "");
-            $variable->put('unitOptionConversion', "");
-            $variable->put('formUnitOptions', collect());
-        }
+        $this->variablesCollection->transform(function($item){
+            $item['inputValue'] = '';
+            $item['unitOptionValue'] = '';
+            $item['unitOptionsCollection'] = new Collection();
+            return $item;
+        });
+
+        $this->variablesCollection->each(function($item){
+
+            $variableUnit = $item['unit'];
+            $tableUnits = $this->units->where('unit_class', $variableUnit);
+
+            $tableUnits->each(function($unit) use ($item){
+                $selectedProperties = [
+                    'symbol',
+                    'unit_class',
+                    'base_unit',
+                    'conversion_to_base',
+                ];
+                $filtered = $unit->only($selectedProperties);
+                $item['unitOptionsCollection']->push($filtered);
+            });
+        });
+
     }
 
     //called in the page-form template
