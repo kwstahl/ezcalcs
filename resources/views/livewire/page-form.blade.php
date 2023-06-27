@@ -17,7 +17,7 @@
 
 
             <select id="variable.UnitOption.{{ $index }}">
-                @foreach($variable[$unitOptionsCollection] as $option)
+                @foreach($variable['unitOptionsCollection'] as $option)
                     <option>{{ $option['symbol'] }}</option>
                 @endforeach
             </select>
