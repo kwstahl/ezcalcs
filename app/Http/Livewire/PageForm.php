@@ -39,7 +39,7 @@ class PageForm extends Component
 
 
         
-        $this->unitOptions->push($optionsCollection);
+        $this->unitOptions[$variable]->push($optionsCollection);
 
 
         dump($this->unitOptions[$variable]);
