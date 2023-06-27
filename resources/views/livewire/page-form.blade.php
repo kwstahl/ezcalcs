@@ -12,9 +12,9 @@
     @foreach($variablesCollection as $index => $variable)
         <div wire:key="variable-field-{{ $index }}">
             <text>{{ $variable['unit'] }}</text>
-            <input type="text" id="{{ $index }}">
+            <input type="text" id="variableValue.{{ $index }}">
                 {{ $this->createUnitDropdownItems($index, $variable['unit']) }}
-            <select>
+            <select id="variable.UnitOption.{{ $first->index }}">
                 @foreach($unitOptions[$index][0] as $option)
                     <option>{{ $option[0] }}</option>
                 @endforeach
