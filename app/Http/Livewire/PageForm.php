@@ -30,12 +30,17 @@ class PageForm extends Component
         });    
 
         $optionsCollection = collect();
+        $this->unitOptions[$variable] = collect();
+
 
         foreach($unitsOfVariable as $unit){
             $optionsCollection->push($unit->symbol, $unit->conversion_to_base);
         }
 
+
+        
         $this->unitOptions->push($optionsCollection);
+
 
         dump($this->unitOptions[$variable]);
     }
