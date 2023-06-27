@@ -31,10 +31,7 @@ class PageForm extends Component
             return $item['unit_class'] == $variableUnit;
         });    
 
-        $unitsOfVariable->transform(function($item) use ($variable){
-            $this->unitConversions[$variable]->push($item->conversion_to_base);
-            $this->unitSymbols[$variable]->push($item->symbol);
-        });
+
 
         dump($this->unitSymbols);
     }
