@@ -22,5 +22,6 @@
         </div>    
     @endforeach
 
+    {{ dump($variablesCollection) }}
 
 </div>

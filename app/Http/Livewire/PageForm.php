@@ -16,6 +16,9 @@ class PageForm extends Component
     public $units;
     public $unitOptions;
 
+    //m
+    public $variablesData;
+
     public function mount()
     {
         //$variables comes in as an array with many arguments, including the "unit" argument. This is used to query the model for matching to the Unit "unit_class" property.
@@ -24,6 +27,9 @@ class PageForm extends Component
 
         //will be created by page-form template, and adds the unitOptions[$variable] = ... some collection with the units from the Units table
         $this->unitOptions = collect();
+
+        $this->variablesData = collect();
+
     }
 
     //called in the page-form template
@@ -41,6 +47,11 @@ class PageForm extends Component
             $unitOptionsCollection->push([$unitOfVariable->symbol, $unitOfVariable->conversion_to_base]);
         }
         $this->unitOptions[$variableName]->push($unitOptionsCollection);
+    }
+
+    public function suh()
+    {
+        dump($this->variablesCollection);
     }
 
     public function render()
