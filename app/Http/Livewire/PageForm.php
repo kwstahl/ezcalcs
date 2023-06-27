@@ -29,7 +29,7 @@ class PageForm extends Component
         $this->variablesCollection->transform(function($item){
             $item['inputValue'] = '';
             $item['unitOptionValue'] = '';
-            $item['unitOptionsCollection'] = new Collection();
+            $item['unitOptionsCollection'] = collect();
             return $item;
         });
 
