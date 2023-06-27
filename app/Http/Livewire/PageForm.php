@@ -36,7 +36,7 @@ class PageForm extends Component
             $this->unitSymbols[$variable]->push($item->symbol);
         });
 
-        dump($this->unitSymbols->variable);
+        dump($this->unitSymbols);
     }
 
     public function render()
