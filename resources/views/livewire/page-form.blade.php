@@ -18,9 +18,7 @@
                 
             @foreach($variable['unitOptionsCollection'] as $option)
                     <option>{{ $option['symbol'] }}</option>
-            @endforeach
-            {{ dump($this->variablesCollection[$index]['unitOptionsCollection']) }}
-    
+            @endforeach    
         </select>
         </div>    
     @endforeach
