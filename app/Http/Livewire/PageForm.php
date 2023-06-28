@@ -40,7 +40,7 @@ class PageForm extends Component
                     'conversion_to_base',
                 ];
                 $filtered = $unit->only($selectedProperties);
-                $item['unitOptionsCollection']->push($filtered);
+                $item['unitOptionsCollection']->put($filtered->symbol, $filtered);
             });
         });
 
