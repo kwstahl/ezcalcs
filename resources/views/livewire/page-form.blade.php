@@ -16,7 +16,7 @@
             
             <select wire:model="variablesCollection.{{ $index }}.unitOptionsCollection.symbol">
             @foreach($variable['unitOptionsCollection'] as $symbol => $value)
-                    <option>{{ $value }}</option>
+                    <option>{{ $symbol }}</option>
             @endforeach    
         </select>
         </div>    
