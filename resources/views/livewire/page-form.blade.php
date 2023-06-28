@@ -14,7 +14,7 @@
             <text>{{ $variable['unit'] }}</text>
             <input type="text" id="variableValue.{{ $index }}">
             
-            <select id="variablesCollection.{{ $index }}.unitOptionsCollection" wire:model="variable.{{ $index }}.unitOptionsCollection">
+            <select wire:model="variablesCollection.{{ $index }}.unitOptionsCollection">
                 @foreach($variable['unitOptionsCollection'] as $option)
                     <option>{{ $option['symbol'] }}</option>
                 @endforeach
