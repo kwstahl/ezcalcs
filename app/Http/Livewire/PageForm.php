@@ -14,12 +14,17 @@ class PageForm extends Component
     public $variables;
     public $variablesCollection;
     public $units;
+    public $pyData;
+    public $formula_sympi;
+
     
     public function mount()
     {
         //$variables comes in as an array with many arguments, including the "unit" argument. This is used to query the model for matching to the Unit "unit_class" property.
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
+        $this->pyData = collect();
+
         $this->variablesCollection->transform(function($item){
             $item['inputValue'] = '';
             $item['unitOptionValue'] = '';
@@ -28,10 +33,8 @@ class PageForm extends Component
         });
 
         $this->variablesCollection->each(function($item){
-
             $variableUnit = $item['unit'];
             $tableUnits = $this->units->where('unit_class', $variableUnit);
-
             $tableUnits->each(function($unit) use ($item){
                 $selectedProperties = [
                     'symbol',
@@ -44,6 +47,17 @@ class PageForm extends Component
             });
         });
 
+    }
+
+    public function generatePyData()
+    {
+        $formula = $this->formula_sympi;
+        $precreatedArray = $this->variablesCollection->map(function($item, $key){
+            $selection = $item['unitOptionsCollection']['selection'];
+            $item['Value'] = $item['inputValue'];
+            $item['unit_conversion'] = $item[$selection];
+
+        });
     }
 
     public function render()
