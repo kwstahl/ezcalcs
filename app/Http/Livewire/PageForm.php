@@ -23,7 +23,6 @@ class PageForm extends Component
         $this->pyData = collect();
 
         $this->variablesCollection->transform(function($item){
-            $item['inputValue'] = '';
             $item['unitOptionsCollection'] = collect();
             return $item;
         });
