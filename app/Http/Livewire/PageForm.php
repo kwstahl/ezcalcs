@@ -30,7 +30,7 @@ class PageForm extends Component
 
         
         $this->variablesCollection->map(function($item, $key){
-            $this->pyData->put($item['inputValue']);
+            $this->pyData->put($key, $item['inputValue']);
             $this->pyData->put('Unit', $item['unit']);
         });
                                         
