@@ -24,13 +24,13 @@ class PageForm extends Component
 
         $this->variablesCollection->transform(function($item){
             $item['unitOptionsCollection'] = collect();
-            $item['inputValue'] = collect();
+            $item['inputValue'] = "";
             return $item;
         });
 
         
         $this->variablesCollection->map(function($item, $key){
-            $this->pyData->put($key, [$item['inputValue'], 'Unit' => $item['unit']]);
+            $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $item['unit']]);
         });
                                         
     }
