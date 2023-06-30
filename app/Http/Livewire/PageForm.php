@@ -30,7 +30,15 @@ class PageForm extends Component
 
         
         $this->variablesCollection->map(function($item, $key){
-            $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $item['unit']]);
+            $unitString = $item['unit'];
+            
+            $filtered = $this->units->filter(function($item) use ($unitString){
+                return $item['unit_class'] === $unitString;
+            });
+
+            $filtered = $filtered->only(['unit_conversion'])->all();
+            
+            $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $filtered]);
         });
                                         
     }
