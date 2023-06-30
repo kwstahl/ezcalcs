@@ -20,10 +20,15 @@ class PageForm extends Component
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
         $this->pyData = collect();
-
+/*
+        $this->pyData = $this->variablesCollection->map(function($item){
+            $item['Value'] = '';
+            $item['unit_conversion'] = '';
+            return $item;
+        });
+*/
         $this->variablesCollection->transform(function($item){
             $item['inputValue'] = '';
-            $item['unitOptionValue'] = '';
             $item['unitOptionsCollection'] = collect();
             return $item;
         });
@@ -45,15 +50,19 @@ class PageForm extends Component
 
     }
 
-    public function generatePyData()
+    public function getUnitConversionProperty($variable, $unitSelection)
     {
-        $formula = $this->formula_sympi;
-        $precreatedArray = $this->variablesCollection->map(function($item, $key){
-            $selection = $item['unitOptionsCollection']['selection'];
-            $item['Value'] = $item['inputValue'];
-            $item['unit_conversion'] = $item[$selection];
+        
+    }
 
-        });
+    public function matchingUnits($unit)
+    {
+        foreach ($this->units as $item)
+        {
+            if ($item['unit_class'] === $unit){
+                yield $item['symbol'];
+            }
+        }
     }
 
     public function render()

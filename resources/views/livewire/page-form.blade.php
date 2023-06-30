@@ -14,15 +14,15 @@
             <text>{{ $variable['unit'] }}</text>
             <input type="text" wire:model="pyData.{{ $index }}.Value">
             
+            
             <select wire:model="pyData.{{ $index }}.selection">
-            @foreach($variable['unitOptionsCollection'] as $selection => $value)
+            @foreach($matchingUnits($variable->unit) as $selection => $value)
                     <option>{{ $selection }}</option>
             @endforeach    
         </select>
         </div>    
         @endforeach
 
-        <button wire:click="generatePyData"></button>
 
     {{ dump($pyData) }}
 
