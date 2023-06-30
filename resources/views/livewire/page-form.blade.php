@@ -16,12 +16,11 @@
             
             
             <select wire:model="pyData.{{ $index }}.selection">
-                <!--
+                /*
             @foreach($unitOptions[$index] as $selection => $value)
                     <option>{{ $selection }}</option>
             @endforeach    
-
--->
+                */
         </select>
         </div>    
         @endforeach
