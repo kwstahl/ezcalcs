@@ -42,7 +42,7 @@ class PageForm extends Component
             $newCollect = $tableUnits->each(function($item){
                 $item->only(['symbol']);
             });
-            return $newCollect;
+            return $newCollect['symbol'];
         });
     }
 
