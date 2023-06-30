@@ -33,10 +33,10 @@ class PageForm extends Component
             $unitString = $item['unit'];
             
             $filtered = $this->units->filter(function($key, $item) use ($unitString){
-                return $key => $item['unit_class'] === $unitString;
+                return $item['unit_class'] === $unitString;
             });
             
-            $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $filtered]);
+            $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $filtered->all()]);
         });
                                         
     }
