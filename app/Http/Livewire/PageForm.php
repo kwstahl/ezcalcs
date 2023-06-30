@@ -22,14 +22,6 @@ class PageForm extends Component
         $this->units = Unit::all();
         $this->pyData = collect();
 
-
-        /*
-        $this->pyData = $this->variablesCollection->map(function($item){
-            $item['Value'] = '';
-            $item['unit_conversion'] = '';
-            return $item;
-        });
-*/
         $this->variablesCollection->transform(function($item){
             $item['inputValue'] = '';
             $item['unitOptionsCollection'] = collect();
