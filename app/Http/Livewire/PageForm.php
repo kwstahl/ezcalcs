@@ -12,7 +12,7 @@ class PageForm extends Component
     public $units;
     public $pyData;
     public $formula_sympi;
-    public unitOptions;
+    public $unitOptions;
 
     
     public function mount()
