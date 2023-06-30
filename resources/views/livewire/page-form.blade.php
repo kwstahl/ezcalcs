@@ -23,5 +23,6 @@
 
 
     {{ dump($unitOptions) }}
+    {{ dump($variablesCollection) }}
 
 </div>
