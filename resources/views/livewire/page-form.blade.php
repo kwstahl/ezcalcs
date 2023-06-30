@@ -24,6 +24,6 @@
         @endforeach
 
 
-    {{ dump($pyData) }}
+    {{ dump($unitOptions) }}
 
 </div>

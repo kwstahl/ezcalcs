@@ -12,6 +12,7 @@ class PageForm extends Component
     public $units;
     public $pyData;
     public $formula_sympi;
+    public unitOptions;
 
     
     public function mount()
@@ -20,7 +21,9 @@ class PageForm extends Component
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
         $this->pyData = collect();
-/*
+
+
+        /*
         $this->pyData = $this->variablesCollection->map(function($item){
             $item['Value'] = '';
             $item['unit_conversion'] = '';
@@ -33,7 +36,7 @@ class PageForm extends Component
             return $item;
         });
 
-        $this->variablesCollection->each(function($item){
+        $unitOptions = $this->variablesCollection->map(function($item){
             $variableUnit = $item['unit'];
             $tableUnits = $this->units->where('unit_class', $variableUnit);
             $tableUnits->each(function($unit) use ($item){
@@ -44,7 +47,7 @@ class PageForm extends Component
                     'conversion_to_base',
                 ];
                 $filtered = $unit->only($selectedProperties);
-                $item['unitOptionsCollection']->put($filtered['symbol'], $filtered);
+                $item->put($filtered['symbol'], $filtered);
             });
         });
 
@@ -53,16 +56,6 @@ class PageForm extends Component
     public function getUnitConversionProperty($variable, $unitSelection)
     {
         
-    }
-
-    public function matchingUnits($unit)
-    {
-        foreach ($this->units as $item)
-        {
-            if ($item['unit_class'] === $unit){
-                yield $item['symbol'];
-            }
-        }
     }
 
     public function render()
