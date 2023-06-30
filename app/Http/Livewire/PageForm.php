@@ -24,6 +24,7 @@ class PageForm extends Component
 
         $this->variablesCollection->transform(function($item){
             $item['unitOptionsCollection'] = collect();
+            $item['inputValue'] = collect();
             return $item;
         });
 
