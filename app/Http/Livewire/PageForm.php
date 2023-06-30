@@ -32,8 +32,8 @@ class PageForm extends Component
         $this->variablesCollection->map(function($item, $key){
             $unitString = $item['unit'];
             
-            $filtered = $this->units->filter(function($item) use ($unitString){
-                return $item['unit_class'] === $unitString;
+            $filtered = $this->units->filter(function($key, $item) use ($unitString){
+                return $key => $item['unit_class'] === $unitString;
             });
             
             $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $filtered]);
