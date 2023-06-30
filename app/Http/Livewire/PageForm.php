@@ -37,7 +37,7 @@ class PageForm extends Component
         });
 
         $this->unitOptions = $this->variablesCollection->map(function($item, $key){
-            $variableUnit = $item['unit_symbol'];
+            $variableUnit = $item['unit'];
             $tableUnits = $this->units->where('unit_class', $variableUnit);
             $tableUnits->each(function($unit) use ($item, $key){
                 $selectedProperties = [
