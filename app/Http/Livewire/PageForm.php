@@ -40,8 +40,7 @@ class PageForm extends Component
             $variableUnit = $item['unit'];
             $tableUnits = $this->units->where('unit_class', $variableUnit);
             $newCollect = $tableUnits->each(function($item){
-                $item = $item->only(['symbol']);
-                return $item; 
+                $item->only(['symbol']);
             });
             return $newCollect;
         });
