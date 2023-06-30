@@ -36,16 +36,13 @@ class PageForm extends Component
             return $item;
         });
 
-        $this->unitOptions = $this->variablesCollection->map(function($item, $key){
-            $variableUnit = $item['unit'];
-            $tableUnits = $this->units->where('unit_class', $variableUnit);
-            $newCollect = $tableUnits->each(function($item){
-                $item->only(['symbol']);
-            });
-            return $newCollect['symbol'];
+        
+        $this->variablesCollection->map(function($item, $key){
+            $this->pyData->put('Value', $item['inputValue']);
         });
+                                        
     }
-
+        
     public function getUnitConversionProperty($variable, $unitSelection)
     {
         
