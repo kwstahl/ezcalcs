@@ -47,8 +47,9 @@ class PageForm extends Component
                     'conversion_to_base',
                 ];
                 $filtered = $unit->only($selectedProperties);
-                return [$key => $filtered];
+                return $filtered;
             });
+
         });
 
     }
