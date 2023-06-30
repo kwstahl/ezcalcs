@@ -12,7 +12,7 @@ class PageForm extends Component
     public $units;
     public $pyData;
     public $formula_sympi;
-    public unitOptions;
+    public $unitOptions;
 
     
     public function mount()
@@ -36,12 +36,11 @@ class PageForm extends Component
             return $item;
         });
 
-        $unitOptions = $this->variablesCollection->map(function($item){
+        $this->unitOptions = $this->variablesCollection->map(function($item){
             $variableUnit = $item['unit'];
             $tableUnits = $this->units->where('unit_class', $variableUnit);
             return [$item => $tableUnits];
         });
-
     }
 
     public function getUnitConversionProperty($variable, $unitSelection)
