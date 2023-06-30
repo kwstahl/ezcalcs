@@ -16,7 +16,7 @@
             
             
             <select wire:model="pyData.{{ $index }}.selection">
-            @foreach($this->matchingUnits($variable->unit) as $selection => $value)
+            @foreach($unitOptions[$index] as $selection => $value)
                     <option>{{ $selection }}</option>
             @endforeach    
         </select>
