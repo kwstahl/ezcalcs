@@ -36,6 +36,7 @@ class PageForm extends Component
                 return $item['unit_class'] === $unitString;
             });
             
+            $filtered = $filtered['conversion_to_base'];
             $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $filtered->all()]);
         });
                                         
