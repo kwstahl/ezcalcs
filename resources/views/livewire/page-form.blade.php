@@ -22,7 +22,8 @@
         @endforeach
 
 
-    {{ dump($unitOptions) }}
-    {{ dump($variablesCollection) }}
+    {{ dump($unitOptions) }} uOptions <br>
+    {{ dump($pyData) }} PyData <br>
+    {{ dump($variablesCollection) }} Variables Collection <br>
 
 </div>
