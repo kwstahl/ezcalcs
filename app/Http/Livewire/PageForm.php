@@ -32,7 +32,7 @@ class PageForm extends Component
         $this->variablesCollection->map(function($item, $key){
             $unitString = $item['unit'];
             
-            $filtered = $this->units->filter(function($key, $item) use ($unitString){
+            $filtered = $this->units->filter(function($item, $key) use ($unitString){
                 return $item['unit_class'] === $unitString;
             });
             
