@@ -47,7 +47,7 @@ class PageForm extends Component
                     'conversion_to_base',
                 ];
                 $filtered = $unit->only($selectedProperties);
-                $item->put($filtered['symbol'], $filtered);
+                return [$item => $filtered];
             });
         });
 
