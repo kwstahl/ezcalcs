@@ -9,21 +9,22 @@
 
 -->
 
-    @foreach($variablesCollection as $index => $variable)
-        <div wire:key="variable-field-{{ $index }}">
+    @foreach($variablesCollection as $variableName => $variable)
+        <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
-            <input type="text" wire:model="pyData.{{ $index }}.Value">
+            <input type="text" wire:model="pyData.{{ $variableName }}.Value">
             
             
-            <select wire:model="pyData.{{ $index }}.selection">
- 
+            <select wire:model="pyData.{{ $variableName }}.Unit">
+                <option selected>{{ $variableName }}</option>
+                @foreach($variablesCollection[$variableName]['unitOptions'] as $subUnitIndex => $subUnit)
+                    <option value={{ $subUnit['conversion_to_base'] }}>{{ $subUnit['symbol'] }} </option>
+                @endforeach
         </select>
         </div>    
         @endforeach
 
 
-    {{ dump($unitOptions) }} uOptions <br>
     {{ dump($pyData) }} PyData <br>
-    {{ dump($variablesCollection) }} Variables Collection <br>
 
 </div>
