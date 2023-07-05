@@ -12,7 +12,7 @@
     @foreach($variablesCollection as $variableName => $variable)
         <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
-            <input type="text" wire:model="pyData.{{ $variableName }}.Value">
+            <input type="text" wire:model="pyData.{{ $index }}.Value">
             
             
             <select wire:model="pyData.{{ $variableName }}.Unit">

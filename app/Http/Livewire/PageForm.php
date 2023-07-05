@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Unit;
 
+
 class PageForm extends Component
 {
     public $variables;
@@ -29,21 +30,16 @@ class PageForm extends Component
 
         $this->pyData->put('formula', $this->formula_sympi);
         
-        $this->variablesCollection->transform(function($item, $key){
-            $variableUnitClass = $item['unit'];
+        $this->variablesCollection->map(function($item, $key){
+            $unitString = $item['unit'];
+            
+            $filtered = $this->units->filter(function($item, $key) use ($unitString){
+                return $item['unit_class'] === $unitString;
+            });
 
-            /* Query the units model for matching "unit" from variable to "unit_class" in units model*/
-            $filteredUnitsByClass = $this->units 
-                ->where('unit_class', $variableUnitClass)
-                ->map(function($unit){
-                    return [
-                        'symbol' => $unit->symbol,
-                        'conversion_to_base' => $unit->conversion_to_base,
-                    ];
-                })
-                ->values();
-            $item['unitOptions'] = $filteredUnitsByClass;
-            return $item;
+
+            
+            $this->pyData->put($key, ['Value' => $item['inputValue'], 'Unit' => $filtered->get('unit_class')]);
         });
                                         
     }
