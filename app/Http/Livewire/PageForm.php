@@ -44,10 +44,6 @@ class PageForm extends Component
                                         
     }
         
-    public function getUnitConversionProperty($variable, $unitSelection)
-    {
-        
-    }
 
     public function render()
     {
