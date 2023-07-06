@@ -18,7 +18,7 @@
             
             <select wire:model="pyData.{{ $variableName }}.Unit">
                 <option selected>{{ $variableName }}</option>
-                @foreach($variablesCollection[$variableName]['unitOptions'] as $subUnitIndex => $subUnit)
+                @foreach($variable[$variableName]['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                 @endforeach
         </select>
