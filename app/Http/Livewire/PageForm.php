@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Http\Livewire;
-
 use Livewire\Component;
 use App\Models\Unit;
-
-
 class PageForm extends Component
 {
     public $variables;
@@ -13,7 +9,6 @@ class PageForm extends Component
     public $units;
     public $pyData;
     public $formula_sympi;
-
     
     public function mount()
     {
@@ -29,7 +24,7 @@ class PageForm extends Component
         });
 
         $this->pyData->put('formula', $this->formula_sympi);
-        
+
         $this->variablesCollection->transform(function($item, $key){
             $variableUnitClass = $item['unit'];
 
@@ -46,10 +41,15 @@ class PageForm extends Component
             $item['unitOptions'] = $filteredUnitsByClass;
             return $item;
         });
-                                        
-    }
-        
 
+    }
+    
+  
+        
+    public function getUnitConversionProperty($variable, $unitSelection)
+    {
+        
+    }
     public function render()
     {
         return view('livewire.page-form');
