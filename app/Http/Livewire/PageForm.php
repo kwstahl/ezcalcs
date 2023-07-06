@@ -9,7 +9,7 @@ class PageForm extends Component
     public $units;
     public $pyData;
     public $formula_sympi;
-    
+
     public function mount()
     {
         //$variables comes in as an array with many arguments, including the "unit" argument. This is used to query the model for matching to the Unit "unit_class" property.
@@ -22,9 +22,7 @@ class PageForm extends Component
             $item['unitOptions'] = collect();
             return $item;
         });
-
         $this->pyData->put('formula', $this->formula_sympi);
-
         $this->variablesCollection->transform(function($item, $key){
             $variableUnitClass = $item['unit'];
 
@@ -43,12 +41,8 @@ class PageForm extends Component
         });
 
     }
-    
-  
-        
     public function getUnitConversionProperty($variable, $unitSelection)
     {
-        
     }
     public function render()
     {
