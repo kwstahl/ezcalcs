@@ -24,7 +24,7 @@
         </select>
         </div>    
 
-        $this->dump($variablesCollection[$variableName]['unitOptions'])
+        {{$this->dump($variablesCollection[$variableName]['unitOptions'])}}
         @endforeach
 
 
