@@ -23,8 +23,6 @@
                 @endforeach
         </select>
         </div>    
-
-        {{dump($variablesCollection[$variableName]['unitOptions'])}}
         @endforeach
 
 
