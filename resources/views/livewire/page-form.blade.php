@@ -28,6 +28,6 @@
         @endforeach
 
 
-    {{ dump($pyData) }} PyData <br>
+    {{ dump($variablesCollection) }} PyData <br>
 
 </div>
