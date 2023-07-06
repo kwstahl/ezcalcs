@@ -30,7 +30,6 @@
             @livewire('page-form', 
             ['variables' => $variables, 'formula_sympi' => $formula_sympi])
 
-
         @endisset
             <input type = 'submit'> 
         </form>
