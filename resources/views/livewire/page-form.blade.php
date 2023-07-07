@@ -27,5 +27,6 @@
 
 
     {{ dump($pyData) }} PyData <br>
+    {{ dump($variableToSolveFor) }} Vtsf <br>
 
 </div>

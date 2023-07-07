@@ -43,9 +43,7 @@ class PageForm extends Component
         });
 
     }
-    public function getUnitConversionProperty($variable, $unitSelection)
-    {
-    }
+
     public function render()
     {
         return view('livewire.page-form');

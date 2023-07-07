@@ -35,20 +35,7 @@
             <input type = 'submit'> 
         </form>
         <script async defer>
-            $(document).ready(function(){
-                var previousValue = null;
-                var currentValue = null;
 
-                $('input[type="radio"]').change(function(){
-                    previousValue = currentValue;
-                    currentValue = $(this).val();
-                    $(`input[name="${currentValue}"]`).prop('disabled', true);
-                    $(`input[name="${previousValue}"]`).prop('disabled', false);
-
-                    console.log('Prev', previousValue);
-                    console.log('Cur', currentValue);
-                });
-            });
         </script>
         @livewireScripts
     </body>
