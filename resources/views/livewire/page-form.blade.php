@@ -13,8 +13,8 @@
         <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
             <div>
-                <input type="radio" name="solveFor" value="{{ $variableName }}">
-                <input type="text" name="{{ $variableName }}" wire:model="pyData.{{ $variableName }}.Value">
+                <input type="radio" name="solveFor" value="{{$variableName}}">
+                <input type="text" name="{{$variableName}}" wire:model="pyData.{{ $variableName }}.Value">
             </div>
             <select wire:model="pyData.{{ $variableName }}.Unit">
                 <option selected>{{ $variableName }}</option>
