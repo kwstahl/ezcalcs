@@ -19,7 +19,8 @@
                     name="{{$variableName}}" 
                     wire:model="pyData.{{ $variableName }}.Value"
                     @if( $variableToSolveFor === $variableName)
-                        disabled
+                        disabled 
+                        Value=""
                     @else
                     @endif
                 >
