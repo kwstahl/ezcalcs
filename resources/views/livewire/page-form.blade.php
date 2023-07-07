@@ -17,8 +17,8 @@
                 <input 
                     type="text" 
                     name="{{$variableName}}" 
-                    wire:model="pyData.{{ $variableName }}.Value" @if($variableToSolveFor === $variableName) disabled @endif
-                    wire:click="clearInput({{ $variableName }})">
+                    wire:model="pyData.{{ $variableName }}.Value" @if($variableToSolveFor === $variableName) wire:click="clearInput({{ $variableName }})" disabled @endif
+                    >
             
             </div>
             <select wire:model="pyData.{{ $variableName }}.Unit">
