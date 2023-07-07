@@ -11,6 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <script src="jquery-3.6.4.min.js"></script>
         @livewireStyles
     </head>
     <body>
@@ -33,7 +34,7 @@
         @endisset
             <input type = 'submit'> 
         </form>
-        <script src="" async defer>
+        <script async defer>
             $(document).ready(function(){
                 var previousValue = null;
                 var currentValue = null;
