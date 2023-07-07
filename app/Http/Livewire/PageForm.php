@@ -17,7 +17,7 @@ class PageForm extends Component
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
         $this->pyData = collect();
-        $this->variableToSolveFor = $this->variablesCollection->keys()->all()[0];
+        $this->variableToSolveFor = "";
 
         $this->variablesCollection->transform(function($item){
             $item['inputValue'] = "";
