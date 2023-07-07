@@ -44,7 +44,8 @@
                 $('input[type="radio"]').change(function(){
                     previousValue = currentValue;
                     currentValue = $(this).val();
-                    $(`input[name="${currentValue}"]`).prop('disabled', true);
+                    $(this).prop('disabled', true);
+                    $(this).val('');
                     $(`input[name="${previousValue}"]`).prop('disabled', false);
 
                     console.log('Prev', previousValue);
