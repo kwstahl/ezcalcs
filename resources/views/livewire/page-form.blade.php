@@ -14,7 +14,16 @@
             <text>{{ $variable['unit'] }}</text>
             <div>
                 <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                <input type="text" name="{{$variableName}}" wire:model="pyData.{{ $variableName }}.Value">
+                <input 
+                    type="text" 
+                    name="{{$variableName}}" 
+                    wire:model="pyData.{{ $variableName }}.Value"
+                    @if( $variableToSolveFor === $variableName)
+                        disabled
+                    @else
+
+                >
+            
             </div>
             <select wire:model="pyData.{{ $variableName }}.Unit">
                 <option selected>{{ $variableName }}</option>
