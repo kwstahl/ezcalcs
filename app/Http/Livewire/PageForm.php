@@ -24,9 +24,17 @@ class PageForm extends Component
             $item['unitOptions'] = collect();
             return $item;
         });
+
         $this->pyData->put('formula', $this->formula_sympi);
-        $this->variablesCollection->transform(function($item, $key){
+        
+        $this->variablesCollection->map(function($item, $key){
+            return [$key => ['Value'=>'', 'Unit'=>'']];
+        });
+
+        $this->variablesCollection->transform(function($item){
             $variableUnitClass = $item['unit'];
+
+            
 
             /* Query the units model for matching "unit" from variable to "unit_class" in units model*/
             $filteredUnitsByClass = $this->units 
