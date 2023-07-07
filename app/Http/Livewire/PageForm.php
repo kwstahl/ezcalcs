@@ -27,8 +27,8 @@ class PageForm extends Component
 
         $this->pyData->put('formula', $this->formula_sympi);
         
-        $this->variablesCollection->map(function($item, $key){
-            return [$key => ['Value'=>'', 'Unit'=>'']];
+        $this->variablesCollection->each(function($item, $key){
+            $this->pyData->put($key, ['Value'=>'', 'Unit'=>'']);
         });
 
         $this->variablesCollection->transform(function($item){
