@@ -45,7 +45,7 @@
                     previousValue = currentValue;
                     currentValue = $(this).val();
                     $(`input[name="${currentValue}"]`).prop('disabled', true);
-                    $(`input[name="${currentValue}"]`).val('');
+                    $(`input[name="${currentValue}"]`).innerHTML('');
                     $(`input[name="${previousValue}"]`).prop('disabled', false);
 
                     console.log('Prev', previousValue);
