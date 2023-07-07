@@ -9,6 +9,7 @@ class PageForm extends Component
     public $units;
     public $pyData;
     public $formula_sympi;
+    public $variableToSolveFor;
 
     public function mount()
     {
@@ -16,6 +17,7 @@ class PageForm extends Component
         $this->variablesCollection = collect($this->variables);
         $this->units = Unit::all();
         $this->pyData = collect();
+        $this->variableToSolveFor = $this->variablesCollection->keys()->all()->toArray()[0];
 
         $this->variablesCollection->transform(function($item){
             $item['inputValue'] = "";
