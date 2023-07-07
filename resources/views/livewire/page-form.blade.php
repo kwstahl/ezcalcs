@@ -21,7 +21,7 @@
                     @if( $variableToSolveFor === $variableName)
                         disabled
                     @else
-
+                    @endif
                 >
             
             </div>
