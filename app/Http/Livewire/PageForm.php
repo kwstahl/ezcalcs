@@ -52,6 +52,12 @@ class PageForm extends Component
 
     }
 
+
+    public function clearInput($data)
+    {
+        $this->pyData[$data]['Value'] = "";
+    }
+
     public function render()
     {
         return view('livewire.page-form');
