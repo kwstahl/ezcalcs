@@ -33,7 +33,20 @@
         @endisset
             <input type = 'submit'> 
         </form>
-        <script src="" async defer></script>
+        <script src="" async defer>
+            $(document).ready(function(){
+                var previousValue = null;
+                var currentValue = null;
+
+                $('input[type="radio"]').change(function(){
+                    previousValue = currentValue;
+                    currentValue = $(this).val()
+
+                    console.log('Prev', previousValue);
+                    console.log('Cur', currentValue);
+                });
+            });
+        </script>
         @livewireScripts
     </body>
 </html>

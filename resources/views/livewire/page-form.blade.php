@@ -12,10 +12,10 @@
     @foreach($variablesCollection as $variableName => $variable)
         <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
-            <input type="radio" name="solveFor" value="{{ $variableName }}">
-            <input type="text" wire:model="pyData.{{ $variableName }}.Value">
-            
-            
+            <div>
+                <input type="radio" name="solveFor" value="{{ $variableName }}">
+                <input type="text" name="{{ $variableName }}" wire:model="pyData.{{ $variableName }}.Value">
+            </div>
             <select wire:model="pyData.{{ $variableName }}.Unit">
                 <option selected>{{ $variableName }}</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
@@ -23,7 +23,7 @@
                 @endforeach
         </select>
         </div>    
-        @endforeach
+    @endforeach
 
 
     {{ dump($pyData) }} PyData <br>
