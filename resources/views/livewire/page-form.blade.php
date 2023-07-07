@@ -18,9 +18,8 @@
                     type="text" 
                     name="{{$variableName}}" 
                     wire:model="pyData.{{ $variableName }}.Value"
-                    @if( $variableToSolveFor === $variableName)
-                        disabled 
-                        Value=""
+                    @if($variableToSolveFor === $variableName)
+                        disabled placeholder='poop'
                     @else
                     @endif
                 >
