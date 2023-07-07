@@ -20,6 +20,7 @@
                     wire:model="pyData.{{ $variableName }}.Value"
                     @if($variableToSolveFor === $variableName)
                         disabled placeholder='Solve for this Variable'
+                        {{ $pyData[$variableName]['Value'] = "" }}
                     @else
                     @endif
                 >
