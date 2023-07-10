@@ -63,7 +63,7 @@ class PageForm extends Component
                 $variable['Value'] = "";}
                 $test = $variable;
             }
-        dump($test);
+        echo $test;
     }
 
     public function render()

@@ -30,9 +30,10 @@
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                 @endforeach
             </select>
-            <button wire:click="processData">Clcickk</button>
         </div>    
     @endforeach
+    <button wire:click="processData">Clcickk</button>
+
 
 
     {{ dump($pyData) }} PyData <br>
