@@ -20,7 +20,6 @@
                     wire:model="pyData.{{ $variableName }}.Value" 
                     @if($variableToSolveFor === $variableName) 
                         disabled 
-                        {{ $this->clearInput($variableName) }}
                     @endif
                     >
             

@@ -11,29 +11,66 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        @livewireStyles
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">        @livewireStyles
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div>Hello world</div>
-        <form>
-        @isset($id)
-            {{ $id }} <br>
-            {{ $title }} <br>
-            {{ $description }} <br>
-            {{ $formula_sympi }} <br>
 
 
-            @livewire('page-form', 
-            ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+        <!-- Top Bar --> 
+        <nav class="navbar navbar-expand-lg nav.navbar.bg-primary p-0">
+            <div class="container-fluid bg-primary">
+                <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
+            </div>
+        </nav>
 
-        @endisset
-            <input type = 'submit'> 
-        </form>
+        <!-- Master Container -->
+        <div class="container-fluid row">
+            <!-- Accordion -->
+            <div class="col-lg-3 col-md-3 accordion-container w-25 mw-100">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">Physics</button>
+                        </h2>
+
+                        <div id="collapse1"></div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">Chemistry</h2>
+
+                    </div>
+
+                </div>        
+            </div>
+
+
+
+
+            <!-- Form -->
+            <form class="col-lg-9 col-md-9">
+            @isset($id)
+                {{ $title }} <br>
+                {{ $description }} <br>
+                {{ $formula_sympi }} <br>
+
+
+                @livewire('page-form', 
+                ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+
+            @endisset
+                <input type = 'submit'> 
+            </form>
+
+
+
+        </div>
         <script async defer>
 
         </script>
