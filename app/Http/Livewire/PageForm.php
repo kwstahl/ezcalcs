@@ -57,7 +57,7 @@ class PageForm extends Component
     public function updatedVariableToSolveFor($value)
     {
         $this->pyData->get($value)->transform(function($item){
-            $item['Value'] = "";
+            $item->Value = "";
             return $item;
         });
     }
