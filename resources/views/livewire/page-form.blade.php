@@ -32,8 +32,6 @@
             </select>
         </div>    
     @endforeach
-    <button wire:click="processData">Clcickk</button>
-
 
 
     {{ dump($pyData) }} PyData <br>

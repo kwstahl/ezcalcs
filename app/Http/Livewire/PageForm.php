@@ -55,17 +55,6 @@ class PageForm extends Component
     }
 
 
-    public function processData()
-    {
-        $variableToSolveFor = $this->variableToSolveFor;
-        foreach($this->pyData as $variable => $variableName){
-            if($variableToSolveFor === $variableName){
-                $variable['Value'] = "";}
-                $test = $variable;
-            }
-        echo $test;
-    }
-
     public function render()
     {
         return view('livewire.page-form');
