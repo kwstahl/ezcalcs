@@ -61,8 +61,9 @@ class PageForm extends Component
         foreach($this->pyData as $variable => $variableName){
             if($variableToSolveFor === $variableName){
                 $variable['Value'] = "";}
-                dump($variable);
+                $test = $variable;
             }
+        dump($test);
     }
 
     public function render()
