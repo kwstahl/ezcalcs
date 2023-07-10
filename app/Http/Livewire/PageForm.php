@@ -59,6 +59,7 @@ class PageForm extends Component
         $this->pyData->where($value)->each(function($item){
             $item['Value'] = "";
         });
+        var_dump($this->pyData);
     }
 
 
