@@ -56,10 +56,11 @@ class PageForm extends Component
 
     public function updatedVariableToSolveFor($value)
     {
-        $this->pyData->where($value)->each(function($item){
-            $item['Value'] = "";
-        });
-        var_dump($this->pyData);
+        $variable = $this->pyData[$this->variableToSolveFor] ?? null;
+        if($variable){
+            $variable['Value'] = '';
+            $this->pyData[$this->variableToSolveFor] = $variable;
+        }
     }
 
 
