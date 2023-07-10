@@ -29,7 +29,8 @@
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                 @endforeach
-        </select>
+            </select>
+            <button wire:click="processData">Clcickk</button>
         </div>    
     @endforeach
 

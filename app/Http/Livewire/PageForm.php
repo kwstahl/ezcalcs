@@ -63,8 +63,6 @@ class PageForm extends Component
                 $variable['Value'] = "";}
                 dd($variable);
             }
-
-
     }
 
     public function render()
