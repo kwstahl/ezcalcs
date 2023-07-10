@@ -30,7 +30,7 @@ class PageForm extends Component
         $this->pyData->put('formula', $this->formula_sympi);
         
         $this->variablesCollection->each(function($item, $key){
-            $this->pyData->put($key, ['Value'=>'', 'Unit'=>'']);
+            $this->pyData->put($key, ['Value'=>'', 'unit_conversion'=>'']);
         });
 
         $this->variablesCollection->transform(function($item){
@@ -54,7 +54,7 @@ class PageForm extends Component
 
     }
 
-    public function updatedVariableToSolveFor($value)
+    public function updatedVariableToSolveFor()
     {
         $variable = $this->pyData[$this->variableToSolveFor] ?? null;
         if($variable){
@@ -63,6 +63,13 @@ class PageForm extends Component
         }
     }
 
+
+    public function processData()
+    {
+        $pyJson = $this->pyData->toJson();
+
+
+    }
 
     public function render()
     {
