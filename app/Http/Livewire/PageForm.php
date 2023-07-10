@@ -2,6 +2,8 @@
 namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Unit;
+use Illuminate\Support\Facades\Process;
+
 class PageForm extends Component
 {
     public $variables;
@@ -52,6 +54,18 @@ class PageForm extends Component
 
     }
 
+
+    public function processData()
+    {
+        $variableToSolveFor = $this->variableToSolveFor;
+        foreach($this->pyData as $variable => $variableName){
+            if($variableToSolveFor === $variableName){
+                $variable['Value'] = "";}
+                dd($variable);
+            }
+
+
+    }
 
     public function render()
     {
