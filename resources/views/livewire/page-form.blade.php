@@ -33,7 +33,11 @@
         </div>    
     @endforeach
 
-
+    <div>
+        {{ $answer }}
+        <button wire:click="setAnswer"></button>
+    </div>
+    
     {{ dump($pyData) }} PyData <br>
     {{ dump($variableToSolveFor) }} Vtsf <br>
 

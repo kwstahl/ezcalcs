@@ -12,6 +12,7 @@ class PageForm extends Component
     public $pyData;
     public $formula_sympi;
     public $variableToSolveFor;
+    public $answer;
 
     public function mount()
     {
@@ -26,8 +27,6 @@ class PageForm extends Component
             $item['unitOptions'] = collect();
             return $item;
         });
-
-        $this->pyData->put('formula', $this->formula_sympi);
         
         $this->variablesCollection->each(function($item, $key){
             $this->pyData->put($key, ['Value'=>'', 'unit_conversion'=>'']);
@@ -65,11 +64,13 @@ class PageForm extends Component
     }
 
 
-    public function processData()
+    public function setAnswer()
     {
+        $formula_sympi = $this->formula_sympi;
         $pyJson = $this->pyData->toJson();
-
-
+        $inputString = 'python3 sympyScript.py '. $pyJson. ' ' .$formula_sympi;
+        $output = Process::timeout(120)->run($inputString);
+        $this->answer = $output;
     }
 
     public function render()
