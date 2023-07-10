@@ -54,6 +54,11 @@ class PageForm extends Component
 
     }
 
+    public function updatedVariableToSolveFor($value)
+    {
+        $this->pyData[$value]['Value'] = '';
+    }
+
 
     public function render()
     {
