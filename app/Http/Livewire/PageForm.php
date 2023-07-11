@@ -33,6 +33,7 @@ class PageForm extends Component
             return $item;
         });
         
+        $this->answer = "";
         $this->variablesCollection->each(function($item, $key){
             $this->pyData->put($key, ['Value'=>'', 'unit_conversion'=>'']);
         });
@@ -40,9 +41,6 @@ class PageForm extends Component
         //Good
         $this->variablesCollection->transform(function($item){
             $variableUnitClass = $item['unit'];
-
-            
-
             /* Query the units model for matching "unit" from variable to "unit_class" in units model*/
             $filteredUnitsByClass = $this->units 
                 ->where('unit_class', $variableUnitClass)
@@ -74,9 +72,8 @@ class PageForm extends Component
     {
         //$command = 'python3 ' . public_path('sympyScript.py') . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
         //$output = shell_exec($command);
-        $this->validate();
+        //$this->validate();
         $this->answer = [$this->formula_sympi, $this->pyData];
-
     }
 
     
