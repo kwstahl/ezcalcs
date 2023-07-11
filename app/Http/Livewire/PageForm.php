@@ -64,7 +64,7 @@ class PageForm extends Component
     }
 
 
-    public function setAnswer()
+    public function updatedAnswer()
     {
         $formula_sympi = $this->formula_sympi;
         $pyJson = $this->pyData->toJson();

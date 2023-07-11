@@ -34,8 +34,8 @@
     @endforeach
 
     <div>
-        <text> Answer: {{ $answer }}</text>
-        <button wire:click="setAnswer">Set Answer</button>
+        <text> Answer: {{ $answer }}</text><br>
+        <button wire:click="updatedAnswer">Set Answer</button>
 
     </div>
     {{ dump($answer) }}
