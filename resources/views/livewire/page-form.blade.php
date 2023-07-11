@@ -34,10 +34,11 @@
     @endforeach
 
     <div>
-        <text>{{ echo: $answer }}</text>
+        <text>{{ $answer }}</text>
         <button wire:click="setAnswer">Set Answer</button>
+
     </div>
-    
+    {{ dump($answer) }}
     {{ dump($pyData) }} PyData <br>
     {{ dump($variableToSolveFor) }} Vtsf <br>
 
