@@ -71,6 +71,7 @@ class PageForm extends Component
         $inputString = 'python3 sympyScript.py '. $pyJson. ' ' .$formula_sympi;
         $output = Process::timeout(120)->run($inputString);
         $this->answer = $output->wait();
+        dd($inputString);
     }
 
     public function render()
