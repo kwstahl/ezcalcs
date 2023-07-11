@@ -72,7 +72,7 @@ class UnitTable extends Component
             $unitModel->unit_class = $unit['unit_class'];
             $unitModel->base_unit = $unit['base_unit'];
             $unitModel->symbol = $unit['symbol'];
-            $unitModel->conversion_to_base = $unit['conversion_to_base'];
+            $unitModel->conversion_to_base = (float) $unit['conversion_to_base'];
             $unitModel->description = $unit['description'];
             $unitModel->save();
         }
