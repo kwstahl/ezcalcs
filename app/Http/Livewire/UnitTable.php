@@ -96,7 +96,7 @@ class UnitTable extends Component
                 'unit_class' => $unit_class,
                 'description' => $description,
                 'symbol' => $symbols[$index] ?? "null",
-                'conversion_to_base' => $unit_conversions[$index] ?? "null",
+                'conversion_to_base' => (float) $unit_conversions[$index] ?? "null",
             ]);
         }
         return redirect()->to('/unit');
