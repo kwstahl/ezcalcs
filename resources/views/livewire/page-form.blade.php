@@ -34,7 +34,7 @@
     @endforeach
 
     <div>
-        {{ $answer }} <br>
+        <text>{{ $answer }}</text>
         <button wire:click="setAnswer">Set Answer</button>
     </div>
     
