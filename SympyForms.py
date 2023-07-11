@@ -19,7 +19,7 @@ class Formula:
         self.formula_string = formula_string
         self.sympy_equation = sympy.sympify(self.formula_string)
 
-        #created during substitute_values() if "none" found on "Value"
+        #created during substitute_values() if "" found on "Value"
         self.variable_to_solve_for = ""
 
         #created during solve_for_variable()
@@ -39,7 +39,7 @@ class Formula:
         sympy_equation = self.sympy_equation
         for variable_name, variable_value, sympy_symbol, unit_conversion in self.generate_value_symbol_tuples():
             #loop through variable array and multiply values by conversion factors then substitute variables with this value
-            if variable_value != "none":
+            if variable_value != "":
                 converted_variable_value = variable_value*unit_conversion
                 sympy_equation = sympy_equation.subs(sympy_symbol, converted_variable_value)
             else:
