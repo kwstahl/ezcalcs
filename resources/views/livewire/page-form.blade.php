@@ -34,10 +34,13 @@
     @endforeach
 
     <div>
-        <text> Answer: {{ $inputString }}</text><br>
-        <button wire:click="setInputString">Set Answer</button>
-
+        <button wire:click="runSympyScript">Run Script</button>
     </div>
+
+    <div>
+        Answer: {{ $answer }}
+    </div>
+
     {{ dump($answer) }}
     {{ dump($pyData) }} PyData <br>
     {{ dump($variableToSolveFor) }} Vtsf <br>
