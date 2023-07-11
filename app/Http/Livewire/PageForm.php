@@ -14,6 +14,12 @@ class PageForm extends Component
     public $variableToSolveFor;
     public $answer;
 
+    protected $rules = [
+        'pyData.*.Value' => 'nullable',
+        'pyData.*.unit_conversion' => 'nullable',
+        'variableToSolveFor' => 'nullable',
+    ];
+
     public function mount()
     {
         //$variables comes in as an array with many arguments, including the "unit" argument. This is used to query the model for matching to the Unit "unit_class" property.
@@ -63,13 +69,17 @@ class PageForm extends Component
     }
 
 
+
     public function runSympyScript()
     {
         //$command = 'python3 ' . public_path('sympyScript.py') . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
         //$output = shell_exec($command);
+        $this->validate();
         $this->answer = [$this->formula_sympi, $this->pyData];
 
     }
+
+    
 
     public function render()
     {
