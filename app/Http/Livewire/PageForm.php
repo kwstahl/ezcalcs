@@ -68,7 +68,7 @@ class PageForm extends Component
 
 
 
-    public function runSympyScript()
+    public function increment()
     {
         //$command = 'python3 ' . public_path('sympyScript.py') . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
         //$output = shell_exec($command);

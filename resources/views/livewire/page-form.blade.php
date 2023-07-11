@@ -34,7 +34,7 @@
     @endforeach
 
     <div>
-        <button wire:click="runSympyScript">Run Script</button>
+        <button wire:click="increment">Run Script</button>
     </div>
 
     <div>
