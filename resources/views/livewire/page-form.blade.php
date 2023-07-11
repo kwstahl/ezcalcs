@@ -13,18 +13,18 @@
         <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
             <div>
-                <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                <input type="radio" name="solveFor" value="{{$variableName}}" wire:model.lazy="variableToSolveFor">
                 <input 
                     type="text" 
                     name="{{$variableName}}" 
-                    wire:model="pyData.{{ $variableName }}.Value" 
+                    wire:model.lazy="pyData.{{ $variableName }}.Value" 
                     @if($variableToSolveFor === $variableName) 
                         disabled 
                     @endif
                     >
             
             </div>
-            <select wire:model="pyData.{{ $variableName }}.unit_conversion">
+            <select wire:model.lazy="pyData.{{ $variableName }}.unit_conversion">
                 <option selected>{{ $variableName }}</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
