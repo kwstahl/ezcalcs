@@ -41,8 +41,4 @@
         Answer: {{ $answer }}
     </div>
 
-    {{ dump($answer) }}
-    {{ dump($pyData) }} PyData <br>
-    {{ dump($variableToSolveFor) }} Vtsf <br>
-
 </div>
