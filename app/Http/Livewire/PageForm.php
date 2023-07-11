@@ -33,7 +33,7 @@ class PageForm extends Component
             return $item;
         });
         
-        $this->answer = "";
+        $this->answer = 0;
         $this->variablesCollection->each(function($item, $key){
             $this->pyData->put($key, ['Value'=>'', 'unit_conversion'=>'']);
         });
@@ -73,7 +73,8 @@ class PageForm extends Component
         //$command = 'python3 ' . public_path('sympyScript.py') . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
         //$output = shell_exec($command);
         //$this->validate();
-        $this->answer = [$this->formula_sympi, $this->pyData];
+        //$this->answer = [$this->formula_sympi, $this->pyData];
+        $this->answer++;
     }
 
     
