@@ -35,7 +35,7 @@
 
     <div>
         {{ $answer }}
-        <button wire:click="setAnswer"></button>
+        <button wire:click="setAnswer">Set Answer</button>
     </div>
     
     {{ dump($pyData) }} PyData <br>
