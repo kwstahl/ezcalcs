@@ -13,18 +13,18 @@
         <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
             <div>
-                <input type="radio" name="solveFor" value="{{$variableName}}" wire:model.defer="variableToSolveFor">
+                <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                 <input 
-                    type="text" 
+                    type="number" 
                     name="{{$variableName}}" 
-                    wire:model.defer="pyData.{{ $variableName }}.Value" 
+                    wire:model="sympyInputs.{{ $variableName }}.Value" 
                     @if($variableToSolveFor === $variableName) 
                         disabled 
                     @endif
                     >
             
             </div>
-            <select wire:model.defer="pyData.{{ $variableName }}.unit_conversion">
+            <select wire:model="sympyInputs.{{ $variableName }}.unit_conversion">
                 <option selected>{{ $variableName }}</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
@@ -34,7 +34,7 @@
     @endforeach
 
     <div>
-        <button wire:click="increment">Run Script</button>
+        <button wire:click.prevent="setAnswer">Run Script</button>
     </div>
 
     <div>
