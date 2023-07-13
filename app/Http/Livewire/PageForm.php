@@ -2,7 +2,6 @@
 namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Unit;
-use Illuminate\Support\Facades\Process;
 
 class PageForm extends Component
 {
@@ -33,9 +32,9 @@ class PageForm extends Component
             return $item;
         });
         
-        $this->answer = 0;
+        $this->answer = '';
         $this->variablesCollection->each(function($item, $key){
-            $this->pyData->put($key, ['Value'=>'', 'unit_conversion'=>'']);
+            $this->pyData->put($key, ['Value'=> '', 'unit_conversion'=>'']);
         });
 
         //Good
@@ -47,7 +46,7 @@ class PageForm extends Component
                 ->map(function($unit){
                     return [
                         'symbol' => $unit->symbol,
-                        'conversion_to_base' => $unit->conversion_to_base,
+                        'conversion_to_base' => (float) $unit->conversion_to_base,
                     ];
                 })
                 ->values();
@@ -61,20 +60,18 @@ class PageForm extends Component
     {
         $variable = $this->pyData[$this->variableToSolveFor] ?? null;
         if($variable){
-            $variable['Value'] = '';
+            $variable['Value'] = (float) '';
             $this->pyData[$this->variableToSolveFor] = $variable;
         }
     }
 
 
 
-    public function increment()
+    public function setAnswer()
     {
-        //$command = 'python3 ' . public_path('sympyScript.py') . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
+        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
         //$output = shell_exec($command);
-        //$this->validate();
-        //$this->answer = [$this->formula_sympi, $this->pyData];
-        $this->answer++;
+        $this->answer = $command;
     }
 
     

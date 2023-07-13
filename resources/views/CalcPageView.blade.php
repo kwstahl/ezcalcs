@@ -50,9 +50,6 @@
                 </div>        
             </div>
 
-
-
-
             <!-- Form -->
             <form class="col-lg-9 col-md-9">
             @isset($id)
