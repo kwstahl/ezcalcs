@@ -1,7 +1,7 @@
 import sympy
 import sys
 import json
-import SympyForms
+import SympyForms as SympyForms
 from sympy import Symbol
 
 

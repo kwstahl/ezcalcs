@@ -2,79 +2,101 @@
 namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Unit;
+use Illuminate\Support\Facades\Process;
 
 class PageForm extends Component
 {
     public $variables;
-    public $variablesCollection;
     public $units;
-    public $pyData;
+    public $boundDataForSympy;
     public $formula_sympi;
     public $variableToSolveFor;
     public $answer;
-
     protected $rules = [
-        'pyData.*.Value' => 'nullable',
-        'pyData.*.unit_conversion' => 'nullable',
-        'variableToSolveFor' => 'nullable',
+        'boundDataForSympy.*.Value' => 'nullable|numeric',
+        'boundDataForSympy.*.unit_conversion' => 'nullable|numeric',
+        'variableToSolveFor' => 'nullable|numeric',
     ];
 
     public function mount()
     {
-        //$variables comes in as an array with many arguments, including the "unit" argument. This is used to query the model for matching to the Unit "unit_class" property.
-        $this->variablesCollection = collect($this->variables);
+        $this->variables = collect($this->variables);
         $this->units = Unit::all();
-        $this->pyData = collect();
-        $this->variableToSolveFor = "";
-        $this->variablesCollection->transform(function($item){
-            $item['inputValue'] = "";
-            $item['unitOptions'] = collect();
-            return $item;
-        });
-        
+        $this->boundDataForSympy = collect();
+        $this->variableToSolveFor = '';
         $this->answer = '';
-        $this->variablesCollection->each(function($item, $key){
-            $this->pyData->put($key, ['Value'=> '', 'unit_conversion'=>'']);
-        });
 
-        //Good
-        $this->variablesCollection->transform(function($item){
-            $variableUnitClass = $item['unit'];
-            /* Query the units model for matching "unit" from variable to "unit_class" in units model*/
-            $filteredUnitsByClass = $this->units 
+        /* This is where 'Value' and 'unit_conversion' are created for boundDataForSympy */
+        $this->createBindingsForEachVariable();
+
+        /* The unit options list is made here for the blade tempalte "select" tag. */
+        $this->getAvailableUnitsForEachVariable();
+    }
+
+    private function createBindingsForEachVariable()
+    {
+    // For each variable, create value and unit bindings to be used by blade template binding
+    // Necessary because empty data must have the keys to be passed into python.
+        $this->boundDataForSympy = $this->variables->mapWithKeys(function ($variable, $variableName) {
+            return [
+                $variableName => [
+                    'Value' => (float) '',
+                    'unit_conversion' => (float) 0.0,
+                ]
+            ];
+        });
+    }
+
+    private function getAvailableUnitsForEachVariable()
+    {
+        $this->variables->transform(function($variable){
+
+            $variable['unitOptions'] = collect();
+            $variableUnitClass = $variable['unit'];
+            /* From Units Model, filter by Unit class. Return only symbol, conversion */
+            $filteredUnits = $this->units 
                 ->where('unit_class', $variableUnitClass)
                 ->map(function($unit){
                     return [
                         'symbol' => $unit->symbol,
-                        'conversion_to_base' => (float) $unit->conversion_to_base,
+                        'conversion_to_base' => $unit->conversion_to_base,
                     ];
                 })
                 ->values();
-            $item['unitOptions'] = $filteredUnitsByClass;
-            return $item;
+            $variable['unitOptions'] = $filteredUnits;
+            return $variable;
         });
-
     }
 
     public function updatedVariableToSolveFor()
     {
-        $variable = $this->pyData[$this->variableToSolveFor] ?? null;
+        $variable = $this->boundDataForSympy[$this->variableToSolveFor];
         if($variable){
-            $variable['Value'] = (float) '';
-            $this->pyData[$this->variableToSolveFor] = $variable;
+            $variable['Value'] = '';
+            $this->boundDataForSympy[$this->variableToSolveFor] = $variable;
         }
     }
 
-
-
     public function setAnswer()
     {
-        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->pyData) . ' ' . escapeshellarg($this->formula_sympi);
-        //$output = shell_exec($command);
-        $this->answer = $command;
-    }
+        // Necessary to ensure values are floats
 
-    
+        $this->boundDataForSympy = $this->boundDataForSympy->map(function ($variable) {
+            return [
+                'Value' => (float) $variable['Value'] ?: '',
+                'unit_conversion' => (float) $variable['unit_conversion'] ?: '',
+            ];
+        });
+
+        
+        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
+        $this->answer = Process::run($command)->output();
+        
+
+        //$command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
+        //$output = shell_exec($command . '2>&1');
+        //$this->answer = $output;
+    }
 
     public function render()
     {

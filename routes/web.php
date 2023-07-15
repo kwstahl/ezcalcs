@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalcController;
 use App\Http\Controllers\UnitController;
+use Illuminate\Support\Facades\Process;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +32,7 @@ Route::get('/', function () {
  * This view contains the form action {{ testprocessAPI.store }}, which sends form input in JSON form to the API calculator
  * 
   */
-Route::get('/eqn/testprocess', [CalcController::class, 'testprocess']);
+Route::get('/eqn/testprocess', function() {return Process::run('ls -la')->output();});
 
 /** 
  * 

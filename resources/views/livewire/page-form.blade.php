@@ -9,22 +9,22 @@
 
 -->
 
-    @foreach($variablesCollection as $variableName => $variable)
+    @foreach($variables as $variableName => $variable)
         <div wire:key="variable-field-{{ $variableName }}">
             <text>{{ $variable['unit'] }}</text>
             <div>
                 <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                
                 <input 
-                    type="number" 
+                    type="text" 
                     name="{{$variableName}}" 
-                    wire:model="sympyInputs.{{ $variableName }}.Value" 
+                    wire:model="boundDataForSympy.{{ $variableName }}.Value" 
                     @if($variableToSolveFor === $variableName) 
                         disabled 
-                    @endif
-                    >
+                    @endif>
             
             </div>
-            <select wire:model="sympyInputs.{{ $variableName }}.unit_conversion">
+            <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                 <option selected>{{ $variableName }}</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
