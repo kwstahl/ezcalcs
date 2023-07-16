@@ -11,11 +11,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">        @livewireStyles
+
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    </head>
-    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+        </head>
+        <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -32,26 +34,45 @@
         <!-- Master Container -->
         <div class="container-fluid row">
             <!-- Accordion -->
-            <div class="col-lg-3 col-md-3 accordion-container w-25 mw-100">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xl-2 ">
                 <div class="accordion" id="accordionExample">
+
+                    <!-- Physics Group -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">Physics</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Physics</button>
                         </h2>
 
-                        <div id="collapse1"></div>
+                        <div id="collapseOne" class="accorion-collapse collapse show" data-bs-parent="#accordion">
+                            <div class="accordion-body p-1">
+                                <ul class="list-unstyled w-100 m-0">
+                                    <li class="listElements"><a href="#" class="d-block w-100 h-100 bg-light text-dark p-1">Velocity</a></li>
+                                    <li class="listElements"><a href="#" class="d-block w-100 h-100 bg-light text-dark p-1">Force</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">Chemistry</h2>
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Chemistry</button>
+                        </h2>
 
+                        <div id="collapseTwo" class="accorion-collapse collapse show" data-bs-parent="#accordion">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li><a href="#">Henry's Law</a></li>
+                                    <li><a href="#">Partial Pressure</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                 </div>        
             </div>
 
             <!-- Form -->
-            <form class="col-lg-9 col-md-9">
+            <form class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
             @isset($id)
                 {{ $title }} <br>
                 {{ $description }} <br>
@@ -69,8 +90,12 @@
 
         </div>
         <script async defer>
-
+            $(document).ready(function(){
+                $(".listElements").addClass("border rounded m-0");
+            });
         </script>
         @livewireScripts
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
     </body>
 </html>

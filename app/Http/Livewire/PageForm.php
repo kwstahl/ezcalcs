@@ -79,23 +79,14 @@ class PageForm extends Component
 
     public function setAnswer()
     {
-        // Necessary to ensure values are floats
-
         $this->boundDataForSympy = $this->boundDataForSympy->map(function ($variable) {
             return [
                 'Value' => (float) $variable['Value'] ?: '',
                 'unit_conversion' => (float) $variable['unit_conversion'] ?: '',
             ];
         });
-
-        
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
         $this->answer = Process::run($command)->output();
-        
-
-        //$command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
-        //$output = shell_exec($command . '2>&1');
-        //$this->answer = $output;
     }
 
     public function render()

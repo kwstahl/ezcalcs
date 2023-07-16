@@ -26,9 +26,7 @@ class VarJson implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        
-
-        return json_encode($value);
+        return json_decode($value);
 
     }
 }

@@ -44,7 +44,12 @@
         <button id="addVarButton">Add Variable</button>
         <button id="removeVarButton">Removes Last Added Variable</button>
 
+
+        @livewire('calc-page-data')
+
         <script src="" async defer></script>
+
+
 
 
 
@@ -68,11 +73,15 @@
                 });
             });
 
+
+
             $(document).ready(function(){
                 $("#removeVarButton").click(function(){
                     $("#variablesContainer").children().last().remove();
                 });
             });
+
+
 
 
         </script>
