@@ -58,8 +58,5 @@
 
 
     <button type="button" wire:click="save">Save</button>
-    {{ dump($variables) }}
-
-
 
 </div>
