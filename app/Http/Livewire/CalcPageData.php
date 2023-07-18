@@ -17,6 +17,7 @@ class CalcPageData extends Component
         'calcPages.*.unit' => 'nullable',
         'calcPages.*.variables_json.*.*' => 'nullable'
     ];
+    
 
     public function mount()
     {
