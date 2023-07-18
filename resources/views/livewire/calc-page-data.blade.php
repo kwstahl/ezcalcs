@@ -47,8 +47,7 @@
                         @endforeach
 
                         @foreach($variables as $index => $var)
-                            {{ dump($eqnData->id) }}
-                        @endforeach
+                            {{ dump($eqnName) }}
 
                     </td>
 
