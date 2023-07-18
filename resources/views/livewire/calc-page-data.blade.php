@@ -55,7 +55,7 @@
             @endforeach
         </tbody>
     </table>
-
+    {{ dump($variables) }}
 
     <button type="button" wire:click="save">Save</button>
 
