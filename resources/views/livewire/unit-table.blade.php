@@ -76,5 +76,5 @@
             </table>
             <button type="submit">Save</button>
         </form>
-
+{{ dump($units) }}
 </div>
