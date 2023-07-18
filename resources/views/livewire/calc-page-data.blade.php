@@ -12,40 +12,53 @@
         </thead>
 
         <tbody>
-            @foreach($calcPages as $index => $page)
-                <tr wire:key="page-field-{{ $page->id }}">
+            @foreach($calcPages as $eqnName => $eqnData)
+                <tr wire:key="eqnData-field-{{ $eqnData->id }}">
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $index }}.id">
+                        <input type="text" wire:model="calcPages.{{ $eqnName }}.id">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $index }}.formula_name">
+                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_name">
                     </td>
                 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $index }}.formula_description">
+                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_description">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $index }}.formula_sympi">
+                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_sympi">
                     </td>
 
                     <td>
-                        <ul class="">
-                            <li class="">Test1 <input type="text"></li>
-                            <li class="">Test2 <input type="text"></li>
-                        </ul>
+                        <hr>
+                        @foreach($eqnData['variables_json'] as $variableName => $variable)
+                            <ul wire:key="var-field-{{ $variableName }}">
+                            {{ $variableName }}<br>
+                                <li>Unit<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.unit"> </li>
+                                <li>Sympi Symbol<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.sympi_symbol"> </li>
+                                <li>Latex Symbol<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.latex_symbol"> </li>
+                                <li>Description<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.description"> </li>
+
+                            </ul>
+                        @endforeach
                     </td>
 
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $index }}.topic">
+                        <input type="text" wire:model="calcPages.{{ $eqnName }}.topic">
                     </td>
                 
-                    <td><button type="button" wire:click="deletePage('{{ $page['id'] }}')">Delete</button></td>
+                    <td><button type="button" wire:click="deletePage('{{ $eqnData['id'] }}')">Delete</button></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+
+    <button type="button" wire:click="save">Save</button>
+    {{ dump($variables) }}
+
+
 
 </div>
