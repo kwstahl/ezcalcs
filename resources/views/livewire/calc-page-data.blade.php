@@ -46,8 +46,7 @@
                             
                         @endforeach
 
-                        @foreach($variables as $index => $var)
-                            {{ dump($eqnName) }}
+\                            {{ dump($eqnName) }}
 
                     </td>
 
@@ -62,7 +61,6 @@
             @endforeach
         </tbody>
     </table>
-    {{ dump($eqnName) }}
 
     <button type="button" wire:click="save">Save</button>
 
