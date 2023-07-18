@@ -35,10 +35,10 @@
                         @foreach($eqnData['variables_json'] as $variableName => $variable)
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
-                                <li>Unit<input type="text" wire:model="calcPages.{{ $eqnData->id }}.variables_json.{{ $variableName }}.unit"> </li>
-                                <li>Sympi Symbol<input type="text" wire:model="calcPages.{{ $eqnData->id }}.variables_json.{{ $variableName }}.sympi_symbol"> </li>
-                                <li>Latex Symbol<input type="text" wire:model="calcPages.{{ $eqnData->id }}.variables_json.{{ $variableName }}.latex_symbol"> </li>
-                                <li>Description<input type="text" wire:model="calcPages.{{ $eqnData->id }}.variables_json.{{ $variableName }}.description"> </li>
+                                <li>Unit<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.unit"> </li>
+                                <li>Sympi Symbol<input type="text" wire:model="calcPages.{{ $eqnName}}.variables_json.{{ $variableName }}.sympi_symbol"> </li>
+                                <li>Latex Symbol<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.latex_symbol"> </li>
+                                <li>Description<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.description"> </li>
 
                             </ul>
 
