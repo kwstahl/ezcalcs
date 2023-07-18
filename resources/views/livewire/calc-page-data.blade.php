@@ -62,7 +62,7 @@
             @endforeach
         </tbody>
     </table>
-    {{ dump($variables) }}
+    {{ dump($eqnName) }}
 
     <button type="button" wire:click="save">Save</button>
 
