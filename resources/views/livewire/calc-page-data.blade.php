@@ -46,8 +46,6 @@
                             
                         @endforeach
 
-\                            {{ dump($eqnName) }}
-
                     </td>
 
 
@@ -59,6 +57,8 @@
                     <td><button type="button" wire:click="deletePage('{{ $eqnData['id'] }}')">Delete</button></td>
                 </tr>
             @endforeach
+
+            {{ dump($calcPages) }}
         </tbody>
     </table>
 
