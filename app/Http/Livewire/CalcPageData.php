@@ -39,6 +39,26 @@ class CalcPageData extends Component
         }
     }
 
+    private function inputsToJson()
+    {
+        $this->validate();
+        foreach ($this->calcPages as $index => $page){
+            $pageModel = CalcPage::find($page['id']);
+            $pageModel->id = $page['id'];
+            $pageModel->formula_name = $page['formula_name'];
+            $pageModel->formula_description = $page['formula_description'];
+            $pageModel->formula_sympi = $page['formula_sympi'];
+            $pageModel->variables_json = $page['variables_json']->toJson();
+            $pageModel->save();
+        }
+
+    }
+
+    public function save()
+    {
+
+    }
+
     public function render()
     {
         return view('livewire.calc-page-data');

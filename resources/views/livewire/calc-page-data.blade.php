@@ -48,7 +48,8 @@
                     <td>
                         <input type="text" wire:model="calcPages.{{ $eqnName }}.topic">
                     </td>
-                
+            
+
                     <td><button type="button" wire:click="deletePage('{{ $eqnData['id'] }}')">Delete</button></td>
                 </tr>
             @endforeach
