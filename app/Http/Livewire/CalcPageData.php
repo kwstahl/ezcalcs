@@ -15,6 +15,7 @@ class CalcPageData extends Component
     protected $rules = [
         'calcPages.*.*' => 'nullable',
         'calcPages.*.unit' => 'nullable',
+        'calcPages.*.variables_json.*' => 'nullable'
     ];
 
     public function mount()
