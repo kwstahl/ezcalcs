@@ -46,13 +46,6 @@
 
 
         @livewire('calc-page-data')
-
-        <script src="" async defer></script>
-
-
-
-
-
         <script>
             $(document).ready(function(){
                 $("#addVarButton").click(function(){
