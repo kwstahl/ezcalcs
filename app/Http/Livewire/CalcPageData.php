@@ -17,7 +17,6 @@ class CalcPageData extends Component
         'calcPages.*.formula_name' => 'nullable',
         'calcPages.*.formula_sympi' => 'nullable',
         'calcPages.*.id' => 'nullable',
-        'calcPages.*.*.*.*' => 'nullable'
         
     ];
 
