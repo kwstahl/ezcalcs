@@ -21,7 +21,6 @@ class CalcPageData extends Component
     public function mount()
     {
         $this->calcPages::all();
-        $this->calcPages = array_combine($this->calcPages->modelKeys(), $this->calcPages);
     }
 
     public function deletePage($pageId)
