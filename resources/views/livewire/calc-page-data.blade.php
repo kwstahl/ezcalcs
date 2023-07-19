@@ -37,9 +37,9 @@
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
                                 <li>Unit<input type="text" wire:model="variables.{{ $variableName }}.unit"> </li>
-                                <li>Sympi Symbol<input type="text" wire:model="calcPages.{{ $eqnName}}.variables_json.{{ $variableName }}.sympi_symbol"> </li>
-                                <li>Latex Symbol<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.latex_symbol"> </li>
-                                <li>Description<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.description"> </li>
+                                <li>Sympi Symbol<input type="text" wire:model="variables.{{ $variableName }}.symbol"> </li>
+                                <li>Latex Symbol<input type="text" wire:model="variables.{{ $variableName }}.latex_symbol"> </li>
+                                <li>Description<input type="text" wire:model="cvariables.{{ $variableName }}.description"> </li>
 
                             </ul>
 
