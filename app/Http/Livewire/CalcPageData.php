@@ -45,7 +45,7 @@ class CalcPageData extends Component
         }
     }
 
-    private function inputsToJson()
+    public function save()
     {
         $this->validate();
         foreach ($this->calcPages as $index => $page){
@@ -57,11 +57,6 @@ class CalcPageData extends Component
             $pageModel->variables_json = $page['variables_json']->toJson();
             $pageModel->save();
         }
-
-    }
-
-    public function save()
-    {
 
     }
 
