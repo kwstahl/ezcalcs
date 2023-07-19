@@ -37,7 +37,7 @@
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
                                 <li>Unit<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.unit"> </li>
-                                <li>Sympi Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.symbol"> </li>
+                                <li>Sympi Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.sympi_symbol"> </li>
                                 <li>Latex Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.latex_symbol"> </li>
                                 <li>Description<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.description"> </li>
 
