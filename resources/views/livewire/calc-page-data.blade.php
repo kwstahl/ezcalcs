@@ -33,7 +33,7 @@
                     <td>
                         <hr>
 
-                        @foreach($calcPages[$eqnName]['variables_json'] as $variableName => $variable)
+                        @foreach($variables[$eqnData->id] as $variableName => $variable)
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
                                 <li>Unit<input type="text" wire:model="calcPages.{{ $eqnName }}.variables_json.{{ $variableName }}.unit"> </li>
