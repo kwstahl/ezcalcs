@@ -13,8 +13,12 @@ class CalcPageData extends Component
     public $variables;
 
     protected $rules = [
-        'calcPages.*.*' => 'nullable',
-        'calcPages.*.unit' => 'nullable',
+        'calcPages.*.formula_description' => 'nullable',
+        'calcPages.*.formula_name' => 'nullable',
+        'calcPages.*.formula_sympi' => 'nullable',
+        'calcPages.*.id' => 'nullable',
+
+        
     ];
 
 
