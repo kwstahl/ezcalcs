@@ -57,7 +57,7 @@
                     <td><button type="button" wire:click="deletePage('{{ $eqnData['id'] }}')">Delete</button></td>
                 </tr>
 
-                {{ $variables->get($calcPages->id)}}
+                {{ $variables->get($eqnData->id)}}
 
             @endforeach
 
