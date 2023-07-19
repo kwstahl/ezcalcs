@@ -56,12 +56,7 @@
 
                     <td><button type="button" wire:click="deletePage('{{ $eqnData['id'] }}')">Delete</button></td>
                 </tr>
-
-                {{ json_encode($variables[$eqnData->id]) }} <text>POOOPPYYY</text>
-
             @endforeach
-
-            {{ dump($variables) }}
         </tbody>
     </table>
 
