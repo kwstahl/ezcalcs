@@ -13,7 +13,7 @@
 
         <tbody>
             @foreach($calcPages as $eqnName => $eqnData)
-                <tr wire:key="eqnData-field-{{ $eqnData->id }}">
+                <tr wire:key="eqnData-field-{{ $eqnName }}">
                     <td>
                         <input type="text" wire:model="calcPages.{{ $eqnName }}.id">
                     </td>
