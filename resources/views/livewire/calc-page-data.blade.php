@@ -33,7 +33,6 @@
                     <td>
                         <hr>
 
-                        {{ dd($eqnData->id) }}
                         @foreach($calcPages[$eqnName]['variables_json'] as $variableName => $variable)
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
