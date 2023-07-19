@@ -58,7 +58,7 @@ class CalcPageData extends Component
             $pageModel->variables_json = $this->variables->get($pageModel->id);
             $pageModel->save();
         }
-        return redirect()->to('/unit');
+        return redirect()->to('/eqn/create');
 
     }
 
