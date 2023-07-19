@@ -22,7 +22,7 @@ class CalcPageData extends Component
     {
         $this->calcPages = CalcPage::all();
         $this->calcPages->transform(function($item, $key){
-            return [$item['id'] => $item->values()];
+            return [$item['id'] => $item->get()];
         });
         $this->variables = collect();
         //$this->calcPages->each(function($formula, $formulaName){
