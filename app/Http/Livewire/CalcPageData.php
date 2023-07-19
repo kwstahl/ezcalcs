@@ -54,7 +54,7 @@ class CalcPageData extends Component
             $pageModel->formula_name = $page['formula_name'];
             $pageModel->formula_description = $page['formula_description'];
             $pageModel->formula_sympi = $page['formula_sympi'];
-            $pageModel->variables_json = $page['variables_json']->toJson();
+            $pageModel->variables_json = $this->variables[$pageModel->id]->toJson();
             $pageModel->save();
         }
 
