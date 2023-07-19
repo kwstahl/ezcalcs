@@ -22,13 +22,13 @@ class CalcPageData extends Component
     {
         $this->calcPages = CalcPage::all();
         $this->calcPages = $this->calcPages->transform(function($item, $key){
-            return [$item['id'] => $item];
+            return [$item['id'] => $item->values()];
         });
         $this->variables = collect();
         //$this->calcPages->each(function($formula, $formulaName){
         //    $this->variables->put($formula['id'], $formula['variables_json']);
 
-        
+
     }
 
     public function deletePage($pageId)
