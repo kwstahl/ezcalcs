@@ -20,7 +20,7 @@ class CalcPageData extends Component
 
     public function mount()
     {
-        $this->calcPages = CalcPage::all()->all();
+        $this->calcPages = CalcPage::all()->collect();
 
         $this->variables = collect();
         //$this->calcPages->each(function($formula, $formulaName){
