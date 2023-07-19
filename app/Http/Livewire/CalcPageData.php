@@ -21,12 +21,9 @@ class CalcPageData extends Component
     public function mount()
     {
         $this->calcPages = CalcPage::all();
-        $this->calcPages->transform(function($item, $key){
-            return [$item->id => $item->get()];
-        });
-        $this->variables = collect();
-        //$this->calcPages->each(function($formula, $formulaName){
-        //    $this->variables->put($formula['id'], $formula['variables_json']);
+  
+        $this->calcPages->each(function($formula, $formulaName){
+            $this->variables->put($formula['id'], $formula['variables_json']);
 
 
     }
