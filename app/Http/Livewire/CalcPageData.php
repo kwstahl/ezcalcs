@@ -18,7 +18,7 @@ class CalcPageData extends Component
         'calcPages.*.formula_sympi' => 'nullable',
         'calcPages.*.id' => 'nullable',
         'variables.*.unit' => 'nullable',
-        'variables.*.symbol' => 'nullable',
+        'variables.*.latex_symbol' => 'nullable',
         'variables.*.sympi_symbol' => 'nullable',
         'variables.*.description' => 'nullable',
     ];
