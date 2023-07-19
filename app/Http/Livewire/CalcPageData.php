@@ -24,8 +24,7 @@ class CalcPageData extends Component
   
         $this->calcPages->each(function($formula, $formulaName){
             $this->variables->put($formula['id'], $formula['variables_json']);
-
-
+        });
     }
 
     public function deletePage($pageId)
