@@ -27,6 +27,7 @@ class CalcPageData extends Component
     public function mount()
     {
         $this->calcPages = CalcPage::all();
+        $this->variables = json_decode($this->variables);
         $this->variables = $this->calcPages->mapWithKeys(function($item, $key){
             return [$item['id'] => $item['variables_json']];
         });
