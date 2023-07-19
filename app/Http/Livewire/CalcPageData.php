@@ -20,7 +20,7 @@ class CalcPageData extends Component
 
     public function mount()
     {
-        $this->calcPages = CalcPage::all();
+        $this->calcPages = CalcPage::all()->all();
         $this->calcPages = $this->calcPages->transform(function($item, $key){
             return [$item['id'] => $item];
         });
