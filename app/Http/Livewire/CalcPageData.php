@@ -24,6 +24,9 @@ class CalcPageData extends Component
     public function mount()
     {
         $this->calcPages = CalcPage::all();
+        $this->variables = $this->calcPages->map(function($item, $key){
+            return [$item['id'] => $item['variables_json']];
+        });
     }
 
     public function deletePage($pageId)

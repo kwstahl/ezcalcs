@@ -59,7 +59,7 @@
                 </tr>
             @endforeach
 
-            {{ dump($calcPages) }}
+            {{ dump($variables) }}
         </tbody>
     </table>
 
