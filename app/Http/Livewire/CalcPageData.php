@@ -20,7 +20,7 @@ class CalcPageData extends Component
 
     public function mount()
     {
-        $this->calcPages::all();
+        $this->calcPages = CalcPage::all();
     }
 
     public function deletePage($pageId)
