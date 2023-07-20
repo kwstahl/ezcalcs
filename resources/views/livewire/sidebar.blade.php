@@ -22,7 +22,7 @@
     @endforeach
 
 
-        {{ dump($formulas) }}
-        {{ dump($topics) }}
+        {{ dump($calcPages) }}
+        {{ dump($pagesByTopic) }}
 
     </div>
