@@ -13,7 +13,7 @@
                     <ul class="list-unstyled w-100 m-0">
 
                         @foreach($pagesByTopic[$topic] as $pageName => $pageModel)
-                        <li class="listElements"><a href="{{ echo: url('/eqn/{$pageByTopic[$pageName]['id']}') }}"
+                        <li class="listElements"><a href="{{ echo: url('/eqn/{$pageByTopic[$pageName]["id"]}') }}"
                                 class="d-block w-100 h-100 bg-light text-dark p-1">{{ $pageByTopic[$pageName]['formulaName'] }}</a></li>
                         
                         @endforeach
