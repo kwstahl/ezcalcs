@@ -44,7 +44,7 @@ class Sidebar extends Component
             </div>
 
         </div>        
-    </div>
+        </div>
         blade;
     }
 }
