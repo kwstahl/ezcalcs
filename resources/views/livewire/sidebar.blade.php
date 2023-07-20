@@ -11,11 +11,13 @@
             <div id="collapse-{{ $topic }}" class="accorion-collapse collapse show" data-bs-parent="#accordion">
                 <div class="accordion-body p-1">
                     <ul class="list-unstyled w-100 m-0">
+
+                        @foreach($pagesByTopic[$topic] as $pageName => $pageModel)
                         <li class="listElements"><a href="#"
-                                class="d-block w-100 h-100 bg-light text-dark p-1">Velocity</a></li>
-                        <li class="listElements"><a href="#"
-                                class="d-block w-100 h-100 bg-light text-dark p-1">Force</a></li>
-                    </ul>
+                                class="d-block w-100 h-100 bg-light text-dark p-1">{{ $pageName }}</a></li>
+                        
+                        @endforeach
+                        </ul>
                 </div>
             </div>
         </div>
