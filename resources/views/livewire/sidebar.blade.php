@@ -24,7 +24,4 @@
     @endforeach
 
 
-        {{ dump($calcPages) }}
-        {{ dump($pagesByTopic) }}
-
     </div>
