@@ -56,7 +56,7 @@ class CalcPageData extends Component
             $pageModel->formula_description = $page['formula_description'];
             $pageModel->formula_sympi = $page['formula_sympi'];
             $pageModel->variables_json = $this->variables->get($pageModel->id);
-            $pageModel->topic = $page['topic']
+            $pageModel->topic = $page['topic'];
             $pageModel->save();
         }
         return redirect()->to('/eqn/create');
