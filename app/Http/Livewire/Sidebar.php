@@ -26,8 +26,7 @@ class Sidebar extends Component
 
     public function setUrl($pageId)
     {
-        $id = $this->calcPages->where('id', $pageId);
-        echo "/eqn/{$id}";
+        echo "/eqn/{$pageId}";
     }
 
     public function render()
