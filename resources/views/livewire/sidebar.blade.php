@@ -3,6 +3,5 @@
         <!-- Physics Group -->
 
         {{ dump($formulas) }}
-        {{ dump($topics) }}
         
     </div>
