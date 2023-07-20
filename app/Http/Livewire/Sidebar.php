@@ -8,19 +8,19 @@ use App\Models\CalcPage;
 
 class Sidebar extends Component
 {
-    public $formulas;
-    public $topics;
-    public $topicsArray;
+    public $calcPages;
+    public $pagesByTopic;
 
     public function mount()
     {
-        $this->topics = CalcPage::all();
-        $this->formulas = $this->topics->mapToGroups(function($item, $key){
-            return [$item->topic => [
-                'topic' => $item->topic,
+        $this->calcPages = CalcPage::all();
+        $this->pagesByTopic = $this->pagesByTopic->mapToGroups(function($item, $key){
+            return [
+                $item->topic => 
+                ['topic' => $item->topic,
                 'id' => $item->id,
-                'formulaName' => $item->formula_name,
-            ]];
+                'formulaName' => $item->formula_name,]
+            ];
         });
     }   
 
