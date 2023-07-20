@@ -14,7 +14,7 @@
 
                         @foreach($pagesByTopic[$topic] as $pageName => $pageModel)
                         <li class="listElements"><a href="#"
-                                class="d-block w-100 h-100 bg-light text-dark p-1">{{ $pageModel->formulaName }}</a></li>
+                                class="d-block w-100 h-100 bg-light text-dark p-1">{{ $pageByTopic[$pageName]['formulaName'] }}</a></li>
                         
                         @endforeach
                         </ul>
