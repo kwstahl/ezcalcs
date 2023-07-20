@@ -24,6 +24,12 @@ class Sidebar extends Component
         });
     }   
 
+    public function setUrl($pageId)
+    {
+
+        echo url("/eqn/{$calcPages[$pageId]}");
+    }
+
     public function render()
     {
         return view('livewire.sidebar');
