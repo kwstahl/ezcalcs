@@ -2,5 +2,6 @@
     <div class="accordion" id="accordionExample">
         <!-- Physics Group -->
         {{ dump($topics) }}
+        {{ dump($formulas) }}
         
     </div>
