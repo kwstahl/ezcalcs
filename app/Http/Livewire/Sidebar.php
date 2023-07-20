@@ -16,7 +16,8 @@ class Sidebar extends Component
     {
         $this->formulas = CalcPage::all();
         $this->topics = $this->formulas->pluck('topic')->unique();
-    }
+        $this->formulas = CalcPage::whereIn('topic', $this->topics)->get()
+    }   
 
     public function render()
     {
