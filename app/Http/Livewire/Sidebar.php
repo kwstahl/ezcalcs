@@ -15,7 +15,7 @@ class Sidebar extends Component
     public function mount()
     {
         $this->topics = CalcPage::all()->pluck('topic')->unique();
-        $this->formulas = CalcPage::all()->groupBy('topic');
+        $this->formulas = CalcPage::all()->all()->groupBy('topic');
     }   
 
     public function render()
