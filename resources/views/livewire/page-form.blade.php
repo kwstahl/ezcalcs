@@ -13,7 +13,7 @@
                     </div>
                 </div> 
 
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                     <input 
                         class="form-control"
                         type="text" 
@@ -25,7 +25,7 @@
                     >
                 </div>
 
-                <div class="col-sm">
+                <div class="col-sm-3">
                     <select class="form-select" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                         <option selected>{{ $variableName }}</option>
                         @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
