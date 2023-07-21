@@ -21,13 +21,14 @@
                     <label>{{ $variable['unit'] }}</label>
                 </div>
 
-                <div class="col-4">
+                <div class="col-4 form-floating">
                     <select class="form-select" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                         <option selected>{{ $variableName }}</option>
                         @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                             <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                         @endforeach
                     </select>
+                    <label>{{ $variableName }}</label>
                 </div>
             </div>    
         @endforeach
