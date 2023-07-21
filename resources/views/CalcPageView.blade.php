@@ -39,7 +39,6 @@
     <div class="container-fluid row">
         <!-- Accordion -->
         @livewire('sidebar')
-    </div>
 
         <!-- Form -->
         <form class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
