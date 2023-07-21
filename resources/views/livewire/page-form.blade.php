@@ -1,3 +1,4 @@
+<div>
 
 <!-- 
     
@@ -7,37 +8,33 @@
     the unit_class, for which $index queries the unit_class in the collection, and [0] is the symbol argument, and [1] is the conversion factor.
 
 -->
-<form class="row align-items-center">
-    @foreach($variables as $variableName => $variable)
-        <div class="row mb-3">
-            <!-- Label -->
-            <label class="col col-form-label">{{ $variable['unit'] }}</label>
 
-            <!-- Text and Radio -->
-            <div class="input-group col-6" wire:key="variable-field-{{ $variableName }}">
-                <div class="input-group-text">
-                    <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                </div>    
-                <input 
-                    class="form-control"
-                    type="text" 
-                    name="{{$variableName}}" 
-                    wire:model="boundDataForSympy.{{ $variableName }}.Value" 
-                    @if($variableToSolveFor === $variableName) 
-                        disabled 
-                    @endif>
-            </div>
+    @foreach($variables as $variableName => $variable)
+        <div class="input-group mb-3" wire:key="variable-field-{{ $variableName }}">
+            <div class="input-group-text">
+                <label class="input-group">{{ $variable['unit'] }}</label><br>
+                <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                
+
             
-            <!-- Select -->
-            <select class="form-select col" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
-                <option selected>Choose {{ $variableName }} Unit</option>
+            <input 
+                class="form-control"
+                type="text" 
+                name="{{$variableName}}" 
+                wire:model="boundDataForSympy.{{ $variableName }}.Value" 
+                @if($variableToSolveFor === $variableName) 
+                    disabled 
+                @endif>
+            
+            <select class="form-select" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
+                <option selected>{{ $variableName }}</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                 @endforeach
             </select>
-        </div>
+        </div>    
     @endforeach
-    
+
     <div>
         <button wire:click.prevent="setAnswer">Run Script</button>
     </div>
@@ -45,4 +42,5 @@
     <div>
         Answer: {{ $answer }}
     </div>
-</form>
+
+</div>
