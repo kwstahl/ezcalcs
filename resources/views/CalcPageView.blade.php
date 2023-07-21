@@ -41,10 +41,10 @@
         @livewire('sidebar')
 
         <!-- Content -->
-        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6">
-            <div class="row">
-                <p class="h1">{{ $title }}</p>
-                <p class="h2">{{ $formula_sympi }}</p>
+        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3">
+            <div class="row p-2">
+                <p class="h1 text-center p-1">{{ $title }}</p>
+                <p class="h2 text-center p-1">{{ $formula_sympi }}</p>
             </div>
 
                 @isset($id)
