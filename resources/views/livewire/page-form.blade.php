@@ -3,7 +3,7 @@
         @foreach($variables as $variableName => $variable)
             <div class="row g-0" wire:key="variable-field-{{ $variableName }}">
 
-                <div class="col-2">
+                <div class="col">
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
                 
@@ -13,7 +13,7 @@
                     </div>
                 </div> 
 
-                <div class="col-5">
+                <div class="col-4">
                     <input 
                         class="form-control"
                         type="text" 
@@ -25,7 +25,7 @@
                     >
                 </div>
 
-                <div class="col-4">
+                <div class="col">
                     <select class="form-select" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                         <option selected>{{ $variableName }}</option>
                         @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
