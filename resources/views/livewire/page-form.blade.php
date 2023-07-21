@@ -13,7 +13,7 @@
                     </div>
                 </div> 
 
-                <div class="col-sm-7">
+                <div class="col-sm-8">
                     <input 
                         class="form-control"
                         type="text" 
