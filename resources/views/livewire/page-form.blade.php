@@ -11,8 +11,10 @@
 
     @foreach($variables as $variableName => $variable)
         <div class="input-group mb-3" wire:key="variable-field-{{ $variableName }}">
-            <label class="input-group-text">{{ $variable['unit'] }}</label>
-            <input class="form-check-input mt-0" type="radio" name="solveFor" class="col-1" value="{{$variableName}}" wire:model="variableToSolveFor">
+            <label>{{ $variable['unit'] }}</label><br>
+            <div class="input-group-text">
+                <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+            </div>
             <input 
                 class="form-control"
                 type="text" 
