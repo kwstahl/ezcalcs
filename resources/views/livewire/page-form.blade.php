@@ -15,7 +15,7 @@
             <div class="input-group-text">
                 <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
             </div>    
-                        
+
             <input 
                 class="form-control"
                 type="text" 
@@ -26,7 +26,7 @@
                 @endif>
             
             <select class="form-select" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
-                <option selected>{{ $variableName }}</option>
+                <option selected>Choose {{ $variableName }} Unit</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                 @endforeach
