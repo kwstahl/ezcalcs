@@ -42,12 +42,12 @@
 
         <!-- Content -->
         <div class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
-            <div>
+            <div class="row">
                 <p>{{ $title }}</p>
                 <!-- Form -->
             </div>
 
-            <form class="">
+            <form class="row">
                 @isset($id)
                     {{ $title }} <br>
                     {{ $description }} <br>
