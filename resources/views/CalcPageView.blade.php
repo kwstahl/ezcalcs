@@ -43,15 +43,13 @@
         <!-- Content -->
         <div class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
             <div class="row">
-                <p>{{ $title }}</p>
-                <!-- Form -->
+                <p class="h1">{{ $title }}</p>
+                <p class="h2">{{ $formula_sympi }}</p>
             </div>
 
             <form class="row">
                 @isset($id)
-                    {{ $title }} <br>
                     {{ $description }} <br>
-                    {{ $formula_sympi }} <br>
                     @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
                 @endisset
                 <input type='submit'>
