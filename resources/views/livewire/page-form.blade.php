@@ -1,21 +1,24 @@
 <form class="row">
-
-<div>
+    <div>
         @foreach($variables as $variableName => $variable)
             <div wire:key="variable-field-{{ $variableName }}">
-                <text>{{ $variable['unit'] }}</text>
-                <div>
-                    <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                <label class="col-sm">{{ $variable['unit'] }}</label>
+
+                    <div>
+                        <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                    </div>
+
+                    <div>
+                        <input 
+                            type="text" 
+                            name="{{$variableName}}" 
+                            wire:model="boundDataForSympy.{{ $variableName }}.Value" 
+                            @if($variableToSolveFor === $variableName) 
+                                disabled 
+                            @endif
+                        >
+                    </div>
                     
-                    <input 
-                        type="text" 
-                        name="{{$variableName}}" 
-                        wire:model="boundDataForSympy.{{ $variableName }}.Value" 
-                        @if($variableToSolveFor === $variableName) 
-                            disabled 
-                        @endif>
-                
-                </div>
                 <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                     <option selected>{{ $variableName }}</option>
                     @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
@@ -32,5 +35,5 @@
         <div>
             Answer: {{ $answer }}
         </div>
-</div>
+    </div>
 </form>
