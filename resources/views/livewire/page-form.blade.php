@@ -1,4 +1,4 @@
-
+<div>
 <!-- 
     
 -$index is exactly the variable name, in first loop.
@@ -7,7 +7,6 @@
     the unit_class, for which $index queries the unit_class in the collection, and [0] is the symbol argument, and [1] is the conversion factor.
 
 -->
-    <div>
         @foreach($variables as $variableName => $variable)
             <div wire:key="variable-field-{{ $variableName }}">
                 <text>{{ $variable['unit'] }}</text>
