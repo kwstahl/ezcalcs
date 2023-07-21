@@ -47,10 +47,12 @@
                 <p class="h2">{{ $formula_sympi }}</p>
             </div>
 
-            
+            <form class="row">
                 @isset($id)
+                    {{ $description }} <br>
                     @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
                 @endisset
+            </form>
         </div>
 
         <div class="col-lg-4 col-md-4 col-xl-4 col-sm-5">
