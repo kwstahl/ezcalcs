@@ -40,20 +40,25 @@
         <!-- Accordion -->
         @livewire('sidebar')
 
-        <!-- Form -->
-        <form class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
-            @isset($id)
-                {{ $title }} <br>
-                {{ $description }} <br>
-                {{ $formula_sympi }} <br>
-                @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
-            @endisset
-            <input type='submit'>
-        </form>
+        <!-- Content -->
+        <div class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
+            <div>
+                <p>{{ $title }}</p>
+                <!-- Form -->
+            </div>
 
-
-
+            <form class="">
+                @isset($id)
+                    {{ $title }} <br>
+                    {{ $description }} <br>
+                    {{ $formula_sympi }} <br>
+                    @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+                @endisset
+                <input type='submit'>
+            </form>
+        </div>
     </div>
+
     <script async defer>
         $(document).ready(function() {
             $(".listElements").addClass("border rounded m-0");
