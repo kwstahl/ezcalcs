@@ -13,17 +13,18 @@
                     </div>
                 </div> 
 
-
-                <input 
-                    class="form-control col-sm-7"
-                    type="text" 
-                    name="{{$variableName}}" 
-                    wire:model="boundDataForSympy.{{ $variableName }}.Value" 
-                    @if($variableToSolveFor === $variableName) 
-                        disabled 
-                    @endif
-                >
-
+                <div class="col-sm-7">
+                    <input 
+                        class="form-control"
+                        type="text" 
+                        name="{{$variableName}}" 
+                        wire:model="boundDataForSympy.{{ $variableName }}.Value" 
+                        @if($variableToSolveFor === $variableName) 
+                            disabled 
+                        @endif
+                    >
+                </div>
+                
                 <div class="col-sm">
                     <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                         <option selected>{{ $variableName }}</option>
