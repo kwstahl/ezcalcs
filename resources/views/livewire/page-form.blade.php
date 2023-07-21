@@ -1,4 +1,4 @@
-<form class="row">
+<form class="row gx-3 gy-2 align-items-center">
     <div>
         @foreach($variables as $variableName => $variable)
             <div class="row" wire:key="variable-field-{{ $variableName }}">
@@ -7,8 +7,8 @@
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
                 
-                <div class="col-sm p-0">
-                    <div class="form-check p-0">
+                <div class="col-sm">
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     </div>
                 </div> 
