@@ -7,7 +7,6 @@
     the unit_class, for which $index queries the unit_class in the collection, and [0] is the symbol argument, and [1] is the conversion factor.
 
 -->
-<form class="row">
     <div>
         @foreach($variables as $variableName => $variable)
             <div wire:key="variable-field-{{ $variableName }}">
@@ -40,6 +39,4 @@
         <div>
             Answer: {{ $answer }}
         </div>
-
     </div>
-</form>
