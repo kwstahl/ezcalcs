@@ -42,16 +42,20 @@
 
         <!-- Content -->
         <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3">
+
+            <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
                 <p class="h2 text-center p-1">{{ $formula_sympi }}</p>
             </div>
 
-                @isset($id)
-                    @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
-                @endisset
+            <!-- Form, is a row -->
+            @isset($id)
+                @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+            @endisset
         </div>
 
+        
         <div class="col-lg-3 col-md-3 col-xl-3 col-sm-4">
             {{ $description }}
         </div>
