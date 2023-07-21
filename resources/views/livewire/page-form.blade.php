@@ -3,7 +3,7 @@
         @foreach($variables as $variableName => $variable)
             <div class="row mb-1 gx-1 gy-2 align-items-center" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-1">
-                    <div class="form-check">
+                    <div class="form-check align-items-center">
                         <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     </div>
                 </div> 
