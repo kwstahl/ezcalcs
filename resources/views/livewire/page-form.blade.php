@@ -1,3 +1,4 @@
+<div>
 
 <!-- 
     
@@ -7,36 +8,37 @@
     the unit_class, for which $index queries the unit_class in the collection, and [0] is the symbol argument, and [1] is the conversion factor.
 
 -->
+
     @foreach($variables as $variableName => $variable)
-        <div class="" wire:key="variable-field-{{ $variableName }}">
-            <label class="">{{ $variable['unit'] }}</label>
-
-            <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-            <input 
-                class=""
-                type="text" 
-                name="{{$variableName}}" 
-                wire:model="boundDataForSympy.{{ $variableName }}.Value" 
-                @if($variableToSolveFor === $variableName) 
-                    disabled 
-                @endif>
+        <div wire:key="variable-field-{{ $variableName }}">
+            <text>{{ $variable['unit'] }}</text>
+            <div>
+                <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                
+                <input 
+                    type="text" 
+                    name="{{$variableName}}" 
+                    wire:model="boundDataForSympy.{{ $variableName }}.Value" 
+                    @if($variableToSolveFor === $variableName) 
+                        disabled 
+                    @endif>
             
-
-                <select class="form-select" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
-                    <option selected>{{ $variableName }}</option>
-                    @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
-                        <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
-                    @endforeach
-                </select>
+            </div>
+            <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
+                <option selected>{{ $variableName }}</option>
+                @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
+                    <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
+                @endforeach
+            </select>
         </div>    
     @endforeach
 
     <div>
-        <div>
-            <button wire:click.prevent="setAnswer">Run Script</button>
-        </div>
-
-        <div>
-            Answer: {{ $answer }}
-        </div>
+        <button wire:click.prevent="setAnswer">Run Script</button>
     </div>
+
+    <div>
+        Answer: {{ $answer }}
+    </div>
+
+</div>
