@@ -1,7 +1,8 @@
 <form class="row">
     <div>
         @foreach($variables as $variableName => $variable)
-            <div wire:key="variable-field-{{ $variableName }}">
+            <div class="row" wire:key="variable-field-{{ $variableName }}">
+
                 <div class="col-sm">
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
