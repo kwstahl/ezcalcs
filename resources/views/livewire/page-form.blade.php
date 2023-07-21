@@ -14,10 +14,7 @@
             </div>
 
             <div class="col-sm-7">
-                <div class="input-group">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                    </div>
+                    <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     <input 
                         class="form-control"
                         type="text" 
@@ -26,7 +23,6 @@
                         @if($variableToSolveFor === $variableName) 
                             disabled 
                         @endif>
-                </div>
             </div>
             
 
