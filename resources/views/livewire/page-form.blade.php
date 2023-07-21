@@ -7,7 +7,11 @@
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
                 
-                <input class="form-check-input col-sm" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                <div class="col-sm form-check">
+                    <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                </div> 
+
+
                 <input 
                     class="form-control col-sm-7"
                     type="text" 
