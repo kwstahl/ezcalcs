@@ -41,8 +41,8 @@
         @livewire('sidebar')
 
         <!-- Content -->
-        <div class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
-            <div class="row col-lg-11 col-md-10 col-xl-10 col-sm-10">
+        <div class="col-lg-9 col-md-8 col-xl-8 col-sm-8">
+            <div class="row">
                 <p class="h1">{{ $title }}</p>
                 <p class="h2">{{ $formula_sympi }}</p>
             </div>
@@ -54,11 +54,12 @@
                 @endisset
             </form>
 
-            <div class="row col-lg-1 col-md-3 col-xl-3 col-sm-3">
-                {{ $description }} <br>
-            </div>
 
 
+        </div>
+
+        <div class="col-lg-1 col-md-2 col-xl-2 col-sm-2">
+            {{ $description }}
         </div>
     </div>
 
