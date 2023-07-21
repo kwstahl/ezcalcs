@@ -1,3 +1,4 @@
+<!-- Accordion -->
 <div class="col-lg-2 col-md-3 col-sm-3 col-xl-2 p-0">
     <div class="accordion accordion-flush" id="accordionExample">
         <!-- Physics Group -->
@@ -10,10 +11,10 @@
 
             <div id="collapse-{{ $topic }}" class="accorion-collapse collapse show" data-bs-parent="#accordion">
                 <div class="accordion-body p-1">
-                    <ul class="list-unstyled w-100 m-0">
 
+                    <ul class="list-group list-group-flush">
                         @foreach($pagesByTopic[$topic] as $pageName => $pageModel)
-                        <li class="listElements"><a href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}"
+                        <li class="list-group-item"><a href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}"
                                 class="d-block w-100 h-100 bg-light text-dark p-1">{{ $pageByTopic[$pageName]['formulaName'] }}</a></li>
                         
                         @endforeach
