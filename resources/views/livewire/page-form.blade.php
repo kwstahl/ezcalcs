@@ -7,7 +7,7 @@
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
                 
-                <div class="col-sm">
+                <div class="col-sm-1">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     </div>
