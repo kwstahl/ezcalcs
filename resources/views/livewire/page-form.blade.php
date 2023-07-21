@@ -13,7 +13,7 @@
                     </div>
                 </div> 
 
-                <div class="col-4">
+                <div class="col-8 form-floating">
                     <input 
                         class="form-control"
                         type="text" 
@@ -23,6 +23,7 @@
                             disabled 
                         @endif
                     >
+                    <label>{{ $variable['unit'] }}</label>
                 </div>
 
                 <div class="col">
