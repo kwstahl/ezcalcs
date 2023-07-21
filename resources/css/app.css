@@ -2,6 +2,6 @@ button.accordion-button{
     background-color: #C3CEDA;
 }
 
-button.accordion-button:not(.collapsed){
+button.accordion-button.collapsed{
     background-color: #738FA7;
 }
