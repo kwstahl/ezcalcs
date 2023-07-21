@@ -37,11 +37,11 @@
 
     <!-- Master Container -->
     <div class="container-fluid row">
-        <!-- Accordion -->
+        <!-- Accordion col-lg-2 col-md-3 col-sm-3 col-xl-2 p-0 -->
         @livewire('sidebar')
 
         <!-- Content -->
-        <div class="col-lg-9 col-md-8 col-xl-8 col-sm-8">
+        <div class="col-lg-8 col-md-7 col-xl-7 col-sm-7">
             <div class="row">
                 <p class="h1">{{ $title }}</p>
                 <p class="h2">{{ $formula_sympi }}</p>
@@ -53,12 +53,9 @@
                     @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
                 @endisset
             </form>
-
-
-
         </div>
 
-        <div class="col-lg-1 col-md-2 col-xl-2 col-sm-2">
+        <div class="col-lg-2 col-md-2 col-xl-2 col-sm-2">
             {{ $description }}
         </div>
     </div>
