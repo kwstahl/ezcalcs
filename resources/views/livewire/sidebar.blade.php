@@ -14,8 +14,8 @@
 
                     <ul class="list-group list-group-flush">
                         @foreach($pagesByTopic[$topic] as $pageName => $pageModel)
-                        <li class="list-group-item p-0">
-                            <a href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}" class="stretched-link p-1 link-dark link-underline link-underline-opacity-0">{{ $pageByTopic[$pageName]['formulaName'] }}</a></li>
+                        <li class="list-group-item p-1">
+                            <a href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}" class="stretched-link link-dark link-underline link-underline-opacity-0">{{ $pageByTopic[$pageName]['formulaName'] }}</a></li>
                         
                         @endforeach
                         </ul>
