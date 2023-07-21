@@ -1,7 +1,7 @@
 <form class="row">
     <div>
         @foreach($variables as $variableName => $variable)
-            <div class="row gx-1 gy-2 align-items-center" wire:key="variable-field-{{ $variableName }}">
+            <div class="row mb-1 gx-1 gy-2 align-items-center" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-1">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
@@ -28,7 +28,7 @@
                             <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                         @endforeach
                     </select>
-                    <label>Unit: {{ $variable['unit'] }}</label>
+                    <label> Unit: {{.$variable['unit'] }}</label>
                 </div>
             </div>    
         @endforeach
