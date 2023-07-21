@@ -15,7 +15,7 @@
 
             <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
             <input 
-                class="form-control"
+                class=""
                 type="text" 
                 name="{{$variableName}}" 
                 wire:model="boundDataForSympy.{{ $variableName }}.Value" 
