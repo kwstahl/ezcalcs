@@ -1,7 +1,7 @@
-<form class="row gx-1 gy-1 align-items-center">
+<form class="row align-items-center">
     <div>
         @foreach($variables as $variableName => $variable)
-            <div class="row" wire:key="variable-field-{{ $variableName }}">
+            <div class="row g-0" wire:key="variable-field-{{ $variableName }}">
 
                 <div class="col-sm">
                     <label class="">{{ $variable['unit'] }}</label>
