@@ -8,7 +8,7 @@
 
 -->
     @foreach($variables as $variableName => $variable)
-        <div class="row" wire:key="variable-field-{{ $variableName }}">
+        <div class="" wire:key="variable-field-{{ $variableName }}">
             <div class="col-sm">
                 <label class="">{{ $variable['unit'] }}</label>
             </div>
