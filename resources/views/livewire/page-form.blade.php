@@ -1,4 +1,4 @@
-<form class="row gx-3 gy-2 align-items-center">
+<form class="row gx-1 gy-1 align-items-center">
     <div>
         @foreach($variables as $variableName => $variable)
             <div class="row" wire:key="variable-field-{{ $variableName }}">
