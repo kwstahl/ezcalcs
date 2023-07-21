@@ -3,28 +3,29 @@
         @foreach($variables as $variableName => $variable)
             <div wire:key="variable-field-{{ $variableName }}">
                 <label class="col-sm">{{ $variable['unit'] }}</label>
+                <div>
+                    <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                </div>
 
-                    <div>
-                        <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                    </div>
+                <div class="col-sm-7">
+                    <input 
+                        type="text" 
+                        name="{{$variableName}}" 
+                        wire:model="boundDataForSympy.{{ $variableName }}.Value" 
+                        @if($variableToSolveFor === $variableName) 
+                            disabled 
+                        @endif
+                    >
+                </div>
 
-                    <div>
-                        <input 
-                            type="text" 
-                            name="{{$variableName}}" 
-                            wire:model="boundDataForSympy.{{ $variableName }}.Value" 
-                            @if($variableToSolveFor === $variableName) 
-                                disabled 
-                            @endif
-                        >
-                    </div>
-                    
-                <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
-                    <option selected>{{ $variableName }}</option>
-                    @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
-                        <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
-                    @endforeach
-                </select>
+                <div class="col-sm">
+                    <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
+                        <option selected>{{ $variableName }}</option>
+                        @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
+                            <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>    
         @endforeach
 
