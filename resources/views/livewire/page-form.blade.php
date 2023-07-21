@@ -1,3 +1,5 @@
+<form class="row">
+
 <div>
         @foreach($variables as $variableName => $variable)
             <div wire:key="variable-field-{{ $variableName }}">
@@ -30,4 +32,5 @@
         <div>
             Answer: {{ $answer }}
         </div>
-    </div>
+</div>
+</form>
