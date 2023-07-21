@@ -7,7 +7,6 @@
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
                 
-                <div class="col-sm-7 input-group">
                     <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     <input 
                         class="form-control"
@@ -18,7 +17,6 @@
                             disabled 
                         @endif
                     >
-                </div>
 
                 <div class="col-sm">
                     <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
