@@ -13,8 +13,9 @@
         <div class="row mb-3">
             <!-- Label -->
             <label class="col-3 col-form-label">{{ $variable['unit'] }}</label>
+
             <!-- Text and Radio -->
-            <div class="input-group mb-3 col-6" wire:key="variable-field-{{ $variableName }}">
+            <div class="input-group col-6" wire:key="variable-field-{{ $variableName }}">
                 <div class="input-group-text">
                     <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                 </div>    
