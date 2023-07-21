@@ -10,12 +10,11 @@
 -->
 
     @foreach($variables as $variableName => $variable)
-        <div wire:key="variable-field-{{ $variableName }}">
-            <text>{{ $variable['unit'] }}</text>
-            <div>
-                <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                
+        <div class="row" wire:key="variable-field-{{ $variableName }}">
+            <p>{{ $variable['unit'] }}</p>
+                <input type="radio" name="solveFor" class="col-1" value="{{$variableName}}" wire:model="variableToSolveFor">
                 <input 
+                    class="col-8"
                     type="text" 
                     name="{{$variableName}}" 
                     wire:model="boundDataForSympy.{{ $variableName }}.Value" 
@@ -23,8 +22,7 @@
                         disabled 
                     @endif>
             
-            </div>
-            <select wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
+            <select class="form-select col-3" wire:model="boundDataForSympy.{{ $variableName }}.unit_conversion">
                 <option selected>{{ $variableName }}</option>
                 @foreach($variable['unitOptions'] as $subUnitIndex => $subUnit)
                     <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
