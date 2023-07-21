@@ -18,7 +18,7 @@
                             disabled 
                         @endif
                     >
-                    <label>{{ $variable['unit'] }}</label>
+                    <label>{{ $variableName }}</label>
                 </div>
 
                 <div class="col-4 form-floating">
@@ -28,7 +28,7 @@
                             <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                         @endforeach
                     </select>
-                    <label>{{ $variableName }}</label>
+                    <label>{{ $variable['unit'] }}</label>
                 </div>
             </div>    
         @endforeach
