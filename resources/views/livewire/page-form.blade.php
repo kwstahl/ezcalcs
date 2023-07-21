@@ -1,4 +1,3 @@
-<div>
 
 <!-- 
     
@@ -8,7 +7,7 @@
     the unit_class, for which $index queries the unit_class in the collection, and [0] is the symbol argument, and [1] is the conversion factor.
 
 -->
-
+<form class="row align-items-center">
     @foreach($variables as $variableName => $variable)
         <div class="row mb-3">
             <!-- Label -->
@@ -38,7 +37,7 @@
             </select>
         </div>
     @endforeach
-
+    
     <div>
         <button wire:click.prevent="setAnswer">Run Script</button>
     </div>
@@ -46,5 +45,4 @@
     <div>
         Answer: {{ $answer }}
     </div>
-
-</div>
+</form>
