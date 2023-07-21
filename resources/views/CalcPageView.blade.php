@@ -42,7 +42,7 @@
 
         <!-- Content -->
         <div class="col-lg-10 col-md-9 col-xl-9 col-sm-9">
-            <div class="row">
+            <div class="row col-lg-11 col-md-10 col-xl-10 col-sm-10">
                 <p class="h1">{{ $title }}</p>
                 <p class="h2">{{ $formula_sympi }}</p>
             </div>
@@ -52,8 +52,13 @@
                     {{ $description }} <br>
                     @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
                 @endisset
-                <input type='submit'>
             </form>
+
+            <div class="row col-lg-1 col-md-3 col-xl-3 col-sm-3">
+                {{ $description }} <br>
+            </div>
+
+
         </div>
     </div>
 
