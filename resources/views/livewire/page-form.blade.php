@@ -4,12 +4,10 @@
             <div class="row mb-1 align-items-center gx-1" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-1">
                     <div class="form-check">
-                        <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                        <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     </div>
                 </div> 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                </div>
+
                 <div class="col-7 form-floating">
                     <input 
                         class="form-control"
