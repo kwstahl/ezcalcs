@@ -28,7 +28,7 @@
                             <option value="{{ $subUnit['conversion_to_base'] }}">{{ $subUnit['symbol'] }} </option>
                         @endforeach
                     </select>
-                    <label> Unit: {{.$variable['unit'] }}</label>
+                    <label> Unit: {{$variable['unit'] }}</label>
                 </div>
             </div>    
         @endforeach
