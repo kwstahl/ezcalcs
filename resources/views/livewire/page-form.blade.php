@@ -2,8 +2,11 @@
     <div>
         @foreach($variables as $variableName => $variable)
             <div wire:key="variable-field-{{ $variableName }}">
-                <label class="col-sm">{{ $variable['unit'] }}</label>
-                <div>
+                <div class="col-sm">
+                    <label class="">{{ $variable['unit'] }}</label>
+                </div>
+                
+                <div class="col-sm">
                     <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                 </div>
 
