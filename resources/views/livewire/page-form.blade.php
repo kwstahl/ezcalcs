@@ -8,9 +8,7 @@
                 </div>
                 
                 <div class="col-sm-7 input-group">
-                    <div class="input-group-text">
-                        <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                    </div>
+                    <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
                     <input 
                         class="form-control"
                         type="text" 
