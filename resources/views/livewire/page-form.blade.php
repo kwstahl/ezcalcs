@@ -13,17 +13,15 @@
                 <label class="">{{ $variable['unit'] }}</label>
             </div>
 
-            <div class="col-sm-7">
-                    <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                    <input 
-                        class="form-control"
-                        type="text" 
-                        name="{{$variableName}}" 
-                        wire:model="boundDataForSympy.{{ $variableName }}.Value" 
-                        @if($variableToSolveFor === $variableName) 
-                            disabled 
-                        @endif>
-            </div>
+            <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+            <input 
+                class="form-control"
+                type="text" 
+                name="{{$variableName}}" 
+                wire:model="boundDataForSympy.{{ $variableName }}.Value" 
+                @if($variableToSolveFor === $variableName) 
+                    disabled 
+                @endif>
             
 
             <div class="col-sm">
