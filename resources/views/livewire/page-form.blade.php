@@ -7,12 +7,12 @@
                     <label class="">{{ $variable['unit'] }}</label>
                 </div>
                 
-                <div class="col-sm">
-                    <input type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
-                </div>
-
-                <div class="col-sm-7">
+                <div class="col-sm-7 input-group">
+                    <div class="input-group-text">
+                        <input class="form-check-input" type="radio" name="solveFor" value="{{$variableName}}" wire:model="variableToSolveFor">
+                    </div>
                     <input 
+                        class="form-control"
                         type="text" 
                         name="{{$variableName}}" 
                         wire:model="boundDataForSympy.{{ $variableName }}.Value" 
