@@ -90,7 +90,8 @@ class PageForm extends Component
         });
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
         $this->answer = Process::run($command)->output();
-        $this->errorOut = $this->answer->errorOutput();
+
+        $this->errorOut = Process::run($command)->errorOutput();
     }
 
     public function render()
