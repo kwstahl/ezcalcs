@@ -60,7 +60,7 @@
 
         <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-3 shadow">
             <div class="row">
-                <p class="h1 text-center p-1">
+                <p class="h3 text-center p-1">
                     Formula and Variables Information
                 </p>
             </div>
