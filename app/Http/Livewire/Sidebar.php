@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\CalcPage;
+use Illuminate\Support\Str;
 
 
 class Sidebar extends Component
@@ -29,8 +30,12 @@ class Sidebar extends Component
         echo "/eqn/{$pageId}";
     }
 
+
+
     public function render()
     {
         return view('livewire.sidebar');
     }
+
+
 }
