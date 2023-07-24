@@ -1,7 +1,7 @@
-<form class="row">
+<form class="row border border-rounded">
         <!-- Row Created for each variable -->
         @foreach ($variables as $variableName => $variable)
-
+            <hr>
             <div class="row gx-1 gy-1 mb-1" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-8">
                     <!-- Input group -->

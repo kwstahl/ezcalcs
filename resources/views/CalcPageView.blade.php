@@ -42,7 +42,7 @@
         @livewire('sidebar')
 
         <!-- Content -->
-        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3">
+        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3 border border-rounded">
             <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
@@ -56,7 +56,7 @@
         </div>
 
         
-        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4">
+        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border border-rounded">
             @livewire('information', ['description' => $description, 'variables' => $variables])
         </div>
     </div>
