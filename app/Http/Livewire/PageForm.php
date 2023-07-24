@@ -13,9 +13,9 @@ class PageForm extends Component
     public $variableToSolveFor;
     public $answer;
     protected $rules = [
-        'boundDataForSympy.*.Value' => 'nullable|numeric',
+        'boundDataForSympy.*.Value' => 'nullable',
         'boundDataForSympy.*.unit_conversion' => 'nullable|numeric',
-        'variableToSolveFor' => 'nullable|numeric',
+        'variableToSolveFor' => 'nullable',
     ];
 
     public function mount()
@@ -40,7 +40,7 @@ class PageForm extends Component
         $this->boundDataForSympy = $this->variables->mapWithKeys(function ($variable, $variableName) {
             return [
                 $variableName => [
-                    'Value' => (float) '',
+                    'Value' => '',
                     'unit_conversion' => (float) 0.0,
                 ]
             ];
@@ -81,7 +81,7 @@ class PageForm extends Component
     {
         $this->boundDataForSympy = $this->boundDataForSympy->map(function ($variable) {
             return [
-                'Value' => (float) $variable['Value'] ?: '',
+                'Value' => $variable['Value'] ?: '',
                 'unit_conversion' => (float) $variable['unit_conversion'] ?: '',
             ];
         });
