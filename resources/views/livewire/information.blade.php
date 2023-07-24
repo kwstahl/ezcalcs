@@ -8,7 +8,7 @@
 
         @foreach ($variables as $variableName => $variable)
             <button class="nav-link text-center align-items-center " id="nav-{{ $variableName }}-tab" data-bs-toggle="tab"
-                data-bs-target="#nav-{{ $variableName }}" type="button" role="tab"> {{ $variableName }} ({{$variable['latex_symbol']}}) </button>
+                data-bs-target="#nav-{{ $variableName }}" type="button" role="tab"> {{ $variableName }} <span>({{$variable['latex_symbol']}})</span> </button>
         @endforeach
 
     </div>
