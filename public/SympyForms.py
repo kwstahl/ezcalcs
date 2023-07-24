@@ -40,7 +40,8 @@ class Formula:
         for variable_name, variable_value, sympy_symbol, unit_conversion in self.generate_value_symbol_tuples():
             #loop through variable array and multiply values by conversion factors then substitute variables with this value
             if variable_value != "":
-                converted_variable_value = variable_value*unit_conversion
+                float(unit_conversion)
+                converted_variable_value = float(variable_value)*unit_conversion
                 sympy_equation = sympy_equation.subs(sympy_symbol, converted_variable_value)
             else:
                 self.variable_to_solve_for = Variable(variable_name, variable_value, sympy_symbol, unit_conversion)
