@@ -6,6 +6,7 @@
                 <th>Formula Name</th>
                 <th>Formula Description</th>
                 <th>Formula Sympy</th>
+                <th>Formula Latex</th>
                 <th>Variables in JSON</th>
                 <th>Topic</th>
             </tr>    
@@ -28,6 +29,10 @@
 
                     <td>
                         <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_sympi">
+                    </td>
+
+                    <td>
+                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_latex">
                     </td>
 
                     <td>
