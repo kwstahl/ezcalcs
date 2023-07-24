@@ -1,3 +1,5 @@
+<form class="row p-2">
+ 
         <!-- Row Created for each variable -->
         @foreach ($variables as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
@@ -44,6 +46,8 @@
             </div>
             <hr>
         @endforeach
+        </form>
+
 
         <div>
             <button class="btn btn-primary" type="button" wire:click.prevent="setAnswer">Run Script</button>
