@@ -25,6 +25,8 @@
             ready() {
               var CHTMLmath = MathJax._.output.chtml.Wrappers.math.CHTMLmath;
               CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].margin='0';
+              CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].display='inline';
+
               MathJax.startup.defaultReady();
             }
           }
