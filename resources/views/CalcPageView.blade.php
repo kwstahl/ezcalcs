@@ -57,7 +57,7 @@
 
         
         <div class="col-lg-3 col-md-3 col-xl-3 col-sm-4">
-            {{ $description }}
+            @livewire('information')
         </div>
     </div>
 
