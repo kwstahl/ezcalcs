@@ -47,7 +47,7 @@
         @endforeach
 
         <div>
-            <button class="btm btn-primary" type="button" wire:click.prevent="setAnswer">Run Script</button>
+            <button class="btn btn-primary" type="button" wire:click.prevent="setAnswer">Run Script</button>
         </div>
 
         <h1 class="display-6 text-align-center">
