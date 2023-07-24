@@ -57,7 +57,7 @@
 
         
         <div class="col-lg-3 col-md-3 col-xl-3 col-sm-4">
-            @livewire('information')
+            @livewire('information', ['description' => $description, 'variables' => $variables])
         </div>
     </div>
 
