@@ -18,10 +18,12 @@ class CalcPageData extends Component
         'calcPages.*.formula_sympi' => 'nullable',
         'calcPages.*.id' => 'nullable',
         'calcPages.*.topic' => 'nullable',
+        'calcPages.*.formula_latex' => 'nullable',
         'variables.*.*.unit' => 'nullable',
         'variables.*.*.latex_symbol' => 'nullable',
         'variables.*.*.sympi_symbol' => 'nullable',
         'variables.*.*.description' => 'nullable',
+
     ];
 
 
@@ -53,6 +55,7 @@ class CalcPageData extends Component
             $pageModel = CalcPage::find($page['id']);
             $pageModel->id = $page['id'];
             $pageModel->formula_name = $page['formula_name'];
+            $pageModel->formula_latex = $page['formula_latex'];
             $pageModel->formula_description = $page['formula_description'];
             $pageModel->formula_sympi = $page['formula_sympi'];
             $pageModel->variables_json = $this->variables->get($pageModel->id);

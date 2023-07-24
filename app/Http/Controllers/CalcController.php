@@ -61,6 +61,7 @@ class CalcController extends Controller
         $formula_name = $request->formula_name;
         $formula_description = $request->formula_description;
         $formula_sympi = $request->formula_sympi;
+        $formula_latex = $request->formula_latex;
         
         $model = CalcPage::updateOrCreate(
         [
@@ -68,7 +69,8 @@ class CalcController extends Controller
             'id' => $id,
             'formula_name' => $formula_name,
             'formula_description' => $formula_description,
-            'formula_sympi' => $formula_sympi
+            'formula_sympi' => $formula_sympi,
+            'formula_latex' => $formula_latex,
         ]
         );
     }
@@ -99,7 +101,9 @@ class CalcController extends Controller
             'title' => $calc_page->formula_name,
             'description' => $calc_page->formula_description,
             'formula_sympi' => $calc_page->formula_sympi,
+            'formula_latex' => $calc_page->formula_latex,
             'variables' => $calc_page->variables_json,
+
         ]
     );}
 

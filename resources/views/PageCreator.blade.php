@@ -30,6 +30,7 @@
             <input name='formula_name'>Formula Name</input><br>
             <input name='formula_description'>Formula Description</input><br>
             <input name='formula_sympi'>Formula Sympi</input><br>
+            <input name='formula_latex'>Formula Latex</input><br>
             <hr>
             <h1>Variables</h1>
             <h2>Ensure that variable names correspond to the sympi formula variable, and that 

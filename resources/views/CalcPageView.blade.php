@@ -46,7 +46,7 @@
             <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
-                <p class="h2 text-center p-1">{{ $formula_sympi }}</p>
+                <p class="h2 text-center p-1">{{ $formula_latex }}</p>
             </div>
 
             <!-- Form, is a row -->

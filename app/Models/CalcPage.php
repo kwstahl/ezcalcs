@@ -26,6 +26,6 @@ class CalcPage extends Model
         return json_encode($this->attributes['variables_json']);
     }
     /* Allow filling into these for the database */
-    protected $fillable = ['variables_json', 'id', 'formula_description', 'formula_sympi', 'formula_name', 'topic'];
+    protected $fillable = ['variables_json', 'id', 'formula_description', 'formula_sympi', 'formula_name', 'topic', 'formula_latex'];
     
 }
