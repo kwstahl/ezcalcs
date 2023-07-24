@@ -42,7 +42,7 @@
         @livewire('sidebar')
 
         <!-- Content -->
-        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3 shadow">
+        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3 shadow border border-rounded">
             <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
