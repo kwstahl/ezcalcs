@@ -6,7 +6,6 @@
         @endforeach
     </div>
   </nav>
-  {{ dd($variables) }}
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" tabindex="0"> {{ $description }} </div>
         @foreach($variables as $variableName => $variable)
