@@ -56,6 +56,7 @@
                 @endisset
             </form>
         </div>
+        </div>
 
         <!-- Information -->
         <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-2">
