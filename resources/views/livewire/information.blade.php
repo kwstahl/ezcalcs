@@ -10,7 +10,7 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" tabindex="0"> {{ $description }} </div>
         @foreach($variables as $variableName => $variable)
-            <div class="tab-pane fade" id="nav-{{ $variableName }}" role="tabpanel" tabindex="0"> {{ $variables[$variableName]->description }} </div>
+            <div class="tab-pane fade" id="nav-{{ $variableName }}" role="tabpanel" tabindex="0"> {{ $variable->description }} </div>
         @endforeach
     
   </div>
