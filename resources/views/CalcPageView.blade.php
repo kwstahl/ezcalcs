@@ -56,7 +56,7 @@
         </div>
 
         <!-- Information -->
-        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-2">
+        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-2 shadow">
             @livewire('information', ['description' => $description, 'variables' => $variables])
         </div>
     </div>
