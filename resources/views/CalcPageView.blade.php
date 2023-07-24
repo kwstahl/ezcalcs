@@ -50,14 +50,15 @@
             </div>
 
             <!-- Form -->
-            <form class="row">
-
+            <form class="row p-2">
                 @isset($id)
                     @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
                 @endisset
             </form>
         </div>
-        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border">
+
+        <!-- Information -->
+        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-2">
             @livewire('information', ['description' => $description, 'variables' => $variables])
         </div>
     </div>
