@@ -47,10 +47,10 @@
         @endforeach
 
         <div>
-            <button wire:click.prevent="setAnswer">Run Script</button>
+            <button class="btm btn-primary" wire:click.prevent="setAnswer">Run Script</button>
         </div>
 
-        <div>
+        <h1 class="display-6">
             Answer: {{ $answer }}
-        </div>
+        </h1>
 </form>
