@@ -12,11 +12,13 @@ class PageForm extends Component
     public $formula_sympi;
     public $variableToSolveFor;
     public $answer;
+    public $errorOut;
     protected $rules = [
         'boundDataForSympy.*.Value' => 'nullable',
         'boundDataForSympy.*.unit_conversion' => 'nullable|numeric',
         'variableToSolveFor' => 'nullable',
     ];
+
 
     public function mount()
     {
@@ -25,6 +27,7 @@ class PageForm extends Component
         $this->boundDataForSympy = collect();
         $this->variableToSolveFor = '';
         $this->answer = '';
+        $this->errorOut = '';
 
         /* This is where 'Value' and 'unit_conversion' are created for boundDataForSympy */
         $this->createBindingsForEachVariable();
@@ -87,6 +90,7 @@ class PageForm extends Component
         });
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
         $this->answer = Process::run($command)->output();
+        $this->errorOut = $this->answer->errorOutput();
     }
 
     public function render()

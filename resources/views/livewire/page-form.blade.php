@@ -52,5 +52,6 @@
 
         <h1 class="display-6 text-align-center">
             Answer: {{ $answer }}
+            Error: {{ $errorOut }}
         </h1>
 </form>
