@@ -26,7 +26,7 @@
                                 @endif
                                 >
 
-                            <label>{{ $variableName }} ({{ $variable['latex_symbol'] }} </label>
+                            <label>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
                         </div>
                     </div>
                 </div>
