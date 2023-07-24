@@ -1,4 +1,3 @@
-<form class="row border border-rounded">
         <!-- Row Created for each variable -->
         @foreach ($variables as $variableName => $variable)
             <hr>
@@ -54,4 +53,3 @@
             Answer: {{ $answer }}
             Error: {{ $errorOut }}
         </h1>
-</form>

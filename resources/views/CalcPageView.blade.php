@@ -16,7 +16,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -42,28 +42,27 @@
         @livewire('sidebar')
 
         <!-- Content -->
-        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3 border border-rounded">
+        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3">
             <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
                 <p class="h2 text-center p-1">{{ $formula_latex }}</p>
             </div>
 
-            <!-- Form, is a row -->
-            @isset($id)
-                @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
-            @endisset
-        </div>
+            <!-- Form -->
+            <form class="row">
 
-        
-        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border border-rounded">
+                @isset($id)
+                    @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+                @endisset
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border">
             @livewire('information', ['description' => $description, 'variables' => $variables])
         </div>
     </div>
 
-    <script async defer>
-       
-    </script>
+    <script async defer></script>
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
