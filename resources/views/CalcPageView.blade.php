@@ -62,9 +62,7 @@
     </div>
 
     <script async defer>
-        $(document).ready(function() {
-            $(".listElements").addClass("border rounded m-0");
-        });
+       
     </script>
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
