@@ -49,6 +49,7 @@
                 <p class="h2 text-center p-1">{{ $formula_latex }}</p>
             </div>
 
+            
             <!-- Form -->
                 @isset($id)
                     @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])

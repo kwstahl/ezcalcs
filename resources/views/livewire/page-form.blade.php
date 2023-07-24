@@ -1,4 +1,4 @@
-<form class="row p-2">
+<form class="row p-2 shadow">
  
         <!-- Row Created for each variable -->
         @foreach ($variables as $variableName => $variable)
