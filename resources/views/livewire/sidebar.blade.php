@@ -10,13 +10,12 @@
             </h2>
 
             <div id="collapse-{{ $topic }}" class="accorion-collapse collapse show" data-bs-parent="#accordion">
-                <div class="accordion-body p-1">
-
+                <div class="accordion-body p-1 shadow">
                     <div class="list-group list-group-flush">
                         @foreach($pagesByTopic[$topic] as $pageName => $pageModel)
                             <a href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}" class="list-group-item list-group-item-action p-1">{{ $pageByTopic[$pageName]['formulaName'] }}</a>
                         @endforeach
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

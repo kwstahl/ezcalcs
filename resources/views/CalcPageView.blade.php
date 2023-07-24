@@ -37,7 +37,7 @@
     </nav>
 
     <!-- Master Container -->
-    <div class="container-fluid row">
+    <div class="container-fluid row p-0 m-0">
         <!-- Accordion col-lg-2 col-md-3 col-sm-3 col-xl-2 p-0 -->
         @livewire('sidebar')
 
