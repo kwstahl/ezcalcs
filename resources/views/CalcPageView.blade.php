@@ -57,8 +57,17 @@
         </div>
 
         <!-- Information -->
+
         <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-3 shadow">
-            @livewire('information', ['description' => $description, 'variables' => $variables])
+            <div class="row">
+                <p class="h1 text-center p-1">
+                    Formula and Variables Information
+                </p>
+            </div>
+
+            <div>
+                @livewire('information', ['description' => $description, 'variables' => $variables])
+            </div>
         </div>
     </div>
 
