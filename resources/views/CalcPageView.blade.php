@@ -44,9 +44,14 @@
 
 
     <!-- Top Bar -->
-    <nav class="navbar navbar-expand-lg nav.navbar.bg-primary p-0">
+    <nav class="navbar navbar-expand-lg nav.navbar.bg-primary p-0 fixed-top">
         <div class="container-fluid bg-primary">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
+            <button class="navbar-toggler" type="button" data-bs-target = "#offcanvasNavbarLabel">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            
         </div>
     </nav>
 
@@ -54,7 +59,7 @@
     <div class="container-fluid row p-0 m-0">
         <!-- Accordion Sidebar -->
         <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0 border shadow">
-            @livewire('sidebar')
+                @livewire('sidebar')
         </div>
 
         <!-- Content -->
