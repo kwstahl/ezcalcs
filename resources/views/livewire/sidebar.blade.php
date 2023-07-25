@@ -8,7 +8,7 @@
 
 
 <div class="offcanvas-body">
-    <div class="accordion accordion-flush flex-grow-1 pe-3 navbar-nav" id="accordionExample">
+    <div class="accordion accordion-flush" id="accordionExample">
         <!-- Physics Group -->
         @foreach ($pagesByTopic as $topic => $pageByTopic)
             <div class="accordion-item">
