@@ -73,6 +73,8 @@ class CalcController extends Controller
             'formula_latex' => $formula_latex,
         ]
         );
+
+        return view('PageCreator')
     }
 
     /**

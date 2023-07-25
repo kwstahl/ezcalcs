@@ -54,5 +54,6 @@
         </div>
 
         <h1 class="display-6 text-align-center">
-            Answer: {{ $answer }}
+            Answer: {{ $answer }} <br>
+            Error: {{ $errorOut }}
         </h1>
