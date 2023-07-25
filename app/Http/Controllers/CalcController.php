@@ -74,7 +74,7 @@ class CalcController extends Controller
         ]
         );
 
-        return view('PageCreator')
+        return view('PageCreator');
     }
 
     /**
