@@ -44,7 +44,7 @@
 
 
     <!-- Top Bar -->
-    <nav class="navbar navbar-expand-lg nav.navbar.bg-primary fixed-top">
+    <nav class="navbar navbar-expand-md nav.navbar.bg-primary fixed-top">
         <div class="container-fluid bg-primary">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" d>
@@ -52,7 +52,7 @@
             </button>
 
             <!-- *********wORKING --> 
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
                 @livewire('sidebar')
             </div>
         </div>
