@@ -58,7 +58,7 @@
         </div>
 
         <!-- Content -->
-        <div class="col-xl-6 col-lg-7 col-md-6 col-sm-9 p-3 border shadow">
+        <div class="col-xl-6 col-lg-7 col-md-9 col-sm-9 p-3 border shadow">
             <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
@@ -74,7 +74,7 @@
 
         <!-- Information -->
 
-        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 p-3 border shadow">
+        <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 p-3 border shadow">
             <div class="row">
                 <p class="h3 text-center p-1">
                     Formula and Variables Information
