@@ -21,17 +21,17 @@
 
     <script>
         MathJax = {
-          startup: {
-            ready() {
-              var CHTMLmath = MathJax._.output.chtml.Wrappers.math.CHTMLmath;
-              CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].margin='0';
-              CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].display='inline';
+            startup: {
+                ready() {
+                    var CHTMLmath = MathJax._.output.chtml.Wrappers.math.CHTMLmath;
+                    CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].margin = '0';
+                    CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].display = 'inline';
 
-              MathJax.startup.defaultReady();
+                    MathJax.startup.defaultReady();
+                }
             }
-          }
         }
-        </script>
+    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -52,11 +52,13 @@
 
     <!-- Master Container -->
     <div class="container-fluid row p-0 m-0">
-        <!-- Accordion col-lg-2 col-md-3 col-sm-3 col-xl-2 p-0 -->
-        @livewire('sidebar')
+        <!-- Accordion Sidebar -->
+        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0 border shadow">
+            @livewire('sidebar')
+        </div>
 
         <!-- Content -->
-        <div class="col-lg-7 col-md-6 col-xl-6 col-sm-6 p-3 shadow border border-rounded">
+        <div class="col-xl-6 col-lg-7 col-md-6 col-sm-9 p-3 border shadow">
             <!-- Header -->
             <div class="row p-2">
                 <p class="h1 text-center p-1">{{ $title }}</p>
@@ -65,14 +67,14 @@
 
 
             <!-- Form -->
-                @isset($id)
-                    @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
-                @endisset
+            @isset($id)
+                @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+            @endisset
         </div>
 
         <!-- Information -->
 
-        <div class="col-lg-3 col-md-3 col-xl-4 col-sm-4 border p-3 shadow">
+        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 p-3 border shadow">
             <div class="row">
                 <p class="h3 text-center p-1">
                     Formula and Variables Information

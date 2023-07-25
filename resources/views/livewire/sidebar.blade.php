@@ -1,5 +1,4 @@
 <!-- Accordion -->
-<div class="col-lg-2 col-md-3 col-sm-3 col-xl-2 p-0 border shadow">
     <div class="accordion accordion-flush" id="accordionExample">
         <!-- Physics Group -->
         @foreach($pagesByTopic as $topic => $pageByTopic)
@@ -21,4 +20,3 @@
         </div>
     @endforeach
     </div>
-</div>
