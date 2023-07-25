@@ -47,7 +47,7 @@
     <nav class="navbar navbar-expand-lg nav.navbar.bg-primary fixed-top">
         <div class="container-fluid bg-primary">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
-            <button class="navbar-toggler" type="button" data-bs-toggly="offcanvas" data-bs-target="#offcanvasNavbar" d>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" d>
                 <span class="navbar-toggler-icon"></span>
             </button>
 
