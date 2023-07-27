@@ -1,6 +1,4 @@
 
-
-
 <nav class="shadow">
     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
         <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description"
