@@ -1,13 +1,4 @@
-<!-- Accordion -->
 
-
-<div class="offcanvas-header">
-    <h5 class="offcanvas-title">Other Formulas</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-</div>
-
-
-<div class="offcanvas-body">
     <div class="accordion accordion-flush" id="accordionExample">
         @foreach ($pagesByTopic as $topic => $pageByTopic)
             <div class="accordion-item">
@@ -30,4 +21,3 @@
             </div>
         @endforeach
     </div>
-</div>
