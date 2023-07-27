@@ -9,7 +9,6 @@
 
 <div class="offcanvas-body">
     <div class="accordion accordion-flush" id="accordionExample">
-        <!-- Physics Group -->
         @foreach ($pagesByTopic as $topic => $pageByTopic)
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">

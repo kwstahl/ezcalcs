@@ -44,7 +44,7 @@
 
 
     <!-- Top Bar -->
-    <nav class="navbar navbar-expand-md nav.navbar.bg-primary fixed-top">
+    <nav class="navbar navbar-expand-md nav.navbar.bg-primary fixed-top p-1">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" d>
                 <span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
         <!-- Information -->
 
         <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 p-3 border shadow">
-            <div class="row">
+            <div class="row p-3">
                 <p class="h3 text-center p-1">
                     Formula and Variables Information
                 </p>
