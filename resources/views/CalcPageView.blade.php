@@ -54,7 +54,7 @@
             </button>
 
             <!-- Offcanvas on Navbar, hidden on screen larger than lg -->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+            <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title">Other Formulas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
