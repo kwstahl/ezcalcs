@@ -45,7 +45,7 @@
         <![endif]-->
 
     <!-- Top Bar -->
-    <nav class="navbar navbar-expand-md nav.navbar.bg-primary fixed-top p-1">
+    <nav class="navbar fixed-top p-1">
         <!-- Top Bar -->
         <nav class="navbar nav.navbar.bg-primary">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
