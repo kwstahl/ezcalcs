@@ -13,6 +13,8 @@ class PageForm extends Component
     public $variableToSolveFor;
     public $answer;
     public $errorOut;
+    public $variableToSolveForUnit;
+
     protected $rules = [
         'boundDataForSympy.*.Value' => 'nullable',
         'boundDataForSympy.*.unit_conversion' => 'nullable|numeric',
@@ -26,6 +28,7 @@ class PageForm extends Component
         $this->units = Unit::all();
         $this->boundDataForSympy = collect();
         $this->variableToSolveFor = $this->variables->keys()->first();
+        $this->variableToSolveForUnit = '';
         $this->answer = '';
         $this->errorOut = '';
 
@@ -53,7 +56,6 @@ class PageForm extends Component
     private function getAvailableUnitsForEachVariable()
     {
         $this->variables->transform(function($variable){
-
             $variable['unitOptions'] = collect();
             $variableUnitClass = $variable['unit'];
             /* From Units Model, filter by Unit class. Return only symbol, conversion */
@@ -66,6 +68,7 @@ class PageForm extends Component
                     ];
                 })
                 ->values();
+
             $variable['unitOptions'] = $filteredUnits;
             return $variable;
         });
