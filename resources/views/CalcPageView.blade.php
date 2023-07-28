@@ -45,7 +45,7 @@
         <![endif]-->
 
         <!-- Top Bar -->
-        <nav class="navbar nav.navbar.bg-primary">
+        <nav class="navbar nav.navbar.bg-primary p-1">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" d>
