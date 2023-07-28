@@ -25,7 +25,7 @@ class PageForm extends Component
         $this->variables = collect($this->variables);
         $this->units = Unit::all();
         $this->boundDataForSympy = collect();
-        $this->variableToSolveFor = '';
+        $this->variableToSolveFor = $this->variables->first()->keys()->first();
         $this->answer = '';
         $this->errorOut = '';
 
