@@ -49,7 +49,7 @@
         <!-- Top Bar -->
         <nav class="navbar nav.navbar.bg-primary">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" d>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" d>
                 <span class="navbar-toggler-icon"></span>
             </button>
 
