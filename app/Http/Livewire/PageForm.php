@@ -53,6 +53,10 @@ class PageForm extends Component
         });
     }
 
+    public function setUnit()
+    {
+        $this->variableToSolveForUnit = 
+    }
     private function getAvailableUnitsForEachVariable()
     {
         $this->variables->transform(function($variable){
