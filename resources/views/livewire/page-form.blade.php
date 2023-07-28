@@ -47,6 +47,6 @@
 </div>
 
 <h1 class="display-6 text-align-center">
-    Solve For: {{ $variableToSolveFor }} in  <br> {{ $variableToSolveForUnit }} <br>
+    Solve For: {{ $variableToSolveFor }} in  <br> {{ dump($variableToSolveForUnit) }} <br>
 </h1>
 </div>
