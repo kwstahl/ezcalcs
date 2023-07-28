@@ -50,8 +50,12 @@
         <!-- Top Bar -->
         <nav class="navbar nav.navbar.bg-primary">
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
+<<<<<<< HEAD
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+=======
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" d>
+>>>>>>> parent of 94c07a5 (	modified:   resources/views/CalcPageView.blade.php)
                 <span class="navbar-toggler-icon"></span>
             </button>
 
