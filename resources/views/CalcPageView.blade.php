@@ -49,8 +49,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- *********wORKING --> 
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
                 @livewire('sidebar')
             </div>
