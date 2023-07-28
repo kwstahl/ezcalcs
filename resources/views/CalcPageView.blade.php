@@ -45,74 +45,72 @@
         <![endif]-->
 
         <!-- Top Bar -->
-        <nav class="navbar fixed-top p-1">
-            <!-- Top Bar -->
-            <nav class="navbar nav.navbar.bg-primary">
-                <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" d>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar nav.navbar.bg-primary">
+            <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" d>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!-- Offcanvas on Navbar, hidden on screen larger than lg -->
-                <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">Other Formulas</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                    </div>
-
-                    <div class="offcanvas-body">
-                        @livewire('sidebar')
-                    </div>
+            <!-- Offcanvas on Navbar, hidden on screen larger than lg -->
+            <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Other Formulas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
                 </div>
-            </nav>
 
-
-
-
-            <!-- Master Container -->
-            <div class="container-fluid row p-1 m-0">
-
-                <!-- Navbar, hidden on screen smaller than lg -->
-                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0 border shadow d-none d-lg-block">
+                <div class="offcanvas-body">
                     @livewire('sidebar')
                 </div>
-
-                <!-- Content -->
-                <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 p-3 border shadow">
-                    <!-- Header -->
-                    <div class="row p-2">
-                        <p class="h1 text-center p-1">{{ $title }}</p>
-                        <p class="h2 text-center p-1">{{ $formula_latex }}</p>
-                    </div>
+            </div>
+        </nav>
 
 
-                    <!-- Form -->
-                    @isset($id)
-                        @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
-                    @endisset
+
+
+        <!-- Master Container -->
+        <div class="container-fluid row p-1 m-0">
+
+            <!-- Navbar, hidden on screen smaller than lg -->
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0 border shadow d-none d-lg-block">
+                @livewire('sidebar')
+            </div>
+
+            <!-- Content -->
+            <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 p-3 border shadow">
+                <!-- Header -->
+                <div class="row p-2">
+                    <p class="h1 text-center p-1">{{ $title }}</p>
+                    <p class="h2 text-center p-1">{{ $formula_latex }}</p>
                 </div>
 
-                <!-- Information -->
 
-                <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 p-3 border shadow">
+                <!-- Form -->
+                @isset($id)
+                    @livewire('page-form', ['variables' => $variables, 'formula_sympi' => $formula_sympi])
+                @endisset
+            </div>
 
-                    <div class="row p-3">
-                        <p class="h3 text-center p-1">
-                            Formula and Variables Information
-                        </p>
-                    </div>
+            <!-- Information -->
 
-                    <div>
-                        @livewire('information', ['description' => $description, 'variables' => $variables])
-                    </div>
+            <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 p-3 border shadow">
+
+                <div class="row p-3">
+                    <p class="h3 text-center p-1">
+                        Formula and Variables Information
+                    </p>
                 </div>
 
-                <script async defer></script>
-                @livewireScripts
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-                </script>
+                <div>
+                    @livewire('information', ['description' => $description, 'variables' => $variables])
+                </div>
+            </div>
+
+            <script async defer></script>
+            @livewireScripts
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+            </script>
 
     </body>
 
