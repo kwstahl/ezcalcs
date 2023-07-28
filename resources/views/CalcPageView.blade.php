@@ -36,42 +36,26 @@
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 
-<<<<<<< HEAD
 
 <body>
     <!--[if lt IE 7]>
 =======
     <body>
         <!--[if lt IE 7]>
->>>>>>> d322c6a (	modified:   resources/views/CalcPageView.blade.php)
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-<<<<<<< HEAD
-
-
-<<<<<<< HEAD
-=======
->>>>>>> origin/main
     <!-- Top Bar -->
     <nav class="navbar navbar-expand-md nav.navbar.bg-primary fixed-top p-1">
-=======
         <!-- Top Bar -->
         <nav class="navbar nav.navbar.bg-primary">
->>>>>>> 13da13f (	modified:   resources/views/CalcPageView.blade.php)
             <a class="navbar-brand" href="http://www.ezcalculators.online">EzCalcs</a>
-<<<<<<< HEAD
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-=======
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
->>>>>>> 68c5923 (	modified:   resources/views/CalcPageView.blade.php)
                 <span class="navbar-toggler-icon"></span>
             </button>
-<<<<<<< HEAD
-=======
 
             <!-- Offcanvas on Navbar, hidden on screen larger than lg -->
->>>>>>> 2daa869 (	modified:   resources/views/CalcPageView.blade.php)
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title">Other Formulas</h5>
@@ -119,7 +103,6 @@
                     </p>
                 </div>
 
-<<<<<<< HEAD
         <!-- Information -->
 
         <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 p-3 border shadow">
@@ -131,11 +114,9 @@
 
             <div>
                 @livewire('information', ['description' => $description, 'variables' => $variables])
-=======
                 <div>
                     @livewire('information', ['description' => $description, 'variables' => $variables])
                 </div>
->>>>>>> 13da13f (	modified:   resources/views/CalcPageView.blade.php)
             </div>
         </div>
 
