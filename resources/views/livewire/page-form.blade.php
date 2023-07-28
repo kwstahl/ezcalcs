@@ -47,6 +47,6 @@
 </div>
 
 <h1 class="display-6 text-align-center">
-    Solve For: {{ dump($variableToSolveFor) }} in {{ dump($boundDataForSympy[$variableToSolveFor]) }} <br> {{ $answer }} <br>
+    Solve For: {{ dump($variableToSolveFor) }} in  <br> {{ $answer }} <br>
 </h1>
 </div>
