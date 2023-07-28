@@ -53,9 +53,9 @@ class PageForm extends Component
         });
     }
 
-    public function setUnit()
+    public function setUnit($symbol)
     {
-        $this->variableToSolveForUnit = 
+        $this->variableToSolveForUnit = $symbol;
     }
     private function getAvailableUnitsForEachVariable()
     {
