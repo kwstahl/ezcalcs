@@ -48,9 +48,12 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
+=======
+>>>>>>> origin/main
     <!-- Top Bar -->
     <nav class="navbar navbar-expand-md nav.navbar.bg-primary fixed-top p-1">
 =======
