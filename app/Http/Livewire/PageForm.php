@@ -21,7 +21,7 @@ class PageForm extends Component
         'variableToSolveFor' => 'nullable',
     ];
 
-    protected $listeners = ['setUnit'];
+    protected $listeners = ['setUnit' => 'setThisUnit'];
 
 
     public function mount()
@@ -55,10 +55,14 @@ class PageForm extends Component
         });
     }
 
-    public function setUnit($symbol)
+    public function setThisUnit($symbol)
     {
         $this->variableToSolveForUnit = $symbol;
     }
+
+
+
+
     private function getAvailableUnitsForEachVariable()
     {
         $this->variables->transform(function($variable){
