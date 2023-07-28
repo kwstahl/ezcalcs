@@ -21,6 +21,8 @@ class PageForm extends Component
         'variableToSolveFor' => 'nullable',
     ];
 
+    protected $listeners = ['setUnit'];
+
 
     public function mount()
     {
