@@ -21,8 +21,7 @@ class PageForm extends Component
         'variableToSolveFor' => 'nullable',
     ];
 
-    protected $listeners = ['setUnit' => 'setThisUnit'];
-
+    protected $listeners = ['testAdd' => 'testThing'];
 
     public function mount()
     {
@@ -30,7 +29,7 @@ class PageForm extends Component
         $this->units = Unit::all();
         $this->boundDataForSympy = collect();
         $this->variableToSolveFor = $this->variables->keys()->first();
-        $this->variableToSolveForUnit = '';
+        $this->variableToSolveForUnit = 'select units';
         $this->answer = '';
         $this->errorOut = '';
 
@@ -39,6 +38,11 @@ class PageForm extends Component
 
         /* The unit options list is made here for the blade tempalte "select" tag. */
         $this->getAvailableUnitsForEachVariable();
+    }
+
+    public function testThing($selectedText)
+    {
+        $this->variableToSolveForUnit = $selectedText;
     }
 
     private function createBindingsForEachVariable()
@@ -54,13 +58,6 @@ class PageForm extends Component
             ];
         });
     }
-
-    public function setThisUnit($symbol)
-    {
-        $this->variableToSolveForUnit = $symbol;
-    }
-
-
 
 
     private function getAvailableUnitsForEachVariable()
@@ -87,6 +84,7 @@ class PageForm extends Component
     public function updatedVariableToSolveFor()
     {
         $variable = $this->boundDataForSympy[$this->variableToSolveFor];
+        $this->variableToSolveForUnit = 'select units';
         if($variable){
             $variable['Value'] = '';
             $this->boundDataForSympy[$this->variableToSolveFor] = $variable;
