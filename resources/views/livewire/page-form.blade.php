@@ -68,15 +68,24 @@
         </script>
     @endpush
 
-    <div>
-        <button class="btn btn-primary" type="button" wire:click.prevent="setAnswer">Run Script</button>
+    <h1 class="row display-6 text-align-center p-5 justify-content-center">
+        You are solving for {{ $variableToSolveFor }}
+        <!-- units of: <strong><i>{{ $variableToSolveForUnit }}</i></strong> -->
+    </h1>
+
+    <div class="row justify-content-center gx-4">
+        <div class="col-auto">
+            <button class="btn btn-primary" type="button" wire:click.prevent="setAnswer">Solve for
+                Variable</button>
+        </div>
+
+
+        <div class="col-5 bg-white shadow rounded overflow-hidden">
+            <div class="d-flex flex-row "><h3>Answer:</h3> <h3>  {{ $answer }}</h3></div>
+        </div>
     </div>
 
-    <h1 class="display-6 text-align-center">
-        Solve for: <strong><i>{{ $variableToSolveFor }}</i></strong> in units of: <strong><i>{{ $variableToSolveForUnit }}</i></strong>
-    </h1>
 
-    <h1>
-        {{ $answer }} {{ $variableToSolveForUnit }}
-    </h1>
+
+
 </div>

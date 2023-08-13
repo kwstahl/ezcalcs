@@ -2,10 +2,10 @@
     <div class="accordion accordion-flush" id="accordionExample">
         @foreach ($pagesByTopic as $topic => $pageByTopic)
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse-{{ $topic }}">{{ $topic }}</button>
-                </h2>
+                <h1 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" style="background-color: #454545; color:white;" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse-{{ $topic }}"><strong>{{ $topic }}</strong></button>
+                </h1>
 
                 <div id="collapse-{{ $topic }}" class="accorion-collapse collapse show"
                     data-bs-parent="#accordion">

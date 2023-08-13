@@ -7,7 +7,7 @@ use App\Models\CalcPage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CalcPageData extends Component
+class CalcPageUpdate extends Component
 {
     public $calcPages;
     public $variables;
@@ -23,7 +23,7 @@ class CalcPageData extends Component
         'variables.*.*.latex_symbol' => 'nullable',
         'variables.*.*.sympi_symbol' => 'nullable',
         'variables.*.*.description' => 'nullable',
-
+        'variables.*.*.type' => 'nullble',
     ];
 
 
@@ -68,6 +68,6 @@ class CalcPageData extends Component
 
     public function render()
     {
-        return view('livewire.calc-page-data');
+        return view('livewire.calc-page-update');
     }
 }

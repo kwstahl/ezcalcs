@@ -21,6 +21,7 @@ class UnitTable extends Component
     public $new_symbol;
     public $new_description;
     public $new_conversion_to_base;
+    public $new_type;
     public $baseUnits;
 
     protected $rules = [
@@ -28,8 +29,9 @@ class UnitTable extends Component
         'units.*.id' => 'nullable|string|max:500',
         'units.*.base_unit' => 'nullable|string|max:500',
         'units.*.symbol' => 'nullable|string|max:500',
-        'units.*.description' => 'nullable|string|max:500',
+        'units.*.description' => 'nullable|string',
         'units.*.conversion_to_base' => 'nullable|numeric|max:500',
+        'units.*.type' => 'nullable|string|max:500',
         
         //for make new entry, probably need new component
         
@@ -39,6 +41,7 @@ class UnitTable extends Component
         'new_symbol' => 'nullable',
         'new_description' => 'nullable',
         'new_conversion_to_base' => 'nullable',
+        'new_type' => 'nullable',
             
     ];
 
@@ -62,6 +65,7 @@ class UnitTable extends Component
         $this->new_id = '';
         $this->new_symbol = '';
         $this->new_unit_class = '';
+        $this->new_type = '';
     }
 
     public function save()
@@ -74,6 +78,7 @@ class UnitTable extends Component
             $unitModel->symbol = $unit['symbol'];
             $unitModel->conversion_to_base = (float) $unit['conversion_to_base'];
             $unitModel->description = $unit['description'];
+            $unitModel->type = $unit['type'];
             $unitModel->save();
         }
     }
@@ -88,6 +93,7 @@ class UnitTable extends Component
         $base_unit = $this->new_base_unit;
         $unit_class = $this->new_unit_class;
         $description = $this->new_description;
+        $type = $this->new_type;
 
         foreach ($ids as $index => $id){
             $unit = Unit::create([
@@ -97,6 +103,7 @@ class UnitTable extends Component
                 'description' => $description,
                 'symbol' => $symbols[$index] ?? "null",
                 'conversion_to_base' => (float) $unit_conversions[$index] ?? "null",
+                'type' => $type,
             ]);
         }
         return redirect()->to('/unit');
@@ -118,6 +125,8 @@ class UnitTable extends Component
                 return $item['id'] == $unitId;
             });
         }
+
+        return redirect()->to('/unit');
     }
 
     public function render()

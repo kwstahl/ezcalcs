@@ -9,7 +9,7 @@ from sympy import Symbol
 test1 = SympyForms.Formula(sys.argv[1], sys.argv[2])
 test1.substitute_values()
 test1.solve_for_variable()
-print(test1.converted_answer)
+print(round(test1.converted_answer, 4))
 
 
 #python3 /workspaces/ezcalcs/sympyScript.py '{"A":{"Value":1, "unit_conversion":2}, "B":{"Value":"none", "unit_conversion":3}, "C":{"Value":2, "unit_conversion":3}}' 'A=B+C'

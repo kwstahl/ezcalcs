@@ -1,11 +1,12 @@
 <div>
         <form>
-            <input type="text" wire:model="new_id"><text>id, separate by ;</text><br>
-            <input type="text" wire:model="new_symbol"><text>symbol sep by ;</text><br>
-            <input type="text" wire:model="new_conversion_to_base"><text>conversion factor sep by ;</text><br>
-            <input type="text" wire:model="new_unit_class"><text>unit class</text><br>
-            <input type="text" wire:model="new_base_unit"><text>base unit</text><br>
-            <input type="text" wire:model="new_description"><text>description</text><br>
+            <input type="text" wire:model="new_id">id, separate by ;<br>
+            <input type="text" wire:model="new_symbol">symbol sep by ;<br>
+            <input type="text" wire:model="new_conversion_to_base">conversion factor sep by ;<br>
+            <input type="text" wire:model="new_unit_class">unit class<br>
+            <input type="text" wire:model="new_base_unit">base unit<br>
+            <input type="text" wire:model="new_description">description<br>
+            <input type="text" wire:model="new_type">type<br>
             <button type="button" wire:click="newUnit">Save</button>
         </form>
 
@@ -36,6 +37,7 @@
                         <th>Base Unit</th>
                         <th>Description</th>
                         <th>Conversion to Base</th>
+                        <th>Type</th>
                     </tr>
                 </thead>
 
@@ -64,6 +66,10 @@
 
                         <td>
                             <input type="text" wire:model="units.{{ $index }}.conversion_to_base">
+                        </td>
+
+                        <td>
+                            <input type="text" wire:model="units.{{ $index }}.type">
                         </td>
 
                         <td>

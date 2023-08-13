@@ -1,3 +1,6 @@
+<!-- Add Pages -->
+
+<!-- Update Pages -->
 <div>
     <table>
         <thead>
@@ -45,10 +48,8 @@
                                 <li>Sympi Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.sympi_symbol"> </li>
                                 <li>Latex Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.latex_symbol"> </li>
                                 <li>Description<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.description"> </li>
+                                <li>Type<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.type"> </li>
                             </ul>
-
-                            
-                            
                         @endforeach
 
                     </td>

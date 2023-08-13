@@ -34,6 +34,7 @@ class UnitController extends Controller
         $symbol = $request->symbol;
         $conversion_to_base = $request->conversion_to_base;
         $description = $request->description;
+        $type = $request->type;
 
         $model = Unit::updateOrCreate(
         [
@@ -43,6 +44,7 @@ class UnitController extends Controller
             'symbol' => $symbol,
             'conversion_to_base' => $conversion_to_base,
             'description' => $description,
+            'type' => $type,
         ]
         );
         
