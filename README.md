@@ -1,66 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Important Note
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is currently incomplete. Some missing functionality and other considerations are still under construction. This is a demo version.
 
-## About Laravel
+## About EzCalcs
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+EZCalculators.online is a website designed to have a vast range of equations and formulas from topics like Physics, to Chemistry, to Finance. The aim is to have the easiest and most user friendly variable solver on the net. One limitation from similar sites are the lack of freedom in selecting variables/units, poor web design, and a clutter of advertisements. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## The Backend Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The backend is written using [Laravel](https://laravel.com/docs/10.x/readme), a PHP Framework, employing the Model-View-Controller design pattern. On top of Laravel, Laravel [Livewire](https://laravel-livewire.com/docs/2.x/events) is used as the templating engine for rendering components, handling page interactions, AJAX, and has essentially become the "Controller" part of the project. 
 
-## Learning Laravel
+Additionally, Python is used to handle the actual "calculators" of the website. Python was chosen because of its access to the powerful symbolic mathematics library [SymPy](https://www.sympy.org/en/index.html). 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Hosting is provided by Hostinger, and uses Linux operating system, specifically Ubuntu 20.04. The database of choice is MariaDB, and server software is Apache. Effectively, this project leverages the common "LAMP" stack. 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Backend Software and Libraries
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<ul>
+    <li>LAMP Stack
+        <ul>
+            <li>Ubuntu - 20.04</li>
+            <li>Apache - 2.4.52</li>
+            <li>MariaDB - 10.6.12</li>
+            <li>PHP - 8.2.7</li>
+        </ul>
+    </li>
 
-## Laravel Sponsors
+</ul>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<ul>
+    <li>Model-View-Controller
+        <ul> 
+            <li>Laravel - 10.13.5</li>
+            <li>Livewire - v2.12.3</li>
+        </ul>
+    </li>
+</ul>
 
-### Premium Partners
+<ul>   
+    <li>Python
+        <ul>
+            <li>Python3 - 3.10.6</li>
+            <li>pip - 22.0.2</li>
+            <li>SymPy - 1.11.1</li>
+            <li>Mpmath - 1.2.1</li>
+        </ul>
+    </li>
+</ul>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## The Frontend Overview
 
-## Contributing
+Blade templating/livewire handle most of the client-side rendering logic.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+[Bootstrap](https://getbootstrap.com/) is the HTML/CSS styling framework for the entire site. This helps make a fast, responsive, aesthetic, and user friendly frontend.
 
-## Code of Conduct
+On top of bootstrap, some custom JQuery is sprinkled throughout the site to handle more customized page interactions and event handling.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Finally, [MathJax](https://docs.mathjax.org/en/v3.2-latest/upgrading/whats-new-3.0.html) is used for LaTeX rendering for equations and other mathematical styling.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Frontend Software and Libraries
+<ul>
+    <li>Bootstrap - v5.2.3 </li>
+    <li>JQuery - 3.6.3 </li>
+    <li>MathJax - v3.0</li>
+</ul>
 
-## License
+## Site Structure and Logic
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Important Directories
+
+<ul>
+    <li>routes/web.php - routing</li>
+    <li>app/Models - contains the models for page structure.</li>
+    <li>app/Http/Controllers - the controllers to additional routing to and some model interactions.</li>
+    <li>app/Http/Controllers/Livewire - the meat and bones of page rendering logic.</li>
+    <li>resources/views - the HTML base for all web pages</li>
+    <li>resources/views/livewire - the HTML that are rendered by the Livewire Controllers. These are the building blocks for page structure.</li>
+    <li>public - contains python code, favicon, and images. </li>
+</ul>
+
+### The CalcPage Model
+
+These models define the contents of site pages. The properties are outlined below
+<ul>
+    <li><strong>id</strong> - the primary key, sets the url. This is usually some version of the formula/equations common name. </li>
+    <li><strong>formula_name</strong> - this is the formula name displayed on the page</li>
+    <li><strong>formula_description</strong> - a description of the formula to be displayed as information</li>
+    <li><strong>formula_sympy</strong> - the formula as to be read by the Python Sympy library. The variable names <strong>must</strong> match the formula to be read correctly.</li>
+    <li><strong>topic</strong> - the category that the equation falls into. To be displayed in certain groups like in a sidebar.</li>
+    <li>
+        <strong>variables_json</strong> - JSON strings containing all the variables/constants of a give equation. Each variable name is a key, and the values are arrays which all contain the following data:
+        </li>
+    <ul>
+            <li>unit - this unit name must correspond to some unit in the "Units" model, as this is where additional logic is created.</li>
+            <li>sympy_symbol - A non-latex symbol for calculation purposes </li>
+            <li>latex_symbol - Latex symbol for page rendering purposes</li>
+            <li>description - a brief description of the variable that is displayed in an informational tab on the calc page</li>
+            <li>type - either a constant, variable, or unitless These types set additional page logic</li>
+    </ul>
+</ul>
+
+### The Unit Model
+
+The unit model is a table with all the units used across the site. This makes it easier to reuse units between pages. For example, a "velocity" equation may use "distance" and "time" units, and a "Work" equation would use "Force" and "distance".
+
+Since these two equations share the "distance" units, its easier to write all possible units of distance to be shared.
+
+The properties are:
+<ul>
+    <li><strong>id</strong> - The name of the unit, for example, "centimeters".</li>
+    <li><strong>unit_class</strong> - for the "centimeters" example, this would fall under "distance" class. The unit_class is accessed across site pages, and must be declared in the calc_pages: variables_json: example_variable: unit:"unit_class".</li>
+    <li><strong>base_unit</strong> - in the same example, the base unit would be "meters". So far, this has no use but will be expanded on. </li>
+    <li><strong>symbol</strong> - in this example, "cm" would be the symbol. </li>
+    <li><strong>conversion_to_base</strong> - in this example, the conversion to meters would be 100cm to 1m. The value then is 0.01, and the value is used in the Python script. More information available in the Sympy Scripts documentation. </li>
+    <li><strong>description - a brief description of the unit displayed in each page that uses the unit.</strong></li>
+    <li><strong>type</strong> - used to determine additional rendering properties. Currently unused.</li>
+</ul>
+
+### Creating Pages - eqn/create
+
+For streamlined creation of web pages, the view 'PageCreator' is used. This view 
+
+
+
