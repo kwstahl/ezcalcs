@@ -1,74 +1,99 @@
-<!doctype html>
-<html lang="en">
+    <!DOCTYPE html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+    <html>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script>
+            MathJax = {
+                startup: {
+                    ready() {
+                        var CHTMLmath = MathJax._.output.chtml.Wrappers.math.CHTMLmath;
+                        CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].margin = '0';
+                        CHTMLmath.styles['mjx-container[jax="CHTML"][display="true"]'].display = 'inline';
 
-    <title>Hello, world!</title>
-</head>
+                        MathJax.startup.defaultReady();
+                    }
+                }
+            }
+        </script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<body>
-    <div>
-        <!-- Top Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">EZCalculators</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    Navbar text with an inline element
-                </span>
-            </div>
-        </nav>
+        @livewireStyles
 
-        <div class="row bg-light">
-            <div class="col text-center align-items-center jumbotron">
-                <div class="container">
-                    <h3 class="display-6">Easiest Calculators on the Web</h3>
-                    <hr>
-                    <p class="lead">
-                        You'll find all kinds of <strong>easy to use calculators</strong> to solve many types of problems, <strong>sample problems</strong>, <strong>simple explanations</strong>, and <strong>practice problems</strong>.
-                    </p>
+
+
+        @livewire('site-head')
+        <style>
+            .nav-link {
+                color: black !important;
+            }
+
+            .nav-link.active {
+                background-color: #2d4356 !important;
+                color: white !important;
+            }
+
+            .nav-link:hover {
+                background-color: #a76f6f !important;
+            }
+
+            button.list-group-item:hover {
+                background-color: black !important;
+                border: rounded;
+            }
+            
+
+
+        </style>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    </head>
+
+
+    <body class="justify-content-center text-center align-items-center" style="background-color: #EAB2A0;">
+
+        @livewire('top-bar')
+
+        <div class="container-fluid p-0 m-0 rounded border-none" style="background-color: #2d4356; height: 100vh">
+            <div class="card text-white justify-content-center text-center align-items-center">
+                @livewire('logo-component')
+
+                <div class="card-img-overlay">
+
+
+                    <div class="card-header" style="background-color: #2D4356; opacity:0.8;">
+                        <header>
+                            <h1 class="p-5">Welcome to <strong>EzCalculators</strong>
+                            </h1>
+                        </header>
+
+                    </div>
+                    @livewire('sidebar')
+
 
                 </div>
             </div>
         </div>
+        @livewireScripts
+        @stack('scripts')
 
-        <!-- Content -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+        </script>
 
-    </div>
+    </body>
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+    </html>
