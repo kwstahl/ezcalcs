@@ -120,7 +120,17 @@ The properties are:
 
 ### Creating Pages - eqn/create
 
-For streamlined creation of web pages, the view 'PageCreator' is used. This view 
+Generating models, and pages is a breeze with the eqn/create route, which calls the PageCreator view. The PageCreator view is built by the calc-page-update, and calc-page-create components.
 
+#### calc-page-update
+
+This component works pulling all the models in calc_pages as a collection, looping through each model, and displaying its attributes as editable text (input fields that are modeled by wire:model). This is done by a foreach blade directive on the $calcPages property, indexed by the model's index.
+
+<strong>variables_json and $variablesWithPageId</strong> - Unfortunately, the indexing and looping of the $calcPages attribute is not strong enough to handle variables_json, since it is an array of arrays. 
+
+To solve this, the $variablesWithPageId property is declared as a collection for each calc_page model. The calc_page model's id is assigned to its corresponding variables_json collection, allowing for a way to properly access it with a blade directive.
+
+The blade directive finds the $variablesWithPageId collection by using the id of the model at that current loop, then loops through each variable.
+        
 
 
