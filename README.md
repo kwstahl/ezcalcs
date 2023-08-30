@@ -126,11 +126,16 @@ Generating models, and pages is a breeze with the eqn/create route, which calls 
 
 This component works pulling all the models in calc_pages as a collection, looping through each model, and displaying its attributes as editable text (input fields that are modeled by wire:model). This is done by a foreach blade directive on the $calcPages property, indexed by the model's index.
 
-<strong>variables_json and $variablesWithPageId</strong> - Unfortunately, the indexing and looping of the $calcPages attribute is not strong enough to handle variables_json, since it is an array of arrays. 
+<strong>variables_json and $variablesWithPageId</strong> - Unfortunately, the indexing and looping of the $calcPages attribute is not strong enough to handle the variables_json attribute, since it is an array of arrays. To solve this, the $variablesWithPageId property is declared as a collection for each calc_page model. The calc_page model's id is assigned to its corresponding variables_json collection, allowing for a way to properly access it with a blade directive. The blade directive finds the $variablesWithPageId collection by using the id of the model at that current loop, then loops through each variable.
 
-To solve this, the $variablesWithPageId property is declared as a collection for each calc_page model. The calc_page model's id is assigned to its corresponding variables_json collection, allowing for a way to properly access it with a blade directive.
+<strong>save and deletePage</strong> - Once changes are done being made, the save function will loop through each model and save whatever is bound to the inputs for each attribute. The variables_json attribute is easily saved by the get method on $variablesWithPageId, passing in the page id to correctly pull it.
 
-The blade directive finds the $variablesWithPageId collection by using the id of the model at that current loop, then loops through each variable.
-        
+#### calc-page-create
 
 
+<ul>
+    <li>
+        <strong>$calcPages</strong> - 
+    </li>
+    
+</ul>
