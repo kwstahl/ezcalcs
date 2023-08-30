@@ -118,11 +118,11 @@ The properties are:
     <li><strong>type</strong> - used to determine additional rendering properties. Currently unused.</li>
 </ul>
 
-### Creating Pages - eqn/create
+## Creating Pages - eqn/create
 
 Generating models, and pages is a breeze with the eqn/create route, which calls the PageCreator view. The PageCreator view is built by the calc-page-update, and calc-page-create components.
 
-#### calc-page-update
+### calc-page-update
 
 This component works pulling all the models in calc_pages as a collection, looping through each model, and displaying its attributes as editable text (input fields that are modeled by wire:model). This is done by a foreach blade directive on the $calcPages property, indexed by the model's index.
 
@@ -130,7 +130,7 @@ This component works pulling all the models in calc_pages as a collection, loopi
 
 <strong>save and deletePage</strong> - Once changes are done being made, the save function will loop through each model and save whatever is bound to the inputs for each attribute. The variables_json attribute is easily saved by the get method on $variablesWithPageId, passing in the page id to correctly pull it.
 
-#### calc-page-create
+### calc-page-create
 
 
 <ul>
