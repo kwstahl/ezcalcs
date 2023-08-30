@@ -132,10 +132,16 @@ This component works pulling all the models in calc_pages as a collection, loopi
 
 ### calc-page-create
 
+This component works similarly to calc-page-update, but special care is taken to bridge the HTML and Livewire gaps in creating variables_json attributes for new page models.
 
-<ul>
-    <li>
-        <strong>$calcPages</strong> - 
-    </li>
-    
-</ul>
+<strong>$numberOfVariables</strong> is an integer property bound to the counter. The number on the counter sets the number of input groups. These input groups are the multiple formula variables, and their attributes.
+
+<strong>$variableCollections</strong> is a collection which the input groups are bound to. Each input group has a special "variable_name". This is the key name for its specific input group.
+
+<strong>prepVariableCollectionsForModel()</strong> is a helper function that sets the "variable_name" as the key to its corresponding input group. The other inputs in the group are the attributes expected in a variables_json property of a calc_page model. The variable_name itself is unset in this function, since it is not used in the calc_page model.
+
+<strong>create</strong> - Finally, all inputs are validated, a new page model is created, and the attributes are set. 
+
+
+
+
