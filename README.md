@@ -66,9 +66,8 @@ Finally, [MathJax](https://docs.mathjax.org/en/v3.2-latest/upgrading/whats-new-3
     <li>MathJax - v3.0</li>
 </ul>
 
-## Site Structure and Logic
 
-### Important Directories
+## Important Directories
 
 <ul>
     <li>routes/web.php - routing</li>
@@ -80,7 +79,7 @@ Finally, [MathJax](https://docs.mathjax.org/en/v3.2-latest/upgrading/whats-new-3
     <li>public - contains python code, favicon, and images. </li>
 </ul>
 
-### The CalcPage Model
+## The CalcPage Model
 
 These models define the contents of site pages. The properties are outlined below
 <ul>
@@ -101,7 +100,7 @@ These models define the contents of site pages. The properties are outlined belo
     </ul>
 </ul>
 
-### The Unit Model
+## The Unit Model
 
 The unit model is a table with all the units used across the site. This makes it easier to reuse units between pages. For example, a "velocity" equation may use "distance" and "time" units, and a "Work" equation would use "Force" and "distance".
 
@@ -142,6 +141,16 @@ This component works similarly to calc-page-update, but special care is taken to
 
 <strong>create</strong> - Finally, all inputs are validated, a new page model is created, and the attributes are set. 
 
+## Calculator Pages
 
+Calculator Pages are where calc_page models come together and make up the various pages. The pages are routed to by eqn/create/{id}, where the id is the calc_page id attribute. 
 
+The page is built by smaller livewire components.
+
+<ul>
+    <li><strong>site-head</strong> - Contains bootstrap CDN, Mathjax CDN, scripts, css, and other important links. </li>
+    <li><strong>sidebar</strong> - Contains an offcanvas sidebar that is hidden on smaller screens. The contents are made up from all existing models, and organized by the 'topics' attribute of the calc_pages models.</li>
+    <li><strong>page-form</strong></li> - Creates the form on each page, more information is detailed in the next subsection.
+    <li><strong>information</strong> - Displays information for the formula and all the variables. This is pulled from the formula_description attribute, and in variables_json>descriptions attributes.</li>
+</ul>
 
