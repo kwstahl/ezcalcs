@@ -8,7 +8,8 @@ class PageForm extends Component
 {
     public $variables_json;
     public $units;
-    public $boundDataForSympy;
+    public $unitsForVariables;
+    public $jsonForSympyParsing;
     public $formula_sympy;
     public $variableToSolveFor;
     public $answer;
@@ -16,8 +17,8 @@ class PageForm extends Component
     public $variableToSolveForUnit;
 
     protected $rules = [
-        'boundDataForSympy.*.Value' => 'nullable|numeric',
-        'boundDataForSympy.*.unit_conversion' => 'nullable|numeric',
+        'jsonForSympyParsing.*.Value' => 'nullable|numeric',
+        'jsonForSympyParsing.*.unit_conversion' => 'nullable|numeric',
         'variableToSolveFor' => 'required',
     ];
 
@@ -27,17 +28,18 @@ class PageForm extends Component
     {
         $this->variables_json = collect($this->variables_json);
         $this->units = Unit::all();
-        $this->boundDataForSympy = collect();
+        $this->jsonForSympyParsing = collect();
         $this->variableToSolveFor = $this->variables_json->keys()->first();
         $this->variableToSolveForUnit = 'select units';
         $this->answer = '';
         $this->errorOut = '';
+        $this->unitsForVariables = collect();
 
-        /* This is where 'Value' and 'unit_conversion' are created for boundDataForSympy */
-        $this->createBindingsForEachVariable();
+        /* This is where 'Value' and 'unit_conversion' are created for jsonForSympyParsing */
+        $this->setJsonForSympyParsing();
 
         /* The unit options list is made here for the blade tempalte "select" tag. */
-        $this->getAvailableUnitsForEachVariable();
+        $this->setUnitOptionsForEachVariable();
     }
 
     public function testThing($selectedText)
@@ -45,11 +47,9 @@ class PageForm extends Component
         $this->variableToSolveForUnit = $selectedText;
     }
 
-    private function createBindingsForEachVariable()
+    private function setJsonForSympyParsing()
     {
-    // For each variable, create value and unit bindings to be used by blade template binding
-    // Necessary because empty data must have the keys to be passed into python.
-        $this->boundDataForSympy = $this->variables_json->mapWithKeys(function ($variable, $variableName) {
+        $this->jsonForSympyParsing = $this->variables_json->mapWithKeys(function ($variable, $variableName) {
             return [
                 $variableName => [
                     'Value' => '',
@@ -60,13 +60,28 @@ class PageForm extends Component
     }
 
 
-    private function getAvailableUnitsForEachVariable()
+    private function setUnitOptionsForEachVariable()
     {
+
+        foreach($this->variables_json as $variableName => $variable){
+            $variableUnitClass = $variable['unit'];
+            $this->unitsForVariables = $this->units
+            ->where('unit_class', $variableUnitClass)
+
+            /* USE MAPWITH KEYS PROBABLY */
+            ->map(function($unit){
+                    return [
+                        'symbol' => $unit->symbol,
+                        'conversion_to_base' => $conversion_to_base,
+                    ];
+                })
+            ->values();
+        }
+        
         $this->variables_json->transform(function($variable){
-            $variable['unitOptions'] = collect();
             $variableUnitClass = $variable['unit'];
             /* From Units Model, filter by Unit class. Return only symbol, conversion */
-            $filteredUnits = $this->units 
+            $unitOptions = $this->units 
                 ->where('unit_class', $variableUnitClass)
                 ->map(function($unit){
                     return [
@@ -75,31 +90,30 @@ class PageForm extends Component
                     ];
                 })
                 ->values();
-
-            $variable['unitOptions'] = $filteredUnits;
+            $variable['unitOptions'] = $unitOptions;
             return $variable;
         });
     }
 
     public function updatedVariableToSolveFor()
     {
-        $variable = $this->boundDataForSympy[$this->variableToSolveFor];
+        $variable = $this->jsonForSympyParsing[$this->variableToSolveFor];
         $this->variableToSolveForUnit = 'select units';
         if($variable){
             $variable['Value'] = '';
-            $this->boundDataForSympy[$this->variableToSolveFor] = $variable;
+            $this->jsonForSympyParsing[$this->variableToSolveFor] = $variable;
         }
     }
 
     public function setAnswer()
     {
-        $this->boundDataForSympy = $this->boundDataForSympy->map(function ($variable) {
+        $this->jsonForSympyParsing = $this->jsonForSympyParsing->map(function ($variable) {
             return [
                 'Value' => $variable['Value'] ?: '',
                 'unit_conversion' => (float) $variable['unit_conversion'] ?: '',
             ];
         });
-        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympy);
+        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->jsonForSympyParsing) . ' ' . escapeshellarg($this->formula_sympy);
         $this->answer = Process::run($command)->output();
 
         $this->errorOut = Process::run($command)->errorOutput();

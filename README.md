@@ -143,9 +143,11 @@ This component works similarly to calc-page-update, but special care is taken to
 
 ## Calculator Pages
 
-Calculator Pages are where calc_page models come together and make up the various pages. The pages are routed to by eqn/create/{id}, where the id is the calc_page id attribute. 
+Calculator Pages are where calc_page models come together and make up the various pages.
 
-The page is built by smaller livewire components.
+The 'CalcPageView' view is the base where smaller livewire components live. The correct view is set by the CalcController controller by the 'id' attribute of the calc_page model retrieved. The controller also imports the model attributes for access by the page and livewire components.
+
+The livewire components are as follows:
 
 <ul>
     <li><strong>site-head</strong> - Contains bootstrap CDN, Mathjax CDN, scripts, css, and other important links. </li>
@@ -154,3 +156,14 @@ The page is built by smaller livewire components.
     <li><strong>information</strong> - Displays information for the formula and all the variables. This is pulled from the formula_description attribute, and in variables_json>descriptions attributes.</li>
 </ul>
 
+### page-form component
+
+The page-form compoenent is the meat of the page. Here, the client side meets the backend python code and handles the solving of variables based on the formula_sympy attribute of the calc_page model.
+
+Here's how it works.
+
+First, a blade foreach directive iterates through each key "variable" in the variable_json attribute of the calc_page model. A radio button, text input, and dropdown list are generated for each variable. 
+
+<ul>
+    <li>The radio button is bound to the $variableToSolveFor property, and the selected radio button's value (which is the variable's name) sets the value.
+</ul>
