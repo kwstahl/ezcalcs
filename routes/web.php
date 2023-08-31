@@ -20,20 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-/** 
- * 
- * The route 'testprocess' used to send data from the calc_pages model to the API for the calculator sympi logic.
- *  
- * This is declared before Route::resoures() because it is defined outside of the normal CRUD functions
- * 
- * @return view('apiTestView')
- * 
- * This view contains the form action {{ testprocessAPI.store }}, which sends form input in JSON form to the API calculator
- * 
-  */
-Route::get('/eqn/testprocess', function() {return Process::run('ls -la')->output();});
-
 /** 
  * 
  * Accesses the CalcController with CRUD functionality for created, showing, and updating pages from the CalcPage model 

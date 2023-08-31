@@ -13,10 +13,11 @@ class CalcPage extends Model
     /** disable incrementing id to string*/
     public $incrementing = false;
     protected $keyType = 'string';
+
     /** Remove timestamp requirements */
     public $timestamps = false;
 
-    /* Allows casting into json array */
+    /* Allows json casting into array */
     protected $casts = [
         'variables_json' => 'array',
     ];
@@ -25,7 +26,16 @@ class CalcPage extends Model
     {
         return json_encode($this->attributes['variables_json']);
     }
-    /* Allow filling into these for the database */
-    protected $fillable = ['variables_json', 'id', 'formula_description', 'formula_sympi', 'formula_name', 'topic', 'formula_latex'];
-    
+ 
+    protected $fillable = 
+    [
+        'id', 
+        'variables_json', 
+        'formula_description', 
+        'formula_sympy', 
+        'formula_name', 
+        'topic', 
+        'formula_latex'
+    ];
+        
 }

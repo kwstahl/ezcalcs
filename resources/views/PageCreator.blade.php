@@ -15,9 +15,15 @@
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         @livewireStyles
     </head>
+
     <body>
+        
+        <!-- Logic to edit existing Models -->
         @livewire('calc-page-update')
+
+        <!-- Logic to Create New Models -->
         @livewire('calc-page-create')
+        
         @livewireScripts
     </body>
 </html>

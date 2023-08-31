@@ -6,29 +6,29 @@ use Illuminate\Support\Facades\Process;
 
 class PageForm extends Component
 {
-    public $variables;
+    public $variables_json;
     public $units;
     public $boundDataForSympy;
-    public $formula_sympi;
+    public $formula_sympy;
     public $variableToSolveFor;
     public $answer;
     public $errorOut;
     public $variableToSolveForUnit;
 
     protected $rules = [
-        'boundDataForSympy.*.Value' => 'nullable',
+        'boundDataForSympy.*.Value' => 'nullable|numeric',
         'boundDataForSympy.*.unit_conversion' => 'nullable|numeric',
-        'variableToSolveFor' => 'nullable',
+        'variableToSolveFor' => 'required',
     ];
 
     protected $listeners = ['testAdd' => 'testThing'];
 
     public function mount()
     {
-        $this->variables = collect($this->variables);
+        $this->variables_json = collect($this->variables_json);
         $this->units = Unit::all();
         $this->boundDataForSympy = collect();
-        $this->variableToSolveFor = $this->variables->keys()->first();
+        $this->variableToSolveFor = $this->variables_json->keys()->first();
         $this->variableToSolveForUnit = 'select units';
         $this->answer = '';
         $this->errorOut = '';
@@ -49,7 +49,7 @@ class PageForm extends Component
     {
     // For each variable, create value and unit bindings to be used by blade template binding
     // Necessary because empty data must have the keys to be passed into python.
-        $this->boundDataForSympy = $this->variables->mapWithKeys(function ($variable, $variableName) {
+        $this->boundDataForSympy = $this->variables_json->mapWithKeys(function ($variable, $variableName) {
             return [
                 $variableName => [
                     'Value' => '',
@@ -62,7 +62,7 @@ class PageForm extends Component
 
     private function getAvailableUnitsForEachVariable()
     {
-        $this->variables->transform(function($variable){
+        $this->variables_json->transform(function($variable){
             $variable['unitOptions'] = collect();
             $variableUnitClass = $variable['unit'];
             /* From Units Model, filter by Unit class. Return only symbol, conversion */
@@ -99,7 +99,7 @@ class PageForm extends Component
                 'unit_conversion' => (float) $variable['unit_conversion'] ?: '',
             ];
         });
-        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympi);
+        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->boundDataForSympy) . ' ' . escapeshellarg($this->formula_sympy);
         $this->answer = Process::run($command)->output();
 
         $this->errorOut = Process::run($command)->errorOutput();

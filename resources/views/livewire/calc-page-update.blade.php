@@ -1,4 +1,3 @@
-<!-- Add Pages -->
 
 <!-- Update Pages -->
 <div>
@@ -10,61 +9,64 @@
                 <th>Formula Description</th>
                 <th>Formula Sympy</th>
                 <th>Formula Latex</th>
-                <th>Variables in JSON</th>
                 <th>Topic</th>
+                <th>Variables</th>
             </tr>    
         </thead>
 
         <tbody>
-            @foreach($calcPages as $eqnName => $eqnData)
-                <tr wire:key="eqnData-field-{{ $eqnName }}">
+            @foreach($calcPages as $pageIndex => $pageModel)
+                <tr wire:key="pageModel-field-{{ $pageIndex }}">
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $eqnName }}.id">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.id">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_name">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_name">
                     </td>
                 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_description">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_description">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_sympi">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_sympy">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $eqnName }}.formula_latex">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_latex">
+                    </td>
+
+                    <td>
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.topic">
                     </td>
 
                     <td>
                         <hr>
+                        <!-- The pageModel must be used to assign the matching id on this template against the component class -->
+                        @foreach($variablesWithPageId[$pageModel->id] as $variableName => $variable)
 
-                        @foreach($variables[$eqnData->id] as $variableName => $variable)
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
-                                <li>Unit<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.unit"> </li>
-                                <li>Sympi Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.sympi_symbol"> </li>
-                                <li>Latex Symbol<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.latex_symbol"> </li>
-                                <li>Description<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.description"> </li>
-                                <li>Type<input type="text" wire:model="variables.{{ $eqnData->id }}.{{ $variableName }}.type"> </li>
+                                <li>Unit<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.unit"> </li>
+                                <li>Sympy Symbol<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.sympy_symbol"> </li>
+                                <li>Latex Symbol<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.latex_symbol"> </li>
+                                <li>Description<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.description"> </li>
+                                <li>Type<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.type"> </li>
                             </ul>
+
                         @endforeach
 
                     </td>
 
-                    <td>
-                        <input type="text" wire:model="calcPages.{{ $eqnName }}.topic">
-                    </td>
-            
+                    <td><button type="button" wire:click="deletePage('{{ $pageModel['id'] }}')">Delete Page</button></td>
 
-                    <td><button type="button" wire:click="deletePage('{{ $eqnData['id'] }}')">Delete</button></td>
                 </tr>
             @endforeach
+
         </tbody>
     </table>
 
-    <button type="button" wire:click="save">Save</button>
+    <button type="button" wire:click="save">Save and Update Changes</button>
 
 </div>

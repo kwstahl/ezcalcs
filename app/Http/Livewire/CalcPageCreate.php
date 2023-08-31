@@ -9,61 +9,62 @@ use Illuminate\Support\Str;
 
 class CalcPageCreate extends Component
 {
-    public $calcPages;
-    public $variables;
-    public $numberOfVariables;
-    public $keyNames;
+
+    public $newPage;
+    public $variableCollections;
+    public $numberOfVariables = 1;
 
     protected $rules = [
-        'calcPages.*.formula_description' => 'nullable',
-        'calcPages.*.formula_name' => 'nullable',
-        'calcPages.*.formula_sympi' => 'nullable',
-        'calcPages.*.id' => 'nullable',
-        'calcPages.*.topic' => 'nullable',
-        'calcPages.*.formula_latex' => 'nullable',
-        'variables.*.unit' => 'nullable',
-        'variables.*.latex_symbol' => 'nullable',
-        'variables.*.sympi_symbol' => 'nullable',
-        'variables.*.description' => 'nullable',
-        'variables.*.type' => 'nullable',
-        'variables.*.variable_name' => 'nullable',
+        'newPage.id' => 'nullable',
+        'newPage.formula_name' => 'nullable',
+        'newPage.formula_description' => 'nullable',
+        'newPage.formula_sympy' => 'nullable',
+        'newPage.formula_latex' => 'nullable',
+        'newPage.topic' => 'nullable',
+        
+        'variableCollections.*.unit' => 'nullable',
+        'variableCollections.*.latex_symbol' => 'nullable',
+        'variableCollections.*.sympy_symbol' => 'nullable',
+        'variableCollections.*.description' => 'nullable',
+        'variableCollections.*.type' => 'nullable',
+        'variableCollections.*.variable_name' => 'nullable',
     ];
 
     public function mount()
     {
         $this->numberOfVariables = 1;
-        $this->calcPages = collect();
-        $this->variables = collect();
-        $this->keyNames = collect();
+        $this->newPage = collect();
+        $this->variableCollections = collect();
     }
 
     public function create()
     {
-        $this->mapVariableNames();
+        $this->prepVariableCollectionsForModel();
         $this->validate();
 
-        $newPageModel = CalcPage::create([
-            'id' => $this->calcPages['new']['id']
+        $newPage = CalcPage::create([
+            'id' => $this->newPage['id']
         ]);
 
-        $newPageModel->formula_name = $this->calcPages['new']['formula_name'];
-        $newPageModel->formula_description = $this->calcPages['new']['formula_description'];
-        $newPageModel->formula_sympi = $this->calcPages['new']['formula_sympi'];
-        $newPageModel->formula_latex = $this->calcPages['new']['formula_latex']; 
-        $newPageModel->topic = $this->calcPages['new']['topic'];
-        $newPageModel->variables_json = $this->variables;
+        $newPage->formula_name = $this->newPage['formula_name'];
+        $newPage->formula_description = $this->newPage['formula_description'];
+        $newPage->formula_sympy = $this->newPage['formula_sympy'];
+        $newPage->formula_latex = $this->newPage['formula_latex']; 
+        $newPage->topic = $this->newPage['topic'];
+        $newPage->variables_json = $this->variableCollections;
 
-        $newPageModel->save();
+        $newPage->save();
 
         return redirect()->to('/eqn/create');
     }
 
-    public function mapVariableNames()
+    public function prepVariableCollectionsForModel()
     {
-        $this->variables = $this->variables->mapWithKeys(function($item){
-            $key = $item['variable_name'];
-            unset($item['variable_name']);
-            return [$key => $item];
+        // For each variable, set variable_name as the key, and remove it from the collection
+        $this->variableCollections = $this->variableCollections->mapWithKeys(function($variableAttributes){
+            $variableName = $variableAttributes['variable_name'];
+            unset($variableAttributes['variable_name']);
+            return [$variableName => $variableAttributes];
         });
     }
 

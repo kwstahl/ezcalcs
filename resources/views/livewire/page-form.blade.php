@@ -1,12 +1,11 @@
 <div class="row p-2">
-    <form class="">
-        <!-- Row Created for each variable -->
-        @foreach ($variables as $variableName => $variable)
+    <form>
+        <!-- Input Group Row Created for each variable -->
+        @foreach ($variables_json as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-8">
-                    <!-- Input group -->
                     <div class="input-group">
-                        <!--  Input Radio  -->
+                        <!--  Radio  -->
                         <div class="input-group-text">
                             <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{ $variableName }}"
                                 wire:model="variableToSolveFor">
@@ -24,7 +23,7 @@
                     </div>
                 </div>
 
-                <!-- Options dropdown, options created for each unit -->
+                <!-- Dropdown list -->
                 <div class="col-4 form-floating">
 
                     <select class="form-select" wire:model.lazy="boundDataForSympy.{{ $variableName }}.unit_conversion"
@@ -70,7 +69,6 @@
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
-        <!-- units of: <strong><i>{{ $variableToSolveForUnit }}</i></strong> -->
     </h1>
 
     <div class="row justify-content-center gx-4">
@@ -81,11 +79,7 @@
 
 
         <div class="col-5 bg-white shadow rounded overflow-hidden">
-            <div class="d-flex flex-row "><h3>Answer:</h3> <h3>  {{ $answer }}</h3></div>
+            <div class="d-flex flex-row "><h3>Answer: {{ $answer }}</h3></div>
         </div>
     </div>
-
-
-
-
 </div>

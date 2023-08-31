@@ -7,60 +7,67 @@ use App\Models\CalcPage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+
 class CalcPageUpdate extends Component
 {
+    //provides validation rules
+    
     public $calcPages;
-    public $variables;
-
+    public $variablesWithPageId;
     protected $rules = [
         'calcPages.*.formula_description' => 'nullable',
         'calcPages.*.formula_name' => 'nullable',
-        'calcPages.*.formula_sympi' => 'nullable',
+        'calcPages.*.formula_sympy' => 'nullable',
         'calcPages.*.id' => 'nullable',
         'calcPages.*.topic' => 'nullable',
         'calcPages.*.formula_latex' => 'nullable',
-        'variables.*.*.unit' => 'nullable',
-        'variables.*.*.latex_symbol' => 'nullable',
-        'variables.*.*.sympi_symbol' => 'nullable',
-        'variables.*.*.description' => 'nullable',
-        'variables.*.*.type' => 'nullble',
-    ];
 
+        'variablesWithPageId.*.*.unit' => 'nullable',
+        'variablesWithPageId.*.*.latex_symbol' => 'nullable',
+        'variablesWithPageId.*.*.sympy_symbol' => 'nullable',
+        'variablesWithPageId.*.*.description' => 'nullable',
+        'variablesWithPageId.*.*.type' => 'nullable',
+    ];
 
     public function mount()
     {
         $this->calcPages = CalcPage::all();
-        $this->variables = $this->calcPages->mapWithKeys(function($item, $key){
-            return [$item['id'] => $item['variables_json']];
+
+        //when saving a calcPage, the variables are stored separately because of their own collection logic. 
+        //Therefore, they must have a way to be linked to their respective page. This property handles that.
+        $this->variablesWithPageId = $this->calcPages->mapWithKeys(function($calcPage, $key){
+            return [$calcPage['id'] => $calcPage['variables_json']];
         });
+
     }
 
     public function deletePage($pageId)
     {
         $page = CalcPage::find($pageId);
-
         if ($page) {
             $page->delete();
-
-            $this->calcPages = $this->calcPages->reject(function($item) use ($pageId){
-                return $item['id'] == $pageId;
-            });
         }
+
+        return redirect()->to('/eqn/create');
     }
 
     public function save()
     {
         $this->validate();
-        foreach ($this->calcPages as $index => $page){
-            $pageModel = CalcPage::find($page['id']);
-            $pageModel->id = $page['id'];
-            $pageModel->formula_name = $page['formula_name'];
-            $pageModel->formula_latex = $page['formula_latex'];
-            $pageModel->formula_description = $page['formula_description'];
-            $pageModel->formula_sympi = $page['formula_sympi'];
-            $pageModel->variables_json = $this->variables->get($pageModel->id);
-            $pageModel->topic = $page['topic'];
-            $pageModel->save();
+        foreach ($this->calcPages as $index => $calcPage){
+
+            $updatedPage = CalcPage::find($calcPage['id']);
+            //set all properties for the model
+            $updatedPage->id = $calcPage['id'];
+            $updatedPage->formula_name = $calcPage['formula_name'];
+            $updatedPage->formula_latex = $calcPage['formula_latex'];
+            $updatedPage->formula_description = $calcPage['formula_description'];
+            $updatedPage->formula_sympy = $calcPage['formula_sympy'];            
+            $updatedPage->topic = $calcPage['topic'];
+            $updatedPage->variables_json = $this->variablesWithPageId->get($updatedPage->id);
+
+            $updatedPage->save();
+
         }
         return redirect()->to('/eqn/create');
 
