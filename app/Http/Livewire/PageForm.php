@@ -38,7 +38,6 @@ class PageForm extends Component
         /* This is where 'Value' and 'unit_conversion' are created for jsonForSympyParsing */
         $this->setJsonForSympyParsing();
 
-        /* The unit options list is made here for the blade tempalte "select" tag. */
         $this->setUnitOptionsForEachVariable();
     }
 
@@ -62,37 +61,22 @@ class PageForm extends Component
 
     private function setUnitOptionsForEachVariable()
     {
-
         foreach($this->variables_json as $variableName => $variable){
             $variableUnitClass = $variable['unit'];
-            $this->unitsForVariables = $this->units
-            ->where('unit_class', $variableUnitClass)
-
-            /* USE MAPWITH KEYS PROBABLY */
-            ->map(function($unit){
-                    return [
-                        'symbol' => $unit->symbol,
-                        'conversion_to_base' => $conversion_to_base,
-                    ];
-                })
-            ->values();
-        }
-        
-        $this->variables_json->transform(function($variable){
-            $variableUnitClass = $variable['unit'];
-            /* From Units Model, filter by Unit class. Return only symbol, conversion */
-            $unitOptions = $this->units 
+            $unitsForVariable = $this->units
                 ->where('unit_class', $variableUnitClass)
-                ->map(function($unit){
-                    return [
-                        'symbol' => $unit->symbol,
-                        'conversion_to_base' => $unit->conversion_to_base,
-                    ];
-                })
-                ->values();
-            $variable['unitOptions'] = $unitOptions;
-            return $variable;
-        });
+                ->mapWithKeys(function($unit, $unitName) {
+                        return [
+                            $unitName => [
+                            'symbol' => $unit->symbol,
+                            'conversion_to_base' => $conversion_to_base,
+                            ]
+                        ];
+                    })
+                ->all();
+            
+            $this->unitsForVariables[$variableName] = $unitsForVariable;
+        }
     }
 
     public function updatedVariableToSolveFor()

@@ -25,12 +25,11 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
-
                     <select class="form-select" wire:model.lazy="boundDataForSympy.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>{{ $variableName }}</option>
-                        @foreach ($variable['unitOptions'] as $subUnitIndex => $subUnit)
-                            <option value="{{ $subUnit['conversion_to_base'] }}"> {{ $subUnit['symbol'] }} </option>
+                        @foreach ($unitsForVariables[$variableName] as $unitIndex => $unit)
+                            <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
 
