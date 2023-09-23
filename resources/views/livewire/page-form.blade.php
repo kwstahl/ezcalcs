@@ -14,7 +14,7 @@
                         <!-- Input Text -->
                         <div class="form-floating">
                             <input class="form-control" type="text" name="{{ $variableName }}"
-                                wire:model="boundDataForSympy.{{ $variableName }}.Value"
+                                wire:model="jsonForSympyParsing.{{ $variableName }}.Value"
                                 @if ($variableToSolveFor === $variableName) disabled
                                     readonly @endif>
 
@@ -25,7 +25,7 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
-                    <select class="form-select" wire:model.lazy="boundDataForSympy.{{ $variableName }}.unit_conversion"
+                    <select class="form-select" wire:model.lazy="jsonForSympyParsing.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>Select Unit</option>
                         @foreach ($unitsForVariables[$variableName] as $unitIndex => $unit)
