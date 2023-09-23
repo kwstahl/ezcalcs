@@ -30,7 +30,7 @@ class UnitTable extends Component
         'units.*.base_unit' => 'nullable|string|max:500',
         'units.*.symbol' => 'nullable|string|max:500',
         'units.*.description' => 'nullable|string',
-        'units.*.conversion_to_base' => 'nullable|numeric|max:500',
+        'units.*.conversion_to_base' => 'nullable|numeric',
         'units.*.type' => 'nullable|string|max:500',
         
         //for make new entry, probably need new component

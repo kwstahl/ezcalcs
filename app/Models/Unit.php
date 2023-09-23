@@ -14,5 +14,7 @@ class Unit extends Model
     public $timestamps = false;
     protected $fillable = ['id', 'unit_class', 'base_unit', 'symbol', 'conversion_to_base', 'description', 'type'];
     protected $primaryKey = 'id';
-  
+    protected $casts = [
+        'conversion_to_base' => 'float',
+    ];
 }
