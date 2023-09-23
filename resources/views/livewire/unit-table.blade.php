@@ -65,7 +65,7 @@
                         </td>
 
                         <td>
-                            <input type="text" wire:model="units.{{ $index }}.conversion_to_base">
+                            <input type="number" wire:model="units.{{ $index }}.conversion_to_base">
                         </td>
 
                         <td>
