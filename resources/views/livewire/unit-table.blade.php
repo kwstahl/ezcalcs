@@ -80,7 +80,9 @@
                 </tbody>
                 
             </table>
-            <button type="submit" wire:click="save">Save</button>
+            
         </form>
+
+        <button wire:click="save">Save</button>
 {{ dump($units) }}
 </div>
