@@ -1,7 +1,7 @@
 
 <!-- Update Pages -->
-<div>
-    <table>
+<div class="row">
+    <table class="container row">
         <thead>
             <tr>
                 <th>ID</th>
@@ -14,31 +14,31 @@
             </tr>    
         </thead>
 
-        <tbody>
+        <tbody class="row">
             @foreach($calcPages as $pageIndex => $pageModel)
                 <tr wire:key="pageModel-field-{{ $pageIndex }}">
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.id">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.id" class="form-control">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_name">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_name" class="form-control">
                     </td>
                 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_description">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_description" class="form-control">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_sympy">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_sympy" class="form-control">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_latex">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.formula_latex" class="form-control">
                     </td>
 
                     <td>
-                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.topic">
+                        <input type="text" wire:model="calcPages.{{ $pageIndex }}.topic" class="form-control">
                     </td>
 
                     <td>
@@ -48,11 +48,11 @@
 
                             <ul wire:key="var-field-{{ $variableName }}">
                             {{ $variableName }}<br>
-                                <li>Unit<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.unit"> </li>
-                                <li>Sympy Symbol<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.sympy_symbol"> </li>
-                                <li>Latex Symbol<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.latex_symbol"> </li>
-                                <li>Description<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.description"> </li>
-                                <li>Type<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.type"> </li>
+                                <li>Unit<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.unit" class="form-control"> </li>
+                                <li>Sympy Symbol<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.sympy_symbol" class="form-control"> </li>
+                                <li>Latex Symbol<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.latex_symbol" class="form-control"> </li>
+                                <li>Description<textarea type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.description" class="form-control"></textarea> </li>
+                                <li>Type<input type="text" wire:model="variablesWithPageId.{{ $pageModel->id }}.{{ $variableName }}.type"class="form-control"> </li>
                             </ul>
 
                         @endforeach

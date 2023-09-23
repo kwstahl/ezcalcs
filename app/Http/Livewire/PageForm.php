@@ -8,56 +8,57 @@ class PageForm extends Component
 {
     public $variables_json;
     public $units;
-    public $unitsForVariables;
-    public $jsonForSympyParsing;
+    public $unitOptions;
+    public $variableInputData;
     public $formula_sympy;
     public $variableToSolveFor;
     public $answer;
-    public $errorOut;
-    public $variableToSolveForUnit;
-
-    protected $rules = [
-        'jsonForSympyParsing.*.Value' => 'nullable|numeric',
-        'jsonForSympyParsing.*.unit_conversion' => 'nullable|numeric',
-        'variableToSolveFor' => 'required',
-    ];
-
-    protected $listeners = ['testAdd' => 'testThing'];
 
     public function mount()
     {
-        $this->variables_json = collect($this->variables_json);
         $this->units = Unit::all();
-        $this->jsonForSympyParsing = collect();
+        $this->unitOptions = collect();
+
+        $this->variables_json = collect($this->variables_json);
+        $this->variableInputData = collect();
         $this->variableToSolveFor = $this->variables_json->keys()->first();
-        $this->variableToSolveForUnit = 'select units';
+
         $this->answer = '';
         $this->errorOut = '';
-        $this->unitsForVariables = collect();
 
-        /* This is where 'Value' and 'unit_conversion' are created for jsonForSympyParsing */
-        $this->setJsonForSympyParsing();
-
+        $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
     }
 
-    public function testThing($selectedText)
+    protected $messages = [
+        'variableInputData.*.unit_conversion' => 'Select a unit for :attribute variable.',
+        'variableInputData.*.Value.numeric' => 'Only numbers are allowed to be entered for :attribute.',
+        'variableInputData.*.Value.required' => 'Please enter a value for :attribute.'
+    ];
+
+    protected function rules()
     {
-        $this->variableToSolveForUnit = $selectedText;
+        $variableToSolveForValueEntry = 'variableInputData.' . $this->variableToSolveFor . '.Value';
+        return [
+            'variableInputData.*.Value' => 'required|numeric',
+            $variableToSolveForValueEntry => 'nullable',
+            'variableInputData.*.unit_conversion' => 'required|numeric',
+            'variableToSolveFor' => 'required',
+        ];
     }
 
-    private function setJsonForSympyParsing()
+    private function setVariableInputData()
     {
-        $this->jsonForSympyParsing = $this->variables_json->mapWithKeys(function ($variable, $variableName) {
+        $this->variableInputData = $this->variables_json->mapWithKeys(function ($variable, $variableName) {
             return [
                 $variableName => [
+                    'sympy_symbol' => $variable['sympy_symbol'],
                     'Value' => '',
-                    'unit_conversion' => (float) 0.0,
+                    'unit_conversion' => '',
                 ]
             ];
         });
     }
-
 
     private function setUnitOptionsForEachVariable()
     {
@@ -75,31 +76,45 @@ class PageForm extends Component
                     })
                 ->all();
             
-            $this->unitsForVariables[$variableName] = $unitsForVariable;
+            $this->unitOptions[$variableName] = $unitsForVariable;
         }
     }
 
     public function updatedVariableToSolveFor()
     {
-        $variable = $this->jsonForSympyParsing[$this->variableToSolveFor];
-        $this->variableToSolveForUnit = 'select units';
-        if($variable){
-            $variable['Value'] = '';
-            $this->jsonForSympyParsing[$this->variableToSolveFor] = $variable;
-        }
+        /* Laravel's collection class is immutable, so a new collection instance with a cleared value must be created, then assigned */
+        $newVariableToSolveFor = $this->variableInputData[$this->variableToSolveFor];
+        $newVariableToSolveFor['Value'] = '';
+        $this->variableInputData[$this->variableToSolveFor] = $newVariableToSolveFor;
+        $this->rules();
     }
 
-    public function setAnswer()
+    public function submit()
     {
-        $this->jsonForSympyParsing = $this->jsonForSympyParsing->map(function ($variable) {
-            return [
-                'Value' => $variable['Value'] ?: '',
-                'unit_conversion' => (float) $variable['unit_conversion'] ?: '',
+        $this->validate();
+        $dataForSympyInJson = $this->prepareDataForSympyInJson();
+        $this->sendDataToSympy($dataForSympyInJson);
+    }
+
+    private function prepareDataForSympyInJson(){
+        $dataForSympyInJson = $this->variableInputData;
+        $dataForSympyInJson = $this->variableInputData->mapWithKeys(function ($variable, $variableName) {
+            $sympy_symbol = $variable['sympy_symbol'];
+            return 
+            [
+                $sympy_symbol => [
+                    'Value' => $variable['Value'],
+                    'unit_conversion' => (float) $variable['unit_conversion'],
+                ]
             ];
         });
-        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($this->jsonForSympyParsing) . ' ' . escapeshellarg($this->formula_sympy);
-        $this->answer = Process::run($command)->output();
+        return $dataForSympyInJson;
+    }
 
+    private function sendDataToSympy($dataForSympyInJson)
+    {
+        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formula_sympy);
+        $this->answer = Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
     }
 

@@ -1,31 +1,39 @@
-<div>
+<div class="row p-3">
     <form>
-
-        <input type="text" wire:model="newPage.id">ID<br>
-        <input type="text" wire:model="newPage.formula_name">Formula Name<br>
-        <input type="text" wire:model="newPage.formula_description">Formula Description<br>
-        <input type="text" wire:model="newPage.formula_sympy">Formula Sympy<br>
-        <input type="text" wire:model="newPage.formula_latex">Formula Latex<br>
-        <input type="text" wire:model="newPage.topic">Topic<br>
-
-        <input type="number" wire:model="numberOfVariables"> Number of Variables <br>
-
+        <div class="col-6 p-3">
+            <input type="text" wire:model="newPage.id" class="form-control">ID<br>
+            <input type="text" wire:model="newPage.formula_name" class="form-control">Formula Name<br>
+            <textarea type="text" wire:model="newPage.formula_description" class="form-control"></textarea>Formula Description<br>
+            <textarea type="text" wire:model="newPage.formula_sympy" class="form-control"></textarea>Formula Sympy<br>
+            <textarea type="text" wire:model="newPage.formula_latex" class="form-control"></textarea>Formula Latex<br>
+            <input type="text" wire:model="newPage.topic" class="form-control">Topic<br>
+        </div>
+        <hr>
+        <input type="number" wire:model="numberOfVariables" class="form-control col-3 mw-50 p-2"> Number of Variables <br>
+        <hr> <div class="col-12 p-2 row">
         @for ($i = 1; $i <= $numberOfVariables; $i++)
-            <div>
+            <div class="col-5 p-3">
                 <h3>Variable {{ $i }}</h3>
                 <hr>
 
-                <input type="text" wire:model="variableCollections.{{ $i }}.variable_name">Variable Name<br>
-
-                <input type="text" wire:model="variableCollections.{{ $i }}.unit">Unit<br>
-                <input type="text" wire:model="variableCollections.{{ $i }}.sympy_symbol">Sympy Symbol<br>
-                <input type="text" wire:model="variableCollections.{{ $i }}.latex_symbol">Latex Symbol<br>
-                <input type="text" wire:model="variableCollections.{{ $i }}.description">Description<br>
-                <input type="text" wire:model="variableCollections.{{ $i }}.type">Type<br>
+                Variable Name<input type="text" wire:model="variableCollections.{{ $i }}.variable_name"
+                    class="form-control"><br>
+                Unit<input type="text" wire:model="variableCollections.{{ $i }}.unit"
+                    class="form-control"><br>
+                Sympy Symbol<input type="text" wire:model="variableCollections.{{ $i }}.sympy_symbol"
+                    class="form-control"><br>
+                Latex Symbol<input type="text" wire:model="variableCollections.{{ $i }}.latex_symbol"
+                    class="form-control"><br>
+                Description
+                <textarea type="text" wire:model="variableCollections.{{ $i }}.description" class="form-control"></textarea><br>
+                Type<input type="text" wire:model="variableCollections.{{ $i }}.type"
+                    class="form-control"><br>
             </div>
         @endfor
-    </form>
+</div>
+<button wire:click="create" class="button" type="button">Create New Page</button>
 
-    <button wire:click="create">Create New Page</button>
+</form>
+
 
 </div>

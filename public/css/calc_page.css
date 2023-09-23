@@ -28,7 +28,11 @@ h1 {
 }
 
 .nav-link {
-    color: white;
+    color: white !important;
+}
+
+.nav-link.active{
+    color:black !important;
 }
 
 .nav-link:hover {
@@ -39,4 +43,3 @@ h1 {
     font-size: 20px;
     color: #9DB2BF;
 }
-

@@ -10,9 +10,9 @@
                 Us</button>
             <!-- Generated Tabs from Models -->
             @foreach ($pagesByTopic as $topic => $pageByTopic)
-                <button class="nav-link" id="nav-{{ $topic }}-tab" data-bs-toggle="tab"
+                <a class="nav-link btn" id="nav-{{ $topic }}-tab" data-bs-toggle="tab"
                     data-bs-target="#tab-{{ $topic }}" type="button" role="tab" aria-controls="nav-home"
-                    aria-selected="true">{{ $topic }}</button>
+                    aria-selected="true">{{ $topic }}</a>
             @endforeach
         </div>
     </nav>
@@ -55,9 +55,14 @@
                         id="buttonContainer-{{ $topic }}">
 
                         @foreach ($pagesByTopic[$topic] as $pageName => $pageModel)
-                            <button href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}"
-                                class="mb-1 ma-1 list-group-item list-group-item-action text-center justify-content-center"
-                                style="background-color: #2d4255; border-color: white; color: white; opacity:100%">{{ $pageByTopic[$pageName]['formulaName'] }}</button>
+                            <a href="{{ $this->setUrl($pageByTopic[$pageName]['id']) }}"
+                                class="list-group-item list-group-item-action p-1"
+                                style="background-color: #2d4255; border-color: white; color: white; opacity:100%">
+                                
+                                {{ $pageByTopic[$pageName]['formulaName'] }} 
+                            </a>
+
+
                         @endforeach
                     </div>
                 </div>
@@ -91,4 +96,3 @@
         @endforeach
     </div>
 @endif
-

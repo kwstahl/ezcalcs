@@ -158,12 +158,31 @@ The livewire components are as follows:
 
 ### page-form component
 
-The page-form compoenent is the meat of the page. Here, the client side meets the backend python code and handles the solving of variables based on the formula_sympy attribute of the calc_page model.
+The page form component is the most important part of the web page. This handles user inputs, sends them to the SympyScript Python file for handling, and returns a calculated answer.
 
-Here's how it works.
-
-First, a blade foreach directive iterates through each key "variable" in the variable_json attribute of the calc_page model. A radio button, text input, and dropdown list are generated for each variable. 
+#### Properties
 
 <ul>
-    <li>The radio button is bound to the $variableToSolveFor property, and the selected radio button's value (which is the variable's name) sets the value.
+    <li><strong>units</strong> - all the units retrieved from the Unit model.</li>
+    <li><strong>unitOptions</strong> - this property is set by the setUnitOptionsForEachVariable method. It is a collection of collections: the key is the variable's name, and the value is a collection of all symbols/conversions retrieved from the Unit model. More details outlined on the method.</li>
+    <li><strong>variables_json</strong> - the variables_json property is the variables_json retrieved from the model as a collection instance. </li>
+    <li><strong>variableInputData</strong> - a collection that contains each variable's value, and the variable's selected unit. These are selected from the page form.</li>
+    <li><strong>variableToSolveFor</strong> - the name of the variable selected from the radio input. </li>
+    <li><strong>answer</strong> - the calculated answer returned by the Python SympyScript.</li>
+    <li><strong>messages</strong> - error messages displayed during form validation.</li>
+</ul>
+
+#### Methods
+
+<ul>
+    <li><strong>mount()</strong> - called on page load. Sets empty properties; variableToSolveFor - is set as the first variable as default; calls setVariableInputData(), and setUnitOptionsForEachVariable(). </li>
+    <li><strong>setVariableInputData()</strong> - for each variable, the sympy_symbol is added as an attribute, this is used to handle the formula-variable relationship. Each variable also gets a null Value, and a null unit_conversion.</li>
+    <li><strong>setUnitOptionsForEachVariable()</strong> - for each variable, a list of units related by the variable's 'unit' attribute, and the Unit model's 'unit_class' attribute are created; these populate the dropdown list in the form. The 'symbol' attribute makes the displayed text in the HTML option element, and the 'conversion_to_base' is the value when selected.</li>
+    <li><strong>updatedVariableToSolveFor()</strong> - on any update of the radio button selection, the variableInputData property must be updated. The Value of whatever variable was selected before is cleared, and the rules() method is called again to reflect the changes. The method updates the entire collection with a cleared 'Value' because of Laravel's collection class being immutable. Direct changes to 'Value' are not allowed, so this is a workaround.</li>
+    <li><strong>submit()</strong> - on form submission, form data is validated and the following methods are called: 
+    <ul>
+        <li>prepareDataForSympyInJson() - this method prepares all variableInputData in a way that can be parsed by the Python SympyScript logic.
+        </li>
+        <li>sendDataToSympy - uses the Laravel Process facade and sends a command to SympyScript with the prepared JSON data, the formula_sympy retrieved from the model, and outputs the calculated value/variable.</li> 
+    </ul></li>
 </ul>

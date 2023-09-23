@@ -49,7 +49,7 @@
                 background-color: #a76f6f !important;
             }
 
-            button.list-group-item:hover {
+            a.list-group-item:hover {
                 background-color: black !important;
                 border: rounded;
             }

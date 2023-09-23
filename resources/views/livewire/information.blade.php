@@ -7,7 +7,7 @@
             type="button" role="tab" aria-controls="nav-home" aria-selected="true">Description</button>
 
         @foreach ($variables as $variableName => $variable)
-            <button class="nav-link " id="nav-{{ $this->prepareForHtmlIdNaming($variableName) }}-tab" data-bs-toggle="tab"
+            <button class="nav-link" id="nav-{{ $this->prepareForHtmlIdNaming($variableName) }}-tab" data-bs-toggle="tab"
                 data-bs-target="#nav-{{ $this->prepareForHtmlIdNaming($variableName) }}" type="button" role="tab">{{ $variableName }} ({{$variable['latex_symbol']}})</button>
         @endforeach
 

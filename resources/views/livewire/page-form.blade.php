@@ -1,5 +1,5 @@
 <div class="row p-2">
-    <form>
+    <form wire:submit.prevent="submit">
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
@@ -14,38 +14,70 @@
                         <!-- Input Text -->
                         <div class="form-floating">
                             <input class="form-control" type="text" name="{{ $variableName }}"
+<<<<<<< Updated upstream
                                 wire:model="jsonForSympyParsing.{{ $variableName }}.Value"
+=======
+                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
+>>>>>>> Stashed changes
                                 @if ($variableToSolveFor === $variableName) disabled
                                     readonly @endif>
-
-                            <label>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
+                            <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
                         </div>
                     </div>
                 </div>
 
+
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
+<<<<<<< Updated upstream
                     <select class="form-select" wire:model.lazy="jsonForSympyParsing.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>Select Unit</option>
                         @foreach ($unitsForVariables[$variableName] as $unitIndex => $unit)
+=======
+                    <select class="form-select" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion"
+                        id="{{ $variableName }}">
+                        <option selected>{{ $variableName }}</option>
+                        @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+>>>>>>> Stashed changes
                             <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
-
                     <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
             </div>
             <hr>
         @endforeach
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <div class="row justify-content-center gx-4">
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Solve for
+                    Variable</button>
+            </div>
+
+
+            <div class="col-5 bg-white shadow rounded overflow-hidden">
+                <div class="d-flex flex-row ">
+                    <h3>Answer: {{ $answer }}</h3>
+                </div>
+            </div>
+        </div>
     </form>
 
 
-
-    <!-- This will push to the 'scripts' stack on the main CalcPageView -->
     @push('scripts')
         <script>
-            //get all the selects on the form, add an event listener for each one that listens for any changes.
+            
             var selectElements = document.querySelectorAll('.form-select');
 
             selectElements.forEach(function(selectElement) {
@@ -70,15 +102,5 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 
-    <div class="row justify-content-center gx-4">
-        <div class="col-auto">
-            <button class="btn btn-primary" type="button" wire:click.prevent="setAnswer">Solve for
-                Variable</button>
-        </div>
 
-
-        <div class="col-5 bg-white shadow rounded overflow-hidden">
-            <div class="d-flex flex-row "><h3>Answer: {{ $answer }}</h3></div>
-        </div>
-    </div>
 </div>

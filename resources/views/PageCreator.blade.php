@@ -14,6 +14,7 @@
         <script type="text/javascript" src="/var/www/html/ezcalcs/resources/js/scripts.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         @livewireStyles
+        @livewire('site-head')
     </head>
 
     <body>
