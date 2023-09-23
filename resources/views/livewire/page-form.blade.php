@@ -14,31 +14,7 @@
                         <!-- Input Text -->
                         <div class="form-floating">
                             <input class="form-control" type="text" name="{{ $variableName }}"
-<<<<<<< HEAD
                                 wire:model.defer="variableInputData.{{ $variableName }}.Value"
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                                wire:model="jsonForSympyParsing.{{ $variableName }}.Value"
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
->>>>>>> 116e9e4 (	modified:   resources/views/livewire/page-form.blade.php)
                                 @if ($variableToSolveFor === $variableName) disabled
                                     readonly @endif>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
