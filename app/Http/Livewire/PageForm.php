@@ -68,7 +68,7 @@ class PageForm extends Component
                 ->where('unit_class', $variableUnitClass)
                 ->mapWithKeys(function($unit, $unitName) {
                         return [
-                            $unitName => [
+                            $unit->id => [
                             'symbol' => $unit->symbol,
                             'conversion_to_base' => $unit->conversion_to_base,
                             'unit_class' => $unit->unit_class,
