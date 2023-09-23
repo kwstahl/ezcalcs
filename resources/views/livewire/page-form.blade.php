@@ -33,7 +33,7 @@
                         @endforeach
                     </select>
 
-                    <label> Unit: {{ $unitsForVariables[$variableName]['unit_class'] }}</label>
+                    <label> Unit: {{ dump($unitsForVariables[$variableName]) }}</label>
                 </div>
             </div>
             <hr>
