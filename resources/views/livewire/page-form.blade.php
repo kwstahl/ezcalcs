@@ -28,7 +28,7 @@
                     <select class="form-select" wire:model.lazy="jsonForSympyParsing.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>Select Unit</option>
-                        @foreach ($unitsForVariables[$variableName] as $unitIndex => $unit)
+                        @foreach ($unitsOptions[$variableName] as $unitIndex => $unit)
                             <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
