@@ -14,23 +14,7 @@
                         <!-- Input Text -->
                         <div class="form-floating">
                             <input class="form-control" type="text" name="{{ $variableName }}"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                                wire:model="jsonForSympyParsing.{{ $variableName }}.Value"
-=======
                                 wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
-=======
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
->>>>>>> Stashed changes
                                 @if ($variableToSolveFor === $variableName) disabled
                                     readonly @endif>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
@@ -41,35 +25,13 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                     <select class="form-select" wire:model.lazy="jsonForSympyParsing.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>Select Unit</option>
                         @foreach ($unitsOptions[$variableName] as $unitIndex => $unit)
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                     <select class="form-select" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>{{ $variableName }}</option>
-                        @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                             <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
@@ -78,14 +40,6 @@
             </div>
             <hr>
         @endforeach
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -102,9 +56,6 @@
                 <button class="btn btn-primary" type="submit">Solve for
                     Variable</button>
             </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -130,8 +81,6 @@
             </div>
         </div>
     </form>
-=======
->>>>>>> Stashed changes
 
             <div class="col-5 bg-white shadow rounded overflow-hidden">
                 <div class="d-flex flex-row ">
@@ -140,8 +89,6 @@
             </div>
         </div>
     </form>
-=======
->>>>>>> Stashed changes
 
             <div class="col-5 bg-white shadow rounded overflow-hidden">
                 <div class="d-flex flex-row ">
