@@ -14,7 +14,11 @@
                         <!-- Input Text -->
                         <div class="form-floating">
                             <input class="form-control" type="text" name="{{ $variableName }}"
+<<<<<<< Updated upstream
                                 wire:model="jsonForSympyParsing.{{ $variableName }}.Value"
+=======
+                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
+>>>>>>> Stashed changes
                                 @if ($variableToSolveFor === $variableName) disabled
                                     readonly @endif>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
@@ -25,10 +29,17 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
+<<<<<<< Updated upstream
                     <select class="form-select" wire:model.lazy="jsonForSympyParsing.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>Select Unit</option>
                         @foreach ($unitsOptions[$variableName] as $unitIndex => $unit)
+=======
+                    <select class="form-select" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion"
+                        id="{{ $variableName }}">
+                        <option selected>{{ $variableName }}</option>
+                        @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+>>>>>>> Stashed changes
                             <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
