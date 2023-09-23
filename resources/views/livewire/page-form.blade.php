@@ -32,7 +32,7 @@
                             <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
-                    <label> Unit: {{ $variable['unit'] }}</label>
+                    <label> Unit: {{ $unitOptions[$variableName]['unit_class'] }}</label>
                 </div>
             </div>
             <hr>
