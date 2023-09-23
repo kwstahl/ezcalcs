@@ -46,16 +46,7 @@ class Formula:
         #formula string comes from sys.argv[2]
         self.formula_string = formula_string
         self.sympy_equation = sympy.sympify(self.formula_string)
-
-<<<<<<< Updated upstream:public/SympyForms.py
-<<<<<<< Updated upstream:public/SympyForms.py
-        #created during substitute_values() if "" found on "Value"
-=======
         #created during substitute_converted_values() if "none" found on "Value"
->>>>>>> Stashed changes:SympyForms.py
-=======
-        #created during substitute_converted_values() if "none" found on "Value"
->>>>>>> Stashed changes:SympyForms.py
         self.variable_to_solve_for = ""
 
         #created during solve_for_variable()
@@ -90,14 +81,5 @@ class Formula:
         variable_to_solve_for = self.variable_to_solve_for.sympy_symbol
 
         #solve for missing variable, then divide by the unit conversion factor
-<<<<<<< Updated upstream:public/SympyForms.py
-<<<<<<< Updated upstream:public/SympyForms.py
-        self.converted_answer = sympy.solve(equation, variable_to_solve_for)[0]*(unit_conversion)
-=======
         self.converted_answer = sympy.solve(equation, variable_to_solve_for)[0]*(1/unit_conversion)
 
->>>>>>> Stashed changes:SympyForms.py
-=======
-        self.converted_answer = sympy.solve(equation, variable_to_solve_for)[0]*(1/unit_conversion)
-
->>>>>>> Stashed changes:SympyForms.py
