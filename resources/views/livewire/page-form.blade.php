@@ -32,8 +32,7 @@
                             <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
                         @endforeach
                     </select>
-
-                    <label> Unit: {{ dump($unitOptions) }}</label>
+                    <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
             </div>
             <hr>
@@ -57,11 +56,13 @@
 
             <div class="col-5 bg-white shadow rounded overflow-hidden">
                 <div class="d-flex flex-row ">
-                    <h3>Answer: {{ $answer }} {{$errorOut}}</h3>
+                    <h3>Answer: {{ $answer }}</h3>
                 </div>
             </div>
         </div>
     </form>
+
+    {{ dump($unitOptions) }}
 
     @push('scripts')
         <script>
