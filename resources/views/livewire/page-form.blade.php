@@ -17,7 +17,11 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                 wire:model="jsonForSympyParsing.{{ $variableName }}.Value"
+=======
+                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
+>>>>>>> Stashed changes
 =======
                                 wire:model.defer="variableInputData.{{ $variableName }}.Value"
 >>>>>>> Stashed changes
@@ -40,11 +44,14 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     <select class="form-select" wire:model.lazy="jsonForSympyParsing.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}">
                         <option selected>Select Unit</option>
                         @foreach ($unitsOptions[$variableName] as $unitIndex => $unit)
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -55,6 +62,9 @@
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -70,7 +80,10 @@
         @endforeach
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -90,6 +103,7 @@
                     Variable</button>
             </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
         @if ($errors->any())
@@ -108,6 +122,16 @@
                     Variable</button>
             </div>
 
+
+            <div class="col-5 bg-white shadow rounded overflow-hidden">
+                <div class="d-flex flex-row ">
+                    <h3>Answer: {{ $answer }}</h3>
+                </div>
+            </div>
+        </div>
+    </form>
+=======
+>>>>>>> Stashed changes
 
             <div class="col-5 bg-white shadow rounded overflow-hidden">
                 <div class="d-flex flex-row ">
