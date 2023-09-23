@@ -56,10 +56,8 @@
 
             <div class="col-5 bg-white shadow rounded overflow-hidden">
                 <div class="d-flex flex-row ">
-                    <h3>Answer: {{ $answer }}</h3>
+                    <h3>Answer: {{ $answer }} {{ $errorOut }}</h3>
                 </div>
-            </div>
-        </div>
     </form>
 
     @push('scripts')
