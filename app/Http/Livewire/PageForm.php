@@ -69,7 +69,7 @@ class PageForm extends Component
                         return [
                             $unitName => [
                             'symbol' => $unit->symbol,
-                            'conversion_to_base' => $conversion_to_base,
+                            'conversion_to_base' => $unit->conversion_to_base,
                             ]
                         ];
                     })
