@@ -34,6 +34,24 @@
                     </select>
                     <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
+
+
+                <div class="col-4">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="{{ $variableName }}-dropdown">
+                            {{ $variableName }}
+                        </button>
+
+                        <div class="dropdown-menu">
+                            @foreach($unitOptions[$variableName] as $unitIndex=>$unit)
+                                <button class="dropdown-item" type="button">{{ $unit['symbol'] }}</button>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
             <hr>
         @endforeach
