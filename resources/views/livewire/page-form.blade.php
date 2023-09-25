@@ -38,15 +38,15 @@
 
                 <div class="col-4">
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="{{ $variableName }}-dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="{{ $variableName }}-dropdown">
                             {{ $variableName }}
                         </button>
 
-                        <div class="dropdown-menu">
-                            @foreach($unitOptions[$variableName] as $unitIndex=>$unit)
-                                <button class="dropdown-item" type="button">{{ $unit['symbol'] }}</button>
+                        <ul class="dropdown-menu">
+                            @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                <li><button class="dropdown-item" type="button">{{ $unit['symbol'] }}</button></li>
                             @endforeach
-                        </div>
+                        </ul>
                     </div>
 
                 </div>
