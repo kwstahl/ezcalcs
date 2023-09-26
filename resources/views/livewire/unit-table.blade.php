@@ -61,7 +61,7 @@
                 </thead>
 
                 <tbody>
-                @foreach($units as $index => $unit)
+                @foreach(self::$units as $index => $unit)
                     <tr wire:key="unit-field-{{ $unit->id }}">
                         <th scope="row">
                             <input type="text" wire:model="units.{{ $index }}.id">
