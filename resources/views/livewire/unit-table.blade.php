@@ -28,8 +28,8 @@
         <form wire:submit.prevent="save">
             @method('POST')
             @csrf
-            <table class="table table-dark table-striped table-hover">
-                <thead class="fixed">
+            <table class="table table-striped table-hover">
+                <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Unit Class</th>

@@ -6,9 +6,11 @@ use Livewire\Component;
 use App\Models\Unit;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Traits\CalcPageHelpers;
 
-class UnitTable extends Component
+class UnitTable extends Component 
 {
+    use CalcPageHelpers;
     public $unitClasses;
     public $units;
     public $selectedUnitClass;
@@ -67,6 +69,7 @@ class UnitTable extends Component
         $this->new_unit_class = '';
         $this->new_type = '';
     }
+
 
     public function save()
     {
