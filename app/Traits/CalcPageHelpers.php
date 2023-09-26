@@ -17,7 +17,7 @@ trait CalcPageHelpers
         $this->render();
     }
 
-    public function sortDescending(){
+    public function sortDescending($field){
         $this->units = Unit::all()->sortBy([
             [$field, 'desc'],
         ]);
