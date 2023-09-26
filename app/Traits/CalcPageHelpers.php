@@ -8,7 +8,5 @@ use Illuminate\Support\Str;
 
 trait CalcPageHelpers 
 {
-    public function hi(){
-        dd('hi');
-    }
+pass;
 }

@@ -31,7 +31,7 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">ID <button wire:click="sortAscending('id')">Asc<button></th>
                         <th scope="col">Unit Class</th>
                         <th scope="col">symbol</th>
                         <th scope="col">Base Unit</th>
@@ -80,6 +80,7 @@
                 </tbody>
             </table>
         </form>
+        
         <button wire:click="hi">Test</button>
 
         <button wire:click="save">Save</button>
