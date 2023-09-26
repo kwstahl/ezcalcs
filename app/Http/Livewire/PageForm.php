@@ -36,6 +36,12 @@ class PageForm extends Component
         'variableInputData.*.Value.required' => 'Please enter a value for :attribute.'
     ];
 
+
+
+    public function unitSelected($unitIndex, $variableName){
+        $this->variableInputData[$variableName]['unit_conversion'] = 'hi';
+    }
+
     protected function rules()
     {
         $variableToSolveForValueEntry = 'variableInputData.' . $this->variableToSolveFor . '.Value';

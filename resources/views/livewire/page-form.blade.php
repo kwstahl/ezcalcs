@@ -1,10 +1,12 @@
 <div class="row p-2">
     <form wire:submit.prevent="submit">
+
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-8">
                     <div class="input-group">
+
                         <!--  Radio  -->
                         <div class="input-group-text">
                             <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{ $variableName }}"
@@ -26,29 +28,17 @@
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
                     <select class="form-select" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion"
-                        id="{{ $variableName }}">
+                        id="{{ $variableName }}" wire:ignore>
                         <option selected>{{ $variableName }}</option>
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                            <option value="{{ $unit['conversion_to_base'] }}"> {{ $unit['symbol'] }} </option>
+                            <option value="{{ $unit['conversion_to_base'] }}"> 
+                                <div>
+                                    {{ $unit['symbol'] }} 
+                                </div>
+                            </option>
                         @endforeach
                     </select>
                     <label> Unit: {{ $variable['unit'] }}</label>
-                </div>
-
-
-                <div class="col-4">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="{{ $variableName }}-dropdown">
-                            {{ $variableName }}
-                        </button>
-
-                        <ul class="dropdown-menu">
-                            @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                <li><button class="dropdown-item" type="button">{{ $unit['symbol'] }}</button></li>
-                            @endforeach
-                        </ul>
-                    </div>
-
                 </div>
 
 
@@ -79,8 +69,6 @@
             </div>
         </div>
     </form>
-
-    {{ dump($unitOptions) }}
 
     @push('scripts')
         <script>
