@@ -12,7 +12,6 @@ class UnitTable extends Component
 {
     use CalcPageHelpers;
     public $unitClasses;
-    public static $units;
     public $selectedUnitClass;
 
     //probably need a new component, but this would be for the form part with mass update
@@ -25,7 +24,8 @@ class UnitTable extends Component
     public $new_conversion_to_base;
     public $new_type;
     public $baseUnits;
-
+    static $units;
+    
     protected $rules = [
         'units.*.unit_class' => 'nullable|string|max:500',
         'units.*.id' => 'nullable|string|max:500',
@@ -66,6 +66,7 @@ class UnitTable extends Component
         $this->new_symbol = '';
         $this->new_unit_class = '';
         $this->new_type = '';
+        self::$units = Unit::all();
     }
 
 
