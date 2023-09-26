@@ -8,5 +8,11 @@ use Illuminate\Support\Str;
 
 trait CalcPageHelpers 
 {
-pass;
+    public function sortAscending(){
+        $this->units = Unit::all()->sortBy([
+            ['id', 'desc'],
+        ]);
+
+        $this->render();
+    }
 }

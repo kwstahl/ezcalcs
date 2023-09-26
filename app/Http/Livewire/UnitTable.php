@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\CalcPageHelpers;
 use Livewire\Component;
 use App\Models\Unit;
 use Illuminate\Support\Facades\DB;
@@ -66,13 +67,6 @@ class UnitTable extends Component
         $this->new_type = '';
     }
 
-    public function sortAscending(){
-        $this->units = Unit::all()->sortBy([
-            ['id', 'desc'],
-        ]);
-
-        $this->render();
-    }
 
     public function save()
     {
