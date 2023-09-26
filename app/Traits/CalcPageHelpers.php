@@ -6,11 +6,12 @@ use App\Models\CalcPage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Unit;
+use Illuminate\Database\Eloquent\Model;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending($field){
-        $this->units = Unit::all()->sortBy([
+    public function sortAscending($collection, $field){
+        $this->units = $collection->sortBy([
             [$field, 'asc'],
         ]);
 
@@ -23,5 +24,9 @@ trait CalcPageHelpers
         ]);
 
         $this->render();
+    }
+
+    public function filter($field, $value){
+
     }
 }
