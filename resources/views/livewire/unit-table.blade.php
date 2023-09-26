@@ -32,14 +32,11 @@
                 <thead>
                     <tr>
                         <th scope="col">ID 
-                            <button wire:click="sortAscending('id')">Asc</button>
+                            <button wire:click="sortAscending('id')">&#9650;</button>
                             <button wire:click="sortDescending('id')">Desc</button>
                         </th>
                         <th scope="col">
                         Unit Class
-                            <span class="dropup">
-                                <span class="caret"></span>
-                            </span>
                         </th>
                         <th scope="col">symbol</th>
                         <th scope="col">Base Unit</th>
