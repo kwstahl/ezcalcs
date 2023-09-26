@@ -9,9 +9,9 @@ use App\Models\Unit;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending(){
+    public function sortAscending($field){
         $this->units = Unit::all()->sortBy([
-            ['id', 'asc'],
+            [$field, 'asc'],
         ]);
 
         $this->render();
@@ -19,7 +19,7 @@ trait CalcPageHelpers
 
     public function sortDescending(){
         $this->units = Unit::all()->sortBy([
-            ['id', 'desc'],
+            [$field, 'desc'],
         ]);
 
         $this->render();
