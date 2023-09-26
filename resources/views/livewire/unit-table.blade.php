@@ -32,8 +32,8 @@
                 <thead>
                     <tr>
                         <th scope="col">ID 
-                            <button wire:click="sortAscending(Unit::all())">&#9650;</button>
-                            <button wire:click="sortDescending(Unit::all())">&#9660;</button>
+                            <button wire:click="sortAscending(Unit::all(), 'id')">&#9650;</button>
+                            <button wire:click="sortDescending(Unit::all(), 'id')">&#9660;</button>
                         </th>
 
                         <th scope="col">Unit Class
