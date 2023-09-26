@@ -28,7 +28,7 @@
         <form wire:submit.prevent="save">
             @method('POST')
             @csrf
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -78,10 +78,9 @@
                     </tr>
                 @endforeach
                 </tbody>
-                
             </table>
-            
         </form>
+        <button wire:click="hi">Test</button>
 
         <button wire:click="save">Save</button>
         @if ($errors->any())

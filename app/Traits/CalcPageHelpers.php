@@ -9,6 +9,6 @@ use Illuminate\Support\Str;
 trait CalcPageHelpers 
 {
     public function hi(){
-        echo 'hi';
+        dd('hi');
     }
 }
