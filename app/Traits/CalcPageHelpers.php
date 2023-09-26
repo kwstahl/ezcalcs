@@ -11,6 +11,14 @@ trait CalcPageHelpers
 {
     public function sortAscending(){
         $this->units = Unit::all()->sortBy([
+            ['id', 'asc'],
+        ]);
+
+        $this->render();
+    }
+
+    public function sortDescending(){
+        $this->units = Unit::all()->sortBy([
             ['id', 'desc'],
         ]);
 
