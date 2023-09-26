@@ -68,7 +68,7 @@ class UnitTable extends Component
 
     public function sortAscending(){
         $this->units = Unit::all()->sortBy([
-            ['id', 'asc'],
+            ['id', 'desc'],
         ]);
 
         $this->render();
