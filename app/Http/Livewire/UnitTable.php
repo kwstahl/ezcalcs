@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 
 class UnitTable extends Component 
 {
+    use CalcPageHelpers;
     public $unitClasses;
     public $units;
     public $selectedUnitClass;
