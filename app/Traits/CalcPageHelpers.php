@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending($collection, $field){
+    public function sortAscending($class, $field){
+        $reflectionClass= new $ReflectionClass($class)
+
         $collection = $collection->sortBy([
             [$field, 'asc'],
         ]);

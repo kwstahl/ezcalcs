@@ -12,7 +12,7 @@ class UnitTable extends Component
 {
     use CalcPageHelpers;
     public $unitClasses;
-    public $units;
+    public static $units;
     public $selectedUnitClass;
 
     //probably need a new component, but this would be for the form part with mass update
