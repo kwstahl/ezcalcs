@@ -24,7 +24,7 @@ class UnitTable extends Component
     public $new_conversion_to_base;
     public $new_type;
     public $baseUnits;
-    static $units;
+    public static $units;
     
     protected $rules = [
         'units.*.unit_class' => 'nullable|string|max:500',
