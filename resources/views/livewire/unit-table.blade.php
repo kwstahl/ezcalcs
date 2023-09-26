@@ -32,8 +32,8 @@
                 <thead>
                     <tr>
                         <th scope="col">ID 
-                            <button wire:click="sortAscending($this->units, 'id')">&#9650;</button>
-                            <button wire:click="sortDescending($this->units, 'id')">&#9660;</button>
+                            <button wire:click="sortAscending('id')">&#9650;</button>
+                            <button wire:click="sortDescending('id')">&#9660;</button>
                         </th>
 
                         <th scope="col">Unit Class
@@ -61,7 +61,7 @@
                 </thead>
 
                 <tbody>
-                @foreach(self::$units as $index => $unit)
+                @foreach($units as $index => $unit)
                     <tr wire:key="unit-field-{{ $unit->id }}">
                         <th scope="row">
                             <input type="text" wire:model="units.{{ $index }}.id">
