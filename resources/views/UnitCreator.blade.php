@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="">
         <script type="text/javascript" src="/var/www/html/ezcalcs/resources/js/scripts.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <script src="{{ asset('vendor/livewire/livewire.js') }}"></script>
         @livewireStyles
+        @livewire('site-head')
     </head>
+    
     <body>
         <h1>Formula Data</h1>
         <h2>

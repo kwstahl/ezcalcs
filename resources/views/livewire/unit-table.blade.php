@@ -28,25 +28,25 @@
         <form wire:submit.prevent="save">
             @method('POST')
             @csrf
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Unit Class</th>
-                        <th>symbol</th>
-                        <th>Base Unit</th>
-                        <th>Description</th>
-                        <th>Conversion to Base</th>
-                        <th>Type</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Unit Class</th>
+                        <th scope="col">symbol</th>
+                        <th scope="col">Base Unit</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Conversion to Base</th>
+                        <th scope="col">Type</th>
                     </tr>
                 </thead>
 
                 <tbody>
                 @foreach($units as $index => $unit)
                     <tr wire:key="unit-field-{{ $unit->id }}">
-                        <td>
+                        <th scope="row">
                             <input type="text" wire:model="units.{{ $index }}.id">
-                        </td>
+                        </th>
 
                         <td>
                             <input type="text" wire:model="units.{{ $index }}.unit_class">
@@ -93,6 +93,4 @@
                 </ul>
             </div>
         @endif
-
-{{ dump($units) }}
 </div>
