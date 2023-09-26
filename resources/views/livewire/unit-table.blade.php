@@ -36,10 +36,11 @@
                             <button wire:click="sortDescending('id')">Desc</button>
                         </th>
                         <th scope="col">
-                        <span class="dropup">
-    <span class="caret"></span>
-</span>
-                        Unit Class</th>
+                        Unit Class
+                            <span class="dropup">
+                                <span class="caret"></span>
+                            </span>
+                        </th>
                         <th scope="col">symbol</th>
                         <th scope="col">Base Unit</th>
                         <th scope="col">Description</th>
