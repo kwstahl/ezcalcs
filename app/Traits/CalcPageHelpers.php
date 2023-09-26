@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 trait CalcPageHelpers 
 {
     public function sortAscending($collection, $field){
-        $this->units = $collection->sortBy([
+        $this->collection = $collection->sortBy([
             [$field, 'asc'],
         ]);
 
