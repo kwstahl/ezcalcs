@@ -12,6 +12,7 @@ class UnitTable extends Component
 {
     use CalcPageHelpers;
     public $unitClasses;
+    public $units;
     public $selectedUnitClass;
 
     //probably need a new component, but this would be for the form part with mass update
@@ -24,8 +25,7 @@ class UnitTable extends Component
     public $new_conversion_to_base;
     public $new_type;
     public $baseUnits;
-    public static $units;
-    
+
     protected $rules = [
         'units.*.unit_class' => 'nullable|string|max:500',
         'units.*.id' => 'nullable|string|max:500',
@@ -51,7 +51,10 @@ class UnitTable extends Component
     {
         $this->unitClasses = Unit::pluck('unit_class')->unique();
         $this->baseUnits = Unit::pluck('base_unit')->unique();
-        
+        $this->units = Unit::all()->sortBy([
+            ['unit_class', 'asc'],
+            ['base_unit', 'asc'] 
+        ]);
 
 
         //probably need new component
@@ -63,7 +66,6 @@ class UnitTable extends Component
         $this->new_symbol = '';
         $this->new_unit_class = '';
         $this->new_type = '';
-        self::$units = Unit::all();
     }
 
 
