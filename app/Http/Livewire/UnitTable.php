@@ -80,6 +80,8 @@ class UnitTable extends Component
         } else {
             $this->units = Unit::all()->where('unit_class', $this->selectedUnitClass);
         }
+
+        $this->render();
     }
 
     public function save()
