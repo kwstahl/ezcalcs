@@ -32,8 +32,8 @@
                 <thead>
                     <tr>
                         <th scope="col">ID 
-                            <button wire:click="sortUnits('id')"> &#9650; </button>
-                            <button wire:click="sortUnits('id')">&#9660;</button>
+                            <button wire:click="sortUnits('id', 'asc')"> &#9650; </button>
+                            <button wire:click="sortUnits('id', 'desc')">&#9660;</button>
                         </th>
 
                         <th scope="col">Unit Class
@@ -46,16 +46,16 @@
 
                         <th scope="col">symbol</th>
                         <th scope="col">Base Unit
-                            <button wire:click="sortUnits('base_unit')">&#9650;</button>
-                            <button wire:click="sortDescending('base_unit')">&#9660;</button>
+                            <button wire:click="sortUnits('base_unit', 'asc')">&#9650;</button>
+                            <button wire:click="sortDescending('base_unit', 'desc')">&#9660;</button>
                         </th>
 
                         <th scope="col">Description</th>
                         <th scope="col">Conversion to Base</th>
 
                         <th scope="col">Type
-                            <button wire:click="sortAscending('type')">&#9650;</button>
-                            <button wire:click="sortDescending('type')">&#9660;</button>
+                            <button wire:click="sortAscending('type', 'asc')">&#9650;</button>
+                            <button wire:click="sortDescending('type', 'desc')">&#9660;</button>
                         </th>
                     </tr>
                 </thead>
