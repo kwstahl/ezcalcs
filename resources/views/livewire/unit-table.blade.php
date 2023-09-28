@@ -13,7 +13,7 @@
 
         <label for="unitClass">Unit Classes</label>
         <select id="unitClass" wire:model="selectedUnitClass">
-            <option value=""> </option>
+            <option value=""> Clear filter </option>
         @foreach($unitClasses as $unitClass)
             <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
         @endforeach
