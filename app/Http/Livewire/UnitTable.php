@@ -75,13 +75,9 @@ class UnitTable extends Component
 
     public function updatedSelectedUnitClass()
     {
-        if ($this->selectedUnitClass = Null){
-            $this->units = Unit::all();
-        } else {
-            $this->units = Unit::all()->where('unit_class', $this->selectedUnitClass);
-        }
+        
+        $this->units = Unit::all()->where('unit_class', $this->selectedUnitClass);
 
-        $this->render();
     }
 
     public function save()
