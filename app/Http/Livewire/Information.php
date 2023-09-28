@@ -17,9 +17,6 @@ class Information extends Component
 
     public function render()
     {
-        return view('livewire.information');
-
-        $this->variables_json = collect($this->variables_json);
-        
+        return view('livewire.information');        
     }
 }
