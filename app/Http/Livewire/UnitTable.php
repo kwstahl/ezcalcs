@@ -77,9 +77,7 @@ class UnitTable extends Component
         
 
         $this->units = Unit::all()->where('unit_class', $this->selectedUnitClass);
-        if ($this->selectedUnitClass != "Clear"){
-            $this->units = Unit::all();
-        }
+        
         
     }
 
