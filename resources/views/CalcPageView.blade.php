@@ -49,7 +49,7 @@
                         </p>
                     </div>
                     <div>
-                        @livewire('information', ['description' => $formula_description, 'variables' => $variables_json])
+                        @livewire('information', ['description' => $formula_description, 'variables_json' => $variables_json])
                     </div>
                 </div>
 
