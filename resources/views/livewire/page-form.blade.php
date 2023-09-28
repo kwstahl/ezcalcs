@@ -46,7 +46,7 @@
             <hr>
         @endforeach
 
-        @livewire('page-form.variable', ['variables_json' => $variables_json])
+        @livewire('page-form.variable', ['variables_json' => $variables_json, 'variableToSolveFor' => $variableToSolveFor])
 
         @if ($errors->any())
             <div class="alert alert-danger">
