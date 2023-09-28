@@ -14,6 +14,7 @@ trait CalcPageHelpers
     {
         $model = '\\App\\Models\\'.$model;
         $model = new $model;
+        dump($model);
         $model = $model::all()->sortBy([$field, 'asc']);     
         $this->render();
     }
