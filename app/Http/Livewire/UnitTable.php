@@ -65,7 +65,7 @@ class UnitTable extends Component
 
     public function sortUnits($field, $type)
     {
-        $this->units = Unit::all()->sortBy([
+        $this->units->sortBy([
             [$field, $type],
         ]);
 
