@@ -16,7 +16,7 @@ trait CalcPageHelpers
         $model = $model->sortBy([
             [$field, 'asc'],
         ]);
-
+        return($model);
         $this->render();
     }
 
