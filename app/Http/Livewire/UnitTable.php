@@ -68,6 +68,7 @@ class UnitTable extends Component
     {
         $sortedUnits = Unit::all();
         $sortedUnits = $this->CalcPageHelpers_sort($sortedUnits, $field, $type);
+        $this->units = $sortedUnits;
         $this->render();
     }
 
