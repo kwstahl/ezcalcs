@@ -13,6 +13,6 @@ trait CalcPageHelpers
     public function CalcPageHelpers_sort($model, $field, $type)
     {
         $sortedModel = $model->sortBy([$field, $type]);     
-        return($fortedModel);
+        return($sortedModel);
     }
 }
