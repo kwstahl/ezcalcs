@@ -12,6 +12,7 @@ trait CalcPageHelpers
 {
     public function sortAscending(&$model, $field)
     {
+        collect($model);
         $model = $model->sortBy([
             [$field, 'asc'],
         ]);
