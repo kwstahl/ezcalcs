@@ -62,6 +62,7 @@ class UnitTable extends Component
         $this->new_symbol = '';
         $this->new_unit_class = '';
         $this->new_type = '';
+        dump($this->units);
     }
 
 
