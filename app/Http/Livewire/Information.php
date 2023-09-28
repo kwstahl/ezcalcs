@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Information extends Component
 {
     public $description;
-    public $variables;
+    public $variables_json;
 
     public function prepareForHtmlIdNaming($attributeValue)
     {
@@ -19,7 +19,7 @@ class Information extends Component
     {
         return view('livewire.information');
 
-        $this->variables = collect($this->variables);
+        $this->variables_json = collect($this->variables_json);
         
     }
 }

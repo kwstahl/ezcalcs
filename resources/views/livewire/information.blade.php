@@ -6,7 +6,7 @@
         <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description"
             type="button" role="tab" aria-controls="nav-home" aria-selected="true">Description</button>
 
-        @foreach ($variables as $variableName => $variable)
+        @foreach ($variables_json as $variableName => $variable)
             <button class="nav-link" id="nav-{{ $this->prepareForHtmlIdNaming($variableName) }}-tab" data-bs-toggle="tab"
                 data-bs-target="#nav-{{ $this->prepareForHtmlIdNaming($variableName) }}" type="button" role="tab">{{ $variableName }} ({{$variable['latex_symbol']}})</button>
         @endforeach
@@ -19,7 +19,7 @@
         tabindex="0"> {{ $description }} 
     </div>
 
-    @foreach ($variables as $variableName => $variable)
+    @foreach ($variables_json as $variableName => $variable)
         <div class="tab-pane fade" id="nav-{{ $this->prepareForHtmlIdNaming($variableName) }}" role="tabpanel" tabindex="0">
             {{ $variable['description'] }} 
         </div>
