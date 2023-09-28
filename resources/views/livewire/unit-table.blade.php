@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th scope="col">ID 
-                            <button wire:click="$set($units, ({{sortAscending('Unit', 'id')}})"> &#9650; </button>
+                            <button wire:click="$set($units, ({{$this->sortAscending('Unit', 'id')}})"> &#9650; </button>
                             <button wire:click="sortDescending('id')">&#9660;</button>
                         </th>
 
