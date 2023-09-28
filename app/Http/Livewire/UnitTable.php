@@ -80,7 +80,7 @@ class UnitTable extends Component
     {
         
 
-        $this->units = Unit::all()->where('unit_class', $this->selectedUnitClass);
+        $this->units = $this->units->where('unit_class', $this->selectedUnitClass);
         
         
     }
