@@ -48,7 +48,7 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $this->unitClasses = Unit::pluck('unit_class')->unique()->sortBy(['unit_class', 'asc']);
+        $this->unitClasses = Unit::pluck('unit_class')->sortBy(['unit_class', 'asc'])->unique();
         $this->baseUnits = Unit::pluck('base_unit')->unique();
         $this->units = Unit::all();
 
