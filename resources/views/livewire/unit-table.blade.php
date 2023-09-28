@@ -25,10 +25,9 @@
                         <th scope="col">Unit Class
                             <button wire:click="sortUnits('unit_class', 'asc')">&#9650;</button>
                             <button wire:click="sortUnits('unit_class', 'desc')">&#9660;</button>
-                            
-                            <label for="unitClass">Unit Classes</label>
+
                             <select id="unitClass" wire:model="selectedUnitClass">
-                                <option value="Clear"> <span> </span> </option>
+                                <option value=""> Filter </option>
                             @foreach($unitClasses as $unitClass)
                                 <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
                             @endforeach
