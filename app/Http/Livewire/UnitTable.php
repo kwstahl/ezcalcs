@@ -72,6 +72,10 @@ class UnitTable extends Component
         $this->render();
     }
 
+    public function clearFilter(){
+        $this->units = Unit::all();
+    }
+
     public function updatedSelectedUnitClass()
     {
         
