@@ -78,6 +78,8 @@ class UnitTable extends Component
             ]);
         }
 
+        dump($this->units);
+
         $this->render();
     }
 
