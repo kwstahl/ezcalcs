@@ -12,7 +12,7 @@ trait CalcPageHelpers
 {
     public function sortAscending($field){
 
-        $collection = $collection->sortBy([
+        $this->units = Unit::all()->sortBy([
             [$field, 'asc'],
         ]);
 
@@ -28,6 +28,6 @@ trait CalcPageHelpers
     }
 
     public function filter($field, $value){
-
+        $this->units = Unit::all()->filter
     }
 }
