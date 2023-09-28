@@ -1,3 +1,4 @@
+@foreach ($variables_json as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
                 <div class="col-8">
                     <div class="input-group">
@@ -39,3 +40,4 @@
 
             </div>
             <hr>    
+@endforeach
