@@ -61,7 +61,6 @@ class UnitTable extends Component
         $this->new_symbol = '';
         $this->new_unit_class = '';
         $this->new_type = '';
-        $this->selectedUnitClass = '';
     }
 
     public function sortUnits($field, $type)
@@ -76,10 +75,12 @@ class UnitTable extends Component
     public function updatedSelectedUnitClass()
     {
         
+
         $this->units = Unit::all()->where('unit_class', $this->selectedUnitClass);
-        if($this->selectedUnitClass = "Clear") {
+        if ($this->selectedUnitClass = "Clear"){
             $this->units = Unit::all();
         }
+        
 
     }
 
