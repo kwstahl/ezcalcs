@@ -76,12 +76,11 @@ class UnitTable extends Component
             ]);
             $this->units = $newSort;
         } else {
-                $this->units = $newSort;
-            }
+            $this->units = $newSort;
         }
-
         $this->render();
     }
+
 
     public function save()
     {
