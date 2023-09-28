@@ -64,25 +64,14 @@ class UnitTable extends Component
         $this->new_type = '';
     }
 
-    public function sortUnits($field)
+    public function sortUnits($field, $type)
     {
-        $newSort = Unit::all()->sortBy([
-            [$field, 'asc']
+        $this->units = Unit::all()->sortBy([
+            [$field, $type],
         ]);
-
-        if ($this->units === $newSort){
-            $this->units = $newSort;
-        } else {
-            $this->units = Unit::all()->sortBy([
-                [$field, 'desc']
-            ]);
-        }
-
-        dump($this->units);
 
         $this->render();
     }
-
 
     public function save()
     {
