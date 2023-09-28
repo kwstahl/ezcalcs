@@ -47,15 +47,15 @@
                         <th scope="col">symbol</th>
                         <th scope="col">Base Unit
                             <button wire:click="sortUnits('base_unit', 'asc')">&#9650;</button>
-                            <button wire:click="sortDescending('base_unit', 'desc')">&#9660;</button>
+                            <button wire:click="sortUnits('base_unit', 'desc')">&#9660;</button>
                         </th>
 
                         <th scope="col">Description</th>
                         <th scope="col">Conversion to Base</th>
 
                         <th scope="col">Type
-                            <button wire:click="sortAscending('type', 'asc')">&#9650;</button>
-                            <button wire:click="sortDescending('type', 'desc')">&#9660;</button>
+                            <button wire:click="sortUnits('type', 'asc')">&#9650;</button>
+                            <button wire:click="sortUnits('type', 'desc')">&#9660;</button>
                         </th>
                     </tr>
                 </thead>
