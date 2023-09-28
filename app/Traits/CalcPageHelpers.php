@@ -10,7 +10,7 @@ use App\Models\Unit;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending($model, $field)
+    public function sortAscending(&$thing, $model, $field)
     {
         $model = '\\App\\Models\\'.$model;
         $model = new $model;
