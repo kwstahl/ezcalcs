@@ -81,7 +81,7 @@ class UnitTable extends Component
             $this->units = Unit::all();
         }
         
-
+        $this->render();
     }
 
     public function save()
