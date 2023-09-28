@@ -37,8 +37,8 @@
                         </th>
 
                         <th scope="col">Unit Class
-                            <button wire:click="sortAscending('unit_class')">&#9650;</button>
-                            <button wire:click="sortDescending('unit_class')">&#9660;</button>
+                            <button wire:click="sortUnits('unit_class', 'asc')">&#9650;</button>
+                            <button wire:click="sortUnits('unit_class', 'desc')">&#9660;</button>
                             <select>
 
                             </select>
@@ -46,7 +46,7 @@
 
                         <th scope="col">symbol</th>
                         <th scope="col">Base Unit
-                            <button wire:click="sortAscending('base_unit')">&#9650;</button>
+                            <button wire:click="sortUnits('base_unit')">&#9650;</button>
                             <button wire:click="sortDescending('base_unit')">&#9660;</button>
                         </th>
 
