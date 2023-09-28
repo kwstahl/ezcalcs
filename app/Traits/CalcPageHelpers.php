@@ -10,7 +10,7 @@ use App\Models\Unit;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending(&$model, $field)
+    public function sortAscending($model, $field)
     {
         $model = $model::all()->sortBy([$field, 'asc']);     
         $this->render();
