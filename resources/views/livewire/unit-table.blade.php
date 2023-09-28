@@ -18,6 +18,7 @@
             <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
         @endforeach
         </select>
+        <button wire:click = "clearFilter()">X</button>
 
         <form wire:submit.prevent="save">
             @method('POST')
