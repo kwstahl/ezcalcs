@@ -14,6 +14,6 @@ trait CalcPageHelpers
     {
         $sortedModel = $model->sortBy([$field, $type]);     
         return($sortedModel);
-        dump($sortedModel)
+        dump($sortedModel);
     }
 }
