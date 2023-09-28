@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending($field){
+    public function sortAscending($field)
+    {
 
         $this->units = Unit::all()->sortBy([
             [$field, 'asc'],
@@ -19,7 +20,8 @@ trait CalcPageHelpers
         $this->render();
     }
 
-    public function sortDescending($field){
+    public function sortDescending($field)
+    {
         $this->units = Unit::all()->sortBy([
             [$field, 'desc'],
         ]);
@@ -27,7 +29,8 @@ trait CalcPageHelpers
         $this->render();
     }
 
-    public function filter($field, $value){
-        $this->units = Unit::all()->filter
+    public function filter($field, $value)
+    {
+        $this->units = Unit::all()->filter;
     }
 }
