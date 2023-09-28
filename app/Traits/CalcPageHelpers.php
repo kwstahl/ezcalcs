@@ -10,25 +10,9 @@ use App\Models\Unit;
 
 trait CalcPageHelpers 
 {
-    public function sortAscending($model, $field)
+    public function CalcPageHelpers_sort($model, $field, $type)
     {
-        $model = '\\App\\Models\\'.$model;
-        $model = $model::all()->sortBy([$field, 'asc']);     
-        return($model);   
-        $this->render();
-    }
-
-    public function sortDescending($field)
-    {
-        $this->units = Unit::all()->sortBy([
-            [$field, 'desc'],
-        ]);
-
-        $this->render();
-    }
-
-    public function filter($field, $value)
-    {
-        $this->units = Unit::all()->filter;
+        $sortedModel = $model->sortBy([$field, $type]);     
+        return($fortedModel);
     }
 }

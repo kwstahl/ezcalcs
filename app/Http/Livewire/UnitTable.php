@@ -62,9 +62,14 @@ class UnitTable extends Component
         $this->new_symbol = '';
         $this->new_unit_class = '';
         $this->new_type = '';
-        dump($this->units);
     }
 
+    public function sortUnits($field, $type)
+    {
+        $sortedUnits = Unit::all();
+        $sortedUnits = $this->CalcPageHelpers_sort($sortedUnits, $field, $type);
+
+    }
 
     public function save()
     {
