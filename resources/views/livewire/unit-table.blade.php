@@ -18,13 +18,6 @@
         @endforeach
         </select>
 
-        <label for="baseUnit">Unit Classes</label>
-        <select id="baseUnit" wire:model="selectedUnitClass">
-        @foreach($baseUnits as $baseUnit)
-            <option value = "{{ $baseUnit }}">{{ $baseUnit }}</option>
-        @endforeach
-        </select>
-
         <form wire:submit.prevent="save">
             @method('POST')
             @csrf

@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 
 class UnitTable extends Component 
 {
-    use CalcPageHelpers;
     public $unitClasses;
     public $units;
     public $selectedUnitClass;
@@ -62,6 +61,7 @@ class UnitTable extends Component
         $this->new_symbol = '';
         $this->new_unit_class = '';
         $this->new_type = '';
+        $this->selectedUnitClass = '';
     }
 
     public function sortUnits($field, $type)
