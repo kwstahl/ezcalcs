@@ -33,7 +33,7 @@
                     <tr>
                         <th scope="col">ID 
                             <button wire:click="sortUnits('id','asc')"> &#9650; </button>
-                            <button wire:click="sortDescending('id')">&#9660;</button>
+                            <button wire:click="sortUnits('id', 'desc')">&#9660;</button>
                         </th>
 
                         <th scope="col">Unit Class
