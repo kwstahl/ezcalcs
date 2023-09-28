@@ -52,7 +52,7 @@ class UnitTable extends Component
         $this->unitClasses = Unit::pluck('unit_class')->unique();
         $this->baseUnits = Unit::pluck('base_unit')->unique();
         $this->units = Unit::all();
-
+        dd($this->units);
 
         //probably need new component
 
