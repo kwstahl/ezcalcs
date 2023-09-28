@@ -77,6 +77,8 @@ class UnitTable extends Component
                 [$field, 'desc']
             ]);
         }
+
+        $this->render();
     }
 
 
