@@ -47,7 +47,7 @@
         @endforeach
 
         @foreach($variables_json as $variableName => $variable)
-            @livewire('page-form.variable')
+            @livewire('page-form.variable', ['variableName => $variableName])
         @endforeach
 
         @if ($errors->any())
