@@ -13,9 +13,6 @@ class UnitTable extends Component
     public $unitClasses;
     public $units;
     public $selectedUnitClass;
-
-    //probably need a new component, but this would be for the form part with mass update
-
     public $new_unit_class;
     public $new_id;
     public $new_base_unit;
@@ -48,12 +45,9 @@ class UnitTable extends Component
 
     public function mount()
     {
-        $this->unitClasses = Unit::pluck('unit_class')->unique()->sortKeys();
+        $this->unitClasses = Unit::pluck('unit_class')->unique();
         $this->baseUnits = Unit::pluck('base_unit')->unique();
         $this->units = Unit::all();
-
-        //probably need new component
-
         $this->new_base_unit = '';
         $this->new_conversion_to_base = '';
         $this->new_description = '';
