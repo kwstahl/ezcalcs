@@ -11,15 +11,6 @@
         </form>
 
 
-        <label for="unitClass">Unit Classes</label>
-        <select id="unitClass" wire:model="selectedUnitClass">
-            <option value="Clear"> <span> </span> </option>
-        @foreach($unitClasses as $unitClass)
-            <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
-        @endforeach
-        </select>
-        <button wire:click = "clearFilter()">X</button>
-
         <form wire:submit.prevent="save">
             @method('POST')
             @csrf
@@ -34,9 +25,15 @@
                         <th scope="col">Unit Class
                             <button wire:click="sortUnits('unit_class', 'asc')">&#9650;</button>
                             <button wire:click="sortUnits('unit_class', 'desc')">&#9660;</button>
-                            <select>
-
+                            
+                            <label for="unitClass">Unit Classes</label>
+                            <select id="unitClass" wire:model="selectedUnitClass">
+                                <option value="Clear"> <span> </span> </option>
+                            @foreach($unitClasses as $unitClass)
+                                <option value = "{{ $unitClass }}">{{ $unitClass }}</option>
+                            @endforeach
                             </select>
+                            <button wire:click = "clearFilter()">X</button>
                         </th>
 
                         <th scope="col">symbol</th>
