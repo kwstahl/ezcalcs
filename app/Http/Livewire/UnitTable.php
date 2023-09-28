@@ -70,15 +70,13 @@ class UnitTable extends Component
             [$field, 'asc']
         ]);
 
-        if ($this->units !== $newSort){
-            $newSort = Unit::all()->sortBy([
-                [$field, 'desc']
-            ]);
+        if ($this->units === $newSort){
             $this->units = $newSort;
         } else {
-            $this->units = $newSort;
+            $this->units = Unit::all()->sortBy([
+                [$field, 'desc']
+            ]);
         }
-        $this->render();
     }
 
 
