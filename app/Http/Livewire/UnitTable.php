@@ -73,6 +73,11 @@ class UnitTable extends Component
         $this->render();
     }
 
+    public function updatedSelectedUnitClass()
+    {
+        $this->units = Unit::all()->where('unit_class', $selectedUnitClass);
+    }
+
     public function save()
     {
         $this->validate();
