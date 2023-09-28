@@ -56,6 +56,8 @@
                     <tr wire:key="unit-field-{{ $unit->id }}">
                         <th scope="row">
                             <input type="text" wire:model="units.{{ $index }}.id">
+                            <button type="button" wire:click="deleteUnit('{{ $unit['id'] }}')">Delete</button>
+
                         </th>
 
                         <td>
@@ -82,9 +84,6 @@
                             <input type="text" wire:model="units.{{ $index }}.type">
                         </td>
 
-                        <td>
-                            <button type="button" wire:click="deleteUnit('{{ $unit['id'] }}')">Delete</button>
-                        </td>
                     </tr>
                 @endforeach
                 </tbody>
