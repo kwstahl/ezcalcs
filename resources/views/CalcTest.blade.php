@@ -14,7 +14,7 @@
         <!-- Top Bar -->
         @livewire('top-bar')
 
-        <x-calc-page.title :formula_name = "$formula_name"/>
+        <x-calc-page.title/>
         
 
     </body>
