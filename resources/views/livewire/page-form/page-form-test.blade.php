@@ -2,7 +2,13 @@
     <form wire:submit.prevent="submit">
 
 
-        <x-calc-page.test message="{{$variableName}}"/>
+        <x-calc-page.test message="hi">
+            {{ $variableName }}
+        </x-calc-page.test>
+
+
+
+
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
