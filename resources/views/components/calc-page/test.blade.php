@@ -1,5 +1,5 @@
 <div class="row p-2">
     <form wire:submit.prevent="submit">
-        hello
+        hello {{ $message }}
     </form>
 </div>
