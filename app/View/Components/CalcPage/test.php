@@ -12,11 +12,8 @@ class test extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public $variableName,
-    )
+    public function __construct()
     {
-        $this->variableName = $variableName;
     }
 
     /**
