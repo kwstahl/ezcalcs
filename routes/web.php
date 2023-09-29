@@ -32,5 +32,6 @@ Route::get('/', function () {
 Route::resources([
     'eqn' => CalcController::class,
     'unit' => UnitController::class,
+    'test' =>CalcController::class,
 ]);
 
