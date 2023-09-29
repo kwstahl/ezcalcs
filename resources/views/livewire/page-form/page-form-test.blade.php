@@ -5,7 +5,7 @@
         </x-calc-page.test-a>
 
             @foreach($variables_json as $variableName => $variable)
-                <x-calc-page.test-a message="hello"/>
+                <x-calc-page.test-a :message="hello"/>
             @endforeach
 
 
