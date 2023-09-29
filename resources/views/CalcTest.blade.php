@@ -14,7 +14,7 @@
         <!-- Top Bar -->
         @livewire('top-bar')
 
-        <x-calc-page.title :$formula_name/>
+        <livewire:page-form :variables_json="$variables_json" :formula_sympy="$formula_sympy"/>
         
 
     </body>
