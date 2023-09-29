@@ -30,7 +30,7 @@
                     <!-- Header -->
                     <div class="row p-2">
                         <x-calc-page.title/>
-                        <x-calc-page.title-a :formula_name/>
+                        <x-calc-page.title-a :formula_name = "$formula_name"/>
                         <p class="h1 text-center p-1">{{ $formula_name }}</p>
                         <p class="h2 text-center p-1">{{ $formula_latex }}</p>
                     </div>
