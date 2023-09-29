@@ -2,7 +2,7 @@
     <form wire:submit.prevent="submit">
 
             @foreach($variables_json as $variableName => $variable)
-                <x-calc-page.test-a :message="$variableName"/>
+                <x-calc-page.test-a :$variableName/>
             @endforeach
 
 
@@ -18,7 +18,7 @@
                         <div class="input-group-text">
                             <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{ $variableName }}"
                                 wire:model="variableToSolveFor">
-                            </div>
+                        </div>
 
                         <!-- Input Text -->
                         <div class="form-floating">
