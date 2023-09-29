@@ -3,7 +3,9 @@
 
 
         <x-calc-page.test message="hi">
-            {{ $variableName }}
+            @foreach($variables_json as $variableName => $variable)
+                {{$variableName}}
+            @endforeach
         </x-calc-page.test>
 
 
