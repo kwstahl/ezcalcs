@@ -1,4 +1,6 @@
 <div class="row p-2">
+    <x-calc-page.title-a/>
+
     <form wire:submit.prevent="submit">
 
         <!-- Input Group Row Created for each variable -->
