@@ -14,7 +14,7 @@
         <!-- Top Bar -->
         @livewire('top-bar')
 
-
+        <h1>TEST PAGE</h1>
         <!-- Master Container -->
         <div class="p-1 shadow master">
             <div class="container-fluid row p-0 m-0">
