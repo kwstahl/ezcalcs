@@ -1,7 +1,7 @@
 <div class="row p-2">
     <form wire:submit.prevent="submit">
 
-        <x-calc-page.test :message="stank"/>
+        <x-calc-page.test :message="$variableName"/>
 
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
