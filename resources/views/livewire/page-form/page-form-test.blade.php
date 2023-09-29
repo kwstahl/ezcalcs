@@ -2,7 +2,7 @@
     <form wire:submit.prevent="submit">
 
             @foreach($variables_json as $variableName => $variable)
-                <x-calc-page.test-a :message="hello"/>
+                <x-calc-page.test-a :message="$variableName"/>
             @endforeach
 
 
