@@ -14,7 +14,7 @@
         <!-- Top Bar -->
         @livewire('top-bar')
 
-        <livewire:PageForm.PageForm :variables_json="$variables_json" :formula_sympy="$formula_sympy"/>
+        <livewire:PageForm.PageFormTest :variables_json="$variables_json" :formula_sympy="$formula_sympy"/>
         
 
     </body>

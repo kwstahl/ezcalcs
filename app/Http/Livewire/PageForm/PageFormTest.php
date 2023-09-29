@@ -1,10 +1,15 @@
 <?php
+
+namespace App\Http\Livewire\PageForm;
+
+use Livewire\Component;
+<?php
 namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Unit;
 use Illuminate\Support\Facades\Process;
 
-class PageForm extends Component
+class PageFormTest extends Component
 {
     public $variables_json;
     public $units;
@@ -128,5 +133,12 @@ class PageForm extends Component
     public function render()
     {
         return view('livewire.page-form');
+    }
+}
+class PageForm extends Component
+{
+    public function render()
+    {
+        return view('livewire.page-form.page-form-test');
     }
 }
