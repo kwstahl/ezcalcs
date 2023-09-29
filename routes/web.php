@@ -29,9 +29,11 @@ Route::get('/', function () {
  * 
  * 
 */
+
+Route::get('/eqn/test', [CalcController::class, 'test']);
 Route::resources([
     'eqn' => CalcController::class,
     'unit' => UnitController::class,
-    'test' =>CalcController::class,
 ]);
+
 

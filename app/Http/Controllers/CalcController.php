@@ -8,6 +8,24 @@ use Illuminate\Support\Arr;
 
 class CalcController extends Controller
 {
+    public function test($id)
+    {
+        $calc_page = CalcPage::findOrFail($id);
+
+        /**
+         * return CalcPageView with Model data array 
+         */
+        return view('CalcTest', 
+        [
+            'id' => $calc_page->id,
+            'formula_name' => $calc_page->formula_name,
+            'formula_description' => $calc_page->formula_description,
+            'formula_sympy' => $calc_page->formula_sympy,
+            'formula_latex' => $calc_page->formula_latex,
+            'variables_json' => $calc_page->variables_json,
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
