@@ -1,4 +1,3 @@
-@props['message']
 
 <div>
     {{ $message }}
