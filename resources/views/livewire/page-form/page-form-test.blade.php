@@ -1,8 +1,8 @@
 <div class="row p-2">
     <form wire:submit.prevent="submit">
 
+        <x-calc-page.test :message="stank"/>
 
-    
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">

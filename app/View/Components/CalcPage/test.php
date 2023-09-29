@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class test extends Component
 {
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(
+        public $message,
+    )
     {
-        //
+        $this->message = $message;
     }
 
     /**
