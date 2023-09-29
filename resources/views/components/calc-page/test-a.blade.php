@@ -1,4 +1,4 @@
-@props(['message'])
+@props(['message' => 'message'])
 
 <div>
     {{ $message }}
