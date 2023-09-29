@@ -30,6 +30,8 @@
                     <select class="form-select" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion"
                         id="{{ $variableName }}" wire:ignore>
                         <option selected>{{ $variableName }}</option>
+
+                        <!-- Options -->
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                             <option value="{{ $unit['conversion_to_base'] }}"> 
                                 <div>
@@ -40,8 +42,6 @@
                     </select>
                     <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
-
-
             </div>
             <hr>
         @endforeach

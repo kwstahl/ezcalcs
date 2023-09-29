@@ -1,3 +1,5 @@
+@props['formula_name']
+
 <div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
+    <p class="h1 text-center p-1"> {{ $formula_name }} </p>
 </div>
