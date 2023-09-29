@@ -1,5 +1,5 @@
-@aware['message' => 'message']
+@aware['variableName' => 'variableName']
 
 <div>
-    {{$message}}
+    {{$variableName}}
 </div>
