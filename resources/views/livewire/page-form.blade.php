@@ -1,5 +1,5 @@
 <div class="row p-2">
-    <x-calc-page.title-a :formula_sympy = "$formula_sympy"/>
+    <x-calc-page.title-a :formula_sympy = "$formula_sympy"></x-calc-page.title-a>
 
     <form wire:submit.prevent="submit">
 

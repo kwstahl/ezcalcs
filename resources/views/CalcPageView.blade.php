@@ -29,7 +29,7 @@
                 <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 p-3 border-none">
                     <!-- Header -->
                     <div class="row p-2">
-                        <x-calc-page.title/>
+                        <x-calc-page.title></x-calc-page.title>
                         <p class="h1 text-center p-1">{{ $formula_name }}</p>
                         <p class="h2 text-center p-1">{{ $formula_latex }}</p>
                     </div>
