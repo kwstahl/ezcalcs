@@ -1,6 +1,8 @@
 <div class="row p-2">
     <form wire:submit.prevent="submit">
-
+        <x-calc-page.test-a>
+            Whaddup
+        </x-calc-page.test-a>
 
         <x-calc-page.test message="hi">
             @foreach($variables_json as $variableName => $variable)
