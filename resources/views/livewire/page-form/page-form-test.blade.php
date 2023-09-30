@@ -1,9 +1,9 @@
 <div class="row p-2">
     <form wire:submit.prevent="submit">
 
-            @foreach($variables_json as $variableName => $variable)
-                <x-calc-page.test-a :$variableName/>
-            @endforeach
+        @foreach ($variables_json as $variableName => $variable)
+            <x-calc-page.test-a :$variableName />
+        @endforeach
 
 
 
@@ -15,14 +15,13 @@
                     <div class="input-group">
 
                         <!--  Radio  -->
-                        <x-calc-page.radio :$variableName/>
+                        <div class="input-group-text">
+                            <x-calc-page.radio :$variableName />
+                        </div>
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <input class="form-control" type="text" name="{{ $variableName }}"
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
-                                @if ($variableToSolveFor === $variableName) disabled
-                                    readonly @endif>
+                            <x-calc-page.test-a/>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
                         </div>
                     </div>
@@ -37,9 +36,9 @@
 
                         <!-- Options -->
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                            <option value="{{ $unit['conversion_to_base'] }}"> 
+                            <option value="{{ $unit['conversion_to_base'] }}">
                                 <div>
-                                    {{ $unit['symbol'] }} 
+                                    {{ $unit['symbol'] }}
                                 </div>
                             </option>
                         @endforeach
@@ -76,7 +75,6 @@
 
     @push('scripts')
         <script>
-            
             var selectElements = document.querySelectorAll('.form-select');
 
             selectElements.forEach(function(selectElement) {
