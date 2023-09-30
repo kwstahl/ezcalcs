@@ -10,8 +10,7 @@
 
                         <!--  Radio  -->
                         <div class="input-group-text">
-                            <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{ $variableName }}"
-                                wire:model="variableToSolveFor">
+                            <x-calc-page.radio/>
                         </div>
 
                         <!-- Input Text -->
@@ -34,9 +33,9 @@
 
                         <!-- Options -->
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                            <option value="{{ $unit['conversion_to_base'] }}"> 
+                            <option value="{{ $unit['conversion_to_base'] }}">
                                 <div>
-                                    {{ $unit['symbol'] }} 
+                                    {{ $unit['symbol'] }}
                                 </div>
                             </option>
                         @endforeach
@@ -73,7 +72,7 @@
 
     @push('scripts')
         <script>
-            
+
             var selectElements = document.querySelectorAll('.form-select');
 
             selectElements.forEach(function(selectElement) {
