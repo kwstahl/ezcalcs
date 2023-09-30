@@ -38,6 +38,8 @@
                     </select>
                     <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
+
+                
             </div>
             <hr>
         @endforeach

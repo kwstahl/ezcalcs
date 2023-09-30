@@ -12,9 +12,10 @@ class test extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($message)
+    public function __construct($bind, $variableName)
     {
-        $this->message = $message;
+        $this->bind = $bind;
+        $this->variableName = $variableName;
     }
 
     /**
