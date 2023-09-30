@@ -4,39 +4,7 @@
 
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
-            <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
-                <div class="col-8">
-                    <div class="input-group">
-
-                        <!--  Radio  -->
-                        <div class="input-group-text">
-                            <x-calc-page.radio :$variableName :$variableToSolveFor />
-                        </div>
-
-                        <!-- Input Text -->
-                        <div class="form-floating">
-                            <x-calc-page.variable-input :$variableName :$variableToSolveFor :$variable />
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Dropdown list -->
-                <div class="col-4 form-floating">
-                    <x-calc-page.dropdown bind="variableInputData.{{ $variableName }}.unit_conversion" :$variableName>
-                        <!-- Options -->
-                        @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                            <option value="{{ $unit['conversion_to_base'] }}">
-                                {{ $unit['symbol'] }}
-                            </option>
-                        @endforeach
-                    </x-calc-page.dropdown>
-                    <label> Unit: {{ $variable['unit'] }}</label>
-                </div>
-
-
-            </div>
-            <hr>
+            <x-calc-page.var-layout :$variableName, :$variableToSolveFor, :$variable, :$unitOptions/>
         @endforeach
 
         @if ($errors->any())
