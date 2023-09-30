@@ -23,7 +23,7 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
-                    <x-calc-page.dropdown :$variableName bind={{"variableInputData.{{ $variableName }}.unit_conversion"}}>
+                    <x-calc-page.dropdown :$variableName bind="{{variableInputData.{{ $variableName }}.unit_conversion}}">
 
                         <!-- Options -->
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
