@@ -1,4 +1,4 @@
-@aware(['variableName', 'variableToSolveFor', 'variable', 'unitOptions'])
+@props(['variableName', 'variableToSolveFor', 'variable', 'unitOptions'])
 
 <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
     <div class="col-8">
