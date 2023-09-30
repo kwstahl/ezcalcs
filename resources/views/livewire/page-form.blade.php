@@ -9,8 +9,10 @@
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor/>
                     @break
                 @case("constant")
-                    <x-calc-page.radio :$variableName :$variableToSolveFor/>
                     @break
+                @case("unitless")
+                    @break
+
             @endswitch
         @endforeach
 
