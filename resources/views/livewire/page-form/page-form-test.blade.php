@@ -8,12 +8,12 @@
 
                         <!--  Radio  -->
                         <div class="input-group-text">
-                            <x-calc-page.radio />
+                            <x-calc-page.radio :$variableName :$variableToSolveFor/>
                         </div>
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <x-calc-page.variable-input/>
+                            <x-calc-page.variable-input :$variabeName :variable :variableToSolveFor/>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
                         </div>
                     </div>
