@@ -23,9 +23,7 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
-                    <select class="form-select" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion"
-                        id="{{ $variableName }}" wire:ignore>
-                        <option selected>{{ $variableName }}</option>
+                    <x-calc-page.dropdown :$variableName bind={{"variableInputData.{{ $variableName }}.unit_conversion"}}>
 
                         <!-- Options -->
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
@@ -35,11 +33,11 @@
                                 </div>
                             </option>
                         @endforeach
-                    </select>
+                        </x-calc-page.dropdown>
                     <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
 
-                
+
             </div>
             <hr>
         @endforeach
