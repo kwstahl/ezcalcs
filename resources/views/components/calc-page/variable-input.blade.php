@@ -1,3 +1,5 @@
-<div>
-    <!-- You must be the change you wish to see in the world. - Mahatma Gandhi -->
-</div>
+@aware(['variableName', 'variable', 'variableToSolveFor'])
+
+<input class="form-control" type="text" name="{{ $variableName }}"
+    wire:model.defer="variableInputData.{{ $variableName }}.Value"
+    @if ($variableToSolveFor === $variableName) disabled readonly @endif>
