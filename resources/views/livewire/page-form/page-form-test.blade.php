@@ -13,7 +13,7 @@
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <x-calc-page.test-a/>
+                            <x-calc-page.variable-input/>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
                         </div>
                     </div>
