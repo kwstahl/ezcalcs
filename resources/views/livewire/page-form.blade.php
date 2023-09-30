@@ -4,7 +4,11 @@
 
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
-            <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor/>
+            @switch($variable['type'])
+                @case("variable")
+                    <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor/>
+                    @break
+            @endswitch
         @endforeach
 
         @if ($errors->any())
