@@ -4,7 +4,7 @@
 
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
-            <x-calc-page.var-layout/>
+            <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor/>
         @endforeach
 
         @if ($errors->any())
