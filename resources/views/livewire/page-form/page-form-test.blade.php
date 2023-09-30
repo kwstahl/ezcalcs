@@ -16,7 +16,7 @@
 
                         <!--  Radio  -->
                         <div class="input-group-text">
-                            <x-calc-page.radio :$variableName />
+                            <x-calc-page.radio />
                         </div>
 
                         <!-- Input Text -->
