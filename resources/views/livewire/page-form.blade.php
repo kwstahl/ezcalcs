@@ -15,10 +15,7 @@
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <input class="form-control" type="text" name="{{ $variableName }}"
-                                wire:model.defer="variableInputData.{{ $variableName }}.Value"
-                                @if ($variableToSolveFor === $variableName) disabled
-                                    readonly @endif>
+                            <x-calc-page.test-a :$variableName :$variableToSolveFor :$variable/>
                             <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
                         </div>
                     </div>
