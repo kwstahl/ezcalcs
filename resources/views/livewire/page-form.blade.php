@@ -10,12 +10,12 @@
 
                         <!--  Radio  -->
                         <div class="input-group-text">
-                            <x-calc-page.radio :$variableName :$variableToSolveFor/>
+                            <x-calc-page.radio :$variableName :$variableToSolveFor />
                         </div>
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <x-calc-page.variable-input :$variableName :$variableToSolveFor :$variable/>
+                            <x-calc-page.variable-input :$variableName :$variableToSolveFor :$variable />
                         </div>
                     </div>
                 </div>
@@ -23,16 +23,14 @@
 
                 <!-- Dropdown list -->
                 <div class="col-4 form-floating">
-                    <x-calc-page.dropdown :$variableName bind="variableInputData.{{ $variableName }}.unit_conversion">
+                    <x-calc-page.dropdown bind="variableInputData.{{ $variableName }}.unit_conversion" :$variableName>
                         <!-- Options -->
                         @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                             <option value="{{ $unit['conversion_to_base'] }}">
-                                <div>
-                                    {{ $unit['symbol'] }}
-                                </div>
+                                {{ $unit['symbol'] }}
                             </option>
                         @endforeach
-                        </x-calc-page.dropdown>
+                    </x-calc-page.dropdown>
                     <label> Unit: {{ $variable['unit'] }}</label>
                 </div>
 
@@ -67,7 +65,6 @@
 
     @push('scripts')
         <script>
-
             var selectElements = document.querySelectorAll('.form-select');
 
             selectElements.forEach(function(selectElement) {
