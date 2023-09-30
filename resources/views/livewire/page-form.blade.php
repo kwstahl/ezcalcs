@@ -10,7 +10,7 @@
 
                         <!--  Radio  -->
                         <div class="input-group-text">
-                            <x-calc-page.radio/>
+                            <x-calc-page.radio :$variableName :$variableToSolveFor/>
                         </div>
 
                         <!-- Input Text -->
