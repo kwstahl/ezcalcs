@@ -1,4 +1,4 @@
-@props(['variableName'])
+@props(['variableName', 'bind'])
 
 <div class="col-4 form-floating">
 
