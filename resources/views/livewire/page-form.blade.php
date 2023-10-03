@@ -7,13 +7,17 @@
             @switch($variable['type'])
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
-                        <x-calc-page.dropdown bind="variableInputData.{{ $variableName }}.unit_conversion">
+                        <x-calc-page.dropdown>
                             <!-- Options -->
-                            @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                <option value="{{ $unit['conversion_to_base'] }}">
-                                    {{ $unit['symbol'] }}
-                                </option>
-                            @endforeach
+                            <div class="col-4 form-floating">
+                                @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                    <option value="{{ $unit['conversion_to_base'] }}">
+                                        {{ $unit['symbol'] }}
+                                    </option>
+                                @endforeach
+                                <label> Unit: {{ $variable['unit'] }}</label>
+                            </div>
+
                         </x-calc-page.dropdown>
                     </x-calc-page.var-layout>
                 @break

@@ -18,9 +18,6 @@
 
 
     <!-- Dropdown list -->
-    <div class="col-4 form-floating">
-        {{ $slot }}
-        <label> Unit: {{ $variable['unit'] }}</label>
-    </div>
+    
 </div>
 <hr>
