@@ -7,7 +7,7 @@
             @switch($variable['type'])
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
-                        <x-calc-page.dropdown>
+                        <x-calc-page.dropdown :$variableName>
                             <!-- Options -->
                             <div class="col-4 form-floating">
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
