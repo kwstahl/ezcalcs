@@ -18,6 +18,8 @@
 
 
     <!-- Dropdown list -->
-    
+    {{ $slot }}
+
+
 </div>
 <hr>
