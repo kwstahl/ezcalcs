@@ -6,8 +6,7 @@
         @foreach ($variables_json as $variableName => $variable)
             @switch($variable['type'])
                 @case("variable")
-                    <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor
-                    bind="variableInputData.{{ $variableName }}.unit_conversion"/>
+                    <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor/>
                     @break
 
                 @case("constant")
