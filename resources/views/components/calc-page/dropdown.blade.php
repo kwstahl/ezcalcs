@@ -1,4 +1,4 @@
-@aware(['bind'=>'bind', 'variableName', 'label'])
+@aware(['bind', 'variableName', 'label'])
 
 
 <select class="form-select" wire:model.defer="$bind" id="{{ $variableName }}" wire:ignore>

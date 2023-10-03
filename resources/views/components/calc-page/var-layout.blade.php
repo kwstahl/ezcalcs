@@ -1,4 +1,4 @@
-@props(['variableName', 'variableToSolveFor', 'variable', 'unitOptions', 'variableInputData'])
+@props(['variableName', 'variableToSolveFor', 'variable'])
 
 <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
     <div class="col-8">
@@ -19,14 +19,7 @@
 
     <!-- Dropdown list -->
     <div class="col-4 form-floating">
-        <x-calc-page.dropdown bind="variableInputData.{{ $variableName }}.unit_conversion">
-            <!-- Options -->
-            @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                <option value="{{ $unit['conversion_to_base'] }}">
-                    {{ $unit['symbol'] }}
-                </option>
-            @endforeach
-        </x-calc-page.dropdown>
+        {{ $slot }}
         <label> Unit: {{ $variable['unit'] }}</label>
     </div>
 </div>
