@@ -19,7 +19,7 @@
 
     <!-- Dropdown list -->
     <div class="col-4 form-floating">
-        <x-calc-page.dropdown bind="$bind">
+        <x-calc-page.dropdown :$bind">
             <!-- Options -->
             @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                 <option value="{{ $unit['conversion_to_base'] }}">
