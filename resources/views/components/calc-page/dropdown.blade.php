@@ -1,4 +1,4 @@
-@aware(['bind', 'variableName', 'label'])
+@aware(['variableName'])
 
 
 <select class="form-select" id="{{ $variableName }}" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
