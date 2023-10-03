@@ -8,10 +8,13 @@
                 @case("variable")
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor/>
                     @break
+
                 @case("constant")
+
                     @break
+
                 @case("unitless")
-                
+                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor/>
                     @break
 
             @endswitch
