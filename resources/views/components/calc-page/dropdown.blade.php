@@ -9,5 +9,5 @@
         {{ $slot }}
 
     </select>
-
+    <label> Unit: {{ $variable['unit'] }}</label>
 </div>
