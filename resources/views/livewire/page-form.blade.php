@@ -7,7 +7,7 @@
             @switch($variable['type'])
                 @case("variable")
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor
-                    bind = "variableInputData.{{ $variableName }}.unit_conversion"/>
+                    :bind="variableInputData.{{ $variableName }}.unit_conversion"/>
                     @break
 
                 @case("constant")
