@@ -37,14 +37,10 @@ class PageForm extends Component
     ];
 
 
-
-    public function unitSelected($unitIndex, $variableName){
-        $this->variableInputData[$variableName]['unit_conversion'] = 'hi';
-    }
-
     protected function rules()
     {
         $variableToSolveForValueEntry = 'variableInputData.' . $this->variableToSolveFor . '.Value';
+
         return [
             'variableInputData.*.Value' => 'required|numeric',
             $variableToSolveForValueEntry => 'nullable',
@@ -60,7 +56,7 @@ class PageForm extends Component
                 $variableName => [
                     'sympy_symbol' => $variable['sympy_symbol'],
                     'Value' => '',
-                    'unit_conversion' => '',
+                    'unit_conversion' => ($variable['type'] = 'variable') ? '' : 1,
                 ]
             ];
         });
@@ -69,21 +65,24 @@ class PageForm extends Component
     private function setUnitOptionsForEachVariable()
     {
         foreach($this->variables_json as $variableName => $variable){
-            $variableUnitClass = $variable['unit'];
-            $unitsForVariable = $this->units
-                ->where('unit_class', $variableUnitClass)
-                ->mapWithKeys(function($unit, $unitName) {
-                        return [
-                            $unit->id => [
-                            'symbol' => $unit->symbol,
-                            'conversion_to_base' => $unit->conversion_to_base,
-                            'unit_class' => $unit->unit_class,
-                            ]
-                        ];
-                    })
-                ->all();
-            
-            $this->unitOptions[$variableName] = $unitsForVariable;
+            if ($variable['type'] == 'variable'){
+                $variableUnitClass = $variable['unit'];
+                $unitsForVariable = $this->units
+                    ->where('unit_class', $variableUnitClass)
+                    ->mapWithKeys(function($unit, $unitName) {
+                            return [
+                                $unit->id => [
+                                'symbol' => $unit->symbol,
+                                'conversion_to_base' => $unit->conversion_to_base,
+                                'unit_class' => $unit->unit_class,
+                                ]
+                            ];
+                        })
+                    ->all();
+                $this->unitOptions[$variableName] = $unitsForVariable;
+            }
+            //skip unitless variables
+            else {continue;}
         }
     }
 
@@ -107,7 +106,7 @@ class PageForm extends Component
         $dataForSympyInJson = $this->variableInputData;
         $dataForSympyInJson = $this->variableInputData->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
-            return 
+            return
             [
                 $sympy_symbol => [
                     'Value' => $variable['Value'],
