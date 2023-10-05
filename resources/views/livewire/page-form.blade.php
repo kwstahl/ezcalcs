@@ -5,6 +5,7 @@
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             @switch($variable['type'])
+
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
 
@@ -29,8 +30,7 @@
                 @break
 
                 @case('unitless')
-                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor>
-                    </x-calc-page.unitless-layout>
+                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor/>
                 @break
             @endswitch
         @endforeach
