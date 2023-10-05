@@ -30,7 +30,6 @@
 
                 @case('unitless')
                     <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor>
-                        <input type="hidden" wire:model="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore" value=1/>
                     </x-calc-page.unitless-layout>
                 @break
             @endswitch
