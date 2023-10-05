@@ -7,7 +7,7 @@
             @switch($variable['type'])
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
-
+                        
                         <!-- Dropdown list -->
                         <div class="col-4 form-floating">
                             <select class="form-select" id="{{ $variableName }}" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
@@ -18,7 +18,6 @@
                                         {{ $unit['symbol'] }}
                                     </option>
                                 @endforeach
-
                             </select>
                             <label> Unit: {{ $variable['unit'] }}</label>
                         </div>

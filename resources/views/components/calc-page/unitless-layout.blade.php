@@ -13,6 +13,8 @@
             <div class="form-floating">
                 <x-calc-page.variable-input/>
             </div>
+
+            {{ $slot }}
         </div>
     </div>
 </div>
