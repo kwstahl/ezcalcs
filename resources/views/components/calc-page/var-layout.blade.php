@@ -16,17 +16,6 @@
         </div>
     </div>
 
-
-    <!-- Dropdown list -->
-    <x-calc-page.dropdown :$variable :$variableName bind="variableInputData.{{ $variableName }}.unit_conversion">
-        <!-- Options -->
-        <option selected>{{ $variableName }}</option>
-        @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-            <option value="{{ $unit['conversion_to_base'] }}">
-                {{ $unit['symbol'] }}
-            </option>
-        @endforeach
-        <label> Unit: {{ $variable['unit'] }}</label>
-    </x-calc-page.dropdown>
+    {{ $slot }}
 </div>
 <hr>

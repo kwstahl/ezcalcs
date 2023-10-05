@@ -40,7 +40,6 @@ class PageForm extends Component
     protected function rules()
     {
         $variableToSolveForValueEntry = 'variableInputData.' . $this->variableToSolveFor . '.Value';
-
         return [
             'variableInputData.*.Value' => 'required|numeric',
             $variableToSolveForValueEntry => 'nullable',

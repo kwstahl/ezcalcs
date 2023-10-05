@@ -6,11 +6,27 @@
         @foreach ($variables_json as $variableName => $variable)
             @switch($variable['type'])
                 @case('variable')
-                    <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor />
+                    <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
+
+                        <!-- Dropdown list -->
+                        <div class="col-4 form-floating">
+                            <select class="form-select" id="{{ $variableName }}" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
+                                <!-- Options -->
+                                <option selected>{{ $variableName }}</option>
+                                @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                    <option value="{{ $unit['conversion_to_base'] }}">
+                                        {{ $unit['symbol'] }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                            <label> Unit: {{ $variable['unit'] }}</label>
+                        </div>
+
+                    </x-calc-page.var-layout>
                 @break
 
                 @case('constant')
-                
                 @break
 
                 @case('unitless')
