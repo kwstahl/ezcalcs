@@ -7,7 +7,7 @@
             @switch($variable['type'])
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
-                        
+
                         <!-- Dropdown list -->
                         <div class="col-4 form-floating">
                             <select class="form-select" id="{{ $variableName }}" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
@@ -29,7 +29,9 @@
                 @break
 
                 @case('unitless')
-                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor />
+                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor>
+                        <input type="hidden" wire:model="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore" value=1/>
+                    </x-calc-page.unitless-layout>
                 @break
             @endswitch
         @endforeach
