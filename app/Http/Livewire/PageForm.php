@@ -51,12 +51,11 @@ class PageForm extends Component
     private function setVariableInputData()
     {
         $this->variableInputData = $this->variables_json->mapWithKeys(function ($variable, $variableName) {
-            if ($variable['type'] == 'unitless'){$value = 1;} else {$value = '';}
             return [
                 $variableName => [
                     'sympy_symbol' => $variable['sympy_symbol'],
                     'Value' => '',
-                    'unit_conversion' => $value,
+                    'unit_conversion' => ($variable['type']=='variable') ? (''):(1),
                 ]
             ];
         });
