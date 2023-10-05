@@ -55,6 +55,8 @@ class PageForm extends Component
                 $variableName => [
                     'sympy_symbol' => $variable['sympy_symbol'],
                     'Value' => '',
+                    
+                    //For a non 'variable' type, set conversion factor to 1 since will be non-converted.
                     'unit_conversion' => ($variable['type']=='variable') ? (''):(1),
                 ]
             ];
