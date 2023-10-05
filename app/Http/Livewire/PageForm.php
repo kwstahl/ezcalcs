@@ -55,8 +55,8 @@ class PageForm extends Component
             return [
                 $variableName => [
                     'sympy_symbol' => $variable['sympy_symbol'],
-                    'Value' => $value,
-                    'unit_conversion' => '',
+                    'Value' => '',
+                    'unit_conversion' => $value,
                 ]
             ];
         });
