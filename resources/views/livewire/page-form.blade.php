@@ -32,12 +32,12 @@
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                                     <li>
                                         <button class="dropdown-item" type="button" wire:click="setUnitInputData('{{$variableName}}', '{{$unit['symbol']}}')">{{ $unit['symbol'] }}
-                                            {{ $unit['symbol'] }} {{ $variableInputData[$variableName]['unit_conversion'] }}
+                                            {{ $unit['symbol'] }}
                                         </button>
                                     </li>
                                 @endforeach
                             </ul>
-
+                            {{ $variableInputData[$variableName]['unit_conversion'] }}
                         </div>
 
                     </x-calc-page.var-layout>
