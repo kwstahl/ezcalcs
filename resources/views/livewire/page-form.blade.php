@@ -37,9 +37,9 @@
                                 @endforeach
                             </ul>
                         </div>
-                        {{ $variableInputData[$variableName]['unit_conversion'] }}
 
                     </x-calc-page.var-layout>
+                    {{ $variableInputData[$variableName]['unit_conversion'] }}
                 @break
 
                 @case('constant')
