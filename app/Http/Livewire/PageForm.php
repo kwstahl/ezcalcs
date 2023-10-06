@@ -87,10 +87,9 @@ class PageForm extends Component
         }
     }
 
-    public function setUnitInputData($variable, $unit)
+    public function setUnitInputData($variable)
     {
-        $this->variableInputData[$variable]['unit_conversion'] = $unit;
-        dd($this->variableInputData);
+        dd($variable);
     }
 
     public function updatedVariableToSolveFor()
