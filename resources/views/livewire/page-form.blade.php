@@ -5,13 +5,13 @@
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             @switch($variable['type'])
-
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
 
                         <!-- Dropdown list -->
                         <div class="col-4 form-floating">
-                            <select class="form-select" id="{{ $variableName }}" wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
+                            <select class="form-select" id="{{ $variableName }}"
+                                wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
                                 <!-- Options -->
                                 <option selected>{{ $variableName }}</option>
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
@@ -23,6 +23,21 @@
                             <label> Unit: {{ $variable['unit'] }}</label>
                         </div>
 
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Dropdown
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                    <li>
+                                        <button class="dropdown-item" type="button">{{ $unit['symbol'] }}</button>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+
                     </x-calc-page.var-layout>
                 @break
 
@@ -30,7 +45,7 @@
                 @break
 
                 @case('unitless')
-                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor/>
+                    <x-calc-page.unitless-layout :$variable :$variableName :$variableToSolveFor />
                 @break
             @endswitch
         @endforeach
