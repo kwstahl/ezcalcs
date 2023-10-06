@@ -92,7 +92,7 @@ class PageForm extends Component
         $this->variableInputData
             ->keyBy($variableName)
             ->put('unit_conversion', $unit);
-        dd($this->variableInputData);
+        dd($this->variableInputData->keyBy($variableName));
     }
 
     public function updatedVariableToSolveFor()
