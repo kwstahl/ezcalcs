@@ -91,10 +91,12 @@ class PageForm extends Component
     {
         $this->variableInputData
             ->transform(function($variable, $van) use ($unit, $variableName){
-                if($variableName == $van){
-                $variable['unit_conversion'] = $unit;
-            }
-            return $variable;
+                    if($variableName == $van){
+                    $variable['unit_conversion'] = $unit;
+                    return $variable;
+                } else {
+                    continue;
+                }
             });
         dd($this->variableInputData);
     }
