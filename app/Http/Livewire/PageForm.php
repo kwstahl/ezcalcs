@@ -90,12 +90,12 @@ class PageForm extends Component
     public function setUnitInputData($variableName, $unit)
     {
         $this->variableInputData
-            ->keyBy($variableName)
             ->transform(function($variable) use ($unit, $variableName){
 
                 $variable['unit_conversion'] = $unit;
                 return $variable;
-            });
+            })
+            ->keyBy($variableName);
 
         dd($this->variableInputData);
     }
