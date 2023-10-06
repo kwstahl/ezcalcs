@@ -93,6 +93,7 @@ class PageForm extends Component
             ->keyBy($variableName)
             ->transform(function($variable) use ($unit){
                 $variable['unit_conversion'] = $unit;
+                return $variable;
             });
 
         dd($this->variableInputData);
