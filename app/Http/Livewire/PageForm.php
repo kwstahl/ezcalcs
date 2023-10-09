@@ -43,7 +43,7 @@ class PageForm extends Component
         return [
             'variableInputData.*.Value' => 'required|numeric',
             $variableToSolveForValueEntry => 'nullable',
-            'variableInputData.*.unit_conversion' => 'required|numeric',
+            'variableInputData.*.unit_conversion' => 'required',
             'variableToSolveFor' => 'required',
         ];
     }
@@ -92,7 +92,6 @@ class PageForm extends Component
         $new = $this->variableInputData[$variableName];
         $new['unit_conversion'] = $unit;
         $this->variableInputData[$variableName] = $new;
-        $this->rules();
         dd($this->variableInputData);
     }
 
