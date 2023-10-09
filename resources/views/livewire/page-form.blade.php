@@ -105,7 +105,7 @@
     </h1>
 
     <h1>
-        {{ dump($variableInputData }}
+        {{ dump($variableInputData) }}
     </h1>
 
 </div>
