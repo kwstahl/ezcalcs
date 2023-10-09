@@ -28,6 +28,10 @@
                                 @isset($variableInputData[$variableName]['unit_conversion'])
                                     {{ $variableInputData[$variableName]['unit_conversion'] }}
                                 @endisset
+
+                                @empty($variableInputData[$variableName]['unit_conversion'])
+                                    Select a Unit
+                                @endempty
                             </button>
 
                             <ul class="dropdown-menu" wire:ignore>
