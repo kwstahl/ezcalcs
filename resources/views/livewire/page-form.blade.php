@@ -28,7 +28,7 @@
                                 Dropdown
                             </button>
 
-                            <ul class="dropdown-menu" wire:ignore>
+                            <ul class="dropdown-menu">
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                                     <li>
                                         <button class="dropdown-item" type="button" wire:click="setUnitInputData('{{$variableName}}', '{{$unit['symbol']}}')">{{ $unit['symbol'] }}
