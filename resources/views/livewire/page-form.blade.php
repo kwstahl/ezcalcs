@@ -15,9 +15,7 @@
                                 <!-- Options -->
                                 <option selected>{{ $variableName }}</option>
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                    <option value="{{ $unit['conversion_to_base'] }}">
-                                        {{ $unit['symbol'] }}
-                                    </option>
+                                    
                                 @endforeach
                             </select>
                             <label> Unit: {{ $variable['unit'] }}</label>
