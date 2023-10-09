@@ -25,14 +25,16 @@
 
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                Dropdown
+                                @isset({{ $variableInputData[$variableName]['unit_conversion'] }})
+                                    {{ $variableInputData[$variableName]['unit_conversion'] }}
+                                @endisset
                             </button>
 
                             <ul class="dropdown-menu" wire:ignore>
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                                     <li>
                                         <button class="dropdown-item" type="button" wire:click="setUnitInputData('{{$variableName}}', '{{$unit['symbol']}}')">
-                                            {{ $variableInputData[$variableName]['unit_conversion'] }}
+                                            {{ $unit['symbol'] }}
                                         </button>
                                     </li>
                                 @endforeach
@@ -103,7 +105,7 @@
     </h1>
 
     <h1>
-        {{ dump($variableInputData) }}
+        {{ dump($variableInputData }}
     </h1>
 
 </div>
