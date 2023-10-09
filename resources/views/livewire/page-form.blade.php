@@ -46,7 +46,6 @@
                         </div>
 
                     </x-calc-page.var-layout>
-                    {{ $variableInputData[$variableName]['unit_conversion'] }}
                 @break
 
                 @case('constant')
