@@ -26,7 +26,7 @@
                         -->
 
                         <div class="dropdown col-4">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" wire:ignore>
                                 @isset($variableInputData[$variableName]['unit_conversion'])
                                     {{ $variableInputData[$variableName]['unit_conversion'] }}
                                 @endisset
