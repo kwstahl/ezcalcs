@@ -9,8 +9,8 @@
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
 
                         <!-- Dropdown list -->
+                        <!--
                         <div class="col-4 form-floating">
-                            <!--
                             <select class="form-select" id=" $variableName "
                                 wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
                                 <option selected> $variableName </option>
@@ -20,10 +20,12 @@
                                     </option>
                                 endforeach
                             </select>
-                            <label> Unit:  $variable['unit'] </label>-->
+                            <label> Unit:  $variable['unit'] </label>
                         </div>
 
-                        <div class="dropdown">
+                        -->
+
+                        <div class="dropdown col-4">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 @isset($variableInputData[$variableName]['unit_conversion'])
                                     {{ $variableInputData[$variableName]['unit_conversion'] }}
