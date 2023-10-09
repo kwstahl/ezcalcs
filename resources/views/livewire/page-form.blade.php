@@ -10,15 +10,17 @@
 
                         <!-- Dropdown list -->
                         <div class="col-4 form-floating">
+                            <!--
                             <select class="form-select" id="{{ $variableName }}"
                                 wire:model.defer="variableInputData.{{ $variableName }}.unit_conversion" wire:ignore>
-                                <!-- Options -->
                                 <option selected>{{ $variableName }}</option>
-                                @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                    
-                                @endforeach
+                                foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                    <option value="{{ $unit['conversion_to_base'] }}">
+                                        {{ $unit['symbol'] }}
+                                    </option>
+                                endforeach
                             </select>
-                            <label> Unit: {{ $variable['unit'] }}</label>
+                            <label> Unit: {{ $variable['unit'] }}</label>-->
                         </div>
 
                         <div class="dropdown">
