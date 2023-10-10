@@ -112,7 +112,6 @@
     <h1>
         {{ dump($variableInputData) }}
         {{ dump($units) }}
-        {{ dump($unitOptions) }}
     </h1>
 
 </div>
