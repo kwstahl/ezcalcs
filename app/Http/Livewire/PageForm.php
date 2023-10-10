@@ -91,7 +91,7 @@ class PageForm extends Component
     public function setUnitInputData($variableName, $unit)
     {
         $new = $this->variableInputData[$variableName];
-        $new['unit_conversion'] = $unit['conversion_to_base'];
+        $new['unit_conversion'] = $unit;
         $this->variableInputData[$variableName] = $new;
     }
 
