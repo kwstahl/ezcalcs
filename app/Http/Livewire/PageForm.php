@@ -26,8 +26,8 @@ class PageForm extends Component
         $this->answer = '';
         $this->errorOut = '';
 
-        $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
+        $this->setVariableInputData();
     }
 
     protected $messages = [
@@ -58,7 +58,6 @@ class PageForm extends Component
 
                     //For a non 'variable' type, set conversion factor to 1 since will be non-converted.
                     'unit_conversion' => ($variable['type']=='variable') ? (''):(1),
-                    'unit_symbol' => '',
                 ]
             ];
         });
@@ -90,7 +89,7 @@ class PageForm extends Component
 
     public function setUnitInputData($variableName, $unit)
     {
-        $new = $this->variableInputData[$variableName];
+        $new = $this->unitOptions[$variableName]['id'][$unit];
         $new['unit_conversion'] = $unit;
         $this->variableInputData[$variableName] = $new;
     }

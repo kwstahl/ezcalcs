@@ -27,11 +27,11 @@
 
                         <div class="dropdown col-4">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                @isset($variableInputData[$variableName]['unit_conversion'])
-                                    {{ $variableInputData[$variableName]['unit_conversion'] }}
+                                @isset($variableInputData[$variableName]['id'])
+                                    {{ $variableInputData[$variableName]['id'] }}
                                 @endisset
 
-                                @empty($variableInputData[$variableName]['unit_conversion'])
+                                @empty($variableInputData[$variableName]['id'])
                                     Select a Unit
                                 @endempty
                             </button>
