@@ -27,7 +27,7 @@
 
                         <div class="dropdown col-4">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                @isset($variableInputData[$variableName]['id'])
+                                @isset($variableInputData[$variableName])
                                     {{ $variableInputData[$variableName]['id'] }}
                                 @endisset
 

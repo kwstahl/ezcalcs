@@ -58,6 +58,7 @@ class PageForm extends Component
 
                     //For a non 'variable' type, set conversion factor to 1 since will be non-converted.
                     'unit_conversion' => ($variable['type']=='variable') ? (''):(1),
+                    'unit_symbol' => '',
                 ]
             ];
         });
