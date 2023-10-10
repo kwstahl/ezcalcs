@@ -92,7 +92,7 @@ class PageForm extends Component
     {
         $new = $this->variableInputData[$variableName];
         $new['unit_conversion'] = $this->unitOptions[$variableName][$unit]['conversion_to_base'];
-        $new['unit_symbol'] = $this->unitOptions[$variableName][$unit]['unit_symbol']
+        $new['unit_symbol'] = $this->unitOptions[$variableName][$unit]['unit_symbol'];
         $this->variableInputData[$variableName] = $new;
     }
 
