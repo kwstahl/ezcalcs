@@ -87,12 +87,10 @@
     </form>
 
     @push('scripts')
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                Livewire.on('setUnitInputData', () => {
-                    alert('hi');
-                })
-            });
+    <script>
+        window.addEventListener('setUnitInputData', event => {
+            alert('Name updated to: ' + event.detail.newName);
+        })
         </script>
     @endpush
 
