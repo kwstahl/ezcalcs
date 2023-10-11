@@ -26,7 +26,7 @@
                         -->
 
                         <div class="dropdown col-4">
-                            <div>
+                            <span>{{ $variableInputData[$variableName]['unit_symbol']}}</span>
                                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                     @isset($variableInputData[$variableName]['unit_symbol'])
                                         <span>{{ $variableInputData[$variableName]['unit_symbol']}}</span>
@@ -36,7 +36,7 @@
                                         Select a Unit
                                     @endempty
                                 </button>
-                            </div>
+
                             <ul class="dropdown-menu" wire:ignore>
                                 @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
                                     <li>
