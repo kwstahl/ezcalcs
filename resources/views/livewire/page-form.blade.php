@@ -90,7 +90,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 Livewire.on('setUnitInputData', () => {
-                    MathJax.typeset();
+                    MathJax.typesetPromise();
                 })
             });
         </script>
