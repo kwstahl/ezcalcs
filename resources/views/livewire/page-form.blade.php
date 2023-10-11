@@ -25,7 +25,7 @@
 
                         -->
 
-                        <div class="btn-group">
+                        <div class="btn-group col-2">
                             <button class="btn" type="button">
                                 @isset($variableInputData[$variableName]['unit_symbol'])
                                     <span>{{ $variableInputData[$variableName]['unit_symbol']}}</span>
