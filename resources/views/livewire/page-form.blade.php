@@ -25,7 +25,6 @@
 
                                 -->
 
-                                {{ $variableInputData[$variableName]['unit_symbol'] }}
                         <div class="col-4">
                             @isset($variableInputData[$variableName]['unit_symbol'])
                                 {{ $variableInputData[$variableName]['unit_symbol'] }}

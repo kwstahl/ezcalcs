@@ -94,6 +94,7 @@ class PageForm extends Component
         $new['unit_conversion'] = $this->unitOptions[$variableName][$unit]['conversion_to_base'];
         $new['unit_symbol'] = $this->unitOptions[$variableName][$unit]['symbol'];
         $this->variableInputData[$variableName] = $new;
+        $this->render();
     }
 
     public function updatedVariableToSolveFor()
