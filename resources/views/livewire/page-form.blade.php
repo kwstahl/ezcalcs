@@ -10,20 +10,20 @@
 
                         <!-- Dropdown list -->
                         <!--
-                                <div class="col-4 form-floating">
-                                    <select class="form-select" id=" $variableName "
-                                        wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
-                                        <option selected> $variableName </option>
-                                        foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                            <option value=" $unit['conversion_to_base'] ">
-                                                 $unit['symbol']
-                                            </option>
-                                        endforeach
-                                    </select>
-                                    <label> Unit:  $variable['unit'] </label>
-                                </div>
+                                        <div class="col-4 form-floating">
+                                            <select class="form-select" id=" $variableName "
+                                                wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
+                                                <option selected> $variableName </option>
+                                                foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                                    <option value=" $unit['conversion_to_base'] ">
+                                                         $unit['symbol']
+                                                    </option>
+                                                endforeach
+                                            </select>
+                                            <label> Unit:  $variable['unit'] </label>
+                                        </div>
 
-                                -->
+                                        -->
 
                         <div class="col-4">
                             @isset($variableInputData[$variableName]['unit_symbol'])
@@ -88,22 +88,10 @@
 
     @push('scripts')
         <script>
-            var selectElements = document.querySelectorAll('.form-select');
-
-            selectElements.forEach(function(selectElement) {
-                selectElement.addEventListener('change', function(event) {
-
-                    //Get the index of the selected option, and retrieve its innerHTML.
-                    var selectId = event.target.id;
-                    var selectedIndex = event.target.selectedIndex;
-                    var selectedOption = event.target.options[selectedIndex];
-                    var selectedText = selectedOption.innerHTML;
-                    var variableToSolveFor = @this.variableToSolveFor;
-
-
-                    if (variableToSolveFor == selectId)
-                        Livewire.emit('testAdd', selectedText);
-                });
+            document.addEventListener("DOMContentLoaded", () => {
+                Livewire.on('rednerMathJax', () => {
+                    MathJax.typeset();
+                })
             });
         </script>
     @endpush
