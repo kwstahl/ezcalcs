@@ -35,8 +35,8 @@
                                     Select a Unit
                                 @endempty
                             </button>
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-
+                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown">
+                                <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
 
                             <ul class="dropdown-menu" wire:ignore>
