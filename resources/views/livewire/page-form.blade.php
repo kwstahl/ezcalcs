@@ -25,9 +25,10 @@
 
                                 -->
 
+                                {{ $variableInputData[$variableName]['unit_symbol'] }}
                         <div class="col-4">
                             @isset($variableInputData[$variableName]['unit_symbol'])
-                                <span>{{ $variableInputData[$variableName]['unit_symbol'] }}</span>
+                                {{ $variableInputData[$variableName]['unit_symbol'] }}
                             @endisset
 
                             @empty($variableInputData[$variableName]['unit_symbol'])
