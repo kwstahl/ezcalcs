@@ -27,9 +27,6 @@
 
                         <div class="btn-group col-4">
                             <button class="btn" type="button">
-                                hi
-                            </button>
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 @isset($variableInputData[$variableName]['unit_symbol'])
                                     <span>{{ $variableInputData[$variableName]['unit_symbol']}}</span>
                                 @endisset
@@ -37,6 +34,9 @@
                                 @empty($variableInputData[$variableName]['unit_symbol'])
                                     Select a Unit
                                 @endempty
+                            </button>
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+
                             </button>
 
                             <ul class="dropdown-menu" wire:ignore>
