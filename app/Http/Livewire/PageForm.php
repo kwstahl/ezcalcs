@@ -36,7 +36,7 @@ class PageForm extends Component
         'variableInputData.*.Value.required' => 'Please enter a value for :attribute.'
     ];
 
-    protected $listeners = ['renderMathJax'];
+    protected $listeners = ['setUnitInputData'];
 
     protected function rules()
     {
@@ -95,7 +95,6 @@ class PageForm extends Component
         $new['unit_conversion'] = $this->unitOptions[$variableName][$unit]['conversion_to_base'];
         $new['unit_symbol'] = $this->unitOptions[$variableName][$unit]['symbol'];
         $this->variableInputData[$variableName] = $new;
-        $this->emit('renderMathJax');
     }
 
     public function updatedVariableToSolveFor()

@@ -89,7 +89,7 @@
     @push('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                Livewire.on('rednerMathJax', () => {
+                Livewire.on('setUnitInputData', () => {
                     MathJax.typeset();
                 })
             });
