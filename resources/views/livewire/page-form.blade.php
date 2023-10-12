@@ -89,12 +89,13 @@
     @push('scripts')
         <script>
             Livewire.on('setUnitInputData', function() {
-
                 MathJax.typeset();
                 alert('hi');
             });
+
             Livewire.hook('message.processed', function() {
                 alert('hhuh');
+                MathJax.typeset();
             });
         </script>
     @endpush
