@@ -94,7 +94,7 @@
                 alert('hi');
             });
             Livewire.hook('element.updated', function() {
-                alet('hhuh');
+                alert('hhuh');
             });
         </script>
     @endpush
