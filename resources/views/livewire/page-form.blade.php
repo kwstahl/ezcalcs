@@ -88,7 +88,7 @@
 
     @push('scripts')
         <script>
-            Livewire.on('postAdded', postId => {
+            Livewire.on('setUnitInputData', function() {
                 alert('A post was added with the id of: ' + postId);
             })
         </script>
