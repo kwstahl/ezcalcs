@@ -88,7 +88,7 @@
 
     @push('scripts')
         <script>
-            Livewire.on('setUnitInputData', function() {
+            Livewire.onLoad('setUnitInputData', function() {
                 MathJax.typeset();
                 alert('hi');
             })
