@@ -93,8 +93,8 @@
                 MathJax.typeset();
                 alert('hi');
             });
-            Livewire.onLoad(function() {
-                alert('hi me');
+            Livewire.hook('element.updated', function() {
+                alet('hhuh');
             });
         </script>
     @endpush
