@@ -26,17 +26,16 @@
                                                                                 -->
 
                         <div class="col-4 dropdown">
-                            @isset($variableInputData[$variableName]['unit_symbol'])
-                                {{ $variableInputData[$variableName]['unit_symbol'] }}
-                            @endisset
-
-                            @empty($variableInputData[$variableName]['unit_symbol'])
-                                Select a Unit
-                            @endempty
 
 
                                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                    <@isset($variableInputData[$variableName]['unit_symbol'])
+                                    {{ $variableInputData[$variableName]['unit_symbol'] }}
+                                @endisset
+
+                                @empty($variableInputData[$variableName]['unit_symbol'])
+                                    Select a Unit
+                                @endempty
                                 </button>
 
                                 <ul class="dropdown-menu" wire:ignore>
