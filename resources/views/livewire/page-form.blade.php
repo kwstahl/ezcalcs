@@ -10,20 +10,20 @@
 
                         <!-- Dropdown list -->
                         <!--
-                                                                        <div class="col-4 form-floating">
-                                                                            <select class="form-select" id=" $variableName "
-                                                                                wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
-                                                                                <option selected> $variableName </option>
-                                                                                foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                                                                    <option value=" $unit['conversion_to_base'] ">
-                                                                                         $unit['symbol']
-                                                                                    </option>
-                                                                                endforeach
-                                                                            </select>
-                                                                            <label> Unit:  $variable['unit'] </label>
-                                                                        </div>
+                                                                                <div class="col-4 form-floating">
+                                                                                    <select class="form-select" id=" $variableName "
+                                                                                        wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
+                                                                                        <option selected> $variableName </option>
+                                                                                        foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                                                                            <option value=" $unit['conversion_to_base'] ">
+                                                                                                 $unit['symbol']
+                                                                                            </option>
+                                                                                        endforeach
+                                                                                    </select>
+                                                                                    <label> Unit:  $variable['unit'] </label>
+                                                                                </div>
 
-                                                                        -->
+                                                                                -->
 
                         <div class="col-4">
                             @isset($variableInputData[$variableName]['unit_symbol'])
@@ -34,20 +34,22 @@
                                 Select a Unit
                             @endempty
 
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
 
-                            <ul class="dropdown-menu" wire:ignore>
-                                @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                    <li>
-                                        <button class="dropdown-item" type="button"
-                                            wire:click="$emit('setUnitInputData', '{{ $variableName }}', '{{ $unitIndex }}')">
-                                            {{ $unit['symbol'] }}
-                                        </button>
-                                    </li>
-                                @endforeach
-                            </ul>
+                                <ul class="dropdown-menu" wire:ignore>
+                                    @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                        <li>
+                                            <button class="dropdown-item" type="button"
+                                                wire:click="$emit('setUnitInputData', '{{ $variableName }}', '{{ $unitIndex }}')">
+                                                {{ $unit['symbol'] }}
+                                            </button>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
 
                     </x-calc-page.var-layout>
