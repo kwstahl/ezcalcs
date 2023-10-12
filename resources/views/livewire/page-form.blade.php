@@ -93,7 +93,7 @@
                 MathJax.typeset();
                 alert('hi');
             });
-            Livewire.hook('element.updated', function() {
+            Livewire.hook('message.processed', function() {
                 alert('hhuh');
             });
         </script>
