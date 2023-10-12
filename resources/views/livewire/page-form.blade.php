@@ -88,6 +88,7 @@
 
     @push('scripts')
         <script>
+            // Added to render MathJax after Livewire finished updating
             Livewire.on('setUnitInputData', function() {
                 Livewire.hook('message.processed', function() {
                     MathJax.typeset();
