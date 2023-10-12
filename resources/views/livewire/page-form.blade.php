@@ -25,7 +25,7 @@
 
                                                                                 -->
 
-                        <div class="col-4">
+                        <div class="col-4 dropdown">
                             @isset($variableInputData[$variableName]['unit_symbol'])
                                 {{ $variableInputData[$variableName]['unit_symbol'] }}
                             @endisset
@@ -34,7 +34,7 @@
                                 Select a Unit
                             @endempty
 
-                            <div class="dropdown">
+
                                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
@@ -49,7 +49,6 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                            </div>
                         </div>
 
                     </x-calc-page.var-layout>
