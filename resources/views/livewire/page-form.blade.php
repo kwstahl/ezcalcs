@@ -96,8 +96,8 @@
         <script>
             // Added to render MathJax after Livewire finished updating
 
-            Livewire.on('setUnitInputData', function() {
-                MathJax.typesetPromise();
+            Livewire.on('setUnitInputData', thing => {
+                alert('thing' + thing)
             });
 
         </script>
