@@ -100,16 +100,6 @@
                 Livewire.onLoad(() => {alert('hi');});
             });
 
-            Livewire.hook('message.processed', (message, component) => {
-                Livewire.on('setUnitInputData', function() {
-                    alert("hi");
-                    /**
-                    Livewire.hook('message.processed', function() {
-                        MathJax.typeset();
-                        alert('hi');
-                    });*/
-                });
-            });
         </script>
     @endpush
 
