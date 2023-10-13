@@ -95,12 +95,13 @@
     @push('scripts')
         <script>
             // Added to render MathJax after Livewire finished updating
+            /**
             document.addEventListener("DOMContentLoaded", function() {
                 Livewire.on('setUnitInputData', thing => {
                     alert('done');
                 });
-
             });
+            */
         </script>
     @endpush
 
