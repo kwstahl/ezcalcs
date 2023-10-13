@@ -58,7 +58,6 @@
                 @stack('scripts')
                 <script>
                     Livewire.hook('message.processed', (message, component) => {
-                        alert('done');
                         MathJax.typeset();
                     });
                 </script>
