@@ -97,7 +97,7 @@
             // Added to render MathJax after Livewire finished updating
 
             Livewire.on('setUnitInputData', function() {
-                Livewire.hook('element.updated', (el, component) => {alert('hi');});
+                MathJax.typeset();
             });
 
         </script>
