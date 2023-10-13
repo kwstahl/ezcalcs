@@ -94,10 +94,8 @@
 
     @push('scripts')
         <script>
-            // Added to render MathJax after Livewire finished updating
 
-            document.addEventListener("DOMContentLoaded", function() {
-            });
+
         </script>
     @endpush
 
