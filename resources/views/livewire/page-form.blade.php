@@ -31,7 +31,7 @@
 
                                     @isset($variableInputData[$variableName]['unit_symbol'])
                                         {{ $variableInputData[$variableName]['unit_symbol'] }}
-                                        
+
                                     @endisset
 
                                     @empty($variableInputData[$variableName]['unit_symbol'])
@@ -96,7 +96,10 @@
     @push('scripts')
         <script>
             // Added to render MathJax after Livewire finished updating
-    
+            Livewire.hook('message.processed' message=>{
+                alert(message);
+            });
+
             Livewire.on('setUnitInputData', function() {
                 alert("hi");
                 /**
