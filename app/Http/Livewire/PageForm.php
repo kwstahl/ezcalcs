@@ -60,6 +60,7 @@ class PageForm extends Component
                     //For a non 'variable' type, set conversion factor to 1 since will be non-converted.
                     'unit_conversion' => ($variable['type']=='variable') ? (''):(1),
                     'unit_symbol' => '',
+                    'description' => '',
                 ]
             ];
         });
@@ -78,6 +79,7 @@ class PageForm extends Component
                                 'symbol' => $unit->symbol,
                                 'conversion_to_base' => $unit->conversion_to_base,
                                 'unit_class' => $unit->unit_class,
+                                'description' => $unit->description,
                                 ]
                             ];
                         })
@@ -94,6 +96,7 @@ class PageForm extends Component
         $new = $this->variableInputData[$variableName];
         $new['unit_conversion'] = $this->unitOptions[$variableName][$unit]['conversion_to_base'];
         $new['unit_symbol'] = $this->unitOptions[$variableName][$unit]['symbol'];
+        $new['description'] = $this->unitOptions[$variableName][$unit]['description'];
         $this->variableInputData[$variableName] = $new;
     }
 
