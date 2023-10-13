@@ -10,20 +10,20 @@
 
                         <!-- Dropdown list -->
                         <!--
-                                                                                                        <div class="col-4 form-floating">
-                                                                                                            <select class="form-select" id=" $variableName "
-                                                                                                                wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
-                                                                                                                <option selected> $variableName </option>
-                                                                                                                foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                                                                                                    <option value=" $unit['conversion_to_base'] ">
-                                                                                                                         $unit['symbol']
-                                                                                                                    </option>
-                                                                                                                endforeach
-                                                                                                            </select>
-                                                                                                            <label> Unit:  $variable['unit'] </label>
-                                                                                                        </div>
+                                                                                                                <div class="col-4 form-floating">
+                                                                                                                    <select class="form-select" id=" $variableName "
+                                                                                                                        wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
+                                                                                                                        <option selected> $variableName </option>
+                                                                                                                        foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                                                                                                            <option value=" $unit['conversion_to_base'] ">
+                                                                                                                                 $unit['symbol']
+                                                                                                                            </option>
+                                                                                                                        endforeach
+                                                                                                                    </select>
+                                                                                                                    <label> Unit:  $variable['unit'] </label>
+                                                                                                                </div>
 
-                                                                                                        -->
+                                                                                                                -->
 
                         <div class="col-4 dropdown d-grid">
                             <div class="btn-group">
@@ -95,11 +95,12 @@
     @push('scripts')
         <script>
             // Added to render MathJax after Livewire finished updating
+            document.addEventListener("DOMContentLoaded", function() {
+                Livewire.on('setUnitInputData', thing => {
+                    alert('done');
+                });
 
-            Livewire.on('setUnitInputData', thing => {
-                alert('thing' + thing)
             });
-
         </script>
     @endpush
 
