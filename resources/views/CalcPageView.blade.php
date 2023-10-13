@@ -64,7 +64,6 @@
 
                 <script>
                     Livewire.on('setUnitInputData', co => {
-                        alert('hi');
                     });
                 </script>
 
