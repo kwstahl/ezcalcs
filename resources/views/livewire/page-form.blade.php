@@ -106,7 +106,7 @@
                 });*/
             });
 
-            Livewire.hook('message.processed' message => {
+            Livewire.hook('message.processed' (message, component) => {
                 alert($message);
             });
         </script>
