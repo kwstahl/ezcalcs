@@ -57,7 +57,10 @@
                 @livewireScripts
                 @stack('scripts')
                 <script>
-                    Livewire.hook('message.processed', (message, component) => {alert('done');});
+                    Livewire.hook('message.processed', (message, component) => {
+                        alert('done');
+                        MathJax.typeset();
+                    });
                 </script>
 
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
