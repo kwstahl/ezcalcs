@@ -97,7 +97,6 @@
             // Added to render MathJax after Livewire finished updating
 
             document.addEventListener("DOMContentLoaded", function() {
-                MathJax.typeset();
             });
         </script>
     @endpush
