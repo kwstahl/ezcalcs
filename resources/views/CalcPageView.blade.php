@@ -62,7 +62,7 @@
                     });
 
                     Livewire.on('setUnitInputData' input=>{
-                        
+                        MathJax.typeset();
                     });
                 </script>
 
