@@ -8,12 +8,12 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Unit;
 
-trait CalcPageHelpers 
+trait CalcPageHelpers
 {
     public function sortAscending(&$thing, $model, $field)
     {
         $model = '\\App\\Models\\'.$model;
-        $model = $model::all()->sortBy([$field, 'asc']);     
+        $model = $model::all()->sortBy([$field, 'asc']);
         $thing = $model;
         $this->render();
     }

@@ -1,6 +1,6 @@
 <?php
 
-Namespace App\Classes\Variables;
+Namespace App\Classes;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -27,3 +27,5 @@ class Variable
         dump($this->unit);
     }
 }
+
+?>
