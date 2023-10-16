@@ -1,6 +1,6 @@
 <?php
 
-Namespace App\Variables;
+Namespace App\Classes\Variables;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
