@@ -4,7 +4,7 @@ namespace App\Http\Livewire\PageForm;
 
 use Livewire\Component;
 use App\Models\Unit;
-use App\Http\Variables\Variable;
+use Variables\Variable;
 use Illuminate\Support\Facades\Process;
 
 class PageFormTest extends Component
