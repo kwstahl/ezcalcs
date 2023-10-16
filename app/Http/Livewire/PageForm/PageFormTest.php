@@ -4,6 +4,7 @@ namespace App\Http\Livewire\PageForm;
 
 use Livewire\Component;
 use App\Models\Unit;
+use Http\Variables;
 use Illuminate\Support\Facades\Process;
 
 class PageFormTest extends Component
@@ -84,7 +85,7 @@ class PageFormTest extends Component
                         ];
                     })
                 ->all();
-            
+
             $this->unitOptions[$variableName] = $unitsForVariable;
         }
     }
@@ -109,7 +110,7 @@ class PageFormTest extends Component
         $dataForSympyInJson = $this->variableInputData;
         $dataForSympyInJson = $this->variableInputData->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
-            return 
+            return
             [
                 $sympy_symbol => [
                     'Value' => $variable['Value'],
@@ -125,6 +126,12 @@ class PageFormTest extends Component
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formula_sympy);
         $this->answer = Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
+    }
+
+    public function call_variables()
+    {
+        $variable = new Variable($this->variables_json);
+        $variable->see_props();
     }
 
     public function render()

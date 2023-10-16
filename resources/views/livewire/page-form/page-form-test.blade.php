@@ -87,5 +87,6 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 
+    <div> {{ $this->call_variables() }}</div>
 
 </div>

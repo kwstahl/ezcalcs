@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\CalcPage;
 use Illuminate\Support\Arr;
@@ -13,9 +14,9 @@ class CalcController extends Controller
         $calc_page = CalcPage::findOrFail($id);
 
         /**
-         * return CalcPageView with Model data array 
+         * return CalcPageView with Model data array
          */
-        return view('CalcTest', 
+        return view('CalcTest',
         [
             'id' => $calc_page->id,
             'formula_name' => $calc_page->formula_name,
@@ -43,7 +44,7 @@ class CalcController extends Controller
      */
     public function create()
     {
-        return view('PageCreator');    
+        return view('PageCreator');
     }
 
     /**
@@ -51,22 +52,22 @@ class CalcController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     * 
+     *
      */
     public function show($id)
     {
 
         /** I
-         * 
+         *
          * f $id finds an existing id in database mariaDB > calc_pages, then pass in data and display
          * CalcPageView. Turn variables attribute into a php array
          */
         $calc_page = CalcPage::findOrFail($id);
 
         /**
-         * return CalcPageView with Model data array 
+         * return CalcPageView with Model data array
          */
-        return view('CalcPageView', 
+        return view('CalcPageView',
         [
             'id' => $calc_page->id,
             'formula_name' => $calc_page->formula_name,
