@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Process;
 
 class PageFormTest extends Component
 {
+    use CalcPageHelpers;
     public $variables_json;
     public $units;
     public $unitOptions;
@@ -22,7 +23,6 @@ class PageFormTest extends Component
 
     public function mount()
     {
-        use CalcPageHelpers;
         $this->units = Unit::all();
         $this->unitOptions = collect();
 
