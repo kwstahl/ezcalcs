@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Process;
 class PageFormTest extends Component
 {
     use CalcPageHelpers;
+    use Variable;
     public $variables_json;
     public $units;
     public $unitOptions;
