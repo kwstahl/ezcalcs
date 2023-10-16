@@ -1,39 +1,19 @@
 <div class="row p-2">
-
     <form wire:submit.prevent="submit">
-
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             @switch($variable['type'])
                 @case('variable')
                     <x-calc-page.var-layout :$variable :$variableName :$unitOptions :$variableToSolveFor>
-
-                        <!-- Dropdown list -->
-                        <!--
-                                                                                                                <div class="col-4 form-floating">
-                                                                                                                    <select class="form-select" id=" $variableName "
-                                                                                                                        wire:model.defer="variableInputData. $variableName .unit_conversion" wire:ignore>
-                                                                                                                        <option selected> $variableName </option>
-                                                                                                                        foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                                                                                                                            <option value=" $unit['conversion_to_base'] ">
-                                                                                                                                 $unit['symbol']
-                                                                                                                            </option>
-                                                                                                                        endforeach
-                                                                                                                    </select>
-                                                                                                                    <label> Unit:  $variable['unit'] </label>
-                                                                                                                </div>
-
-                                                                                                                -->
-
                         <div class="col-4 dropdown d-grid">
                             <div class="btn-group">
                                 <button class="btn bg-white" type="button">
 
-                                    @isset($variableInputData[$variableName]['unit_symbol'])
-                                        {{ $variableInputData[$variableName]['unit_symbol'] }}
+                                    @isset($variables[$variableName]['unit_symbol'])
+                                        {{ $variables[$variableName]['unit_symbol'] }}
                                     @endisset
 
-                                    @empty($variableInputData[$variableName]['unit_symbol'])
+                                    @empty($variables[$variableName]['unit_symbol'])
                                         Select a Unit
                                     @endempty
                                 </button>
@@ -43,10 +23,10 @@
                                 </button>
 
                                 <ul class="dropdown-menu">
-                                    @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
+                                    @foreach ($unitOptions[$variableName] as $unitName => $unit)
                                         <li>
                                             <button class="dropdown-item" type="button"
-                                                wire:click="$emit('setUnitInputData', '{{ $variableName }}', '{{ $unitIndex }}')">
+                                                wire:click="$emit('setUnit', '{{ $variableName }}', '{{ $unitName }}')">
                                                 {{ $unit['symbol'] }}
                                             </button>
                                         </li>
@@ -54,7 +34,6 @@
                                 </ul>
                             </div>
                         </div>
-
                     </x-calc-page.var-layout>
                 @break
 
@@ -67,15 +46,32 @@
             @endswitch
         @endforeach
 
+        @error('variables..Value')
+            <div>Whooooo</div>
+        @enderror
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+                    @error('variables.{{ $variableName }}.Value')
+                        {{$variableName}}
+                    @enderror
                 </ul>
             </div>
+            <div>
+                {{ dump($this->errorBagThing()) }}
+
+                @foreach($this->errorBagThing() as $errorName=> $error)
+                    @error($errorName)
+                        <div>Need {{ $errorName }}</div>
+                    @enderror
+                @endforeach
+            </div>
         @endif
+
+
+
+
 
         <div class="row justify-content-center gx-4">
             <div class="col-auto">
@@ -92,10 +88,13 @@
     </form>
 
 
+
     @push('scripts')
         <script>
-
-
+            Livewire.hook('message.processed', (message, component) => {
+                MathJax.typeset();
+                console.log(component);
+            });
         </script>
     @endpush
 

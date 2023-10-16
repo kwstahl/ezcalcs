@@ -14,7 +14,6 @@
         <!-- Top Bar -->
         @livewire('top-bar')
 
-
         <!-- Master Container -->
         <div class="p-1 shadow master">
             <div class="container-fluid row p-0 m-0">
@@ -56,16 +55,6 @@
 
                 @livewireScripts
                 @stack('scripts')
-                <script>
-                    Livewire.hook('message.processed', (message, component) => {
-                        MathJax.typeset();
-                    });
-                </script>
-
-                <script>
-                    Livewire.on('setUnitInputData', co => {
-                    });
-                </script>
 
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
