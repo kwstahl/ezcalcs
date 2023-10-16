@@ -5,7 +5,7 @@ namespace App\Http\Livewire\PageForm;
 use Livewire\Component;
 use App\Models\Unit;
 use App\Traits\CalcPageHelpers;
-use App\Classes\Variables;
+use App\Classes\Variables\Variable;
 use Illuminate\Support\Facades\Process;
 
 
@@ -135,7 +135,7 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $variable = new Variable($this->variables_json);
-        //$variable->see_props();
+        $variable->see_props();
     }
 
     public function render()

@@ -5,7 +5,7 @@ Namespace App\Classes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class Variables
+class Variable
 {
     public $unit;
     public $latex_symbol;
