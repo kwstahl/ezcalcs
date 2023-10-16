@@ -5,7 +5,7 @@ namespace App\Http\Livewire\PageForm;
 use Livewire\Component;
 use App\Models\Unit;
 use App\Traits\CalcPageHelpers;
-use App\Classes\Variables\Variable;
+use App\Classes\Variables;
 use Illuminate\Support\Facades\Process;
 
 
