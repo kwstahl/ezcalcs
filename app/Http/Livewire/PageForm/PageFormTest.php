@@ -135,7 +135,7 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $variable = new Variable($this->variables_json);
-        //$variable->see_props();
+        $variable->see_props();
     }
 
     public function render()
