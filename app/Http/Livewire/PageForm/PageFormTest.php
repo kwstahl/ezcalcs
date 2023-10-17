@@ -135,7 +135,7 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $variable = new Variable($this->variables_json['Final Volume']);
-        dump(Variable::setAllValidationRules($variable->variable_properties, 'variableInputData.*.', 'required'));
+        dump(Variables\Variable::setAllValidationRules($variable->variable_properties, 'variableInputData.*.', 'required'));
         $variable->unit = 'dank';
         return $variable->unit;
     }
