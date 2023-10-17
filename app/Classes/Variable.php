@@ -13,20 +13,20 @@ class Variable
     public $description;
     public $type;
     public $variable_name;
-    public $properties_array;
+    public $variable_properties;
 
-    public function __construct($properties_array)
+    public function __construct($variable_properties)
     {
-        $this->properties_array = $properties_array;
-        foreach ($properties_array as $prop => $value) {
-            $this->$prop = $value;
+        $this->variable_properties = $variable_properties;
+        foreach ($variable_properties as $property => $value) {
+            $this->$property = $value;
         }
     }
 
     public function see_props()
     {
         dump($this->unit);
-        dump($this->properties_array);
+        dump($this->variable_properties);
 
     }
 
