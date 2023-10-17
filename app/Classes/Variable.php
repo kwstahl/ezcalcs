@@ -51,7 +51,7 @@ class Variable
     * @return collection
     *
     **/
-    public static function setAllValidationRules($variable_properties, String $prefix, String $rule)
+    public static function setAllValidationRules_s($variable_properties, String $prefix, String $rule)
     {
         $variable_rules = [];
         foreach ($variable_properties as $property => $value)
@@ -59,6 +59,11 @@ class Variable
             $variable_rules[$prefix.$property] = $rule;
         }
         return $variable_rules;
+    }
+
+    public function setAllValidationRules_m($prefix, $rule)
+    {
+        return self::setAllValidationRules_s($this->variable_properties, $prefix, $rule);
     }
 }
 
