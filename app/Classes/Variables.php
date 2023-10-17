@@ -23,6 +23,10 @@ class Variable
         }
     }
 
+    public function hi(){
+        return 'hiu';
+    }
+
     /*
     * Set the same validation rule for each property for Livewire.
     *
