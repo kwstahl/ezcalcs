@@ -23,12 +23,31 @@ class Variable
         }
     }
 
-    public static function setAllValidationRules($variable_properties, $prefix, $rule)
+    /*
+    * Set the same validation rule for each property for Livewire.
+    *
+    * Attaches a validation prefix and assigns the same rule to each property.
+    *
+    * @param array $variable_properties {
+    *       @type string $key is the property name. Accepts a string value.
+    *   }
+    *
+    * @param string $prefix The validation prefix must end with '.'
+    *       $prefix = 'variable.*.unit.'
+    *
+    * @param string $rule Use a Laravel validation rule such as 'nullable|required'.
+    *
+    * @return collection
+    *
+    **/
+    public static function setAllValidationRules($variable_properties, String $prefix, String $rule)
     {
+        $variable_rules = [];
         foreach ($variable_properties as $property => $value)
         {
-
+            $variable_rules[$prefix + $property] = $rule;
         }
+        return $rule;
     }
 }
 
