@@ -17,6 +17,7 @@ class Variable
 
     public function __construct($properties_array)
     {
+        $this->properties_array = $properties_array;
         foreach ($properties_array as $prop => $value) {
             $this->$prop = $value;
         }
@@ -25,6 +26,8 @@ class Variable
     public function see_props()
     {
         dump($this->unit);
+        dump($this->properties_array);
+
     }
 }
 
