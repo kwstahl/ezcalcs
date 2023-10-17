@@ -59,9 +59,7 @@
                 </ul>
             </div>
             <div>
-                {{ dump($this->errorBagThing()) }}
-
-                @foreach($this->errorBagThing() as $errorName=> $error)
+                @foreach($this->errorBagThing() as $errorName => $error)
                     @error($errorName)
                         <div>Need {{ $errorName }}</div>
                     @enderror
