@@ -56,7 +56,7 @@ class Variable
         $variable_rules = [];
         foreach ($variable_properties as $property => $value)
         {
-            $variable_rules[$prefix + $property] = $rule;
+            $variable_rules[$prefix.$property] = $rule;
         }
         return $rule;
     }
