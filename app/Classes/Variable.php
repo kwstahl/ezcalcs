@@ -58,7 +58,7 @@ class Variable
         {
             $variable_rules[$prefix.$property] = $rule;
         }
-        return $rule;
+        return $variable_rules;
     }
 }
 
