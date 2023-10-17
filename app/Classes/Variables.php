@@ -17,11 +17,17 @@ class Variable
 
     public function __construct($variable_properties)
     {
-        $this->variable_properties = $variable_properties;
-
-        //Set each property from array
+        $this->variable_properties = collect($variable_properties);
         foreach ($variable_properties as $property => $value) {
             $this->$property = $value;
+        }
+    }
+
+    public static function setAllValidationRules($variable_properties, $prefix, $rule)
+    {
+        foreach ($variable_properties as $property => $value)
+        {
+
         }
     }
 }
