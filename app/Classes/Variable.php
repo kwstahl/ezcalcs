@@ -51,10 +51,10 @@ class Variable
         return $variable_rules;
     }
 
-    public function __get($property)
-    {
-        return $this->property;
-    }
+    //public function __get($property)
+    //{
+    //    return $this->property;
+    //}
 
     public function assignRules(Callable $assignPrefixesToRules)
     {
