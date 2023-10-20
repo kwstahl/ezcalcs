@@ -138,8 +138,7 @@ class PageFormTest extends Component
         $t = $variable->closureTest(function($p) use ($varTest){
             return array_push($varTest, $p);
         });
-
-        return $t;
+        return type($t);
     }
 
     public function render()
