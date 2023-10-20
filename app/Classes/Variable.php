@@ -4,6 +4,7 @@ Namespace App\Classes;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 class Variable
 {
@@ -51,19 +52,17 @@ class Variable
         return $variable_rules;
     }
 
-    //public function __get($property)
-    //{
-    //    return $this->property;
-    //}
-
-    public function assignRules(Callable $assignPrefixesToRules)
+    public function assignRulesToAllProperties(Callable $prefixRuleFunction)
     {
         $variable_properties = $this->variable_properties;
         $validation_rules = [];
-        foreach($variable_properties as $property => $value){
-            array_push($validation_rules, $assignPrefixesToRules($property, $value));
-        }
-        $this->validation_rules = $validation_rules;
+        $variable_name = $this->variable_name;
+
+        foreach($variable_properties as $property){
+            array_push($validation_rules, $prefixRuleFunction($property, $variable_name));
+        };
+
+        $this->validation_rules = Arr::flatten($validation_rules);
         return $this->validation_rules;
     }
 
