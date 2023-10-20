@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Process;
 
 class PageFormTest extends Component
 {
-    use CalcPageHelpers;
     public $variables_json;
     public $units;
     public $unitOptions;
@@ -135,10 +134,12 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $variable = new Variable($this->variables_json['Final Volume']);
-        $variable->hi();
-        dump($variable->setAllValidationRules('variableInputData.*.', 'required'));
-        $variable->unit = 'dank';
-        return $variable->unit;
+        $varTest = [];
+        $t = $variable->closureTest(function($p) use ($varTest){
+            array_push($varTest, $p);
+        });
+
+        return $t;
     }
 
     public function render()

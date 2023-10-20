@@ -51,6 +51,14 @@ class Variable
         return $variable_rules;
     }
 
+    public function closureTest($fn)
+    {
+        $properties = [$this->unit, $this->type];
+        foreach($properties as $property => $value){
+             $fn($property);
+        }
+    }
+
 }
 
 ?>
