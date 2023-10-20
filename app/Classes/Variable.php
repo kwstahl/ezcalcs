@@ -58,7 +58,7 @@ class Variable
         $validation_rules = [];
         $variable_name = $this->variable_name;
 
-        foreach($variable_properties as $property){
+        foreach($variable_properties as $property => $value){
             array_push($validation_rules, $prefixRuleFunction($property, $variable_name));
         };
 
