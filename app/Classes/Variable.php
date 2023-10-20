@@ -57,7 +57,7 @@ class Variable
     /**
     * Set validation rules for each property according to some callback.
     *
-    * Callback iterates through all properties and uses this variable's name and property names.
+    * Callback iterates through all properties and uses this variable's name and property names to assign validation rules.
     *
     *
     * @param array, JSON $variable_properties {
