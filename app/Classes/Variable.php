@@ -56,9 +56,8 @@ class Variable
         $properties = [$this->unit, $this->type];
         $out = [];
         foreach($properties as $property => $value){
-            array_push($out,'hii'.$fn($value));
+            yield 'hii'.$fn($value);
         }
-        return $out;
     }
 
 }
