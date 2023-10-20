@@ -51,14 +51,15 @@ class Variable
         return $variable_rules;
     }
 
-    public function closureTest($fn)
+    public function assignRules(Callable $assignPrefixesToRules)
     {
-        $properties = [$this->unit, $this->type];
-        $out = [];
-        foreach($properties as $property => $value){
-            array_push($out, 'hii'.$fn($value));
+        $variable_properties = $this->variable_properties;
+        $validation_rules = [];
+        foreach($variable_properties as $property => $value){
+            array_push($validation_rules, $assignPrefixesToRules($property, $value));
         }
-        return $out;
+        $this->validation_rules = $validation_rules;
+        return $this->validation_rules;
     }
 
 }
