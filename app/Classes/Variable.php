@@ -14,6 +14,7 @@ class Variable
     public $type;
     public $variable_name;
     public $variable_properties;
+    public $validation_rules;
 
     public function __construct($variable_properties)
     {
@@ -23,24 +24,13 @@ class Variable
         }
     }
 
-    public function see_props()
-    {
-        dump($this->unit);
-        dump($this->variable_properties);
-
-    }
-
-    public function hi(){
-        return 'hiu';
-    }
-
-    /*
+    /**
     * Set the same validation rule for each property for Livewire.
     *
     * Attaches a validation prefix and assigns the same rule to each property.
     *
-    * @param array $variable_properties {
-    *       @type string $key is the property name. Accepts a string value.
+    * @param array, JSON $variable_properties {
+    *       @var string $key is the property name. Accepts a string value.
     *   }
     *
     * @param string $prefix The validation prefix must end with '.'
@@ -48,10 +38,10 @@ class Variable
     *
     * @param string $rule Use a Laravel validation rule such as 'nullable|required'.
     *
-    * @return collection
+    * @return array of validation rules.
     *
-    **/
-    public static function setAllValidationRules_s($variable_properties, String $prefix, String $rule)
+    */
+    public function defaultValidationRules($variable_properties, String $prefix, String $rule)
     {
         $variable_rules = [];
         foreach ($variable_properties as $property => $value)
@@ -61,10 +51,6 @@ class Variable
         return $variable_rules;
     }
 
-    public function setAllValidationRules_m($prefix, $rule)
-    {
-        return self::setAllValidationRules_s($this->variable_properties, $prefix, $rule);
-    }
 }
 
 ?>
