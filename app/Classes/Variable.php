@@ -55,9 +55,10 @@ class Variable
 
 
     /**
-    * Sets validation rules for each property where
+    * Set validation rules for each property according to some callback.
     *
-    * Attaches a validation prefix and assigns the same rule to each property.
+    * Callback iterates through all properties and uses this variable's name and property names.
+    *
     *
     * @param array, JSON $variable_properties {
     *       @var string $key is the property name. Accepts a string value.
