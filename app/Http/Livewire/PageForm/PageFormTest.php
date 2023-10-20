@@ -136,7 +136,10 @@ class PageFormTest extends Component
         $variable = new Variable($this->variables_json['Final Volume']);
         $varTest = [];
         $t = $variable->closureTest(function($p){
-            return $p[0];
+            foreach($p as $value)
+            {
+                return $value;
+            }
         });
 
         return $t;
