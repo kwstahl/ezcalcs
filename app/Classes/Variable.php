@@ -55,7 +55,7 @@ class Variable
 
 
     /**
-    * Sets validation rules for each property where 
+    * Sets validation rules for each property where
     *
     * Attaches a validation prefix and assigns the same rule to each property.
     *
@@ -80,7 +80,6 @@ class Variable
             array_push($validation_rules, $prefixRuleFunction($property, $this->variable_name));
         };
 
-        $this->validation_rules = Arr::flatten($validation_rules);
         return $this->validation_rules;
     }
 
