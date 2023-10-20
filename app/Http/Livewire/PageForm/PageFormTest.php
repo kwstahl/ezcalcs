@@ -135,7 +135,7 @@ class PageFormTest extends Component
     {
         $variable = new Variable($this->variables_json['Final Volume']);
         $t = $variable->assignRulesToAllProperties(function($property, $variableName){
-                return ['variableInputData'.$variableName.$property => 'required'];
+                return 'variableInputData'.$variableName.$property;
         });
 
         dd($t);
