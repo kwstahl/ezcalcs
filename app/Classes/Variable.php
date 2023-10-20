@@ -55,7 +55,7 @@ class Variable
     {
         $properties = [$this->unit, $this->type];
         foreach($properties as $property => $value){
-            return 'hii'.$fn($value);
+            'hii'.$fn($value);
         }
     }
 
