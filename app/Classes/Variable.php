@@ -58,7 +58,7 @@ class Variable
         $validation_rules = [];
 
         foreach($variable_properties as $property => $value){
-            array_push($validation_rules, $prefixRuleFunction($property, 'suh'));
+            array_push($validation_rules, $prefixRuleFunction($property, $this->type));
         };
 
         $this->validation_rules = Arr::flatten($validation_rules);
