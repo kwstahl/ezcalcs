@@ -53,6 +53,24 @@ class Variable
         return $variable_rules;
     }
 
+
+    /**
+    * Sets validation rules for each property where 
+    *
+    * Attaches a validation prefix and assigns the same rule to each property.
+    *
+    * @param array, JSON $variable_properties {
+    *       @var string $key is the property name. Accepts a string value.
+    *   }
+    *
+    * @param string $prefix The validation prefix must end with '.'
+    *       $prefix = 'variable.*.unit.'
+    *
+    * @param string $rule Use a Laravel validation rule such as 'nullable|required'.
+    *
+    * @return array of validation rules.
+    *
+    */
     public function assignRulesToAllProperties(Callable $prefixRuleFunction)
     {
         $variable_properties = $this->variable_properties;
