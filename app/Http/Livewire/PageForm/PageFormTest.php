@@ -135,7 +135,7 @@ class PageFormTest extends Component
     {
         $variable = new Variable($this->variables_json['Final Volume']);
         $t = $variable->assignRules(function($property, $value){
-                return 'prefixTest.'.$value.'.ruleTest';
+                return 'prefixTest.'.$property.'.ruleTest';
         });
 
         dd($t);
