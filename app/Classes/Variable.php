@@ -17,8 +17,9 @@ class Variable
     public $variable_properties;
     public $validation_rules;
 
-    public function __construct($variable_properties)
+    public function __construct($variable_name, $variable_properties)
     {
+        $this->variable_name = $variable_name;
         $this->variable_properties = $variable_properties;
         foreach ($variable_properties as $property => $value) {
             $this->$property = $value;
@@ -58,7 +59,7 @@ class Variable
         $validation_rules = [];
 
         foreach($variable_properties as $property => $value){
-            array_push($validation_rules, $prefixRuleFunction($property, $this->type));
+            array_push($validation_rules, $prefixRuleFunction($property, $this->variable_name));
         };
 
         $this->validation_rules = Arr::flatten($validation_rules);
