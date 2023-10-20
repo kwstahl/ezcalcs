@@ -54,9 +54,11 @@ class Variable
     public function closureTest($fn)
     {
         $properties = [$this->unit, $this->type];
+        $out = [];
         foreach($properties as $property => $value){
-            'hii'.$fn($value);
+            array_push($out,'hii'.$fn($value));
         }
+        return $out;
     }
 
 }
