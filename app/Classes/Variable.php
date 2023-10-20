@@ -56,7 +56,6 @@ class Variable
     {
         $variable_properties = $this->variable_properties;
         $validation_rules = [];
-        $variable_name = $this->variable_name;
 
         foreach($variable_properties as $property => $value){
             $variable_name = $variable_properties->variable_name;
