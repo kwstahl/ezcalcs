@@ -133,8 +133,8 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $variable = new Variable('Velocity', $variables_json['velocity'])
-
+        $variable = new Variable('Velocity', $variables_json['velocity']);
+        $variable->setDefaultValidationRules('test', 'test')
         dd($t);
     }
 

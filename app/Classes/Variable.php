@@ -47,7 +47,7 @@ class Variable extends Variables
         }
     }
 
-    public function setDefaultValidationRules(Array $prefix = null, String $rule = null)
+    public function setDefaultValidationRules(String $prefix = null, String $rule = null)
     {
         $attributes_for_page = $this->attributes_for_page;
         $attribute_validations = [];
