@@ -6,85 +6,55 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 
-class Variable
+abstract class Variables
 {
-    public $unit;
-    public $latex_symbol;
-    public $sympy_symbol;
-    public $description;
     public $type;
-    public $variable_name;
-    public $variable_properties;
-    public $validation_rules;
+    public $name;
+    public $description;
+    public $sympy_symbol;
+    public $latex_symbol;
 
-    public function __construct($variable_name, $variable_properties)
-    {
-        $this->variable_name = $variable_name;
-        $this->variable_properties = $variable_properties;
-        foreach ($variable_properties as $property => $value) {
-            $this->$property = $value;
-        }
-    }
+    public $attributes_for_page;
+    public $attribute_validations;
 
-    /**
-    * Set the same validation rule for each property for Livewire.
-    *
-    * Attaches a validation prefix and assigns the same rule to each property.
-    *
-    * @param array, JSON $variable_properties {
-    *       @var string $key is the property name. Accepts a string value.
-    *   }
-    *
-    * @param string $prefix The validation prefix must end with '.'
-    *       $prefix = 'variable.*.unit.'
-    *
-    * @param string $rule Use a Laravel validation rule such as 'nullable|required'.
-    *
-    * @return array of validation rules.
-    *
-    */
-    public function defaultValidationRules($variable_properties, String $prefix, String $rule)
-    {
-        $variable_rules = [];
-        foreach ($variable_properties as $property => $value)
-        {
-            $variable_rules[$prefix.$property] = $rule;
-        }
-        return $variable_rules;
-    }
+    public function setCustomValidationRules(callable $validationAssignmentFunction){
+        $attributes_for_page = $this->attributes_for_page;
+        $attribute_validations = [];
 
-
-    /**
-    * Set validation rules for each property according to some callback.
-    *
-    * Callback iterates through all properties and uses this variable's name and property names to assign validation rules.
-    *
-    *
-    * @param array, JSON $variable_properties {
-    *       @var string $key is the property name. Accepts a string value.
-    *   }
-    *
-    * @param string $prefix The validation prefix must end with '.'
-    *       $prefix = 'variable.*.unit.'
-    *
-    * @param string $rule Use a Laravel validation rule such as 'nullable|required'.
-    *
-    * @return array of validation rules.
-    *
-    */
-    public function assignRulesToAllProperties(Callable $prefixRuleFunction)
-    {
-        $variable_properties = $this->variable_properties;
-        $validation_rules = [];
-
-        foreach($variable_properties as $property => $value){
-            array_push($validation_rules, $prefixRuleFunction($property, $this->variable_name));
+        foreach($attributes_for_page as $attribute => $value){
+            array_push($attribute_validations, $validationAssignmentFunction($attribute, $this->name));
         };
-
-        $this->validation_rules = Arr::collapse($validation_rules);
-        return $this->validation_rules;
+        $this->attribute_validations = Arr::collapse($attribute_validations);
     }
+
+    abstract public function setDefaultValidationRules();
+
+    abstract public function __construct(String $name, Array $attributes_for_page);
 
 }
 
-?>
+class Variable extends Variables
+{
+    public $unit;
+    public $unit_class;
+
+    public function __construct(String $name, Array $attributes_for_page)
+    {
+        $this->name = $name;
+        $this->attributes_for_page = $attributes_for_page;
+        foreach ($attributes_for_page as $attribute_property => $value) {
+            $this->$attribute_property = $value;
+        }
+    }
+
+    public function setDefaultValidationRules(Array $prefix = null, String $rule = null)
+    {
+        $attributes_for_page = $this->attributes_for_page;
+        $attribute_validations = [];
+        foreach ($attributes_for_page as $attribute_property => $value){
+            $attribute_validations[$prefix.$attribute_property] = $rule;
+        }
+        $this->attribute_validations = $attribute_validations;
+    }
+
+}
