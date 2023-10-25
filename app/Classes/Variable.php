@@ -27,6 +27,25 @@ abstract class Variables
         $this->attribute_validations = Arr::collapse($attribute_validations);
     }
 
+    protected function searchArrayOnPrefixAndAttribute($prefix, $attribute)
+    {
+        if($this->attribute_validations[$prefix.$attribute])
+        {
+
+        }
+    }
+
+    public function editValidationRule(String $prefix = null, String $attribute, String $newRule)
+    {
+        $key_exists = array_key_exists($prefix.$attribute, $this->attribute_validations);
+        if (!$key_exists){
+            throw new Exception("does not exist");
+            return;};
+
+        $this->attribute_validations[$prefix.$attribute] = $newRule;
+
+    }
+
     abstract public function setDefaultValidationRules();
 
     abstract public function __construct(String $name, Array $attributes_for_page);
