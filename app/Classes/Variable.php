@@ -35,7 +35,7 @@ abstract class Variables
         };
 
         $this->attribute_validations[$prefix.$attribute] = $newRule;
-
+        return $this->attribute_validations[$prefix.$attribute];
     }
 
     abstract public function setDefaultValidationRules();
