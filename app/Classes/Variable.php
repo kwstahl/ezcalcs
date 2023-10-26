@@ -28,6 +28,8 @@ abstract class Variables
             array_push($attribute_validations, $mappedValidationRule);
         };
         $this->attribute_validations = Arr::collapse($attribute_validations);
+
+        return $attribute_validations;
     }
 
     public function changeValidationRule(String $prefix = null, String $attribute, String $newRule)
