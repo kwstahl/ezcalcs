@@ -44,6 +44,7 @@ class PageFormTest extends Component
                 ];
             });
             $var->setDefaultValidationRules('cc1','rr1');
+            $var->changeValidationRule('cc1', 'unit', 'ham');
             return $var;
         });
     }
