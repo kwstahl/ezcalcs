@@ -71,6 +71,7 @@ class Variable extends Variables
             $attribute_validations[$prefix.$attribute_property] = $rule;
         }
         $this->attribute_validations = $attribute_validations;
+        return $this->attribute_validations;
     }
 
 }

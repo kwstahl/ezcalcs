@@ -43,6 +43,7 @@ class PageFormTest extends Component
                     'test2'.$item => 'rule2'.$name,
                 ];
             });
+            $var->setDefaultValidationRules('cc1','rr1');
             return $var;
         });
     }
