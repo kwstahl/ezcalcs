@@ -35,10 +35,13 @@ class PageFormTest extends Component
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
 
-        $this->variables = $this->variables_json->map(function($item, $key){
+        $this->variables = $this->variables_json->map(function ($item, $key) {
             $var = new Variable($key, $item);
-            $var->mapValidation_Prefix_Attribute_Rules(function($item, $name){
-                return ['test'.$item => 'test'.$name];
+            $var->mapValidation_Prefix_Attribute_Rules(function ($item, $name) {
+                return [
+                    'test' . $item => 'test' . $name,
+                    'test2'.$item => 'rule2'.$name,
+                ];
             });
             return $var;
         });
@@ -52,7 +55,8 @@ class PageFormTest extends Component
 
 
 
-    public function unitSelected($unitIndex, $variableName){
+    public function unitSelected($unitIndex, $variableName)
+    {
         $this->variableInputData[$variableName]['unit_conversion'] = 'hi';
     }
 
@@ -82,19 +86,19 @@ class PageFormTest extends Component
 
     private function setUnitOptionsForEachVariable()
     {
-        foreach($this->variables_json as $variableName => $variable){
+        foreach ($this->variables_json as $variableName => $variable) {
             $variableUnitClass = $variable['unit'];
             $unitsForVariable = $this->units
                 ->where('unit_class', $variableUnitClass)
-                ->mapWithKeys(function($unit, $unitName) {
-                        return [
-                            $unit->id => [
+                ->mapWithKeys(function ($unit, $unitName) {
+                    return [
+                        $unit->id => [
                             'symbol' => $unit->symbol,
                             'conversion_to_base' => $unit->conversion_to_base,
                             'unit_class' => $unit->unit_class,
-                            ]
-                        ];
-                    })
+                        ]
+                    ];
+                })
                 ->all();
 
             $this->unitOptions[$variableName] = $unitsForVariable;
@@ -117,17 +121,18 @@ class PageFormTest extends Component
         $this->sendDataToSympy($dataForSympyInJson);
     }
 
-    private function prepareDataForSympyInJson(){
+    private function prepareDataForSympyInJson()
+    {
         $dataForSympyInJson = $this->variableInputData;
         $dataForSympyInJson = $this->variableInputData->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
             return
-            [
-                $sympy_symbol => [
-                    'Value' => $variable['Value'],
-                    'unit_conversion' => (float) $variable['unit_conversion'],
-                ]
-            ];
+                [
+                    $sympy_symbol => [
+                        'Value' => $variable['Value'],
+                        'unit_conversion' => (float) $variable['unit_conversion'],
+                    ]
+                ];
         });
         return $dataForSympyInJson;
     }
@@ -142,8 +147,8 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $variable = new Variable('Velocity', $this->variables_json['Velocity']);
-        $variable->mapValidation_Prefix_Attribute_Rules(function($attribute, $varName){
-            return ['test.'.$attribute => 'test.'.$varName];
+        $variable->mapValidation_Prefix_Attribute_Rules(function ($attribute, $varName) {
+            return ['test.' . $attribute => 'test.' . $varName];
         });
         dd($this->variables);
     }
