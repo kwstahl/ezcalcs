@@ -14,15 +14,18 @@ abstract class Variables
     public $sympy_symbol;
     public $latex_symbol;
 
-    public $attributes_for_page;
+    public $variable_attributes;
     public $attribute_validations;
 
-    public function setCustomValidationRules(callable $validationAssignmentFunction){
-        $attributes_for_page = $this->attributes_for_page;
+    public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction){
+        $variable_attributes = $this->variable_attributes;
         $attribute_validations = [];
 
-        foreach($attributes_for_page as $attribute => $value){
-            array_push($attribute_validations, $validationAssignmentFunction($attribute, $this->name));
+        $variable_name = $this->name;
+
+        foreach($variable_attributes as $attribute => $value){
+            $mappedValidationRule = $mappingFunction($attribute, $variable_name);
+            array_push($attribute_validations, $mappedValidationRule);
         };
         $this->attribute_validations = Arr::collapse($attribute_validations);
     }
@@ -40,7 +43,7 @@ abstract class Variables
 
     abstract public function setDefaultValidationRules();
 
-    abstract public function __construct(String $name, Array $attributes_for_page);
+    abstract public function __construct(String $name, Array $variable_attributes);
 
 }
 
@@ -49,20 +52,20 @@ class Variable extends Variables
     public $unit;
     public $unit_class;
 
-    public function __construct(String $name, Array $attributes_for_page)
+    public function __construct(String $name, Array $variable_attributes)
     {
         $this->name = $name;
-        $this->attributes_for_page = $attributes_for_page;
-        foreach ($attributes_for_page as $attribute_property => $value) {
+        $this->variable_attributes = $variable_attributes;
+        foreach ($variable_attributes as $attribute_property => $value) {
             $this->$attribute_property = $value;
         }
     }
 
     public function setDefaultValidationRules(String $prefix = null, String $rule = null)
     {
-        $attributes_for_page = $this->attributes_for_page;
+        $variable_attributes = $this->variable_attributes;
         $attribute_validations = [];
-        foreach ($attributes_for_page as $attribute_property => $value){
+        foreach ($variable_attributes as $attribute_property => $value){
             $attribute_validations[$prefix.$attribute_property] = $rule;
         }
         $this->attribute_validations = $attribute_validations;

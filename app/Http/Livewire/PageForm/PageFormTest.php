@@ -36,7 +36,10 @@ class PageFormTest extends Component
         $this->setUnitOptionsForEachVariable();
 
         $this->variables = $this->variables_json->map(function($item, $key){
-            return new Variable($key, $item);
+            $var = new Variable($key, $item);
+            $var->setCustomValidationRules(function($item, $key){
+
+            });
         });
     }
 
@@ -138,6 +141,9 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $variable = new Variable('Velocity', $this->variables_json['Velocity']);
+        $variable->mapValidation_Prefix_Attribute_Rules(function($attribute, $varName){
+            return ['test.'.$attribute => 'test.'.$varName];
+        });
         dd($this->variables);
     }
 
