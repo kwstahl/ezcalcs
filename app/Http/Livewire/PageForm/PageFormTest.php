@@ -6,11 +6,12 @@ use Livewire\Component;
 use App\Models\Unit;
 use App\Classes\Variable;
 use Illuminate\Support\Facades\Process;
-
+use App\Traits\UnitHelpers;
 
 
 class PageFormTest extends Component
 {
+    use UnitHelpers;
     public $variables_json;
     public $units;
     public $unitOptions;
@@ -148,11 +149,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $variable = new Variable('Velocity', $this->variables_json['Velocity']);
-        $variable->mapValidation_Prefix_Attribute_Rules(function ($attribute, $varName) {
-            return ['test.' . $attribute => 'test.' . $varName];
-        });
-        dd($this->variables);
+        return $this->hi();
     }
 
     public function render()

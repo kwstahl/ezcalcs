@@ -75,3 +75,4 @@ class Variable extends Variables
     }
 
 }
+

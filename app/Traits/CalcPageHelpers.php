@@ -32,3 +32,10 @@ trait CalcPageHelpers
         $this->units = Unit::all()->filter;
     }
 }
+
+trait UnitHelpers
+{
+    public function hi(){
+        return 'hi';
+    }
+}
