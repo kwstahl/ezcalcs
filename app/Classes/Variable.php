@@ -31,8 +31,7 @@ abstract class Variables
     {
         $key_exists = array_key_exists($prefix.$attribute, $this->attribute_validations);
         if (!$key_exists){
-            throw new Exception("does not exist");
-            return;
+            return 'doesnt exist';
         };
 
         $this->attribute_validations[$prefix.$attribute] = $newRule;
