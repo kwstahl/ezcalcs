@@ -37,9 +37,6 @@ class PageFormTest extends Component
 
         $this->variables = $this->variables_json->map(function($item, $key){
             $var = new Variable($key, $item);
-            $var->setCustomValidationRules(function($item, $key){
-
-            });
         });
     }
 
