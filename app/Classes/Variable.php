@@ -27,7 +27,7 @@ abstract class Variables
         $this->attribute_validations = Arr::collapse($attribute_validations);
     }
 
-    public function editValidationRule(String $prefix = null, String $attribute, String $newRule)
+    public function changeValidationRule(String $prefix = null, String $attribute, String $newRule)
     {
         $key_exists = array_key_exists($prefix.$attribute, $this->attribute_validations);
         if (!$key_exists){

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\PageForm;
 
 use Livewire\Component;
 use App\Models\Unit;
-use App\Traits\CalcPageHelpers;
 use App\Classes\Variable;
 use Illuminate\Support\Facades\Process;
 
@@ -19,6 +18,7 @@ class PageFormTest extends Component
     public $formula_sympy;
     public $variableToSolveFor;
     public $answer;
+    public $variables;
 
     public function mount()
     {
@@ -34,6 +34,10 @@ class PageFormTest extends Component
 
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
+
+        $this->variables = $this->variables_json->map(function($item, $key){
+            return new Variable($key, $item);
+        });
     }
 
     protected $messages = [
@@ -136,7 +140,7 @@ class PageFormTest extends Component
         $variable = new Variable('Velocity', $this->variables_json['Velocity']);
         $variable->setDefaultValidationRules('test', 'test');
         $variable->editValidationRule('test', 'unit', 'hi');
-        dd($variable->attribute_validations);
+        dd($this->variables);
     }
 
     public function render()
