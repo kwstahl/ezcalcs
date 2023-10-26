@@ -36,7 +36,7 @@ class PageFormTest extends Component
         $this->setUnitOptionsForEachVariable();
 
         $this->variables = $this->variables_json->map(function($item, $key){
-            $var = new Variable($key, $item);
+            return $var = new Variable($key, $item);
         });
     }
 
