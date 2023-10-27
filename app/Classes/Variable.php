@@ -14,7 +14,7 @@ class Variable extends EquationComponents
     public $sympy_symbol;
     public $latex_symbol;
 
-    public function __construct(Array $attributes_array, String $name=null)
+    public function __construct(String $name=null, Array $attributes_array)
     {
         $this->name = $name;
         $this->attributes_array = $attributes_array;
