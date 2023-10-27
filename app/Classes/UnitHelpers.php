@@ -12,12 +12,13 @@ class SimpleUnit extends EquationComponents
     public $symbol;
     public $base_unit;
     public $conversion_to_base;
+    public $id;
 
-    public function __construct(String $name, Array $fillable_attributes)
+    public function __construct(String $id, Array $fillable_attributes)
     {
-        $this->name = $name;
+        $this->id = $id;
         $this->fillable_attributes = $fillable_attributes;
-        
+
 
     }
 
@@ -30,6 +31,10 @@ class SimpleUnit extends EquationComponents
         }
         $this->attribute_validations = $attribute_validations;
         return $this->attribute_validations;
+    }
+
+    public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction=null){
+        return;
     }
 
 }
