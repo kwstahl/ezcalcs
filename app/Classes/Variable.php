@@ -5,6 +5,7 @@ namespace App\Classes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
+use App\Classes\PageHelpers;
 
 class Variable extends EquationComponents
 {
@@ -19,20 +20,18 @@ class Variable extends EquationComponents
         $this->name = $name;
         $this->attributes_array = $attributes_array;
         $this->setPropertiesFrom_attributes_array($attributes_array);
+
     }
 
     public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction){
+        $component_identifier = $this->name;
         $attributes_array = $this->attributes_array;
-        $attribute_validations = [];
 
-        $component_name = $this->name;
+        $attribute_validations = PageHelpers::mapValidation_Prefix_Attribute_Rules(
+            $mappingFunction, $attributes_array, $component_identifier
+        );
 
-        foreach($attributes_array as $attribute => $value){
-            $mappedValidationRule = $mappingFunction($attribute, $component_name);
-            array_push($attribute_validations, $mappedValidationRule);
-        };
-
-        $this->attribute_validations = Arr::collapse($attribute_validations);
+        $this->attribute_validations = $attribute_validations;
         return $attribute_validations;
     }
 

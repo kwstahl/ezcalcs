@@ -10,12 +10,10 @@ class PageHelpers
 {
     public static function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction, Array $attributes_array, String $component_identifier){
         $attribute_validations = [];
-
         foreach($attributes_array as $attribute => $value){
             $mappedValidationRule = $mappingFunction($attribute, $component_identifier);
             array_push($attribute_validations, $mappedValidationRule);
         };
-
         $attribute_validations = Arr::collapse($attribute_validations);
         return $attribute_validations;
     }

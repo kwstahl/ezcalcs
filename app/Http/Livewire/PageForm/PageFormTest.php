@@ -37,19 +37,6 @@ class PageFormTest extends Component
 
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
-
-        $this->variables = $this->variables_json->map(function ($item, $key) {
-            $var = new Variable($key, $item);
-            $var->mapValidation_Prefix_Attribute_Rules(function ($item, $name) {
-                return [
-                    'test' . $item => 'test' . $name,
-                    'test2'.$item => 'rule2'.$name,
-                ];
-            });
-            $var->setDefaultValidationRules('cc1','rr1');
-            $var->changeValidationRule('cc1', 'unit', 'ham');
-            return $var;
-        });
     }
 
     protected $messages = [
@@ -151,7 +138,8 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        dump($this->variables);
+        $var = new Variable('velocity', variables_json['velocity']);
+        dd($var);
     }
 
     public function render()
