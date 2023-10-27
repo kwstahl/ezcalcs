@@ -152,7 +152,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        dump($this->unitHelper);
+        dump($this->variables);
     }
 
     public function render()

@@ -6,20 +6,30 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 
-class UnitHelpers extends EquationComponents
+class SimpleUnit extends EquationComponents
 {
-    public static function hi()
+    public $unit_class;
+    public $symbol;
+    public $base_unit;
+    public $conversion_to_base;
+
+    public function __construct(String $name, Array $fillable_attributes)
     {
-        return 'hi';
+        $this->name = $name;
+        $this->fillable_attributes = $fillable_attributes;
+        
+
     }
 
-    public function setDefaultValidationRules()
+    public function setDefaultValidationRules(string $prefix =null, array $rule=null)
     {
-        return 'hi';
+        $fillable_attributes = $this->fillable_attributes;
+        $attribute_validations = [];
+        foreach ($fillable_attributes as $attribute_property => $value){
+            $attribute_validations[$prefix.$attribute_property] = $rule;
+        }
+        $this->attribute_validations = $attribute_validations;
+        return $this->attribute_validations;
     }
 
-    public function __construct(String $name, array $fillable_attributes)
-    {
-        return 'hi';
-    }
 }

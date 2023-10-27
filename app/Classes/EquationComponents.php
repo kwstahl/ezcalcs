@@ -9,25 +9,19 @@ use Illuminate\Support\Arr;
 abstract class EquationComponents
 {
     public $type;
-    public $name;
     public $description;
 
     public $fillable_attributes;
     public $attribute_validations;
 
-    public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction){
-        $fillable_attributes = $this->fillable_attributes;
-        $attribute_validations = [];
+    abstract public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction);
 
-        $component_name = $this->name;
-
-        foreach($fillable_attributes as $attribute => $value){
-            $mappedValidationRule = $mappingFunction($attribute, $component_name);
-            array_push($attribute_validations, $mappedValidationRule);
-        };
-        $this->attribute_validations = Arr::collapse($attribute_validations);
-
-        return $attribute_validations;
+    //quickly set all attributes from an Array
+    public function setPropertiesFrom_attributes_array(Array $fillable_attributes)
+    {
+        foreach($fillable_attributes as $attribute=>$value){
+            $this->$attribute = $value;
+        }
     }
 
     public function changeValidationRule(String $prefix = null, String $attribute, String $newRule)
@@ -42,9 +36,6 @@ abstract class EquationComponents
     }
 
     abstract public function setDefaultValidationRules();
-
-    abstract public function __construct(String $name, Array $fillable_attributes);
-
 }
 
 
