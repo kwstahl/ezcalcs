@@ -1,7 +1,7 @@
 <?php
 namespace App\Classes;
 
-class EquationComponentValidations
+class EqValidations
 {
     //list of attributes that must be validated.
     public function __construct(Array $attributes_to_validate){
