@@ -139,6 +139,9 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $var = new Variable('velocity', $this->variables_json['Velocity']);
+        $var->mapValidation_Prefix_Attribute_Rules(
+            function()
+        )
         dd($var);
     }
 

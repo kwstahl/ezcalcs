@@ -24,12 +24,14 @@ class Variable extends EquationComponents
     }
 
     public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction){
-        $component_identifier = $this->name;
+        $name = $this->name;
         $attributes_array = $this->attributes_array;
+        $attribute_validations = [];
 
-        $attribute_validations = PageHelpers::mapValidation_Prefix_Attribute_Rules(
-            $mappingFunction, $attributes_array, $component_identifier
-        );
+        foreach($attributes_array as $attribute => $value){
+            $mappedValidationRule = $mappingFunction($attribute, $name);
+            array_push($attribute_validations, $mappedValidationRule);
+        };
 
         $this->attribute_validations = $attribute_validations;
         return $attribute_validations;
