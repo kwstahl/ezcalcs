@@ -6,7 +6,7 @@ use Illuminate\Support\Arr;
 
 class EqValidations
 {
-    public $validations;
+    public $validationArray;
 
     //list of attributes that must be validated.
     public function setRequiredValidations($attributes_to_validate){
@@ -25,10 +25,12 @@ class EqValidations
             $this->$attributeName = $attributeValidation;
             array_push($validationRules, $attributeValidation);
         }
-        return $validationRules;
+        $this->validationArray = $validationRules;
+        return $this;
     }
 
-    public function collapseArray(Array $validationArray){
-        Arr::collapse($validationArray);
+    public function collapseArray(){
+        $collapsedArray = Arr::collapse($this->validationArray);
+        return $collapsedArray;
     }
 }

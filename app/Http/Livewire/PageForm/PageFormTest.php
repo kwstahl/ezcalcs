@@ -147,7 +147,7 @@ class PageFormTest extends Component
         );
 
         $vald = new EqValidations;
-        $vald->setSameValidationRulesOnAll(['flam', 'gam'], 'stank', 'flank', 'fool');
+        $vald->setSameValidationRulesOnAll(['flam', 'gam'], 'stank', 'flank', 'fool')->collapseArray();
 
         dd($vald);
     }
