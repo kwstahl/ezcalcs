@@ -6,24 +6,22 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 
-abstract class Variables
+abstract class EquationComponents
 {
     public $type;
     public $name;
     public $description;
-    public $sympy_symbol;
-    public $latex_symbol;
 
-    public $variable_attributes;
+    public $fillable_attributes;
     public $attribute_validations;
 
     public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction){
-        $variable_attributes = $this->variable_attributes;
+        $fillable_attributes = $this->fillable_attributes;
         $attribute_validations = [];
 
         $variable_name = $this->name;
 
-        foreach($variable_attributes as $attribute => $value){
+        foreach($fillable_attributes as $attribute => $value){
             $mappedValidationRule = $mappingFunction($attribute, $variable_name);
             array_push($attribute_validations, $mappedValidationRule);
         };
@@ -45,29 +43,31 @@ abstract class Variables
 
     abstract public function setDefaultValidationRules();
 
-    abstract public function __construct(String $name, Array $variable_attributes);
+    abstract public function __construct(String $name, Array $fillable_attributes);
 
 }
 
-class Variable extends Variables
+class Variable extends EquationComponents
 {
     public $unit;
     public $unit_class;
+    public $sympy_symbol;
+    public $latex_symbol;
 
-    public function __construct(String $name, Array $variable_attributes)
+    public function __construct(String $name, Array $fillable_attributes)
     {
         $this->name = $name;
-        $this->variable_attributes = $variable_attributes;
-        foreach ($variable_attributes as $attribute_property => $value) {
+        $this->fillable_attributes = $fillable_attributes;
+        foreach ($fillable_attributes as $attribute_property => $value) {
             $this->$attribute_property = $value;
         }
     }
 
     public function setDefaultValidationRules(String $prefix = null, String $rule = null)
     {
-        $variable_attributes = $this->variable_attributes;
+        $fillable_attributes = $this->fillable_attributes;
         $attribute_validations = [];
-        foreach ($variable_attributes as $attribute_property => $value){
+        foreach ($fillable_attributes as $attribute_property => $value){
             $attribute_validations[$prefix.$attribute_property] = $rule;
         }
         $this->attribute_validations = $attribute_validations;

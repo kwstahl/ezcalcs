@@ -4,8 +4,8 @@ namespace App\Http\Livewire\PageForm;
 
 use Livewire\Component;
 use App\Models\Unit;
+use App\Classes\EquationComponents;
 use App\Classes\Variable;
-use App\Classes\UnitHelpers;
 use Illuminate\Support\Facades\Process;
 
 
@@ -148,7 +148,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        return UnitHelpers::hi();
+        return;
     }
 
     public function render()
