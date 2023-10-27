@@ -10,7 +10,7 @@ class EqValidations
 
     protected function setPropertiesForValidation($attributes_to_validate){
         foreach($attributes_to_validate as $attribute=>$value){
-            $this->$attribute;
+            $this->$attribute = $attribute;
         }
     }
 }
