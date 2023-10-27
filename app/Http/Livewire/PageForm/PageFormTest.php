@@ -147,7 +147,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        return;
+        dump($this->variables);
     }
 
     public function render()
