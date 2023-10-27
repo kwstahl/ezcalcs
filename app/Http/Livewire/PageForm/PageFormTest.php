@@ -140,8 +140,10 @@ class PageFormTest extends Component
     {
         $var = new Variable('velocity', $this->variables_json['Velocity']);
         $var->mapValidation_Prefix_Attribute_Rules(
-            function()
-        )
+            function($attribute, $name){
+                return ['prefix.'.$attribute.'rule' => 'rule'];
+            }
+        );
         dd($var);
     }
 
