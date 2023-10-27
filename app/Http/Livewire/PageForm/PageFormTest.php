@@ -26,7 +26,7 @@ class PageFormTest extends Component
         $this->units = Unit::all();
         $this->unitOptions = collect();
 
-        $unitHelper = new UnitHelpers('hi', [1,3]);
+        //$unitHelper = new UnitHelpers('hi', [1,3]);
 
         $this->variables_json = collect($this->variables_json);
         $this->variableInputData = collect();
