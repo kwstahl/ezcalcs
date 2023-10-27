@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Unit;
 use App\Classes\Variable;
 use App\Classes\UnitHelpers;
+use App\Classes\EquationComponentValidations;
 use Illuminate\Support\Facades\Process;
 
 
@@ -144,7 +145,9 @@ class PageFormTest extends Component
                 return ['prefix.'.$attribute.'rule' => 'rule'];
             }
         );
-        dd($var);
+
+        $vald = new EquationComponentValidations(['ham', 'bam']);
+        dd($vald->ham);
     }
 
     public function render()
