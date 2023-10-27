@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 
-class SimpleUnit extends EquationComponents
+class UnitHelpers extends EquationComponents
 {
     public $unit_class;
     public $symbol;
@@ -18,8 +18,6 @@ class SimpleUnit extends EquationComponents
     {
         $this->id = $id;
         $this->fillable_attributes = $fillable_attributes;
-
-
     }
 
     public function setDefaultValidationRules(string $prefix =null, array $rule=null)
