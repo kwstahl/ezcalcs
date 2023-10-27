@@ -8,13 +8,6 @@ class EqValidations
 {
     public $validationArray;
 
-    //list of attributes that must be validated.
-    public function setRequiredValidations($attributes_to_validate){
-        foreach($attributes_to_validate as $attribute=>$value){
-            $this->$attribute = $value;
-        }
-    }
-
     //All properties have the same validation prefix and rule. Returns array of arrays of validation rules.
     public function setSameValidationRulesOnAll(Array $attributes_to_validate, String $prefix=null, String $suffix=null, String $rule)
     {
@@ -24,6 +17,18 @@ class EqValidations
 
             $this->$attributeName = $attributeValidation;
             array_push($validationRules, $attributeValidation);
+        }
+        $this->validationArray = $validationRules;
+        return $this;
+    }
+
+    //Send associative arrays of prefix.attribute.suffix => rule
+    public function setDefinedValidationRules(Array $attribute_validations)
+    {
+        $validationRules = [];
+        foreach($attribute_validations as $attributeName=>$rule)
+        {
+            array_push($validationRules, [$attributeName=>$rule]);
         }
         $this->validationArray = $validationRules;
         return $this;
