@@ -4,8 +4,7 @@ namespace App\Http\Livewire\PageForm;
 
 use Livewire\Component;
 use App\Models\Unit;
-use App\Classes\EquationComponents;
-use App\Classes\Variable;
+use App\Classes\EquationComponents\Variable;
 use Illuminate\Support\Facades\Process;
 
 
