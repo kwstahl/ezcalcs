@@ -28,7 +28,6 @@ class PageFormTest extends Component
 
         $unitHelper = new UnitHelpers('hi', [1,3]);
 
-        $this->unitHelper = $unitHelper->hi();
         $this->variables_json = collect($this->variables_json);
         $this->variableInputData = collect();
         $this->variableToSolveFor = $this->variables_json->keys()->first();
