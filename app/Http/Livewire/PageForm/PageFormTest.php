@@ -7,8 +7,9 @@ use App\Models\Unit;
 use App\Classes\Variable;
 use App\Classes\UnitHelpers;
 use App\Classes\EqValidations;
+use App\Classes\UnitOptions;
 use Illuminate\Support\Facades\Process;
-
+use PDO;
 
 class PageFormTest extends Component
 {
@@ -139,17 +140,14 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $var = new Variable('velocity', $this->variables_json['Velocity']);
-        $var->mapValidation_Prefix_Attribute_Rules(
-            function($attribute, $name){
-                return ['prefix.'.$attribute.'rule' => 'rule'];
+        $thing = new UnitOptions(['hi'=>'shoop', 'gloop' => 'moop']);
+        $thing->setSelectableOptions(
+            function($th, $thin){
+                return ($thin == 'moop');
             }
         );
 
-        $vald = new EqValidations;
-        $vald->setDefinedValidationRules(['flam'=>'sham', 'ham'=>'sam'])->collapseArray();
-
-        dd($vald->collapseArray());
+        dd($thing);
     }
 
     public function render()

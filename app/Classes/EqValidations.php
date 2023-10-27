@@ -8,6 +8,7 @@ class EqValidations
 {
     public $validationArray;
 
+    //Send some array of attribute/prefix pairs and assign to one rule
     //All properties have the same validation prefix and rule. Returns array of arrays of validation rules.
     public function setSameValidationRulesOnAll(Array $attributes_to_validate, String $prefix=null, String $suffix=null, String $rule)
     {
