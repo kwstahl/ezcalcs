@@ -5,13 +5,12 @@ namespace App\Http\Livewire\PageForm;
 use Livewire\Component;
 use App\Models\Unit;
 use App\Classes\Variable;
+use App\Classes\UnitHelpers;
 use Illuminate\Support\Facades\Process;
-use App\Traits\UnitHelpers;
 
 
 class PageFormTest extends Component
 {
-    use UnitHelpers;
     public $variables_json;
     public $units;
     public $unitOptions;
@@ -149,7 +148,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        return $this->hi();
+        return UnitHelpers::hi();
     }
 
     public function render()
