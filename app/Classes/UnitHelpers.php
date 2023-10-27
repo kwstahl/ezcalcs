@@ -1,22 +1,25 @@
 <?php
 
-Namespace App\Classes;
+namespace App\Classes;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 
-abstract class UnitHelpers {
-    public $id;
-    public $symbol;
-    public $description;
-    public $type;
+class UnitHelpers extends EquationComponents
+{
+    public static function hi()
+    {
+        return 'hi';
+    }
 
-    public $validation_attributes;
-    public $unit_attributes;
+    public function setDefaultValidationRules()
+    {
+        return 'hi';
+    }
 
-    
-
+    public function __construct(String $name, array $fillable_attributes)
+    {
+        return 'hi';
+    }
 }
-
-?>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\PageForm;
 use Livewire\Component;
 use App\Models\Unit;
 use App\Classes\Variable;
+use App\Classes\UnitHelpers;
 use Illuminate\Support\Facades\Process;
 
 
@@ -18,11 +19,14 @@ class PageFormTest extends Component
     public $variableToSolveFor;
     public $answer;
     public $variables;
+    public $unitHelper;
 
     public function mount()
     {
         $this->units = Unit::all();
         $this->unitOptions = collect();
+
+        $this->unitHelper = new UnitHelpers('hi', [1,3]);
 
         $this->variables_json = collect($this->variables_json);
         $this->variableInputData = collect();
@@ -147,7 +151,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        dump($this->variables);
+        dump($this->unitHelper);
     }
 
     public function render()
