@@ -19,10 +19,10 @@ abstract class EquationComponents
         $fillable_attributes = $this->fillable_attributes;
         $attribute_validations = [];
 
-        $variable_name = $this->name;
+        $component_name = $this->name;
 
         foreach($fillable_attributes as $attribute => $value){
-            $mappedValidationRule = $mappingFunction($attribute, $variable_name);
+            $mappedValidationRule = $mappingFunction($attribute, $component_name);
             array_push($attribute_validations, $mappedValidationRule);
         };
         $this->attribute_validations = Arr::collapse($attribute_validations);
