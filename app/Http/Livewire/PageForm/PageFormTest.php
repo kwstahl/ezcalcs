@@ -138,7 +138,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $var = new Variable('velocity', variables_json['velocity']);
+        $var = new Variable('velocity', $this->variables_json['velocity']);
         dd($var);
     }
 
