@@ -14,20 +14,20 @@ class Variable extends EquationComponents
     public $sympy_symbol;
     public $latex_symbol;
 
-    public function __construct(String $name, Array $fillable_attributes)
+    public function __construct(String $name, Array $attributes_array)
     {
         $this->name = $name;
-        $this->fillable_attributes = $fillable_attributes;
-        $this->setPropertiesFrom_attributes_array($fillable_attributes);
+        $this->attributes_array = $attributes_array;
+        $this->setPropertiesFrom_attributes_array($attributes_array);
     }
 
     public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction){
-        $fillable_attributes = $this->fillable_attributes;
+        $attributes_array = $this->attributes_array;
         $attribute_validations = [];
 
         $component_name = $this->name;
 
-        foreach($fillable_attributes as $attribute => $value){
+        foreach($attributes_array as $attribute => $value){
             $mappedValidationRule = $mappingFunction($attribute, $component_name);
             array_push($attribute_validations, $mappedValidationRule);
         };
@@ -38,9 +38,9 @@ class Variable extends EquationComponents
 
     public function setDefaultValidationRules(String $prefix = null, String $rule = null)
     {
-        $fillable_attributes = $this->fillable_attributes;
+        $attributes_array = $this->attributes_array;
         $attribute_validations = [];
-        foreach ($fillable_attributes as $attribute_property => $value){
+        foreach ($attributes_array as $attribute_property => $value){
             $attribute_validations[$prefix.$attribute_property] = $rule;
         }
         $this->attribute_validations = $attribute_validations;

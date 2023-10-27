@@ -14,17 +14,17 @@ class UnitHelpers extends EquationComponents
     public $conversion_to_base;
     public $id;
 
-    public function __construct(String $id, Array $fillable_attributes)
+    public function __construct(String $id, Array $attributes_array)
     {
         $this->id = $id;
-        $this->fillable_attributes = $fillable_attributes;
+        $this->attributes_array = $attributes_array;
     }
 
     public function setDefaultValidationRules(string $prefix =null, array $rule=null)
     {
-        $fillable_attributes = $this->fillable_attributes;
+        $attributes_array = $this->attributes_array;
         $attribute_validations = [];
-        foreach ($fillable_attributes as $attribute_property => $value){
+        foreach ($attributes_array as $attribute_property => $value){
             $attribute_validations[$prefix.$attribute_property] = $rule;
         }
         $this->attribute_validations = $attribute_validations;

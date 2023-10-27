@@ -11,15 +11,16 @@ abstract class EquationComponents
     public $type;
     public $description;
 
-    public $fillable_attributes;
+    public $attributes_array;
     public $attribute_validations;
 
     abstract public function mapValidation_Prefix_Attribute_Rules(callable $mappingFunction);
+    abstract public function setDefaultValidationRules();
 
     //quickly set all attributes from an Array
-    public function setPropertiesFrom_attributes_array(Array $fillable_attributes)
+    public function setPropertiesFrom_attributes_array(Array $attributes_array)
     {
-        foreach($fillable_attributes as $attribute=>$value){
+        foreach($attributes_array as $attribute=>$value){
             $this->$attribute = $value;
         }
     }
@@ -34,8 +35,6 @@ abstract class EquationComponents
         $this->attribute_validations[$prefix.$attribute] = $newRule;
         return $this->attribute_validations[$prefix.$attribute];
     }
-
-    abstract public function setDefaultValidationRules();
 }
 
 
