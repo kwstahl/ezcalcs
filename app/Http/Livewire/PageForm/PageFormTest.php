@@ -146,7 +146,9 @@ class PageFormTest extends Component
             }
         );
 
-        $vald = new EqValidations(['ham'=>'flam', 'bam'=>'gam']);
+        $vald = new EqValidations;
+        $vald->setSameValidationRulesOnAll(['ham'=>'flam', 'bam'=>'gam'], 'stank', 'flank');
+
         dd($vald->ham);
     }
 
