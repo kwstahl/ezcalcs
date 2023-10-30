@@ -1,7 +1,5 @@
 <div>
 Hello there
-<input class="form-control" type="text" name=$name>
+<input class="form-control" type="text">
 hi
-<label wire:ignore>{{ $name }} </label>
-
 </div>
