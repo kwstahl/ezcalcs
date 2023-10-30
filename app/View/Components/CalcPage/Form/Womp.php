@@ -18,7 +18,10 @@ class Womp extends Component
     public function __construct(
         public string $type,
         public string $message,
-    ) {}
+    ) {
+
+        $this->message = $message;
+    }
 
     /**
      * Get the view / contents that represent the component.
