@@ -2,5 +2,5 @@
     Hello there
     hi
 
-    {{$thing}}
+    {{ $thing }}
 </div>
