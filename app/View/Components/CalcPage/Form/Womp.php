@@ -2,12 +2,11 @@
 
 namespace App\View\Components\CalcPage\Forms;
 
-use App\View\Components\CalcPage\Form\SuperVariable;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Variable extends Component
+class Womp extends Component
 {
     /**
      * Create a new component instance.
