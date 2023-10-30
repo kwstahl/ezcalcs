@@ -22,7 +22,7 @@ class Variable extends SuperVariable
     public function __construct(String $name, Array $attributes_array)
     {
         $this->name = $name;
-        $this->attributes_array = $attributes_array;
+        $this->attributes_array = collect($attributes_array);
         $this->input_value = null;
 
         //sets properties based on their key, value pairs
