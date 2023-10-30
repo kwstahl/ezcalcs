@@ -14,6 +14,12 @@ use App\Classes\VariableHelper;
 class Variable extends SuperVariable
 {
 
+    public $unit;
+    public $description;
+    public $type;
+    public $sympy_symbol;
+    public $latex_symbol;
+    public $unit_class;
     /**
      * Create a new component instance.
      */
