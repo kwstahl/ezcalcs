@@ -40,7 +40,7 @@ class PageFormTest extends Component
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
         $this->message = 'velocity';
-        $this->testVar = json_encode($this->variables_json['velocity']);
+        $this->testVar = json_encode($this->variables_json['Velocity']);
     }
 
     protected $messages = [
