@@ -61,7 +61,8 @@
         </div>
     </form>
 
-    <x-calc-page.form.variable :name="$message" :ham="$testVar"/>
+    <x-calc-page.form.variable :name="$message" :variable-array="$testVar"/>
+
     @push('scripts')
         <script>
             var selectElements = document.querySelectorAll('.form-select');

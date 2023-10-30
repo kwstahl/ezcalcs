@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use App\Classes\PageHelpers;
+use App\Classes\VariableHelper;
 
 class Variable extends Component
 {
@@ -17,12 +18,13 @@ class Variable extends Component
      */
     public function __construct(
         public string $name,
-        public $ham,
+        public $variableArray,
+        public $thingu,
     ) {
 
         $this->name = $name;
-        $this->ham = $ham;
-
+        $this->variableArray = $variableArray;
+        $this->thingu = new VariableHelper($name, $variableArray);
     }
 
     /**
