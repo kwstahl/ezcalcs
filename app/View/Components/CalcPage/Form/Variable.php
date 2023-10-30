@@ -11,20 +11,20 @@ use Illuminate\Support\Arr;
 use App\Classes\PageHelpers;
 use App\Classes\VariableHelper;
 
-class Variable extends Component
+class Variable extends SuperVariable
 {
-    public $thingu;
+
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $name,
-        public $variableArray,
-    ) {
-
+        public $attributesArray,
+    )
+    {
         $this->name = $name;
-        $this->variableArray = $variableArray;
-        $this->thingu = new VariableHelper($name, $variableArray);
+        $this->attributesArray = $attributesArray;
+        $this->setPropertiesFrom_attributes_array($attributesArray);
     }
 
     /**

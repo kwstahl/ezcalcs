@@ -12,23 +12,20 @@ use App\Classes\PageHelpers;
 
 class SuperVariable extends Component
 {
-    public $type;
-    public $description;
-    public $attributes_array;
+    public $attributesArray;
 
     /**
      * Create a new component instance.
      */
 
-    protected function setPropertiesFrom_attributes_array(Array $attributes_array)
+    protected function setPropertiesFrom_attributes_array(Array $attributesArray)
     {
-        foreach($attributes_array as $attribute=>$value){
+        foreach($attributesArray as $attribute=>$value){
             $this->$attribute = $value;
         }
     }
 
     public function render(): View|Closure|string
     {
-        return view('components.calc-page.forms.variable');
     }
 }
