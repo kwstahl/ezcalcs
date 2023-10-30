@@ -1,4 +1,4 @@
 <div class="alert">
     {{ $name }}
-    {{ dump($attributesArray) }}
+    {{ json_encode($attributesArray) }}
 </div>
