@@ -1,4 +1,4 @@
 <div class="alert">
     {{ $name }}
-    {{ $thingu->unit }}
+    {{ $thingu->description }}
 </div>
