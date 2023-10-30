@@ -2,5 +2,4 @@
     Hello there
     hi
 
-    {{ $thing }}
 </div>
