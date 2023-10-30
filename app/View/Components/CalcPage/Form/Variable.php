@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use App\Classes\PageHelpers;
 
-class Womp extends Component
+class Variable extends Component
 {
     /**
      * Create a new component instance.
@@ -30,6 +30,6 @@ class Womp extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.calc-page.form.womp');
+        return view('components.calc-page.form.variable');
     }
 }
