@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    <x-calc-page.form.womp type="error" :message="ham"/>
+    <x-calc-page.form.womp type="error" :message="$message"/>
 
     @push('scripts')
         <script>

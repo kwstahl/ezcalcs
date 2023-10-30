@@ -23,6 +23,7 @@ class PageFormTest extends Component
     public $variables;
     public $unitHelper;
     public $testVar;
+    public $message;
 
     public function mount()
     {
@@ -38,7 +39,7 @@ class PageFormTest extends Component
 
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
-        $this->testVar = 'velocity';
+        $this->message = 'velocity';
     }
 
     protected $messages = [
