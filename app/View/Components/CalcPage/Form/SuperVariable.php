@@ -26,4 +26,9 @@ class SuperVariable extends Component
             $this->$attribute = $value;
         }
     }
+
+    public function render(): View|Closure|string
+    {
+        return view('components.calc-page.forms.variable');
+    }
 }
