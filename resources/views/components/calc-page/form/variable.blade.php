@@ -1,4 +1,4 @@
-<div :name = "$name" :attributes_array = "$attributes_array">
+<div :name = "$name">
     Hello there
     {{ $name }}
     hi
