@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    <x-calc-page.form.variable :name="$message" :variable-array="$testVar"/>
+    <x-calc-page.form.variable :name="$message" :attributes-array="$testVar"/>
 
     @push('scripts')
         <script>
