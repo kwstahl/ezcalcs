@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    <x-calc-page.form.variable :thing = "velocity" />
+    <x-calc-page.form.variable/>
 
     @push('scripts')
         <script>
