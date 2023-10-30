@@ -17,11 +17,11 @@ class Womp extends Component
      */
     public function __construct(
         public string $name,
-        public $attributes,
+        public $ham,
     ) {
 
         $this->name = $name;
-        $this->attributes = $attributes;
+        $this->ham = $ham;
 
     }
 
