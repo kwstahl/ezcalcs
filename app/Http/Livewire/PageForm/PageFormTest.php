@@ -22,13 +22,12 @@ class PageFormTest extends Component
     public $answer;
     public $variables;
     public $unitHelper;
+    public $testVar;
 
     public function mount()
     {
         $this->units = Unit::all();
         $this->unitOptions = collect();
-
-        //$unitHelper = new UnitHelpers('hi', [1,3]);
 
         $this->variables_json = collect($this->variables_json);
         $this->variableInputData = collect();
@@ -39,6 +38,7 @@ class PageFormTest extends Component
 
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
+        $this->testVar = $this->variables_json['Velocity'];
     }
 
     protected $messages = [
@@ -140,14 +140,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $thing = new UnitOptions(['hi'=>'shoop', 'gloop' => 'moop']);
-        $thing->setSelectableOptions(
-            function($th, $thin){
-                return ($thin == 'moop');
-            }
-        );
 
-        dd($thing);
     }
 
     public function render()

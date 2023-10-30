@@ -26,14 +26,4 @@ class SuperVariable extends Component
             $this->$attribute = $value;
         }
     }
-
-
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
-    {
-        $type = $this->type;
-        return view('components.calc-page.form.variable.'.$type);
-    }
 }

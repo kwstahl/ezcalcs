@@ -14,8 +14,7 @@
         <!-- Top Bar -->
         @livewire('top-bar')
 
-        <livewire:page-form.page-form-test :variables_json="$variables_json" :formula_sympy="$formula_sympy"/>
-        
+        <x-components.form.variable :name = 'Velocity' :att>
 
     </body>
 
