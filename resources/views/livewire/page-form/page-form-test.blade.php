@@ -13,7 +13,7 @@
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <x-calc-page-form.variable :name="$variableName" :attributes-array="$variable"/>
+                            <x-calc-page.form.variable :name="$variableName" :attributes-array="$variable"/>
                         </div>
                     </div>
                 </div>
