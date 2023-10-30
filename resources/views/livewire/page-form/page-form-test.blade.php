@@ -13,8 +13,7 @@
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <x-calc-page.variable-input :$variableName :$variable :$variableToSolveFor/>
-                            <label wire:ignore>{{ $variableName }} ({{ $variable['latex_symbol'] }}) </label>
+                            <x-calc-page-form.variable :name="$variableName" :attributes-array="$variable"/>
                         </div>
                     </div>
                 </div>
