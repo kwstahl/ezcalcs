@@ -18,7 +18,7 @@ class PageHelpers
         return $attribute_validations;
     }
 
-    public static function changeValidationRule(String $prefix = null, String $attribute, String $newRule)
+    /*public static function changeValidationRule(String $prefix = null, String $attribute, String $newRule)
     {
         $key_exists = array_key_exists($prefix.$attribute, $this->attribute_validations);
         if (!$key_exists){
@@ -27,5 +27,7 @@ class PageHelpers
 
         $this->attribute_validations[$prefix.$attribute] = $newRule;
         return $this->attribute_validations[$prefix.$attribute];
-    }
+    }*/
+
+    public static function 
 }

@@ -7,14 +7,13 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use App\Classes\PageHelpers;
 
-class Variable extends EquationComponents
+class VariableHelper extends EquationComponents
 {
     public $name;
     public $unit;
     public $unit_class;
     public $sympy_symbol;
     public $latex_symbol;
-    public $inputValue;
 
     public function __construct(String $name=null, Array $attributes_array)
     {

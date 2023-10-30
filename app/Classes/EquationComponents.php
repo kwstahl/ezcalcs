@@ -11,7 +11,6 @@ abstract class EquationComponents
     public $type;
     public $description;
     public $attributes_array;
-    public $attribute_validations;
 
     protected function setPropertiesFrom_attributes_array(Array $attributes_array)
     {
