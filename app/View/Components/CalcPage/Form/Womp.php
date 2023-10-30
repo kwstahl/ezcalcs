@@ -16,11 +16,13 @@ class Womp extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $type,
-        public string $message,
+        public string $name,
+        public string $attributes_array,
     ) {
 
-        $this->message = $message;
+        $this->name = $name;
+        $this->attributes_array = collect($attributes_array);
+
     }
 
     /**

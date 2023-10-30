@@ -61,8 +61,7 @@
         </div>
     </form>
 
-    <x-calc-page.form.womp type="error" :message="$message"/>
-
+    <x-calc-page.form.womp :name="$message" :attributes_array="$testVar"/>
     @push('scripts')
         <script>
             var selectElements = document.querySelectorAll('.form-select');
