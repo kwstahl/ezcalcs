@@ -1,4 +1,4 @@
 <div class="alert">
     {{ $name }}
-    {{ $ham[0] }}
+    {{ json_encode($ham) }}
 </div>
