@@ -21,7 +21,7 @@ class Womp extends Component
     ) {
 
         $this->name = $name;
-        $this->attributes = collect($attributes);
+        $this->attributes = $attributes;
 
     }
 
