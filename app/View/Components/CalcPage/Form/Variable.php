@@ -20,6 +20,9 @@ class Variable extends SuperVariable
     public $sympy_symbol;
     public $latex_symbol;
     public $unit_class;
+
+    public $inputValue;
+
     /**
      * Create a new component instance.
      */
@@ -27,6 +30,7 @@ class Variable extends SuperVariable
         public string $name,
         public $attributesArray,
     )
+
     {
         $this->name = $name;
         $this->attributesArray = $attributesArray;
