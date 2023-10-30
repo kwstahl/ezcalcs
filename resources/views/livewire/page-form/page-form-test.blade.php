@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    <x-calc-page.form.variable />
+    <x-calc-page.form.variable :name = 'Velocity' :attributes_array = {{ $testVar }}/>
 
     @push('scripts')
         <script>
