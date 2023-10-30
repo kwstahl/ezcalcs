@@ -61,8 +61,7 @@
         </div>
     </form>
 
-    <x-components.form.variable :name = 'Velocity'>
-    </x-components.form.variable>
+    <x-components.form.variable :name = 'Velocity' :attributes_array = {{ $testVar }}>
 
     @push('scripts')
         <script>
