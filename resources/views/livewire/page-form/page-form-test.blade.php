@@ -61,7 +61,8 @@
         </div>
     </form>
 
-    <x-components.form.variable :name = 'Velocity'/>
+    <x-components.form.variable :name = 'Velocity'>
+    </x-components.form.variable>
 
     @push('scripts')
         <script>
