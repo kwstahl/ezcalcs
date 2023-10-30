@@ -1,3 +1,3 @@
 <div class="alert">
-    {{ $message }}
+    {{ $name }}
 </div>
