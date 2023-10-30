@@ -1,4 +1,4 @@
 <div class="alert">
     {{ $name }}
-    {{ $ham }}
+    {{ $ham[0] }}
 </div>
