@@ -14,7 +14,10 @@ class Variable extends Component
      */
     public function __construct(
         public string $thing,
-    ) {}
+    ) {
+
+        $this->thing = $thing;
+    }
 
     /**
      * Get the view / contents that represent the component.
