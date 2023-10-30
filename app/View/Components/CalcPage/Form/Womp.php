@@ -17,7 +17,7 @@ class Womp extends Component
      */
     public function __construct(
         public string $name,
-        public $attributes,
+        public string $attributes,
     ) {
 
         $this->name = $name;
