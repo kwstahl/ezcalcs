@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    <x-components.calc-page.form.variable />
+    <x-calc-page.form.variable />
 
     @push('scripts')
         <script>
