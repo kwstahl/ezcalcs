@@ -1,5 +1,3 @@
-<div>
-    Hello there
-    hi
-    {{ $thing }}
+<div class="alert alert-{{ $type }}">
+    {{ $message }}
 </div>

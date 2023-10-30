@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    <x-calc-page.form.variable :thing = "{{$testVar}}"/>
+    <x-calc-page.form.variable type="error" :message="ham"/>
 
     @push('scripts')
         <script>

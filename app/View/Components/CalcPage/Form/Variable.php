@@ -13,11 +13,9 @@ class Variable extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $thing,
-    ) {
-
-        $this->thing = $thing;
-    }
+        public string $type,
+        public string $message,
+    ) {}
 
     /**
      * Get the view / contents that represent the component.
