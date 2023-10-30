@@ -21,6 +21,6 @@ class Womp extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.calc-page.forms.variable');
+        return view('components.calc-page.forms.womp');
     }
 }
