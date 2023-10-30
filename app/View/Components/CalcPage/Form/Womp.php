@@ -1,10 +1,14 @@
 <?php
 
-namespace App\View\Components\CalcPage\Forms;
+namespace App\View\Components\CalcPage\Form;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
+use App\Classes\PageHelpers;
 
 class Womp extends Component
 {
