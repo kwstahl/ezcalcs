@@ -19,14 +19,14 @@ class Variable extends SuperVariable
     /**
      * Create a new component instance.
      */
-    public function __construct(String $name, Array $attributes_array)
+    public function __construct(String $name)
     {
         $this->name = $name;
-        $this->attributes_array = collect($attributes_array);
+        //$this->attributes_array = collect($attributes_array);
         $this->input_value = null;
 
         //sets properties based on their key, value pairs
-        $this->setPropertiesFrom_attributes_array($attributes_array);
+        //$this->setPropertiesFrom_attributes_array($attributes_array);
     }
 
     /**
