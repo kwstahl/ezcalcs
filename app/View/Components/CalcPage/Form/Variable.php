@@ -24,7 +24,6 @@ class Variable extends SuperVariable
         public $name
     )
     {
-        $this->name = $name;
         //$this->attributes_array = collect($attributes_array);
         //$this->input_value = null;
 
