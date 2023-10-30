@@ -13,13 +13,13 @@ use App\Classes\VariableHelper;
 
 class Variable extends Component
 {
+    public $thingu;
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $name,
         public $variableArray,
-        public $thingu,
     ) {
 
         $this->name = $name;
