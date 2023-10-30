@@ -1,4 +1,4 @@
-<div :name = $name>
+<div>
     Hello there
     {{ $name }}
     hi
