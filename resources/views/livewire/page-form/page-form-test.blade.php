@@ -61,6 +61,8 @@
         </div>
     </form>
 
+    <x-components.form.variable :name = 'Velocity' :attributes_array = {{$testVar}}>
+
     @push('scripts')
         <script>
             var selectElements = document.querySelectorAll('.form-select');
