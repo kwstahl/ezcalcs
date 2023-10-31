@@ -146,7 +146,7 @@ class PageFormTest extends Component
             return $item->getAttributes();
         });
 
-        return $unitTest;
+        dd($unitTest);
     }
 
     public function render()
