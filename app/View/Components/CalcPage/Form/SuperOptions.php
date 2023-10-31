@@ -36,7 +36,7 @@ class SuperOptions extends Component
         $this->selectedOption = $optionsArray->first();
     }
 
-    public function getOptionAttributes($optionId)
+    public function getOptions($optionId)
     {
         $optionsArray = $this->optionsArray;
         if (
@@ -44,7 +44,7 @@ class SuperOptions extends Component
         ) {
             return 'Does not exist';
         }
-        return collect($optionsArray[$optionId]);
+        return $optionsArray[$optionId];
     }
 
     /**
