@@ -3,6 +3,7 @@
 
     @foreach($optionsArray as $option => $value)
         <div> {{ $option }}</div>
+        {{ dump($optionsArray) }}
     @endforeach
 
     <div>
