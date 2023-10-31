@@ -24,6 +24,7 @@ class PageFormTest extends Component
     public $testVar;
     public $message;
     public $testUnit;
+    public $ut1;
 
     public function mount()
     {
@@ -45,6 +46,8 @@ class PageFormTest extends Component
         $unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
             return [$item['id'] => $item->getAttributes()];
         });
+
+        $this->ut1 = $this->units->where('unit_class', 'time')->all();
 
         $this->testUnit = $unitTest;
     }
@@ -148,7 +151,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        dd($this->testUnit);
+        dd($this->ut1);
     }
 
     public function render()
