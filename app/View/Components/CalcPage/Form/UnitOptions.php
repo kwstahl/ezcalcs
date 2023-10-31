@@ -22,7 +22,7 @@ class UnitOptions extends SuperOptions
         $this->baseOption = $baseOption;
     }
 
-    public function __get($optionId)
+    public function getOption($optionId)
     {
 
         $optionsArray = $this->optionsArray;
@@ -32,7 +32,7 @@ class UnitOptions extends SuperOptions
             return 'Does not exist';
         }
 
-        return 'hi';
+        return $optionsArray[$optionId];
     }
 
     /**
