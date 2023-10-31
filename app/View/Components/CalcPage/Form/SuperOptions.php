@@ -27,7 +27,7 @@ class SuperOptions extends Component
             return [$item[$indexName] => $item];
         });
 
-        $this->optionsArray->toArray() = $keyed;
+        $this->optionsArray = $keyed;
     }
 
     public function setSelectedOptionAsFirst()

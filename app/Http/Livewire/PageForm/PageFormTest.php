@@ -9,7 +9,6 @@ use App\Classes\UnitHelpers;
 use App\Classes\EqValidations;
 use App\Classes\UnitOptions;
 use Illuminate\Support\Facades\Process;
-use PDO;
 
 class PageFormTest extends Component
 {
@@ -24,6 +23,7 @@ class PageFormTest extends Component
     public $unitHelper;
     public $testVar;
     public $message;
+    public $testUnit;
 
     public function mount()
     {
@@ -145,6 +145,8 @@ class PageFormTest extends Component
         $unitTest = $this->units->where('unit_class', 'time')->map(function($item, $key){
             return $item->getAttributes();
         });
+
+        $this->testUnit = $unitTest;
 
         dd($unitTest);
     }

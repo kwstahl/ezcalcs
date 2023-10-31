@@ -90,4 +90,6 @@
 
     <div> {{ $this->call_variables() }}</div>
 
+
+    <x-calc-page.form.unit-options :name="ham" :options-array="$testUnit" :base-option="ham"/>
 </div>
