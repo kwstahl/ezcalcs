@@ -36,7 +36,16 @@ class SuperOptions extends Component
         $this->selectedOption = $optionsArray->first();
     }
 
-
+    public function getOptionAttributes($optionId)
+    {
+        $optionsArray = $this->optionsArray;
+        if (
+            !$optionsArray->has([$optionId])
+        ) {
+            return 'Does not exist';
+        }
+        return collect($optionsArray[$optionId]);
+    }
 
     /**
      * Get the view / contents that represent the component.
