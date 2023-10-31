@@ -30,7 +30,6 @@ class Variable extends SuperVariable
         public string $name,
         public $attributesArray,
     )
-
     {
         $this->name = $name;
         $this->attributesArray = $attributesArray;
