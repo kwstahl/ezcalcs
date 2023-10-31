@@ -142,7 +142,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $unitTest = $this->units->where('unit_class', 'velocity')->all();
+        $unitTest = $this->units->where('unit_class', 'time')->all();
         dd($unitTest);
     }
 
