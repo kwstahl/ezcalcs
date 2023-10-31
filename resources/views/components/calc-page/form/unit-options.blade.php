@@ -1,7 +1,8 @@
 <div>
     <h1>{{ $name }}</h1>
-
-    {{ $optionsArray }}
+    @foreach($optionsArray as $option=>$value)
+        {{ $option }}
+    @endforeach
 
     <div>
         <h2>
