@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\CalcPage\Forms;
+namespace App\View\Components\CalcPage\Form;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -11,9 +11,15 @@ class UnitOptions extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(
+        public string $name,
+        public $arrayOfOptions,
+        public $baseOption,
+        
+        )
     {
-        //
+
+
     }
 
     /**
@@ -21,6 +27,6 @@ class UnitOptions extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.calc-page.forms.unit-options');
+        return view('components.calc-page.form.unit-options');
     }
 }
