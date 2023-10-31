@@ -41,6 +41,12 @@ class PageFormTest extends Component
         $this->setUnitOptionsForEachVariable();
         $this->message = 'velocity';
         $this->testVar = $this->variables_json['Velocity'];
+
+        $unitTest = $this->units->where('unit_class', 'time')->map(function($item, $key){
+            return $item->getAttributes();
+        });
+
+        $this->testUnit = $unitTest;
     }
 
     protected $messages = [
@@ -142,11 +148,6 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        $unitTest = $this->units->where('unit_class', 'time')->map(function($item, $key){
-            return $item->getAttributes();
-        });
-
-        $this->testUnit = $unitTest;
 
         dd($unitTest);
     }
