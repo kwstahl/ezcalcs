@@ -5,21 +5,34 @@ namespace App\View\Components\CalcPage\Form;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
-class UnitOptions extends Component
+class UnitOptions extends SuperOptions
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $name,
-        public $arrayOfOptions,
+        public $optionsArray,
         public $baseOption,
-        
-        )
+    ) {
+        $this->name = $name;
+        $this->optionsArray = $optionsArray;
+        $this->baseOption = $baseOption;
+        $this->setKeysFromIndex('id');
+    }
+
+    public function __get($optionId)
     {
-
-
+        $optionsArray = $this->optionsArray;
+        if (
+            !$optionsArray->has([$optionId])
+        ) {
+            return 'Does not exist';
+        }
+        
+        return $optionsArray[$optionId];
     }
 
     /**

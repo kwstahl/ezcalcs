@@ -5,22 +5,43 @@ namespace App\View\Components\CalcPage\Form;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 class SuperOptions extends Component
 {
+    public $optionsArray;
+    public $baseOption;
+    public $selectedOption;
+
     /**
-     * Create a new component instance.
+     * For each object in the optionsArray, set a key given some attribute to set on
+     *
+     * Transforms optionsArray to a keyed array
+     *
      */
-    public function __construct()
+
+    public function setKeysFromIndex(String $indexName)
     {
-        //
+        $optionsArray = collect($this->optionsArray);
+        $keyed = $optionsArray->mapWithKeys(function (array $item, int $key) use ($indexName){
+            return [$item[$indexName] => $item];
+        });
+
+        $this->optionsArray->toArray() = $keyed;
     }
+
+    public function setSelectedOptionAsFirst()
+    {
+        $optionsArray = collect($this->optionsArray);
+        $this->selectedOption = $optionsArray->first();
+    }
+
+
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.calc-page.form.super-options');
     }
 }
