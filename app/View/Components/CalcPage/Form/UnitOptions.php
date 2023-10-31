@@ -24,6 +24,7 @@ class UnitOptions extends SuperOptions
 
     public function __get($optionId)
     {
+
         $optionsArray = $this->optionsArray;
         if (
             !$optionsArray->has([$optionId])
@@ -31,7 +32,7 @@ class UnitOptions extends SuperOptions
             return 'Does not exist';
         }
 
-        return $optionsArray[$optionId];
+        return 'hi';
     }
 
     /**
