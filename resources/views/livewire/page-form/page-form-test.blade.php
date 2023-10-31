@@ -83,6 +83,8 @@
             });
         </script>
     @endpush
+    <x-calc-page.form.unit-options :name="ham" :options-array="$testUnit" :base-option="ham"/>
+
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
@@ -91,5 +93,4 @@
     <div> {{ $this->call_variables() }}</div>
 
 
-    <x-calc-page.form.unit-options :name="ham" :options-array="$testUnit" :base-option="ham"/>
 </div>
