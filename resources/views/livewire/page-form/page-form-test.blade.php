@@ -83,7 +83,7 @@
             });
         </script>
     @endpush
-    <x-calc-page.form.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
+    <x-calc-page.form.unit-options :name="$message" :options-array="$ut1" :base-option="$message"/>
 
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
