@@ -143,7 +143,7 @@ class PageFormTest extends Component
     public function call_variables()
     {
         $unitTest = $this->units->where('unit_class', 'time')->map(function($item, $key){
-            return $item->toArray();
+            return $item->getAttributes();
         });
 
         return $unitTest;
