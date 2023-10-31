@@ -7,7 +7,7 @@
     <div>
         <h2>
             {{ $baseOption }}
-            {{ $getOptionAttributes('days')->type }}
+            {{ $getOptionAttributes('days')->unit_class }}
         </h2>
     </div>
 
