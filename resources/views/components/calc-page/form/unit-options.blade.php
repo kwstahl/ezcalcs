@@ -7,6 +7,7 @@
     <div>
         <h2>
             {{ $baseOption }}
+            {{ $this->days }}
         </h2>
     </div>
 

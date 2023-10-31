@@ -20,7 +20,6 @@ class UnitOptions extends SuperOptions
         $this->name = $name;
         $this->optionsArray = $optionsArray;
         $this->baseOption = $baseOption;
-        $this->setKeysFromIndex('id');
     }
 
     public function __get($optionId)
@@ -31,7 +30,7 @@ class UnitOptions extends SuperOptions
         ) {
             return 'Does not exist';
         }
-        
+
         return $optionsArray[$optionId];
     }
 
