@@ -44,7 +44,7 @@ class PageFormTest extends Component
         $this->testVar = $this->variables_json['Velocity'];
 
         $unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
-            return [$item->get('id') => $item];
+            return [$item->get(['id']) => $item];
         });
 
         $this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
