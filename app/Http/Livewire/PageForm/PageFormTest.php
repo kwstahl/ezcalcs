@@ -151,7 +151,7 @@ class PageFormTest extends Component
 
     public function call_variables()
     {
-        dd($this->ut1);
+        dd($this->testUnit);
     }
 
     public function render()
