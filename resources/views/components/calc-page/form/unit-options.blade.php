@@ -14,8 +14,8 @@
 
     <select id = "{{ $name }}">
         @foreach ($optionsArray as $option => $value)
-            <option value={{ getOption($option)->conversion_to_base }}>
-                {{ getOption($option)->symbol }}
+            <option value={{ $getOption($option)->conversion_to_base }}>
+                {{ $getOption($option)->symbol }}
             </option>
         @endforeach
     </select>
