@@ -27,18 +27,19 @@ class SuperOptions extends Component
             return [$item[$indexName] => $item];
         });
 
-        $this->optionsArray = $keyed;
+        $this->optionsArray = $keyed->toArray();
     }
 
     public function setSelectedOptionAsFirst()
     {
-        $optionsArray = collect($this->optionsArray);
-        $this->selectedOption = $optionsArray->first();
+        $optionsArray = $this->optionsArray;
+        $this->selectedOption = $optionsArray[0];
     }
 
+    //Gets option by key, returns object in optionsArray
     public function getOption($optionId)
     {
-        $optionsArray = collect($this->optionsArray);
+        $optionsArray = $this->optionsArray;
 
         if (!array_key_exists($optionId, $optionsArray)) {
             return 'Does not exist';
