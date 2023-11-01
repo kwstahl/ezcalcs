@@ -19,7 +19,9 @@
             </option>
         @endforeach
 
-        {{$days}}
+        @php
+            echo $this->days;
+        @endphp
     </select>
 
 </div>
