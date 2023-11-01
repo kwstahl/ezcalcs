@@ -4,6 +4,7 @@
         {{ $option }}
     @endforeach
 
+    {{$this->dump($optionsArray)}}
     <div>
         <h2>
             {{ $baseOption }}
