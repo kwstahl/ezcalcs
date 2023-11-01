@@ -36,7 +36,7 @@ class SuperOptions extends Component
         $this->selectedOption = $optionsArray->first();
     }
 
-    public function getOptions($optionId)
+    public function getOption($optionId)
     {
         $optionsArray = $this->optionsArray;
         if (

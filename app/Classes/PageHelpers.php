@@ -29,5 +29,4 @@ class PageHelpers
         return $this->attribute_validations[$prefix.$attribute];
     }*/
 
-    public static function 
 }
