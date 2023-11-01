@@ -51,7 +51,7 @@ class PageFormTest extends Component
 
         $this->testUnit = $unitTest;
 
-        dd($this->testUnit);
+        dd($this->testUnit->days);
     }
 
     protected $messages = [
