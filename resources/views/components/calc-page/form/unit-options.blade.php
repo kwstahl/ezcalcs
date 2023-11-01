@@ -19,7 +19,7 @@
             </option>
         @endforeach
 
-        {{$this->days}}
+        {{$days}}
     </select>
 
 </div>
