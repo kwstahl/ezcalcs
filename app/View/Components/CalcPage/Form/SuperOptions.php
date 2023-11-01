@@ -39,10 +39,8 @@ class SuperOptions extends Component
     public function getOption($optionId)
     {
         $optionsArray = $this->optionsArray;
-        
-        if (
-            !$optionsArray->has([$optionId])
-        ) {
+
+        if (!array_key_exists($optionId, $optionsArray)) {
             return 'Does not exist';
         }
 
