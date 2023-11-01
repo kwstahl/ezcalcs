@@ -7,7 +7,7 @@
     <div>
         <h2>
             {{ $baseOption }}
-            {{ $getOptions('days') }}
+
         </h2>
     </div>
 
