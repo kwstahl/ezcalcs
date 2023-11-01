@@ -20,7 +20,7 @@
         @endforeach
 
         @php
-            echo $this->name;
+            echo $name;
         @endphp
     </select>
 
