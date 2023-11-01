@@ -20,7 +20,7 @@
         @endforeach
 
         @php
-            echo $this->days;
+            echo $this->name;
         @endphp
     </select>
 
