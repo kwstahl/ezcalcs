@@ -47,7 +47,7 @@ class PageFormTest extends Component
             return [$item->get('id') => $item];
         });
 
-        $this->ut1 = $this->units->where('unit_class', 'time')->get('id');
+        $this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
 
         $this->testUnit = $unitTest;
     }
