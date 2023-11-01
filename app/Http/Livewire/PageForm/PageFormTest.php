@@ -45,13 +45,13 @@ class PageFormTest extends Component
 
         $unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
             return [$item['id'] => $item];
-        });
+        })->all();
 
         //$this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
 
         $this->testUnit = $unitTest;
 
-        dump($unitTest);
+        dump($this->units);
     }
 
     protected $messages = [
