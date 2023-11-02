@@ -46,14 +46,14 @@ class PageFormTest extends Component
 
         $unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
         $unitTest->where('unit_class', 'time')->all();
-        dd($unitTest->toArray());
+   
         //$unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
         //    return [$item->id => $item];
         //})->all();
 
         //$this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
 
-        $this->testUnit = $unitTest;
+        $this->testUnit = $unitTest->toArray();
 
         dd($this->testUnit);
     }
