@@ -18,18 +18,17 @@
                 {{ $getOption($option)->symbol }}
             </option>
         @endforeach
+    </select>
 </div>
-</select>
 
 
 <div class="btn-group">
     <button class="btn bg-white" type="button">
-            hallo
+        hallo
 
     </button>
 
-    <button class="btn dropdown-toggle dropdown-toggle-split bg-white" data-bs-toggle="dropdown"
-        type="button">
+    <button class="btn dropdown-toggle dropdown-toggle-split bg-white" data-bs-toggle="dropdown" type="button">
 
     </button>
 
@@ -42,5 +41,4 @@
             </li>
         @endforeach
     </ul>
-</div>
 </div>
