@@ -64,23 +64,6 @@
 
     @push('scripts')
         <script>
-            var selectElements = document.querySelectorAll('.form-select');
-
-            selectElements.forEach(function(selectElement) {
-                selectElement.addEventListener('change', function(event) {
-
-                    //Get the index of the selected option, and retrieve its innerHTML.
-                    var selectId = event.target.id;
-                    var selectedIndex = event.target.selectedIndex;
-                    var selectedOption = event.target.options[selectedIndex];
-                    var selectedText = selectedOption.innerHTML;
-                    var variableToSolveFor = @this.variableToSolveFor;
-
-
-                    if (variableToSolveFor == selectId)
-                        Livewire.emit('testAdd', selectedText);
-                });
-            });
         </script>
     @endpush
     <x-calc-page.form.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
