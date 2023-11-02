@@ -53,7 +53,7 @@ class PageFormTest extends Component
 
         //$this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
 
-        $this->testUnit = $unitTest->toArray();
+        $this->testUnit = $unitTest;
     }
 
     protected $messages = [
