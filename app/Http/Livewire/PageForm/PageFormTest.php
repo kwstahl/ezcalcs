@@ -9,6 +9,7 @@ use App\Classes\UnitHelpers;
 use App\Classes\EqValidations;
 use App\Classes\UnitOptions;
 use Illuminate\Support\Facades\Process;
+use App\Classes\PageHelpers;
 
 class PageFormTest extends Component
 {
@@ -43,9 +44,11 @@ class PageFormTest extends Component
         $this->message = 'velocity';
         $this->testVar = $this->variables_json['Velocity'];
 
-        $unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
-            return [$item->id => $item];
-        })->all();
+        $unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
+        $unitTest->where('unit_class', 'time')->all();
+        //$unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
+        //    return [$item->id => $item];
+        //})->all();
 
         //$this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
 

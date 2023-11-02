@@ -5,6 +5,7 @@ namespace App\Classes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class PageHelpers
 {
@@ -28,5 +29,17 @@ class PageHelpers
         $this->attribute_validations[$prefix.$attribute] = $newRule;
         return $this->attribute_validations[$prefix.$attribute];
     }*/
+
+
+    //Pass in a collection of models and the attribute from which the key is on. Returns the collection of models keyed
+    //by the attribute value.
+    public static function setIdsOnCollectionOfModels($modelCollection, $attributeNameForKey)
+    {
+        $keyedCollection = $modelCollection->mapWithKeys(function($item, $key) use ($attributeNameForKey){
+            return [$item->$attributeNameForKey => $item];
+        })->all();
+
+        return $keyedCollection;
+    }
 
 }

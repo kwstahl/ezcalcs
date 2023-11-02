@@ -18,11 +18,6 @@
                 {{ $getOption($option)->symbol }}
             </option>
         @endforeach
-        <div>
-            hi
-        @php
-            echo $name;
-        @endphp
         </div>
     </select>
 
