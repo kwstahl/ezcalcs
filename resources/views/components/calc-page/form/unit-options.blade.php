@@ -21,16 +21,12 @@
     </select>
 </div>
 
-<div class="col-4 dropdown d-grid">
-    <div class="btn-group">
-        <button class="btn bg-white" type="button">
+<div class="col-4 dropdown">
+        <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
             hallo
         </button>
 
-        <button class="btn dropdown-toggle dropdown-toggle-split bg-white" data-bs-toggle="dropdown" type="button">
-        </button>
-
-        <ul class="dropdown-menu dropdown">
+        <ul class="dropdown-menu">
             @foreach ($optionsArray as $option => $value)
                 <li>
                     <button class="dropdown-item" type="button">
@@ -39,5 +35,4 @@
                 </li>
             @endforeach
         </ul>
-    </div>
 </div>
