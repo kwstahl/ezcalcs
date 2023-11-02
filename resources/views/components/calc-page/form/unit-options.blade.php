@@ -30,7 +30,7 @@
         <button class="btn dropdown-toggle dropdown-toggle-split bg-white" data-bs-toggle="dropdown" type="button">
         </button>
 
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu dropdown">
             @foreach ($optionsArray as $option => $value)
                 <li>
                     <button class="dropdown-item" type="button">
