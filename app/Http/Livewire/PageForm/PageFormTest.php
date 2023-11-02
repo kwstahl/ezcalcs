@@ -45,7 +45,7 @@ class PageFormTest extends Component
         $this->testVar = $this->variables_json['Velocity'];
 
         $unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
-        $unitTest->where('unit_class', 'time')->all();
+        $unitTest->where('unit_class', 'time')->all()->toArray();
         //$unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
         //    return [$item->id => $item];
         //})->all();
