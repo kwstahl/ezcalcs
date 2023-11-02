@@ -39,7 +39,7 @@ class PageHelpers
             return [$item->$attributeNameForKey => $item];
         })->all();
 
-        return $keyedCollection;
+        return collect($keyedCollection);
     }
 
 }
