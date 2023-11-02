@@ -22,13 +22,6 @@ class UnitOptions extends SuperOptions
         $this->baseOption = $baseOption;
     }
 
-    public function __get($optionId){
-        $optionsArray = $this->optionsArray;
-        if (!array_key_exists($optionId, $optionsArray)) {
-            return 'Does not exist';
-        }
-        return $optionsArray[$optionId];
-    }
     /**
      * Get the view / contents that represent the component.
      */
