@@ -7,9 +7,9 @@
     <ul class="dropdown-menu">
         @foreach ($optionsArray as $option => $value)
             <li>
-                <a class="dropdown-item" href="#">
+                <button class="dropdown-item" href="#">
                     {{ $getOption($option)->symbol }}
-                </a>
+                </button>
             </li>
         @endforeach
     </ul>
