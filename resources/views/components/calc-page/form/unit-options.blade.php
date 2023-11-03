@@ -10,7 +10,7 @@
     <ul class="dropdown-menu">
         @foreach ($optionsArray as $option => $value)
             <li>
-                <button class="dropdown-item" onclick="hello()">
+                <button class="dropdown-item" onclick="hello($getOption($option)->id)">
                     {{ $getOption($option)->symbol }}
                 </button>
             </li>
