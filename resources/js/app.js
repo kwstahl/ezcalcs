@@ -2,7 +2,7 @@ import './bootstrap';
 $(document).ready(
 
     function(){
-    $("li").click(function(){
+    $("div").click(function(){
       $(this).hide();
     });
   });
