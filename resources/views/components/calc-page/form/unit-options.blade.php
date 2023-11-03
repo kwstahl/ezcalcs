@@ -12,6 +12,7 @@ scoop
 </div>
 
 <div id="days">
+    ham
 </div>
 
     <ul class="dropdown-menu">
