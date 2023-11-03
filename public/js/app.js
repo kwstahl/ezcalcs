@@ -1,4 +1,3 @@
-function hello(message){
-    console.log(message);
-    document.getElementById(message).innerHTML = "suh";
+function setDropdownSelection(symbol){
+    document.getElementById("dropdown-container").innerHTML = "suh";
 }

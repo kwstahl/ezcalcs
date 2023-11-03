@@ -15,10 +15,10 @@ scoop
     ham
 </div>
 
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" id="dropdown-container">
         @foreach ($optionsArray as $option => $value)
             <li>
-                <button class="dropdown-item" onclick="hello('{{$getOption($option)->symbol}}')">
+                <button class="dropdown-item" onclick="setDropdownSelection('{{$getOption($option)->symbol}}')">
                     {{ $getOption($option)->symbol }}
                 </button>
             </li>
