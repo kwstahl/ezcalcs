@@ -10,6 +10,9 @@
 <div id="test">
 scoop
 </div>
+
+<div id="days">
+</div>
     <ul class="dropdown-menu">
         @foreach ($optionsArray as $option => $value)
             <li>
