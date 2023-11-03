@@ -1,4 +1,4 @@
 function hello(message){
     console.log(message);
-    document.getElementById("test").innerHtml = 'hello';
+    document.getElementById(message).innerHtml = 'hello';
 }
