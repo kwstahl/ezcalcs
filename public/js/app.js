@@ -1,3 +1,3 @@
 function hello(message){
-    document.getElementById("test").innerHtml = message;
+    document.getElementById(message).innerHtml = message;
 }
