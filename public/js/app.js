@@ -1,8 +1,7 @@
 $(document).ready(
-    function hello(){
-    $("div").click(function(){
-      $(this).hide();
-      console.log('hello')
+    function hello() {
+        console.log('hello');
     });
-  });
+
+
 
