@@ -45,9 +45,6 @@
             @endswitch
         @endforeach
 
-        @error('variables..Value')
-            <div>Whooooo</div>
-        @enderror
 
         @if ($errors->any())
             <div class="alert alert-danger">
