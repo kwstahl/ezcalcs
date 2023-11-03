@@ -7,6 +7,9 @@
         @endisset
     </button>
 
+<div id="test">
+
+</div>
     <ul class="dropdown-menu">
         @foreach ($optionsArray as $option => $value)
             <li>
