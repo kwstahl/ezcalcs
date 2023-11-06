@@ -8,6 +8,7 @@
         @foreach ($optionsArray as $option => $value)
             <li>
                 <button wire:click="changeSelectedOption('days')" class="dropdown-item">
+                    {{ dump($this->option) }}
                     {{ $this->$option->symbol }}
                     {{ $this->$option->id }}
                 </button>
