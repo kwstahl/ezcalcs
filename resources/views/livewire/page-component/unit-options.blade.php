@@ -9,7 +9,7 @@
     <ul class="dropdown-menu" id="dropdown-container">
         @foreach ($optionsArray as $option => $value)
             <li>
-                <button class="dropdown-item" wire:click="$set('selectedOption', '{{$this->getOption($option->symbol)}}')"">
+                <button class="dropdown-item" wire:click="$set('selectedOption', '{{$this->getOption($option)->symbol}}')"">
                     {{ $this->getOption($option)->symbol }}
                 </button>
             </li>
