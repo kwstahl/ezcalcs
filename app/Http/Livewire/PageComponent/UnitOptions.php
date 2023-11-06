@@ -28,7 +28,7 @@ class UnitOptions extends SuperOptions
     {
         dump($optionId);
         $this->selectedOption = 'hi';
-        $this->render();
+        return view('livewire.page-component.unit-options');
     }
 
     /**
