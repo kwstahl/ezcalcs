@@ -41,7 +41,7 @@ class SuperOptions extends Component
     }
 
     public function setSelectedOptionById($optionId){
-        $option = $this->getOption($optionId);
+        $option = $this->getOptionObjectFromOptionsArray($optionId);
         $this->selectedOption = $option;
         return $option;
     }
@@ -49,7 +49,7 @@ class SuperOptions extends Component
 
 
     //Gets option by key, returns object in optionsArray
-    public function getOption($optionId)
+    public function getOptionObjectFromOptionsArray($optionId)
     {
         $optionsArray = $this->optionsArray;
 

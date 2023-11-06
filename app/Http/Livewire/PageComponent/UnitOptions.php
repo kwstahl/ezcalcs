@@ -17,9 +17,12 @@ class UnitOptions extends SuperOptions
     public function mount() {
     }
 
-    public function __get($name){
-        return $this->getOption($name);
+    //returns the option object from the optionsArray
+    public function __get($optionId)
+    {
+        return $this->getOptionObjectFromOptionsArray($optionId);
     }
+
 
     /**
      * Get the view / contents that represent the component.

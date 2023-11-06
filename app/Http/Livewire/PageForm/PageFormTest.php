@@ -152,12 +152,6 @@ class PageFormTest extends Component
         $this->answer = Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
     }
-
-    public function call_variables()
-    {
-        dump($this->units);
-    }
-
     public function render()
     {
         return view('livewire.page-form.page-form-test');
