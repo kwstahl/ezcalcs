@@ -66,7 +66,6 @@
         <script>
         </script>
     @endpush
-    <x-calc-page.form.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
 
     <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" />
 
