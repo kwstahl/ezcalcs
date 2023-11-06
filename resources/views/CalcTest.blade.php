@@ -12,8 +12,6 @@
 
 <body>
     <!-- Top Bar -->
-    @livewire('top-bar')
-
     <livewire:page-form.page-form-test :variables_json="$variables_json" :formula_sympy="$formula_sympy" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
