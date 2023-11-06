@@ -9,7 +9,7 @@
     <ul class="dropdown-menu" id="dropdown-container">
         @foreach ($optionsArray as $option => $value)
             <li>
-                <button class="dropdown-item" wire:click="$emitSelf('ugh')">
+                <button class="dropdown-item" wire:click="$emitSelf('ugh')" :wire:key="{{ $option->id }}">
                     {{ $this->$option->symbol }}
                 </button>
             </li>
