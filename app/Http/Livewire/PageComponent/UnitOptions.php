@@ -34,8 +34,8 @@ class UnitOptions extends SuperOptions
         $this->render();
     }
 
-    public function ugh(){
-        dd('ugh');
+    public function ugh($optionId){
+        dd($optionId);
     }
 
     /**
