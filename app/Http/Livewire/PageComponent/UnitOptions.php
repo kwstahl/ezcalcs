@@ -17,7 +17,9 @@ class UnitOptions extends SuperOptions
     public function mount() {
     }
 
-
+    public function __get($name){
+        return 'yest ' .$name;
+    }
 
     /**
      * Get the view / contents that represent the component.
