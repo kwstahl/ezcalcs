@@ -51,7 +51,7 @@
         </script>
     @endpush
 
-    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" />
+    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" :wire:key="'custom-modal-'.time()"/>
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
