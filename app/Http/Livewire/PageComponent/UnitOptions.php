@@ -29,6 +29,10 @@ class UnitOptions extends SuperOptions
         $this->render();
     }
 
+    public function ugh(){
+        dd('ugh');
+    }
+
     /**
      * Get the view / contents that represent the component.
      */
