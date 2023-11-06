@@ -10,7 +10,7 @@
         @foreach ($optionsArray as $option => $value)
             <li>
                 <button class="dropdown-item">
-                    {{ $this->getOption($option)->symbol }}
+                    {{ $this->symbol }}
                     {{ $this->ham }}
                 </button>
             </li>

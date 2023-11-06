@@ -18,7 +18,7 @@ class UnitOptions extends SuperOptions
     }
 
     public function __get($name){
-        return 'yest ' .$name;
+        return $this->getOption($name);
     }
 
     /**
