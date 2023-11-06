@@ -6,18 +6,10 @@
         @endisset
     </button>
 
-<div id="test">
-scoop
-</div>
-
-<div id="days">
-    ham
-</div>
-
     <ul class="dropdown-menu" id="dropdown-container">
         @foreach ($optionsArray as $option => $value)
             <li>
-                <button class="dropdown-item">
+                <button class="dropdown-item" wire:click="$set('selectedOption', '{{$getOption($option->symbol)}}')"">
                     {{ $this->getOption($option)->symbol }}
                 </button>
             </li>
