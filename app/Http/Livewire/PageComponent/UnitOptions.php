@@ -28,6 +28,7 @@ class UnitOptions extends SuperOptions
     {
         dump($optionId);
         dd($this->selectedOption);
+        $this->selectedOption = 'hi';
         $this->selectedOption = $optionId;
         dump($optionId);
     }
