@@ -30,7 +30,7 @@ class UnitOptions extends SuperOptions
     public function changeSelectedOption($optionId)
     {
         $this->selectedOption = $optionId;
-        $this->render();
+        dump($this->selectedOption);
     }
 
     public function ugh($optionId){
