@@ -6,25 +6,23 @@ use Livewire\Component;
 
 class UnitOptions extends SuperOptions
 {
+
+    public $name;
+    public $optionsArray;
+    public $baseOption;
+
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public string $name,
-        public $optionsArray,
-        public $baseOption,
-    ) {
-        $this->name = $name;
-        $this->optionsArray = $optionsArray;
-        $this->baseOption = $baseOption;
+    public function mount() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render()
     {
-        return view('components.calc-page.form.unit-options');
+        return view('livewire.page-component.unit-options');
     }
 }
 
