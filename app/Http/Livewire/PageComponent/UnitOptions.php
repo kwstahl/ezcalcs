@@ -11,9 +11,6 @@ class UnitOptions extends SuperOptions
     public $optionsArray;
     public $baseOption;
 
-    protected $listeners = [
-        'ugh'
-    ];
 
     /**
      * Create a new component instance.
@@ -30,11 +27,7 @@ class UnitOptions extends SuperOptions
     public function changeSelectedOption($optionId)
     {
         $this->selectedOption = $optionId;
-        dump($this->selectedOption);
-    }
-
-    public function ugh($optionId){
-        dd($optionId);
+        dump($optionId);
     }
 
     /**
