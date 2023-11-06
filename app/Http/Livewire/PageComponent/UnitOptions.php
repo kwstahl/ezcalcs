@@ -11,6 +11,10 @@ class UnitOptions extends SuperOptions
     public $optionsArray;
     public $baseOption;
 
+    protected $listeners = [
+        'ugh'
+    ];
+
     /**
      * Create a new component instance.
      */
