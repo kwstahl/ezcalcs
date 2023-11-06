@@ -29,6 +29,7 @@ class UnitOptions extends SuperOptions
 
     public function setSelectedOption($optionId)
     {
+        dd($optionId);
         $this->selectedOption = $this->getOptionObjectFromOptionsArray($optionId);
         $this->render();
     }
