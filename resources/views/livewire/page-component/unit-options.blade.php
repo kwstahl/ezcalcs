@@ -2,7 +2,7 @@
     <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
         hallo
         @isset($selectedOption)
-            {{ $selectedOption->symbol }}
+            {{ $this->selectedOption->symbol }}
         @endisset
     </button>
 
