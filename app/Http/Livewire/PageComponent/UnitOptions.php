@@ -26,7 +26,6 @@ class UnitOptions extends SuperOptions
 
     public function changeSelectedOption($optionId)
     {
-        dump($optionId);
         $this->selectedOption = 'hi';
     }
 
