@@ -23,6 +23,10 @@ class UnitOptions extends SuperOptions
         return $this->getOptionObjectFromOptionsArray($optionId);
     }
 
+    public function setSelectedOption($optionId)
+    {
+        $this->selectedOption = $this->getOptionObjectFromOptionsArray($optionId);
+    }
 
     /**
      * Get the view / contents that represent the component.
