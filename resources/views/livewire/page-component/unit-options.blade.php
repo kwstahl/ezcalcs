@@ -18,7 +18,7 @@ scoop
         @foreach ($optionsArray as $option => $value)
             <li>
                 <button class="dropdown-item">
-                    {{ $getOption($option)->symbol }}
+                    {{ $this->getOption($option)->symbol }}
                 </button>
             </li>
         @endforeach
