@@ -18,20 +18,6 @@
                     </div>
                 </div>
 
-
-                <!-- Dropdown list -->
-                <div class="col-4 form-floating">
-                    <x-calc-page.test bind={{variableInputData.{{ $variableName }}.unit_conversion}} :$variableName>
-                        <!-- Options -->
-                        @foreach ($unitOptions[$variableName] as $unitIndex => $unit)
-                            <option value="{{ $unit['conversion_to_base'] }}">
-                                <div>
-                                    {{ $unit['symbol'] }}
-                                </div>
-                            </option>
-                        @endforeach
-                    </x-calc-page.test>
-                </div>
             </div>
             <hr>
         @endforeach
@@ -60,8 +46,6 @@
         </div>
     </form>
 
-    <x-calc-page.form.variable :name="$message" :attributes-array="$testVar"/>
-
     @push('scripts')
         <script>
         </script>
@@ -72,8 +56,4 @@
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
     </h1>
-
-    <div> {{ $this->call_variables() }}</div>
-
-
 </div>
