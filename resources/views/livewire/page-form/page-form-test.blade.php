@@ -51,6 +51,9 @@
         </script>
     @endpush
 
+    {{ dump($this->testUnit) }}
+
+
     <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
