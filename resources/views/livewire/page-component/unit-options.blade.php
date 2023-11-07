@@ -1,7 +1,9 @@
 <div class="col-4 dropdown">
     <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
         hallo
-        {{ $selectedOption['id'] }}
+        @isset($selectedOption)
+            {{ $selectedOption['id'] }}
+        @endisset
     </button>
 
     <ul class="dropdown-menu" id="dropdown-container">
