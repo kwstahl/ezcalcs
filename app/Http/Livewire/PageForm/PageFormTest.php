@@ -33,6 +33,8 @@ class PageFormTest extends Component
         $this->units = Unit::all();
         $this->unitOptions = collect();
 
+        
+
         $this->variables_json = collect($this->variables_json);
         $this->variableInputData = collect();
         $this->variableToSolveFor = $this->variables_json->keys()->first();
