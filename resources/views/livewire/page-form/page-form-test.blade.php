@@ -51,7 +51,7 @@
         </script>
     @endpush
 
-    {{ $this->dump($testUnit) }}
+    {{ dump($testUnit) }}
 
 
     <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
