@@ -26,6 +26,7 @@ class PageFormTest extends Component
     public $message;
     public $testUnit;
     public $ut1;
+    public $unitTest;
 
     public function mount()
     {
@@ -44,7 +45,7 @@ class PageFormTest extends Component
         $this->message = 'velocity';
         $this->testVar = $this->variables_json['Velocity'];
 
-        $unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
+        $this->$unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
         $unitTest = $unitTest->where('unit_class', 'time')->all();
 
         //$unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
