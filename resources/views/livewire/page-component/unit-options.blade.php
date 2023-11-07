@@ -9,7 +9,7 @@
             <li>
                 <button class="dropdown-item">
                     {{ $this->$option['symbol'] }}
-                    {{ $this->$option->id }}
+                    {{ $this->$option['id'] }}
                 </button>
             </li>
         @endforeach
