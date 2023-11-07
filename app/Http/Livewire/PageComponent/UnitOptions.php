@@ -11,7 +11,6 @@ class UnitOptions extends SuperOptions
     public $optionsArray;
     public $baseOption;
 
-
     /**
      * Create a new component instance.
      */
@@ -28,7 +27,6 @@ class UnitOptions extends SuperOptions
     {
         $optionObject = $this->getOptionObjectFromOptionsArray($optionId);
         $this->selectedOption = $optionObject;
-        
     }
 
     /**
