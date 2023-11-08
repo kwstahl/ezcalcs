@@ -13,7 +13,8 @@
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <x-calc-page.form.variable :name="$variableName" :attributes-array="$variable"/>
+
+                            <livewire:page-component.variables :name="$variableName" :attributes-array="$variable"/>
                         </div>
                     </div>
                 </div>
