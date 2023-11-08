@@ -22,6 +22,12 @@ class Variables extends SuperVariables
 
     public $attributesArray;
 
+    public function __get($attribute)
+    {
+        $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
+        return $attributeValue;
+    }
+
     public function mount()
     {
 
