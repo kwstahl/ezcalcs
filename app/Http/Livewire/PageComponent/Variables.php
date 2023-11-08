@@ -14,16 +14,17 @@ class Variables extends SuperVariables
 {
     public $name;
     public $attributesArray;
+    public $inputValue;
+
+    public function mount()
+    {
+        $this->inputValue = null;
+    }
 
     public function __get($attribute)
     {
         $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
         return $attributeValue;
-    }
-
-    public function mount()
-    {
-
     }
 
     public function render()
