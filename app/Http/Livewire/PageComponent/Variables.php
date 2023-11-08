@@ -13,7 +13,6 @@ use App\Classes\VariableHelper;
 class Variables extends SuperVariables
 {
     public $name;
-    public $unit;
     public $description;
     public $type;
     public $sympy_symbol;
