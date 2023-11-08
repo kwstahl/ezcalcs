@@ -13,12 +13,6 @@ use App\Classes\VariableHelper;
 class Variables extends SuperVariables
 {
     public $name;
-    public $description;
-    public $type;
-    public $sympy_symbol;
-    public $latex_symbol;
-    public $unit_class;
-
     public $attributesArray;
 
     public function __get($attribute)
