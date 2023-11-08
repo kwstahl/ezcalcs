@@ -1,4 +1,4 @@
 <div>
     hi
-    {{ $this->dump($attributesArray) }}
+    {{ dump($attributesArray) }}
 </div>
