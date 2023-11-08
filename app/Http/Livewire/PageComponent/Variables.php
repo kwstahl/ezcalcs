@@ -15,6 +15,7 @@ class Variables extends SuperVariables
     public $name;
     public $attributesArray;
     public $inputValue;
+    public $attributes;
 
     public function mount()
     {
