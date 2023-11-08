@@ -1,5 +1,5 @@
 <div>
     hi
-    {{ dump(collect($attributesArray)) }}
-    {{ $this->choochoo }}
+    {{ $this->unit }}
+    {{ $this->description }}
 </div>
