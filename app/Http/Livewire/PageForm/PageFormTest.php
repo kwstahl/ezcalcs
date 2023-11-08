@@ -27,13 +27,12 @@ class PageFormTest extends Component
     public $testUnit;
     public $ut1;
     public $unitTest;
+    public $cheese;
 
     public function mount()
     {
         $this->units = Unit::all();
         $this->unitOptions = collect();
-
-        
 
         $this->variables_json = collect($this->variables_json);
         $this->variableInputData = collect();
