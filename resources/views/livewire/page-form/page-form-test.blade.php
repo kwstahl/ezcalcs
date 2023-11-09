@@ -51,9 +51,7 @@
 
     @push('scripts')
         <script>
-            function test() {
-                return Livewire.all();
-            }
+
         </script>
     @endpush
 
