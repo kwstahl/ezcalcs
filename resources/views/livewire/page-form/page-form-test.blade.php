@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                <livewire:page-component.variables :name="$variableName" :attributes-array="$variable" :wire-model=""/>
+                <livewire:page-component.variables :name="$variableName" :attributes-array="$variable"/>
 
                 {{ $this->cheese }}
 
@@ -51,7 +51,6 @@
 
     @push('scripts')
         <script>
-
         </script>
     @endpush
 
