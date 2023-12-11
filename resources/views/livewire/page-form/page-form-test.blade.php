@@ -72,6 +72,6 @@
 
 <script>
     window.addEventListener('radioSelected', event => {
-        alert('Name updated to: ' + event.detail.name);
+        alert('Name updated to: ' + event.detail.thing);
     })
 </script>
