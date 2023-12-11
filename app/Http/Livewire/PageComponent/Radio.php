@@ -8,6 +8,8 @@ class Radio extends SuperVariables
 {
     public $attributesArray;
     public $name;
+
+
     public function mount()
     {
         $this->name = $this->sympy_symbol;
@@ -23,5 +25,9 @@ class Radio extends SuperVariables
     {
         $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
         return $attributeValue;
+    }
+
+    public function radioSelected(){
+        $this->emit("radioSelected", $this->sympy_symbol);
     }
 }
