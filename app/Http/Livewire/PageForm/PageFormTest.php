@@ -46,7 +46,7 @@ class PageFormTest extends Component
         $this->setUnitOptionsForEachVariable();
         $this->message = 'velocity';
         $this->testVar = $this->variables_json['Velocity'];
-        $this->testVar2 = $this->variables_json['time'];
+        $this->testVar2 = $this->variables_json['Time'];
 
         $this->unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
         $unitTest = $this->unitTest->where('unit_class', 'time')->all();
