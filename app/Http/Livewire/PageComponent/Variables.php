@@ -16,11 +16,13 @@ class Variables extends SuperVariables
     public $attributesArray;
     public $inputValue;
     public $attributes;
+    public $disabled;
 
     public function mount()
     {
         $this->inputValue = null;
         $this->name = $this->sympy_symbol;
+        $this->disabled = null;
     }
 
     public function __get($attribute)
@@ -31,6 +33,7 @@ class Variables extends SuperVariables
 
     public function isSelected(){
         unset($this->inputValue);
+        $this->disabled = "disabled";
     }
 
     public function render()
