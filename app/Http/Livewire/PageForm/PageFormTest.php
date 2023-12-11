@@ -68,7 +68,7 @@ class PageFormTest extends Component
     ];
 
     protected $listeners = [
-        'radioSelected' => 'doAction',
+        'radioSelect' => 'doAction',
     ];
 
     public function doAction($sympy_symbol){
