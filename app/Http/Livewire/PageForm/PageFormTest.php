@@ -70,8 +70,8 @@ class PageFormTest extends Component
         'radioSelected' => 'doAction',
     ];
 
-    public function doAction(){
-        $this->dispatchBrowserEvent('test', ['radioSelected' => $name]);
+    public function doAction($thing){
+        $this->dispatchBrowserEvent('test', ['radioSelected' => $thing]);
     }
 
     public function unitSelected($unitIndex, $variableName)
