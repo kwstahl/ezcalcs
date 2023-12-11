@@ -1,5 +1,5 @@
 <div class="input-group">
-    <input class="form-check-input mt-0" type="radio" name="solveFor" value="$name">
+    <input class="form-check-input mt-0" type="radio" name="solveFor" value="{{$name}}">
 </div>
 
 
