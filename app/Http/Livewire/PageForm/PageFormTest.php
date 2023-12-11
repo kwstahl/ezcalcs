@@ -71,9 +71,9 @@ class PageFormTest extends Component
         'radioSelected' => 'doAction',
     ];
 
-    public function doAction($thing){
+    public function doAction($sympy_symbol){
         $this->testAhh = $thing;
-        dump($thing->name);
+        dump($sympy_symbol);
     }
 
     public function unitSelected($unitIndex, $variableName)
