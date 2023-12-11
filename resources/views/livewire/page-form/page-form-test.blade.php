@@ -70,8 +70,6 @@
 
     <div>
 
-        test ahhh
-        {{ $this->testAhh }}
     </div>
 
 </div>
