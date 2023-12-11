@@ -73,7 +73,7 @@ class PageFormTest extends Component
 
     public function doAction($thing){
         $this->testAhh = $thing;
-        dump($thing);
+        dump($thing->name);
     }
 
     public function unitSelected($unitIndex, $variableName)
