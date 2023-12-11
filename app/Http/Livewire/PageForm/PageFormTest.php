@@ -29,6 +29,7 @@ class PageFormTest extends Component
     public $ut1;
     public $unitTest;
     public $cheese;
+    public $testAhh;
 
     public function mount()
     {
@@ -71,7 +72,7 @@ class PageFormTest extends Component
     ];
 
     public function doAction($thing){
-        $this->dispatchBrowserEvent('test', ['radioSelected' => $thing]);
+        $this->testAhh = $thing;
     }
 
     public function unitSelected($unitIndex, $variableName)

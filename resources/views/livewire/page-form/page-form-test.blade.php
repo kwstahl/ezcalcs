@@ -67,11 +67,7 @@
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
     </h1>
+
+    {{ $testAhh; }}
 </div>
 
-
-<script>
-    window.addEventListener('radioSelected', event => {
-        alert('Name updated to: ' + event.detail.thing);
-    })
-</script>
