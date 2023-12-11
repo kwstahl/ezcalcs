@@ -30,6 +30,6 @@ class Variables extends SuperVariables
 
     public function render()
     {
-        return view('livewire.page-component.variables', $this->attributes);
+        return view('livewire.page-component.variables');
     }
 }
