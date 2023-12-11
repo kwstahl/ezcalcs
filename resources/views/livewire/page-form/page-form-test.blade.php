@@ -68,6 +68,11 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 
-    {{ $testAhh; }}
+    <div>
+
+        test ahhh
+        {{ $testAhh; }}
+    </div>
+
 </div>
 
