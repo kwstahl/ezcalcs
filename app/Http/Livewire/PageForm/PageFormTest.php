@@ -66,7 +66,13 @@ class PageFormTest extends Component
         'variableInputData.*.Value.required' => 'Please enter a value for :attribute.'
     ];
 
+    protected $listeners = [
+        'radioSelected' => 'doAction',
+    ];
 
+    public function doAction(){
+        $this->dispatchBrowserEvent('test', ['radioSelected' => $name]);
+    }
 
     public function unitSelected($unitIndex, $variableName)
     {

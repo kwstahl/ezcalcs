@@ -8,16 +8,16 @@
 
                         <!--  Radio  -->
                         <div class="input-group-text">
-                            <x-calc-page.radio :$variableName :$variableToSolveFor/>
+                            <x-calc-page.radio :$variableName :$variableToSolveFor />
                         </div>
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <livewire:page-component.variables :name="$variableName" :attributes-array="$variable"/>
+                            <livewire:page-component.variables :name="$variableName" :attributes-array="$variable" />
                         </div>
                     </div>
                 </div>
-                <livewire:page-component.variables :name="$variableName" :attributes-array="$variable"/>
+                <livewire:page-component.variables :name="$variableName" :attributes-array="$variable" />
 
                 {{ $this->cheese }}
 
@@ -50,18 +50,17 @@
     </form>
 
     @push('scripts')
-        <script>
-        </script>
+        <script></script>
     @endpush
 
 
-    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
-    <livewire:page-component.variables :attributes-array="$testVar"/>
+    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" />
+    <livewire:page-component.variables :attributes-array="$testVar" />
     <livewire:page-component.radio :attributes-array="$testVar" />
 
-    
-    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
-    <livewire:page-component.variables :attributes-array="$testVar2"/>
+
+    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" />
+    <livewire:page-component.variables :attributes-array="$testVar2" />
     <livewire:page-component.radio :attributes-array="$testVar2" />
 
 
@@ -69,3 +68,10 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 </div>
+
+
+<script>
+    window.addEventListener('radioSelected', event => {
+        alert('Name updated to: ' + event.detail.name);
+    })
+</script>
