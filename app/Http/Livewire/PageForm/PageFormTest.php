@@ -72,7 +72,6 @@ class PageFormTest extends Component
     ];
 
     public function doAction($sympy_symbol){
-        $this->testAhh = $thing;
         dump($sympy_symbol);
     }
 
