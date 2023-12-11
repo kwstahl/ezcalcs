@@ -59,7 +59,9 @@
     <livewire:page-component.variables :attributes-array="$testVar"/>
     <livewire:page-component.radio :attributes-array="$testVar" />
 
-        {{dump(json_encode($testVar));}}
+    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
+    <livewire:page-component.variables :attributes-array="$testVar2"/>
+    <livewire:page-component.radio :attributes-array="$testVar2" />
 
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
