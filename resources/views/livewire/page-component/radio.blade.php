@@ -1,3 +1,3 @@
-<div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+<div class="input-group">
+    <input class="form-check-input mt-0" type="radio" name="solveFor" value="variableName">
 </div>
