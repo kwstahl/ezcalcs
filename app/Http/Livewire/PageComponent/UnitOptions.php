@@ -15,6 +15,7 @@ class UnitOptions extends SuperOptions
      * Create a new component instance.
      */
     public function mount() {
+
     }
 
     //returns the option object from the optionsArray

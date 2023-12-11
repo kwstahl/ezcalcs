@@ -29,6 +29,10 @@ class Variables extends SuperVariables
         return $attributeValue;
     }
 
+    public function isSelected(){
+        unset($this->inputValue);
+    }
+
     public function render()
     {
         return view('livewire.page-component.variables');
