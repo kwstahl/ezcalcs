@@ -59,7 +59,7 @@
     <livewire:page-component.variables :name="'test'" :attributes-array="$testVar"/>
     <livewire:page-component.radio />
 
-        {{$testVar;}}
+        {{dump($testVar);}}
 
 
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
