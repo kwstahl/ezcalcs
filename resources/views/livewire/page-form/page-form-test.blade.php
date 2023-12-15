@@ -55,7 +55,7 @@
 
 
     <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" />
-    <livewire:page-component.variables :attributes-array="$testVar" wire:key="$testVar[sympy_symbol]"/>
+    <livewire:page-component.variables :attributes-array="$testVar"/>
     <livewire:page-component.radio :attributes-array="$testVar" />
 
 
