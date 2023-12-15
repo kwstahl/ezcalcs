@@ -72,7 +72,6 @@ class PageFormTest extends Component
     ];
 
     public function setVariableToSolveFor($sympy_symbol){
-        dump($sympy_symbol);
         $this->variableToSolveFor = $sympy_symbol;
         $this->emit('disabled', $sympy_symbol);
     }
