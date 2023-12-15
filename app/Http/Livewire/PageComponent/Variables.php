@@ -22,7 +22,20 @@ class Variables extends SuperVariables
     {
         $this->inputValue = null;
         $this->name = $this->sympy_symbol;
-        $this->disabled = null;
+        $this->disabled = false;
+    }
+
+    protected $listeners = [
+        'disabled' => 'setDisabled',
+    ];
+
+    public function setDisabled($disabledName){
+        if($disabledName == $this->name){
+            $this->disabled = true;
+        } else {
+            $this->disabled = false;
+        }
+        $this->render();
     }
 
     public function __get($attribute)
