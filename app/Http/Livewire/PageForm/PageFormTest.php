@@ -72,7 +72,7 @@ class PageFormTest extends Component
     ];
 
     public function doAction($sympy_symbol){
-        dump($sympy_symbol);
+        dd($sympy_symbol);
     }
 
     public function unitSelected($unitIndex, $variableName)
