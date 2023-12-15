@@ -26,7 +26,7 @@ class Radio extends SuperVariables
         return $attributeValue;
     }
 
-    public function radioSelected(){
-        $this->emit("radioSelected", $this->sympy_symbol);
+    public function radioSelect(){
+        $this->emitUp("radioSelected", $this->sympy_symbol);
     }
 }
