@@ -15,7 +15,6 @@ class Radio extends SuperVariables
         $this->name = $this->sympy_symbol;
     }
 
-
     public function render()
     {
         return view('livewire.page-component.radio');
