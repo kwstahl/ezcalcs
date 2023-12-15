@@ -68,11 +68,11 @@ class PageFormTest extends Component
     ];
 
     protected $listeners = [
-        'radioSelect' => 'doAction',
+        'radioSelected' => 'setVariableToSolveFor',
     ];
 
-    public function doAction($sympy_symbol){
-        dd($sympy_symbol);
+    public function setVariableToSolveFor($sympy_symbol){
+        $this->variableToSolveFor = $sympy_symbol;
     }
 
     public function unitSelected($unitIndex, $variableName)
