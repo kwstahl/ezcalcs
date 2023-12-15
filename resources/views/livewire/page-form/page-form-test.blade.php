@@ -70,7 +70,6 @@
 
 </div>
     <div>
-        {{ dump(Livewire.all()) }}
     </div>
 
 </div>
