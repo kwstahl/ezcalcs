@@ -68,8 +68,9 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 
+</div>
     <div>
-
+        {{ dump(Livewire.all()) }}
     </div>
 
 </div>
