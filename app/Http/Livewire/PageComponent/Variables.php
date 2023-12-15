@@ -30,12 +30,13 @@ class Variables extends SuperVariables
     ];
 
     public function setDisabled($disabledName){
+        dd($disabledName);
+
         if($disabledName == $this->name){
             $this->disabled = true;
         } else {
             $this->disabled = false;
         }
-        dd($disabledName);
         $this->render();
     }
 
