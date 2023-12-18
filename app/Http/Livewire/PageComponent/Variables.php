@@ -30,7 +30,11 @@ class Variables extends SuperVariables
     ];
 
     public function disable($sympy_symbol){
-        dd('hello');
+        if ($sympy_symbol == $this->name){
+            $this->disabled = true;
+        } else {
+            $this->disabled = false;
+        }
     }
 
     public function __get($attribute)
