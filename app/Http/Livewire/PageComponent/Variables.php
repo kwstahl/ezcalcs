@@ -30,11 +30,17 @@ class Variables extends SuperVariables
     ];
 
     public function disable($sympy_symbol){
+
         if ($sympy_symbol == $this->name){
+            unset($this->inputValue);
             $this->disabled = true;
+
         } else {
             $this->disabled = false;
         }
+
+        dd($sympy_symbol);
+
         $this->render();
     }
 
@@ -42,11 +48,6 @@ class Variables extends SuperVariables
     {
         $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
         return $attributeValue;
-    }
-
-    public function isSelected(){
-        unset($this->inputValue);
-        $this->disabled = "disabled";
     }
 
     public function render()
