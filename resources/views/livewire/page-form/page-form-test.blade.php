@@ -43,14 +43,8 @@
             </div>
         </div>
     </form>
-
-    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
-    <livewire:page-component.variables :attributes-array="$testVar" wire:key="velocity"/>
     <livewire:page-component.radio :attributes-array="$testVar" />
 
-
-    <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message" />
-    <livewire:page-component.variables :attributes-array="$testVar2" wire:key="time" />
     <livewire:page-component.radio :attributes-array="$testVar2" />
 
 
@@ -59,8 +53,7 @@
     </h1>
 
 </div>
-    <div>
-    </div>
-
+<div>
 </div>
 
+</div>
