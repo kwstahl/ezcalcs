@@ -8,35 +8,12 @@
                         <!--  Radio  -->
                         <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" />
                         <!-- Input Text -->
-                            <livewire:page-component.variables :attributes-array="$variable" />
+                        <livewire:page-component.variables :attributes-array="$variable" />
                     </div>
                 </div>
             </div>
             <hr>
         @endforeach
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <div class="row justify-content-center gx-4">
-            <div class="col-auto">
-                <button class="btn btn-primary" type="submit">Solve for
-                    Variable</button>
-            </div>
-
-            <div class="col-5 bg-white shadow rounded overflow-hidden">
-                <div class="d-flex flex-row ">
-                    <h3>Answer: {{ $answer }}</h3>
-                </div>
-            </div>
-        </div>
     </form>
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
