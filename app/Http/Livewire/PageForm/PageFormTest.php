@@ -51,6 +51,7 @@ class PageFormTest extends Component
 
     public function setVariableToSolveFor($sympy_symbol){
         $this->variableToSolveFor = $sympy_symbol;
+        $this->render();
     }
 
     public function unitSelected($unitIndex, $variableName)
