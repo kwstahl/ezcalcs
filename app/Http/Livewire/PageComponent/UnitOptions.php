@@ -6,8 +6,6 @@ use Livewire\Component;
 
 class UnitOptions extends SuperOptions
 {
-
-    public $name;
     public $optionsArray;
     public $baseOption;
 

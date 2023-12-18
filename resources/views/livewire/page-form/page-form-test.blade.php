@@ -7,9 +7,8 @@
                     <div class="input-group">
 
                         <!--  Radio  -->
-                        <div class="input-group-text">
-                            <x-calc-page.radio :$variableName :$variableToSolveFor />
-                        </div>
+                        <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" />
+
 
                         <!-- Input Text -->
                         <div class="form-floating">
@@ -48,11 +47,6 @@
             </div>
         </div>
     </form>
-
-    @push('scripts')
-        <script></script>
-    @endpush
-
 
     <livewire:page-component.unit-options :name="$message" :options-array="$testUnit" :base-option="$message"/>
     <livewire:page-component.variables :attributes-array="$testVar" wire:key="velocity"/>
