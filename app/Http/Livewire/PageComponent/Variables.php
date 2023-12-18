@@ -29,7 +29,7 @@ class Variables extends SuperVariables
         'disabled' => 'setDisabled',
     ];
 
-    public function setDisabled(){
+    public function setDisabled($sympy_symbol){
         dd('hello');
     }
 
