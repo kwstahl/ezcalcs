@@ -15,8 +15,12 @@ class UnitOptions extends SuperOptions
      * Create a new component instance.
      */
     public function mount() {
-
+        $this->selectedOption = null;
     }
+
+    protected $rules = [
+        'selectedOption', 'required'
+    ];
 
     //returns the option object from the optionsArray
     public function __get($optionId)

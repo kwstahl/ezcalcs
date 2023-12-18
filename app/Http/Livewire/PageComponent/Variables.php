@@ -29,16 +29,21 @@ class Variables extends SuperVariables
         'radioSelected' => 'disable',
     ];
 
-    public function disable($sympy_symbol){
+    protected function rules() {
+        if ($this->disabled == false){
+            return [$this->inputValue, 'nullable'];
+        } else {
+            return [$this->inputValue, 'required|numeric'];
+        }
+    }
 
-        if ($sympy_symbol == $this->name){
+    public function disable($name){
+        if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
-
         } else {
             $this->disabled = false;
         }
-
     }
 
     public function __get($attribute)
