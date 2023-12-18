@@ -25,6 +25,11 @@ class Variables extends SuperVariables
         $this->disabled = false;
     }
 
+    public function hydrate()
+    {
+        $this->name = $this->sympy_symbol;
+    }
+
     protected $listeners = [
         'radioSelected' => 'disable',
     ];
