@@ -21,15 +21,6 @@ class PageFormTest extends Component
     public $variableToSolveFor;
     public $answer;
     public $variables;
-    public $unitHelper;
-    public $testVar;
-    public $testVar2;
-    public $message;
-    public $testUnit;
-    public $ut1;
-    public $unitTest;
-    public $cheese;
-    public $testAhh;
 
     public function mount()
     {
@@ -45,26 +36,13 @@ class PageFormTest extends Component
 
         $this->setVariableInputData();
         $this->setUnitOptionsForEachVariable();
-        $this->message = 'velocity';
-        $this->testVar = $this->variables_json['Velocity'];
-        $this->testVar2 = $this->variables_json['Time'];
+
 
         $this->unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
         $unitTest = $this->unitTest->where('unit_class', 'time')->all();
-
-        //$unitTest = $this->units->where('unit_class', 'time')->mapWithKeys(function($item, $key){
-        //    return [$item->id => $item];
-        //})->all();
-
-        //$this->ut1 = $this->units->where('unit_class', 'time')->get(['id']);
-
-        $this->testUnit = $unitTest;
     }
 
     protected $messages = [
-        'variableInputData.*.unit_conversion' => 'Select a unit for :attribute variable.',
-        'variableInputData.*.Value.numeric' => 'Only numbers are allowed to be entered for :attribute.',
-        'variableInputData.*.Value.required' => 'Please enter a value for :attribute.'
     ];
 
     protected $listeners = [
