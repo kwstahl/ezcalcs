@@ -26,7 +26,7 @@ class Variables extends SuperVariables
     }
 
     protected $listeners = [
-        'disabled' => 'disable',
+        'radioSelected' => 'disable',
     ];
 
     public function disable($sympy_symbol){
