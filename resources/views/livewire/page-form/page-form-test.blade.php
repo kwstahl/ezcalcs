@@ -12,14 +12,10 @@
 
                         <!-- Input Text -->
                         <div class="form-floating">
-                            <livewire:page-component.variables :name="$variableName" :attributes-array="$variable" />
+                            <livewire:page-component.variables :attributes-array="$variable" />
                         </div>
                     </div>
                 </div>
-                <livewire:page-component.variables :name="$variableName" :attributes-array="$variable" />
-
-                {{ $this->cheese }}
-
             </div>
             <hr>
         @endforeach
