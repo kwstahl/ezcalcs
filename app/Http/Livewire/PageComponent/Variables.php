@@ -39,7 +39,7 @@ class Variables extends SuperVariables
             $this->disabled = false;
         }
 
-        dd($sympy_symbol);
+        dump($sympy_symbol);
 
         $this->render();
     }
