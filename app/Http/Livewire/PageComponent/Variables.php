@@ -26,10 +26,10 @@ class Variables extends SuperVariables
     }
 
     protected $listeners = [
-        'disabled' => 'setDisabled',
+        'disabled' => 'disable',
     ];
 
-    public function setDisabled($sympy_symbol){
+    public function disable($sympy_symbol){
         dd('hello');
     }
 
