@@ -29,15 +29,8 @@ class Variables extends SuperVariables
         'disabled' => 'setDisabled',
     ];
 
-    public function setDisabled($disabledName){
-        dd($disabledName);
-
-        if($disabledName == $this->name){
-            $this->disabled = true;
-        } else {
-            $this->disabled = false;
-        }
-        $this->render();
+    public function setDisabled(){
+        dd('hello');
     }
 
     public function __get($attribute)
