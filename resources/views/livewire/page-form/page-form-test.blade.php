@@ -2,7 +2,7 @@
     <form wire:submit.prevent="submit">
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
-            <div class="row gx-1 gy-1 mb-1 p-2" wire:key="variable-field-{{ $variableName }}">
+            <div class="row gx-1 gy-1 mb-1 p-2"">
                 <div class="col-8">
                     <div class="input-group">
                         <!--  Radio  -->
