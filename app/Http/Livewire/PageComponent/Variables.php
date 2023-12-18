@@ -39,7 +39,6 @@ class Variables extends SuperVariables
             $this->disabled = false;
         }
 
-        $this->render();
     }
 
     public function __get($attribute)
