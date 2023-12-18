@@ -8,8 +8,6 @@
 
                         <!--  Radio  -->
                         <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" />
-
-
                         <!-- Input Text -->
                         <div class="form-floating">
                             <livewire:page-component.variables :attributes-array="$variable" />
@@ -43,11 +41,6 @@
             </div>
         </div>
     </form>
-    <livewire:page-component.radio :attributes-array="$testVar" />
-
-    <livewire:page-component.radio :attributes-array="$testVar2" />
-
-
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
         You are solving for {{ $variableToSolveFor }}
     </h1>
