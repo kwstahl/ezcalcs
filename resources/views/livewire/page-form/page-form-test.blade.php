@@ -2,11 +2,11 @@
     <form wire:submit.prevent="submit">
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
-        <div wire:key="{{$variableName}}">
+        <div>
             <!--  Radio  -->
-            <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" />
+            <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" wire:key="{{$variableName}}-radio"/>
             <!-- Input Text -->
-            <livewire:page-component.variables :attributes-array="$variable" />
+            <livewire:page-component.variables :attributes-array="$variable" wire:key="{{$variableName}}-variables"/>
         </div>
         @endforeach
     </form>
