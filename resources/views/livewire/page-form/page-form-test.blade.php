@@ -4,9 +4,9 @@
         @foreach ($variables_json as $variableName => $variable)
         <div>
             <!--  Radio  -->
-            <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" wire:key="{{$variableName}}-radio"/>
+            <livewire:page-component.radio :attributes-array="$variables_json[$variableName]" />
             <!-- Input Text -->
-            <livewire:page-component.variables :attributes-array="$variable" wire:key="{{$variableName}}-variables"/>
+            <livewire:page-component.variables :attributes-array="$variable" />
         </div>
         @endforeach
     </form>

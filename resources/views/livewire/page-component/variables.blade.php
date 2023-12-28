@@ -1,4 +1,4 @@
-<div wire:key="{{$this->sympy_symbol}}">
+<div wire:key="{{$this->name}}-variable">
     <input class="form-control" type="text" wire:model.defer="{{ $this->inputValue }}" @disabled($this->disabled)>
-    <label>{{ $this->sympy_symbol }} ({{ $this->latex_symbol }}) hi </label>
+    <label wire:ignore>{{ $this->sympy_symbol }} ({{ $this->latex_symbol }}) hi </label>
 </div>
