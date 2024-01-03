@@ -31,7 +31,7 @@ class Variables extends SuperVariables
     ];
 
     protected function rules() {
-        if ($this->disabled == false){
+        if ($this->disabled == true){
             return [$this->inputValue => 'nullable'];
         } else {
             return [$this->inputValue => 'required|numeric'];
