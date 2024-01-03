@@ -28,7 +28,7 @@ class Variables extends SuperVariables
 
     protected $listeners = [
         'radioSelected' => 'disable',
-        'validationEvent' => 'validate',
+        'validationEvent' => 'validation',
     ];
 
     protected function rules() {
@@ -49,14 +49,7 @@ class Variables extends SuperVariables
     }
 
     public function validation() {
-        if ($this->disabled == true){
-            return [$this->inputValue, 'nullable'];
-        } else {
-            return [$this->inputValue, 'required|numeric'];
-        }
-
         $this->validate();
-        dump('works');
     }
 
     public function __get($attribute)
