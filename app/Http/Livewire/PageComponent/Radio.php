@@ -8,17 +8,11 @@ class Radio extends SuperVariables
 {
     public $attributesArray;
     public $name;
-
-    
+    public $isSelected;
 
     public function mount()
     {
         $this->name = $this->sympy_symbol;
-    }
-
-    public function render()
-    {
-        return view('livewire.page-component.radio');
     }
 
     public function __get($attribute)
@@ -27,7 +21,14 @@ class Radio extends SuperVariables
         return $attributeValue;
     }
 
+    //triggered when radio button is selected on HTML
     public function radioSelect(){
-        $this->emit("radioSelected", $this->sympy_symbol);
+        $this->emit("radioSelected", $this->name);
     }
+
+    public function render()
+    {
+        return view('livewire.page-component.radio');
+    }
+
 }
