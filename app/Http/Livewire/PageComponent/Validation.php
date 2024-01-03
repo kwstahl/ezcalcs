@@ -3,8 +3,6 @@ namespace App\Http\Livewire\PageComponent;
 
 interface Validation {
     //declare the validations on the component
-    public function validations(): array;
-
-    //a listener 
+    public function validation();
 
 }

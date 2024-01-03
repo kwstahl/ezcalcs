@@ -10,7 +10,7 @@ use App\Classes\PageHelpers;
 use App\Classes\VariableHelper;
 
 
-class Variables extends SuperVariables
+class Variables extends SuperVariables implements Validation
 {
     public $name;
     public $attributesArray;
