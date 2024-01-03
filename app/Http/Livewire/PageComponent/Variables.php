@@ -32,7 +32,7 @@ class Variables extends SuperVariables
 
     protected function rules() {
         if ($this->disabled == true){
-            return [$this->inputValue => 'nullable'];
+            return ['inputValue' => 'nullable'];
         } else {
             return [$this->inputValue => 'required|numeric'];
         }
@@ -45,7 +45,6 @@ class Variables extends SuperVariables
         } else {
             $this->disabled = false;
         }
-        dd($this->rules());
         $this->validate();
     }
 
