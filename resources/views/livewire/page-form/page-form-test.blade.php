@@ -14,7 +14,7 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 
-    <button wire:click="">
+    <button wire:click="$emit('validationEvent')">
         Try it
     </button>
 </div>

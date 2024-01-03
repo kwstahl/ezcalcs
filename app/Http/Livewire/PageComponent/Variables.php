@@ -28,6 +28,7 @@ class Variables extends SuperVariables
 
     protected $listeners = [
         'radioSelected' => 'disable',
+        'validationEvent' => 'validate',
     ];
 
     protected function rules() {
