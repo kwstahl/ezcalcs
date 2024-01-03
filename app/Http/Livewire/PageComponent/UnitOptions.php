@@ -48,7 +48,7 @@ class UnitOptions extends SuperOptions implements Validation
     {
         $allUnits = Unit::all();
         $keyedCollection = $allUnits->mapWithKeys(function ($item, $key) {
-            return [$item->id => $item];
+            return [$key => $item];
         })->all();
 
         return $keyedCollection;
