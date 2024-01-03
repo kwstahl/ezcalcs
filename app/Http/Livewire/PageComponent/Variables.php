@@ -42,18 +42,20 @@ class Variables extends SuperVariables
         if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
-
         } else {
             $this->disabled = false;
         }
     }
 
     public function validation() {
-        if ($this->disabled == false){
+        if ($this->disabled == true){
             return [$this->inputValue, 'nullable'];
         } else {
             return [$this->inputValue, 'required|numeric'];
         }
+
+        $this->validate();
+        dump('works');
     }
 
     public function __get($attribute)
