@@ -55,7 +55,7 @@ class UnitOptions extends SuperOptions implements Validation
 
         //$keyed = collect($keyedCollection);
         //$wanted = $keyed->where('unit_class', $attributeValue);
-        return $keyedCollection;
+        return collect($keyedCollection);
     }
 
     /**
