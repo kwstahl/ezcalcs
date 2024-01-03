@@ -34,11 +34,12 @@ class Variables extends SuperVariables
         if ($this->disabled == true){
             return ['inputValue' => 'nullable'];
         } else {
-            return [$this->inputValue => 'required|numeric'];
+            return ['inputValue' => 'required|numeric'];
         }
     }
 
     public function disable($name){
+        dump([$name, $this->name]);
         if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
