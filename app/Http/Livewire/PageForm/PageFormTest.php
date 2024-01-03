@@ -53,6 +53,11 @@ class PageFormTest extends Component
         $this->variableToSolveFor = $name;
     }
 
+    public function getAnOptionArray(){
+        $unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
+        $unitTest = $this->unitTest->where('unit_class', 'time')->all();
+    }
+
     public function unitSelected($unitIndex, $variableName)
     {
         $this->variableInputData[$variableName]['unit_conversion'] = 'hi';

@@ -14,6 +14,8 @@ class UnitOptions extends SuperOptions implements Validation
      */
     public function mount() {
         $this->selectedOption = null;
+
+
     }
 
     protected $rules = [
@@ -34,6 +36,12 @@ class UnitOptions extends SuperOptions implements Validation
 
     public function validation(){
         $this->validate();
+    }
+
+    //returns an array of objects based on the model attribute and the value to filter from
+    public function createOptionsArray($modelAttribute, $attributeValue)
+    {
+
     }
 
     /**

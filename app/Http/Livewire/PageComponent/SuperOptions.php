@@ -19,6 +19,7 @@ class SuperOptions extends Component
      *
      */
 
+
     public function setKeysFromIndex(String $indexName)
     {
         $optionsArray = collect($this->optionsArray);
@@ -45,8 +46,6 @@ class SuperOptions extends Component
         $this->selectedOption = $option;
         return $option;
     }
-
-
 
     //Gets option by key, returns object in optionsArray
     public function getOptionObjectFromOptionsArray($optionId)
