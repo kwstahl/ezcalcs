@@ -47,7 +47,7 @@ class UnitOptions extends SuperOptions implements Validation
     public static function createOptionsArray($attributeValue)
     {
         $allUnits = Unit::all();
-        $keyedCollection = $modelCollection->mapWithKeys(function($item, $key){
+        $keyedCollection = $allUnits->mapWithKeys(function($item, $key){
             return [$item->id => $item];
         })->all();
         $keyed = collect($keyedCollection);
