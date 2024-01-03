@@ -46,7 +46,7 @@ class UnitOptions extends SuperOptions implements Validation
     //returns an array of objects based on the model attribute and the value to filter from
     public static function createOptionsArray($attributeValue)
     {
-        $allUnits = Unit::where('unit_class', 'time')->get();
+        $allUnits = Unit::where('unit_class', 'time')->all();
         return $allUnits;
     }
 
