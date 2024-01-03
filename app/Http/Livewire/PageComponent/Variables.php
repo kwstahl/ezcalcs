@@ -42,9 +42,13 @@ class Variables extends SuperVariables
         if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
+
         } else {
             $this->disabled = false;
+
         }
+
+        dd([$this->name, $name]);
     }
 
     public function validation() {
