@@ -7,9 +7,9 @@ use App\Models\Unit;
 use App\Classes\Variable;
 use App\Classes\UnitHelpers;
 use App\Classes\EqValidations;
-use App\Classes\UnitOptions;
 use Illuminate\Support\Facades\Process;
 use App\Classes\PageHelpers;
+use App\Http\Livewire\PageComponent\UnitOptions;
 
 class PageFormTest extends Component
 {
@@ -53,9 +53,9 @@ class PageFormTest extends Component
         $this->variableToSolveFor = $name;
     }
 
-    public function getAnOptionArray(){
-        $unitTest = PageHelpers::setIdsOnCollectionOfModels($this->units, 'id');
-        $unitTest = $this->unitTest->where('unit_class', 'time')->all();
+    public function getAnOptionArray()
+    {
+        UnitOptions::createOptionsArray("time");
     }
 
     public function unitSelected($unitIndex, $variableName)

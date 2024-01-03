@@ -3,6 +3,11 @@
 namespace App\Http\Livewire\PageComponent;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use App\Models\Unit;
 
 class UnitOptions extends SuperOptions implements Validation
 {
@@ -12,10 +17,9 @@ class UnitOptions extends SuperOptions implements Validation
     /**
      * Create a new component instance.
      */
-    public function mount() {
+    public function mount()
+    {
         $this->selectedOption = null;
-
-
     }
 
     protected $rules = [
@@ -34,14 +38,20 @@ class UnitOptions extends SuperOptions implements Validation
         $this->selectedOption = $optionObject;
     }
 
-    public function validation(){
+    public function validation()
+    {
         $this->validate();
     }
 
     //returns an array of objects based on the model attribute and the value to filter from
-    public function createOptionsArray($modelAttribute, $attributeValue)
+    public static function createOptionsArray($attributeValue)
     {
-
+        $allUnits = Unit::all();
+        $keyedCollection = $allUnits->mapWithKeys(function ($item, $key) {
+            return [$item->id => $item];
+        })->all();
+        $optionsArray = $keyedCollection->where('unit_class', $attributeValue)->all();
+        return $optionsArray;
     }
 
     /**
@@ -52,4 +62,3 @@ class UnitOptions extends SuperOptions implements Validation
         return view('livewire.page-component.unit-options');
     }
 }
-

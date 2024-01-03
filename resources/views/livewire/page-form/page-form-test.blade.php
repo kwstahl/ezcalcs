@@ -16,6 +16,10 @@
         You are solving for {{ $variableToSolveFor }}
     </h1>
 
+<div>
+    {{ dump($this->getAnOptionArray) }}
+</div>
+
     <button wire:click="$emit('validationEvent')">
         Try it
     </button>
