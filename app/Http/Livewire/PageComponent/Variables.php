@@ -51,7 +51,7 @@ class Variables extends SuperVariables
     public function validation() {
         $this->rules();
         $this->validate();
-        dump("successfully validated");
+        dump(["successfully validated", $this->name]);
     }
 
     public function __get($attribute)
