@@ -39,15 +39,16 @@ class Variables extends SuperVariables
     }
 
     public function disable($name){
-        dump([$name, $this->name]);
+
+
         if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
         } else {
             $this->disabled = false;
         }
-
-        dd($this->rules());
+        dump([$name, $this->name]);
+        dump($this->rules());
         $this->validate();
     }
 
