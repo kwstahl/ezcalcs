@@ -49,6 +49,8 @@ class Variables extends SuperVariables
     }
 
     public function validation() {
+        dump("successfully validated");
+
         $this->validate();
         dump("successfully validated");
     }
