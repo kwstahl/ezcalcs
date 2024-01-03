@@ -20,6 +20,7 @@ class Variables extends SuperVariables
 
     public function mount()
     {
+        $this->inputValue = null;
         $this->name = $this->sympy_symbol;
         $this->disabled = false;
     }
