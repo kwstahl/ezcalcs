@@ -3,8 +3,8 @@
     <label wire:ignore>{{ $this->sympy_symbol }} ({{ $this->latex_symbol }}) hi </label>
 
     @error('inputValue')
-        <div class="invalid-feedback">
+    <div class="alert alert-danger">
             <span class="error">{{ $message }}</span>
-        </div>
+    </div>
     @enderror
 </div>
