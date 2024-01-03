@@ -41,6 +41,8 @@ class Variables extends SuperVariables
         } else {
             $this->disabled = false;
         }
+
+        $this->validate();
     }
 
     public function validation() {
