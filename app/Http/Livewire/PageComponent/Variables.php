@@ -49,7 +49,6 @@ class Variables extends SuperVariables
     }
 
     public function validation() {
-        $this->rules();
         $this->validate();
     }
 
