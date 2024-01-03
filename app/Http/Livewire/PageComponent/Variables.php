@@ -43,6 +43,7 @@ class Variables extends SuperVariables
         if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
+            dump([$this->name, $name, "disabled is true"]);
         } else {
             $this->disabled = false;
         }
