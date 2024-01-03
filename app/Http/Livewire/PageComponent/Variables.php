@@ -45,10 +45,7 @@ class Variables extends SuperVariables
 
         } else {
             $this->disabled = false;
-
         }
-
-        dd([$this->name, $name]);
     }
 
     public function validation() {
