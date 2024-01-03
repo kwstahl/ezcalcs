@@ -48,12 +48,13 @@ class UnitOptions extends SuperOptions implements Validation
     {
         $allUnits = Unit::where('unit_class', $attributeValue)->get();
 
-        //$keyedCollection = $allUnits->mapWithKeys(function($item, $key){
-        //    return [$item->id => $item];
-        //})->get();
+
+        $keyedCollection = $allUnits->mapWithKeys(function($item, $key){
+            return [$item->id => $item];
+        })->get();
         //$keyed = collect($keyedCollection);
         //$wanted = $keyed->where('unit_class', $attributeValue);
-        return $allUnits;
+        return $keyedCollection;
     }
 
     /**
