@@ -55,7 +55,7 @@ class PageFormTest extends Component
 
     public function getAnOptionArray()
     {
-        UnitOptions::createOptionsArray("time");
+        return Unit::all();
     }
 
     public function unitSelected($unitIndex, $variableName)
