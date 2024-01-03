@@ -40,7 +40,6 @@ class Variables extends SuperVariables
 
     public function disable($name){
         if ($name == $this->name){
-            dump($this->inputValue);
             $this->disabled = true;
         } else {
             $this->disabled = false;
