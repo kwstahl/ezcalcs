@@ -49,8 +49,8 @@ class PageFormTest extends Component
         'radioSelected' => 'setVariableToSolveFor',
     ];
 
-    public function setVariableToSolveFor($sympy_symbol){
-        $this->variableToSolveFor = $sympy_symbol;
+    public function setVariableToSolveFor($name){
+        $this->variableToSolveFor = $name;
     }
 
     public function unitSelected($unitIndex, $variableName)
