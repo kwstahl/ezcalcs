@@ -45,6 +45,8 @@ class Variables extends SuperVariables
         } else {
             $this->disabled = false;
         }
+
+        dd($this->rules());
         $this->validate();
     }
 
