@@ -4,7 +4,7 @@ namespace App\Http\Livewire\PageComponent;
 
 use Livewire\Component;
 
-class UnitOptions extends SuperOptions
+class UnitOptions extends SuperOptions implements Validation
 {
     public $optionsArray;
     public $baseOption;
@@ -17,7 +17,7 @@ class UnitOptions extends SuperOptions
     }
 
     protected $rules = [
-        'selectedOption', 'required'
+        'selectedOption' => 'required'
     ];
 
     //returns the option object from the optionsArray
@@ -30,6 +30,10 @@ class UnitOptions extends SuperOptions
     {
         $optionObject = $this->getOptionObjectFromOptionsArray($optionId);
         $this->selectedOption = $optionObject;
+    }
+
+    public function validation(){
+        $this->validate();
     }
 
     /**
