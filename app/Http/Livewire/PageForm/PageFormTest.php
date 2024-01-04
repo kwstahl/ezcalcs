@@ -55,7 +55,8 @@ class PageFormTest extends Component
 
     public function ttt()
     {
-        $allUnits = UnitOptions::getIndexedArrayFromModelTable('Unit', 'id', 'unit_class', 'time');
+        $unit = new Unit;
+        $allUnits = UnitOptions::getIndexedArrayFromModelTable($unit, 'id', 'unit_class', 'time');
         return $allUnits;
     }
 

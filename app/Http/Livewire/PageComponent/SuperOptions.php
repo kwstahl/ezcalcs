@@ -62,6 +62,7 @@ class SuperOptions extends Component
     // Create an array of objects from a model indexed, and filtered on some attribute value
     public static function getIndexedArrayFromModelTable($modelTableName, $attributeToIndexOn, $attributeToFilterOn, $filterValue)
     {
+        
         $modelCollection = $modelTableName::where($attributeToFilterOn, $filterValue)->get();
         $indexedArray = $modelCollection->mapWithKeys(function($item, $key) use ($attributeToIndexOn){
             return [$item->$attributeToIndexOn => $item];
