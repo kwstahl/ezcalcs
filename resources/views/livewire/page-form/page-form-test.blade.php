@@ -7,7 +7,7 @@
             <livewire:page-component.radio :attributes-array="$variable"/>
             <!-- Input Text -->
             <livewire:page-component.variables :attributes-array="$variable" />
-            <livewire:page-component.unit-options :unit-name="$variables_json['unit']" />
+            <livewire:page-component.unit-options :unit-name="$variable['unit']" />
         </div>
 
         {{ dump($variables_json) }}
