@@ -17,7 +17,7 @@
     </h1>
 
 <div>
-    {{ dump($this->getAnOptionArray('unit_class', 'time')) }}
+    {{ dump($this->getAnOptionArray()) }}
 </div>
 
     <button wire:click="$emit('validationEvent')">
