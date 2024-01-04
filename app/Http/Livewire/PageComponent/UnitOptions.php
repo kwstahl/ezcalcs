@@ -44,15 +44,20 @@ class UnitOptions extends SuperOptions implements Validation
     }
 
     //returns an array of objects based on the model attribute and the value to filter from
-    public static function createOptionsArray($attribute, $attributeValue)
-    {
-        $allUnits = Unit::where($attribute, $attributeValue)->get();
-        $keyedCollection = $allUnits->mapWithKeys(function($item, $key){
-            return [$item->id => $item];
-        })->all();
-        return collect($keyedCollection);
+    public function createUnitOptions($unitName){
+        $unitOptions = $this->getIndexedArrayFromModelTable('Unit', 'id', 'unit_class', $unitName);
+        return $unitOptions;
     }
 
+    public static function getIndexedArrayFromModelTable($modelTableName, $attributeToIndexOn, $attributeToFilterOn, $filterValue)
+    {
+        $modelCollection = $modelTableName::where($attributeToFilterOn, $filterValue)->get();
+        $indexedArray = $modelCollection->mapWithKeys(function($item, $key) use ($attributeToIndexOn){
+            return [$item->$attributeToIndexOn => $item];
+        })->all();
+        return $indexedArray;
+    }
+    
     /**
      * Get the view / contents that represent the component.
      */

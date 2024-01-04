@@ -53,9 +53,9 @@ class PageFormTest extends Component
         $this->variableToSolveFor = $name;
     }
 
-    public function getAnOptionArray()
+    public function ttt()
     {
-        $allUnits = UnitOptions::createOptionsArray('unit_class', 'time');
+        $allUnits = UnitOptions::getIndexedArrayFromModelTable('Unit', 'id', 'unit_class', 'time');
         return $allUnits;
     }
 
