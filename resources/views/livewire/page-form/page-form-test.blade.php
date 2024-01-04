@@ -10,7 +10,6 @@
             <livewire:page-component.unit-options :unit-name="$variable['unit']" />
         </div>
 
-        {{ dump($variables_json) }}
         @endforeach
     </form>
     <h1 class="row display-6 text-align-center p-5 justify-content-center">
