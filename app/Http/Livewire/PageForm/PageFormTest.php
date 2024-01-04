@@ -57,7 +57,7 @@ class PageFormTest extends Component
     {
         $unit = new Unit;
         $allUnits = UnitOptions::getIndexedArrayFromModelTable($unit, 'id', 'unit_class', 'time');
-        return $allUnits;
+        return collect($allUnits);
     }
 
     public function unitSelected($unitIndex, $variableName)
