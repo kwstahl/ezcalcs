@@ -13,6 +13,7 @@ class UnitOptions extends SuperOptions implements Validation
 {
     public $optionsArray;
     public $baseOption;
+    public $unitName;
 
     /**
      * Create a new component instance.
@@ -20,6 +21,7 @@ class UnitOptions extends SuperOptions implements Validation
     public function mount()
     {
         $this->selectedOption = null;
+        $this->optionsArray = $this->createUnitOptions($this->unitName);
     }
 
     protected $rules = [
@@ -45,19 +47,12 @@ class UnitOptions extends SuperOptions implements Validation
 
     //returns an array of objects based on the model attribute and the value to filter from
     public function createUnitOptions($unitName){
-        $unitOptions = $this->getIndexedArrayFromModelTable('Unit', 'id', 'unit_class', $unitName);
+        $unitModel = new Unit;
+        $unitOptions = $this->getIndexedArrayFromModelTable($unitModel, 'id', 'unit_class', $unitName);
         return $unitOptions;
+
     }
 
-    public static function getIndexedArrayFromModelTable($modelTableName, $attributeToIndexOn, $attributeToFilterOn, $filterValue)
-    {
-        $modelCollection = $modelTableName::where($attributeToFilterOn, $filterValue)->get();
-        $indexedArray = $modelCollection->mapWithKeys(function($item, $key) use ($attributeToIndexOn){
-            return [$item->$attributeToIndexOn => $item];
-        })->all();
-        return $indexedArray;
-    }
-    
     /**
      * Get the view / contents that represent the component.
      */

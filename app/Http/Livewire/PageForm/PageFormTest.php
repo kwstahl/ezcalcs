@@ -53,13 +53,6 @@ class PageFormTest extends Component
         $this->variableToSolveFor = $name;
     }
 
-    public function ttt()
-    {
-        $unit = new Unit;
-        $allUnits = UnitOptions::getIndexedArrayFromModelTable($unit, 'id', 'unit_class', 'time');
-        return collect($allUnits);
-    }
-
     public function unitSelected($unitIndex, $variableName)
     {
         $this->variableInputData[$variableName]['unit_conversion'] = 'hi';
