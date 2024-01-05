@@ -46,7 +46,6 @@ class UnitOptions extends SuperOptions implements Validation
 
     public function validation()
     {
-        dd('hi');
         $this->validate();
     }
 
