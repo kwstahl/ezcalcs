@@ -28,6 +28,10 @@ class UnitOptions extends SuperOptions implements Validation
         'selectedOption' => 'required'
     ];
 
+    protected $listeners = [
+        'validationEvent' => 'validation',
+    ];
+
     //returns the option object from the optionsArray
     public function __get($optionId)
     {
