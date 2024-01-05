@@ -50,12 +50,19 @@ class Variables extends SuperVariables implements Validation
 
     public function validation() {
         $this->validate();
+        $this->sendData();
     }
 
     public function __get($attribute)
     {
         $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
         return $attributeValue;
+    }
+
+    public function sendData()
+    {
+        $preparedData = [$this->sympy_symbol => $this->inputValue];
+        $this->emit('sendData', $preparedData);
     }
 
     public function render()

@@ -9,6 +9,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use App\Models\Unit;
 
+
 class UnitOptions extends SuperOptions implements Validation
 {
     public $optionsArray;
@@ -47,6 +48,7 @@ class UnitOptions extends SuperOptions implements Validation
     public function validation()
     {
         $this->validate();
+        //$this->sendData();
     }
 
     //returns an array of objects based on the model attribute and the value to filter from
@@ -55,6 +57,10 @@ class UnitOptions extends SuperOptions implements Validation
         $unitOptions = $this->getIndexedArrayFromModelTable($unitModel, 'id', 'unit_class', $unitName);
         return $unitOptions;
 
+    }
+
+    public function sendData()
+    {
     }
 
     /**

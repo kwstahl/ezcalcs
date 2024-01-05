@@ -4,18 +4,20 @@ import collections
 
 """Formula Class:
 
-A class that takes in a JSON string of variables, and their unit conversions and other information as 1st argument, and their corresponding 
+A class that takes in a JSON string of variables, and their unit conversions and other information as 1st argument, and their corresponding
 formula as a string as the second argument.
 The variables are passed in through sys.argv[1], and formula through sys.argv[2]
+
 
 On initialization the following properties are created:
 
 -variable_array: an array created from the JSON string sys.argv[1]
     -"sympy_symbol" is appended to the array and and is sympy.Symbol object, same name as variable name
--formula_string: the formula string 
+    -the array is like sympy_symbol => [Value, unit_conversion]
+-formula_string: the formula string
 -sympy_equation: formula string converted to type sympy.Eq (the equation class)
 -variable_to_solve_for: property created in substitute_converted_values()
--converted_answer: the variable solved for and converted 
+-converted_answer: the variable solved for and converted
 
 Available methods:
 
@@ -30,7 +32,7 @@ Available methods:
 
 """
 
-#named tuple to be used by generator iterate_variables(). 
+#named tuple to be used by generator iterate_variables().
 Variable = collections.namedtuple("Variable", ["variable_name", "Value", "sympy_symbol", "unit_conversion"])
 
 class Formula:
@@ -42,7 +44,7 @@ class Formula:
         #create and append sympy symbols
         for variable_name in self.variable_array:
             self.variable_array[variable_name]["sympy_symbol"] = sympy.Symbol(variable_name)
-        
+
         #formula string comes from sys.argv[2]
         self.formula_string = formula_string
         self.sympy_equation = sympy.sympify(self.formula_string)

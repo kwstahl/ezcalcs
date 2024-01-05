@@ -1,3 +1,3 @@
-<div>
-    {{-- Do your work, then step back. --}}
-</div>
+<button wire:click="$emit('validationEvent')">
+    Try it
+</button>
