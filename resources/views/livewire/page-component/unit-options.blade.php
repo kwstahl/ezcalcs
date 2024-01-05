@@ -20,3 +20,9 @@
         @endforeach
     </ul>
 </div>
+
+@error('selectedOption')
+<div class="alert alert-danger">
+        <span class="error">{{ $message }}</span>
+</div>
+@enderror
