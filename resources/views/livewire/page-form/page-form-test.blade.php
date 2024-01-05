@@ -20,9 +20,7 @@
 
 </div>
 
-    <button wire:click="$emit('validationEvent')">
-        Try it
-    </button>
+<livewire:page-component.solver />
 </div>
 <div>
 </div>
