@@ -19,10 +19,9 @@
             </li>
         @endforeach
     </ul>
+    @error('selectedOption')
+        <div class="alert alert-danger">
+            <span class="error">{{ $message }}</span>
+        </div>
+    @enderror
 </div>
-
-@error('selectedOption')
-<div class="alert alert-danger">
-        <span class="error">{{ $message }}</span>
-</div>
-@enderror
