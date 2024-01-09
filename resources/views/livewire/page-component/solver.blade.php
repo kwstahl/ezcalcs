@@ -3,5 +3,5 @@
 </button>
 
 <div>
-    {{ dump($this->sympyDataArray) }}
+    {{ dump(collect($this->sympyDataArray)) }}
 </div>
