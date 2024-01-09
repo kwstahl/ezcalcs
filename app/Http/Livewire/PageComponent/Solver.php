@@ -10,12 +10,12 @@ class Solver extends Component
     public $sympyDataArray;
 
     protected $listeners = [
-        'sendData' => 'displayData',
+        'sendData' => 'pushData',
     ];
 
-    public function displayData($data)
+    public function pushData($data)
     {
-        dd($data);
+        array_push($data);
     }
 
     public function render()
