@@ -9,6 +9,11 @@ class Solver extends Component
     public $formula;
     public $sympyDataArray;
 
+    public function mount()
+    {
+        $this->sympyDataArray = [];
+    }
+
     protected $listeners = [
         'sendData' => 'pushData',
     ];
