@@ -20,7 +20,7 @@ class Solver extends Component
 
     public function pushData($data)
     {
-        unset($this->sympyDataArray);
+        $this->sympyDataArray = [];
         array_push($this->sympyDataArray, $data);
         dump($this->sympyDataArray);
     }
