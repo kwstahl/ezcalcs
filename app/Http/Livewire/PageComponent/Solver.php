@@ -31,10 +31,10 @@ class Solver extends Component
         return $emptyCollection;
     }
 
-    public function pushData($data)
+    public function pushData($data, $value)
     {
         $this->sympyDataArray = [];
-        array_push($this->sympyDataArray, $data);
+        array_push($this->sympyDataArray, [$data, $value]);
         dump($this->sympyDataArray);
     }
 
