@@ -31,7 +31,7 @@ class Solver extends Component
         return $emptyCollection;
     }
 
-    public function pushData($data, $value)
+    public function pushData($name, $type, $value)
     {
         $this->sympyDataArray = [];
         $variableData = [$data, $value];

@@ -62,7 +62,7 @@ class Variables extends SuperVariables implements Validation
     public function sendData()
     {
         $preparedData = [$this->sympy_symbol => $this->inputValue];
-        $this->emit('sendData', [$this->name => $this->inputValue], 'value');
+        $this->emit('sendData', $this->name, 'value', $this->inputValue);
     }
 
     public function render()
