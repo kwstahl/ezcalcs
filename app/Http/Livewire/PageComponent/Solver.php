@@ -24,7 +24,7 @@ class Solver extends Component
     public function makeSympyPreparationCollection()
     {
         $variablesJson = collect($this->variablesJson);
-        $emptyCollection = $variablesJson->each(function($variableItem, $variableName){
+        $emptyCollection = $variablesJson->mapWithKeys(function($variableItem, $variableName){
             return [$variableItem => ['value' => null, 'unit_conversion' => null]];
         });
         return $emptyCollection;
