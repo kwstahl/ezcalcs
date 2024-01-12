@@ -8,7 +8,7 @@ class Solver extends Component
 {
     public $formula;
     public $sympyDataArray;
-    public $variables_json;
+    public $variablesJson;
 
     public function mount()
     {
