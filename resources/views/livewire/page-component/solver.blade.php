@@ -3,6 +3,6 @@
 </button>
 
 <div>
-    {{ dump(collect($this->variables_json)) }}
+    {{ dump($variables_json) }}
 </div>
 
