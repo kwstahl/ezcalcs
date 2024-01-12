@@ -3,6 +3,6 @@
 </button>
 
 <div>
-    {{ dump($variablesJson) }}
+    {{ dump($variableCollection) }}
 </div>
 
