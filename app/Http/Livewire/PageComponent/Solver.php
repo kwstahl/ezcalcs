@@ -34,8 +34,8 @@ class Solver extends Component
     public function pushData($data, $value)
     {
         $this->sympyDataArray = [];
-        array_push($this->sympyDataArray, [$data, $value]);
-        dump($this->sympyDataArray);
+        $variableData = [$data, $value];
+        dump($variableData);
     }
 
     public function render()
