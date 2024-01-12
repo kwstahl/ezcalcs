@@ -10,11 +10,12 @@ class Solver extends Component
     public $formula;
     public $sympyDataArray;
     public $variablesJson;
+    public $variableCollection;
 
     public function mount()
     {
         $this->sympyDataArray = [];
-        $variableCollection = $this->makeSympyPreparationCollection();
+        $this->variableCollection = $this->makeSympyPreparationCollection();
     }
 
     protected $listeners = [
