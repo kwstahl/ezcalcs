@@ -1,8 +1,8 @@
-<button wire:click="$emit('validationEvent')">
+<button wire:click="checkProgress">
     Try it
 </button>
 
-<div> 
+<div>
     {{ dump($variableCollection) }}
 </div>
 

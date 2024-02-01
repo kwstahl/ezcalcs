@@ -33,11 +33,11 @@ class Solver extends Component
 
     public function pushData($name, $type, $value)
     {
-        $sympyDataArray = collect();
+        $this->variableCollection = $this->variableCollection->merge([$name => [$type, $value]]);
+    }
 
-        //This is an issue. The event from the units will overwrite this. The solution will be to write a getter that can hold the values and a function that adds said values from the types
-        $sympyDataArray = $sympyDataArray->merge([$name => [$type, $value]]);
-        dump($sympyDataArray);
+    public function checkProgress(){
+        dump($this->variableCollection);
     }
 
     public function render()

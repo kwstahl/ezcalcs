@@ -65,8 +65,8 @@ class Variables extends SuperVariables implements Validation
         $this->emit('sendData', $this->name, 'value', $this->inputValue);
     }
 
-    public function updatedInputValue($newValue){
-
+    public function updatedInputValue($newInputValue){
+        $this->emit('sendData', $this->name, 'value', $newInputValue);
     }
 
     public function render()
