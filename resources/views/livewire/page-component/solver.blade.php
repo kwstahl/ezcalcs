@@ -2,7 +2,7 @@
     Try it
 </button>
 
-<div>
+<div> 
     {{ dump($variableCollection) }}
 </div>
 

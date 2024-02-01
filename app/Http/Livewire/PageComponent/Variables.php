@@ -65,6 +65,10 @@ class Variables extends SuperVariables implements Validation
         $this->emit('sendData', $this->name, 'value', $this->inputValue);
     }
 
+    public function updatedInputValue($newValue){
+        dump($newValue);
+    }
+
     public function render()
     {
         return view('livewire.page-component.variables');
