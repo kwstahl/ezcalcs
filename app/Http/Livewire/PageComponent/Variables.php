@@ -66,7 +66,7 @@ class Variables extends SuperVariables implements Validation
     }
 
     public function updatedInputValue($newValue){
-        dump($newValue);
+        dump('hi');
     }
 
     public function render()
