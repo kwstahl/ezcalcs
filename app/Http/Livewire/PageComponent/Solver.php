@@ -10,17 +10,15 @@ class Solver extends Component
     public $formula;
     public $sympyDataArray;
     public $variablesJson;
-    public $testCheck;
 
     public function mount()
     {
         $this->sympyDataArray = [];
-        $this->testCheck = collect();
         $this->createVariableVectors();
     }
 
     protected $listeners = [
-        'sendData' => 'pushData',
+        'dataSent' => 'pushData',
     ];
 
     //this function is meant to create a vector for each variable like: var1 = [value, unit_conversion]
@@ -28,13 +26,14 @@ class Solver extends Component
     {
         foreach($this->variablesJson as $variableName => $variableArray){
             $sympy_symbol = $variableArray['sympy_symbol'];
-            $this->$sympy_symbol = ['name' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
+            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
         };
     }
 
-    public function pushData($name, $type, $value)
+
+    public function pushData($variableSympySymbol, $type, $value)
     {
-        $this->$name[$type] = $value;
+        $this->$variableSympySymbol[$type] = $value;
     }
 
     public function checkProgress()

@@ -12,7 +12,7 @@ use App\Classes\VariableHelper;
 
 class Variables extends SuperVariables implements Validation
 {
-    public $name;
+    public $variableSympySymbol;
     public $attributesArray;
     public $inputValue;
     public $attributes;
@@ -21,7 +21,7 @@ class Variables extends SuperVariables implements Validation
     public function mount()
     {
         $this->inputValue = null;
-        $this->name = $this->sympy_symbol;
+        $this->variableSympySymbol = $this->sympy_symbol;
         $this->disabled = false;
     }
 
@@ -39,8 +39,8 @@ class Variables extends SuperVariables implements Validation
         }
     }
 
-    public function disable($name){
-        if ($name == $this->name){
+    public function disable($variableSympySymbol){
+        if ($variableSympySymbol == $this->variableSympySymbol){
             $this->inputValue = null;
             $this->disabled = true;
             $this->sendData();
@@ -63,11 +63,11 @@ class Variables extends SuperVariables implements Validation
     //necessary since the updatedInputValue is not picked up for changing inputValue to "null"
     public function sendData()
     {
-        $this->emit('sendData', $this->name, 'value', $this->inputValue);
+        $this->emit('dataSent', $this->variableSympySymbol, 'value', $this->inputValue);
     }
 
     public function updatedInputValue($newInputValue){
-        $this->emit('sendData', $this->name, 'value', $newInputValue);
+        $this->emit('dataSent', $this->variableSympySymbol, 'value', $newInputValue);
     }
 
     public function render()
