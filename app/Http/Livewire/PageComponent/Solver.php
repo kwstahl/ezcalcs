@@ -40,13 +40,6 @@ class Solver extends Component
     public function checkProgress()
     {
         $this->emit('validationEvent');
-
-        foreach($this->variablesJson as $variableName => $variableArray){
-            $sympy_symbol = $variableArray['sympy_symbol'];
-            $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
-        };
-
-        dump($this->testCheck);
     }
 
     public function render()
