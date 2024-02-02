@@ -43,6 +43,7 @@ class Variables extends SuperVariables implements Validation
         if ($name == $this->name){
             $this->inputValue = null;
             $this->disabled = true;
+            $this->sendData();
 
         } else {
             $this->disabled = false;
@@ -59,6 +60,7 @@ class Variables extends SuperVariables implements Validation
         return $attributeValue;
     }
 
+    //necessary since the updatedInputValue is not picked up for changing inputValue to "null"
     public function sendData()
     {
         $this->emit('sendData', $this->name, 'value', $this->inputValue);

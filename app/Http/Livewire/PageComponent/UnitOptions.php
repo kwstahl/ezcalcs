@@ -43,6 +43,7 @@ class UnitOptions extends SuperOptions implements Validation
     {
         $optionObject = $this->getOptionObjectFromOptionsArray($optionId);
         $this->selectedOption = $optionObject;
+        dump($optionObject);
     }
 
     public function validation()
