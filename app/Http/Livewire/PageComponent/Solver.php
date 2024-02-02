@@ -29,19 +29,23 @@ class Solver extends Component
         foreach($this->variablesJson as $variableName => $variableArray){
             $sympy_symbol = $variableArray['sympy_symbol'];
             $this->$sympy_symbol = ['name' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
-            $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
         };
     }
 
     public function pushData($name, $type, $value)
     {
         $this->$name[$type] = $value;
-        $this->testCheck = $this->testCheck->push($this->$name);
     }
 
     public function checkProgress()
     {
         $this->emit('validationEvent');
+
+        foreach($this->variablesJson as $variableName => $variableArray){
+            $sympy_symbol = $variableArray['sympy_symbol'];
+            $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
+        };
+
         dump($this->testCheck);
     }
 
