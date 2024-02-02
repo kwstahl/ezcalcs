@@ -11,11 +11,13 @@ class Solver extends Component
     public $sympyDataArray;
     public $variablesJson;
     public $variableCollection;
+    public $testCheck;
 
     public function mount()
     {
         $this->sympyDataArray = [];
         $this->variableCollection = $this->makeSympyPreparationCollection();
+        $this->testCheck = collect();
         $this->createVariableVectors();
     }
 
@@ -31,6 +33,8 @@ class Solver extends Component
             $this->$sympy_symbol = ['name' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
         };
         dump($this->$sympy_symbol);
+
+        $this->testCheck->push($this->$sympy_symbol);
     }
 
     public function makeSympyPreparationCollection()
@@ -51,7 +55,7 @@ class Solver extends Component
     public function checkProgress()
     {
         $this->emit('validationEvent');
-        dump($this->variableCollection);
+        dump($this->testCheck);
     }
 
     public function render()
