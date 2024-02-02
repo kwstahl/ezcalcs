@@ -50,11 +50,6 @@ class Variables extends SuperVariables implements Validation
         }
     }
 
-    public function validation() {
-        $this->validate();
-        $this->sendData();
-    }
-
     public function __get($attribute)
     {
         $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
@@ -63,6 +58,7 @@ class Variables extends SuperVariables implements Validation
 
     public function sendData()
     {
+        $this->validate();
         $this->emit('sendData', $this->name, 'value', $this->inputValue);
     }
 
