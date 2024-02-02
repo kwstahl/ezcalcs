@@ -38,7 +38,6 @@ class Solver extends Component
 
     public function checkProgress(){
         $this->emit('validationEvent');
-        dump($this->variableCollection);
     }
 
     public function render()
