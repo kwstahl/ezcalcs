@@ -26,7 +26,7 @@ class Solver extends Component
     {
         $variablesJson = collect($this->variablesJson);
         $emptyCollection = $variablesJson->mapWithKeys(function($variableItem, $variableName){
-            return [$variableName => ['value' => null, 'unit_conversion' => null]];
+            return [$variableItem->sympy_symbol => ['value' => null, 'unit_conversion' => null]];
         });
         return $emptyCollection;
     }
