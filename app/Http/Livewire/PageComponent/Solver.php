@@ -10,13 +10,11 @@ class Solver extends Component
     public $formula;
     public $sympyDataArray;
     public $variablesJson;
-    public $variableCollection;
     public $testCheck;
 
     public function mount()
     {
         $this->sympyDataArray = [];
-        $this->variableCollection = $this->makeSympyPreparationCollection();
         $this->testCheck = collect();
         $this->createVariableVectors();
     }
@@ -35,18 +33,8 @@ class Solver extends Component
         };
     }
 
-    public function makeSympyPreparationCollection()
-    {
-        $variablesJson = collect($this->variablesJson);
-        $emptyCollection = $variablesJson->mapWithKeys(function ($variableItem, $variableName) {
-            return [$variableItem['sympy_symbol'] => ['value' => null, 'unit_conversion' => null]];
-        });
-        return $emptyCollection;
-    }
-
     public function pushData($name, $type, $value)
     {
-        $this->variableCollection = $this->variableCollection->merge([$name => [$type, $value]]);
         $this->$name[$type] = $value;
         dump($this->$name);
     }
