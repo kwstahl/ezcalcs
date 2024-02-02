@@ -48,6 +48,7 @@ class Solver extends Component
     {
         $this->variableCollection = $this->variableCollection->merge([$name => [$type, $value]]);
         $this->$name[$type] = $value;
+        dump($this->$name);
     }
 
     public function checkProgress()
