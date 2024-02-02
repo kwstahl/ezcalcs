@@ -7,7 +7,7 @@
                 <livewire:page-component.radio :attributes-array="$variable" />
                 <!-- Input Text -->
                 <livewire:page-component.variables :attributes-array="$variable" />
-                <livewire:page-component.unit-options :unit-name="$variable['unit']" :variable-name="$variableName"/>
+                <livewire:page-component.unit-options :unit-name="$variable['unit']" :variable-name="$variable['sympy_symbol']"/>
             </div>
         @endforeach
     </form>
