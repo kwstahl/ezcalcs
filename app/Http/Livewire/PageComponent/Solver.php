@@ -35,7 +35,9 @@ class Solver extends Component
 
     public function pushData($name, $type, $value)
     {
-        $this->$name[$type] = $value;
+        $thing = $this->$name;
+        $thing[$type] = $value;
+        $this->$name = $thing;
         dump($this->$name);
     }
 
