@@ -15,6 +15,7 @@ class UnitOptions extends SuperOptions implements Validation
     public $optionsArray;
     public $baseOption;
     public $unitName;
+    public $variableName;
 
     /**
      * Create a new component instance.
@@ -43,8 +44,7 @@ class UnitOptions extends SuperOptions implements Validation
     {
         $optionObject = $this->getOptionObjectFromOptionsArray($optionId);
         $this->selectedOption = $optionObject;
-        //$this->emit('sendData', $this->name, 'unit_conversion', $optionObject['conversion_to_base']);
-        dump($optionObject);
+        $this->emit('sendData', $this->variableName, 'unit_conversion', $optionObject['conversion_to_base']);
     }
 
     public function validation()
