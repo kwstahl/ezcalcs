@@ -34,12 +34,14 @@ class Solver extends Component
     public function pushData($name, $type, $value)
     {
         //$this->variableCollection = $this->variableCollection->merge([$name => [$type, $value]]);
-       $this->variableCollection[$name][$type] = $value;
-       
+       $variableCollection = $this->variableCollection;
+       $variableCollection[$name][$type] = $value;
+       $this->variableCollection = $variableCollection;
     }
 
     public function checkProgress(){
         $this->emit('validationEvent');
+        dump($this->variableCollection);
     }
 
     public function render()
