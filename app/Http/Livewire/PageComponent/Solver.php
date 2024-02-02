@@ -34,7 +34,7 @@ class Solver extends Component
         };
         dump($this->$sympy_symbol);
 
-        $this->testCheck->push($this->$sympy_symbol);
+        $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
     }
 
     public function makeSympyPreparationCollection()
