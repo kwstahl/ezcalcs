@@ -43,6 +43,7 @@ class Variables extends SuperVariables implements Validation
         if ($name == $this->name){
             unset($this->inputValue);
             $this->disabled = true;
+            $this->emit('sendData', $this->name, 'value', $this->inputValue);
         } else {
             $this->disabled = false;
         }
@@ -61,7 +62,6 @@ class Variables extends SuperVariables implements Validation
 
     public function sendData()
     {
-        $preparedData = [$this->sympy_symbol => $this->inputValue];
         $this->emit('sendData', $this->name, 'value', $this->inputValue);
     }
 
