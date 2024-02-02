@@ -35,10 +35,8 @@ class Solver extends Component
 
     public function pushData($name, $type, $value)
     {
-        $thing = $this->$name;
-        $thing[$type] = $value;
-        $this->$name = $thing;
-        dump($this->$name);
+        $this->$name[$type] = $value;
+        $this->testCheck = $this->testCheck->push($this->$name);
     }
 
     public function checkProgress()
