@@ -45,6 +45,7 @@ class Solver extends Component
     public function pushData($name, $type, $value)
     {
         $this->variableCollection = $this->variableCollection->merge([$name => [$type, $value]]);
+        $this->$name[$type] = $value;
     }
 
     public function checkProgress()
