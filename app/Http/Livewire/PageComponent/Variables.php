@@ -41,7 +41,7 @@ class Variables extends SuperVariables implements Validation
 
     public function disable($name){
         if ($name == $this->name){
-            unset($this->inputValue);
+            $this->inputValue = null;
             $this->disabled = true;
             $this->emit('sendData', $this->name, 'value', $this->inputValue);
         } else {
