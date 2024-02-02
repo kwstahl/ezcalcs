@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 use App\Models\Unit;
 
 
-class UnitOptions extends SuperOptions
+class UnitOptions extends SuperOptions implements Validation
 {
     public $optionsArray;
     public $baseOption;

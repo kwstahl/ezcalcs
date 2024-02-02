@@ -10,7 +10,7 @@ use App\Classes\PageHelpers;
 use App\Classes\VariableHelper;
 
 
-class Variables extends SuperVariables
+class Variables extends SuperVariables implements Validation
 {
     public $name;
     public $attributesArray;
@@ -50,6 +50,10 @@ class Variables extends SuperVariables
         }
     }
 
+    public function validation() {
+        $this->validate();
+    }
+
     public function __get($attribute)
     {
         $attributeValue = $this->getAttributeObjectFromAttributesArray($attribute);
@@ -58,7 +62,6 @@ class Variables extends SuperVariables
 
     public function sendData()
     {
-        $this->validate();
         $this->emit('sendData', $this->name, 'value', $this->inputValue);
     }
 
