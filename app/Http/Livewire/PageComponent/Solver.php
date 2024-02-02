@@ -31,10 +31,8 @@ class Solver extends Component
         foreach($this->variablesJson as $variableName => $variableArray){
             $sympy_symbol = $variableArray['sympy_symbol'];
             $this->$sympy_symbol = ['name' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
+            $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
         };
-        dump($this->$sympy_symbol);
-
-        $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
     }
 
     public function makeSympyPreparationCollection()
