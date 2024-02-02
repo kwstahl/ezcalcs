@@ -44,6 +44,7 @@ class UnitOptions extends SuperOptions implements Validation
         $optionObject = $this->getOptionObjectFromOptionsArray($optionId);
         $this->selectedOption = $optionObject;
         //$this->emit('sendData', $this->name, 'unit_conversion', $optionObject['conversion_to_base']);
+        dump($optionObject);
     }
 
     public function validation()
