@@ -121,6 +121,7 @@ class PageFormTest extends Component
 
     private function prepareDataForSympyInJson()
     {
+        
         $dataForSympyInJson = $this->variableInputData;
         $dataForSympyInJson = $this->variableInputData->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
