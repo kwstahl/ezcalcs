@@ -3,8 +3,8 @@
 </button>
 
 <div>
-    {{ dump($answer) }}
-    {{ dump($errorOut) }}
+    {{ $answer }}
+    {{ $errorOut }}
 </div>
 
 
