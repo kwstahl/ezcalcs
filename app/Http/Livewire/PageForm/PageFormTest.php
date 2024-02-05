@@ -141,6 +141,7 @@ class PageFormTest extends Component
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formula_sympy);
         $this->answer = Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
+        $this->render();
     }
 
     public function render()
