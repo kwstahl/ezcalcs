@@ -63,6 +63,7 @@ class Solver extends Component
                         'unit_conversion' => $unitConversion,
                     ]
                 ];
+                dump($inputValue);
         });
         return $dataForSympyInJson;
     }
