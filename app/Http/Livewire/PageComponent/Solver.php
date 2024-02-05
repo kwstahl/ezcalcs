@@ -51,7 +51,7 @@ class Solver extends Component
 
         $dataForSympyInJson = $this->prepareDataForSympyInJson();
         $this->sendDataToSympy($dataForSympyInJson);
-        $this->render();
+        dump($this->answer);
     }
 
     private function prepareDataForSympyInJson()
