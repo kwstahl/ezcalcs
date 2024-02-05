@@ -4,6 +4,7 @@
 
 <div>
     {{ $this->answer }}
+    {{ $this->errorOut }}
 </div>
 
 
