@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\PageComponent;
 
 use Livewire\Component;
-
+use PDO;
 
 class Solver extends Component
 {
@@ -26,9 +26,9 @@ class Solver extends Component
     //this function is meant to create a vector for each variable like: var1 = [value, unit_conversion]
     public function createVariableVectors()
     {
-        foreach($this->variablesJson as $variableName => $variableArray){
+        foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
-            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
+            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'Value' => '', 'unit_conversion' => ''];
         };
     }
 
@@ -41,12 +41,30 @@ class Solver extends Component
     public function checkProgress()
     {
         $this->emit('validationEvent');
-        foreach($this->variablesJson as $variableName => $variableArray){
+        foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
             $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
         };
 
-        dump($this->testCheck);
+        dump($this->prepareDataForSympyInJson());
+    }
+
+    private function prepareDataForSympyInJson()
+    {
+        $dataForSympyInJson = $this->variablesJson;
+        $dataForSympyInJson = $this->variablesJson->mapWithKeys(function ($variable, $variableName) {
+            $sympy_symbol = $variable['sympy_symbol'];
+            $inputValue = $this->$sympy_symbol['Value'];
+            $unitConversion = $this->$sympy_symbol['unit_conversion'];
+            return
+                [
+                    $sympy_symbol => [
+                        'Value' => $inputValue,
+                        'unit_conversion' => $unitConversion,
+                    ]
+                ];
+        });
+        return $dataForSympyInJson;
     }
 
     public function render()
