@@ -3,7 +3,7 @@
 </button>
 
 <div>
-    {{ $answer }}
+    {{ $this->answer }}
 </div>
 
 
