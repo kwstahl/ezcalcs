@@ -3,11 +3,11 @@
 </button>
 
 <div>
-    @isset($answer)
+    @isset($this->answer)
     {{ $answer }}
     @endisset
 
-    @empty($answer)
+    @empty($this->answer)
         heyoooo
     @endempty
 
