@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\PageComponent;
 
 use Livewire\Component;
-use PDO;
+use Illuminate\Support\Facades\Process;
 
 class Solver extends Component
 {
@@ -11,6 +11,9 @@ class Solver extends Component
     public $sympyDataArray;
     public $variablesJson;
     public $testCheck;
+    public $formulaSympy;
+    public $answer;
+    public $errorOut;
 
     public function mount()
     {
@@ -46,7 +49,9 @@ class Solver extends Component
             $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
         };
 
-        dump($this->prepareDataForSympyInJson());
+        $dataForSympyInJson = $this->prepareDataForSympyInJson();
+        $this->sendDataToSympy($dataForSympyInJson);
+        dump($this->answer);
     }
 
     private function prepareDataForSympyInJson()
@@ -56,7 +61,7 @@ class Solver extends Component
             $sympy_symbol = $variable['sympy_symbol'];
             $inputValue = $this->$sympy_symbol['value'];
             $unitConversion = $this->$sympy_symbol['unit_conversion'];
-            
+
             return
                 [
                     $sympy_symbol => [
@@ -67,6 +72,13 @@ class Solver extends Component
 
         });
         return $dataForSympyInJson;
+    }
+
+    private function sendDataToSympy($dataForSympyInJson)
+    {
+        $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formulaSympy);
+        $this->answer = Process::run($command)->output();
+        $this->errorOut = Process::run($command)->errorOutput();
     }
 
     public function render()

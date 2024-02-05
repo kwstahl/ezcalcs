@@ -19,7 +19,7 @@
 
     </div>
 
-    <livewire:page-component.solver :variables-json="$variables_json" />
+    <livewire:page-component.solver :variables-json="$variables_json" :formula-sympy="$formula_sympy"/>
 
     <div>
     </div>
