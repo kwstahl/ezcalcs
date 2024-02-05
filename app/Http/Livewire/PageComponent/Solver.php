@@ -28,7 +28,7 @@ class Solver extends Component
     {
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
-            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'Value' => '', 'unit_conversion' => ''];
+            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
         };
     }
 
@@ -54,9 +54,9 @@ class Solver extends Component
         $dataForSympyInJson = $this->variablesJson;
         $dataForSympyInJson = $this->variablesJson->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
-            $inputValue = $this->$sympy_symbol['Value'];
-            dump($this->$sympy_symbol);
+            $inputValue = $this->$sympy_symbol['value'];
             $unitConversion = $this->$sympy_symbol['unit_conversion'];
+            
             return
                 [
                     $sympy_symbol => [
