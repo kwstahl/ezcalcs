@@ -41,7 +41,7 @@ class Variables extends SuperVariables implements Validation
 
     public function disable($variableSympySymbol){
         if ($variableSympySymbol == $this->variableSympySymbol){
-            $this->inputValue = null;
+            $this->inputValue = "";
             $this->disabled = true;
             $this->sendData();
 
