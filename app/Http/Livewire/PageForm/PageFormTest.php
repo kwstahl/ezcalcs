@@ -139,7 +139,7 @@ class PageFormTest extends Component
     private function sendDataToSympy($dataForSympyInJson)
     {
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formula_sympy);
-        $this->answer = (string) Process::run($command)->output();
+        $this->answer = Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
     }
 

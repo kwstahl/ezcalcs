@@ -51,7 +51,6 @@ class Solver extends Component
 
         $dataForSympyInJson = $this->prepareDataForSympyInJson();
         $this->sendDataToSympy($dataForSympyInJson);
-        dump($this->answer);
     }
 
     private function prepareDataForSympyInJson()
@@ -77,7 +76,7 @@ class Solver extends Component
     private function sendDataToSympy($dataForSympyInJson)
     {
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formulaSympy);
-        $this->answer = Process::run($command)->output();
+        $this->answer = (string) Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
     }
 
