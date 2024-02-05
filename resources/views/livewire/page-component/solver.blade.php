@@ -2,4 +2,8 @@
     Try it
 </button>
 
+<div>
+    {{ $answer }}
+</div>
+
 
