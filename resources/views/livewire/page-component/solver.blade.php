@@ -3,8 +3,13 @@
 </button>
 
 <div>
+    @isset($answer)
     {{ $answer }}
-    {{ $errorOut }}
+    @endisset
+
+    @empty($answer)
+        heyoooo
+    @endempty
 </div>
 
 
