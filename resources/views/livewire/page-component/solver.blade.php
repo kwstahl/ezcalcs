@@ -10,6 +10,8 @@
     @empty($answer)
         heyoooo
     @endempty
+
+    {{ $formulaSympy }}
 </div>
 
 
