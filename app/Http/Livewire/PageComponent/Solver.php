@@ -60,13 +60,13 @@ class Solver extends Component
         $dataForSympyInJson = $this->variablesJson->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
             $inputValue = $this->$sympy_symbol['value'];
-            $unitConversion = (float) $this->$sympy_symbol['unit_conversion'];
+            $unitConversion = $this->$sympy_symbol['unit_conversion'];
 
             return
                 [
                     $sympy_symbol => [
                         'Value' => $inputValue,
-                        'unit_conversion' => $unitConversion,
+                        'unit_conversion' => (float) $unitConversion,
                     ]
                 ];
 
