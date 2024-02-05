@@ -55,7 +55,7 @@ class Solver extends Component
         $dataForSympyInJson = $this->variablesJson->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
             $inputValue = $this->$sympy_symbol['Value'];
-            dump($inputValue);
+            dump($this->$sympy_symbol);
             $unitConversion = $this->$sympy_symbol['unit_conversion'];
             return
                 [
