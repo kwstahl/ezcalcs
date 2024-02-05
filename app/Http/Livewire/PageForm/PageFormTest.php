@@ -121,7 +121,7 @@ class PageFormTest extends Component
 
     private function prepareDataForSympyInJson()
     {
-        
+
         $dataForSympyInJson = $this->variableInputData;
         $dataForSympyInJson = $this->variableInputData->mapWithKeys(function ($variable, $variableName) {
             $sympy_symbol = $variable['sympy_symbol'];
@@ -139,9 +139,10 @@ class PageFormTest extends Component
     private function sendDataToSympy($dataForSympyInJson)
     {
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formula_sympy);
-        $this->answer = Process::run($command)->output();
+        $this->answer = (string) Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
     }
+
     public function render()
     {
         return view('livewire.page-form.page-form-test');
