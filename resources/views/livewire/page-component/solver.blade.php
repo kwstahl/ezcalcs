@@ -1,17 +1,17 @@
-<button wire:click="checkProgress">
-    Try it
-</button>
-
 <div>
-    @isset($this->answer)
-    {{ $answer }}
-    @endisset
+    <button wire:click="checkProgress">
+        Try it
+    </button>
 
-    @empty($this->answer)
-        heyoooo
-    @endempty
+    <div>
+        @isset($this->answer)
+            {{ $answer }}
+        @endisset
 
-    {{ $formulaSympy }}
+        @empty($this->answer)
+            heyoooo
+        @endempty
+
+        {{ $formulaSympy }}
+    </div>
 </div>
-
-
