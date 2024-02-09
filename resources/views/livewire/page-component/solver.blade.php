@@ -9,9 +9,14 @@
         @endisset
 
         @empty($this->answer)
-            heyoooo
         @endempty
 
+        @isset($this->errorOut)
+            {{ $errorOut }}
+        @endisset
+
+        @empty($this->errorOut)
+        @endempty
         {{ $formulaSympy }}
     </div>
 </div>
