@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\Process;
 
 class Solver extends Component
 {
-    public $formula;
     public $sympyDataArray;
     public $variablesJson;
-    public $testCheck;
     public $formulaSympy;
     public $answer;
     public $errorOut;
@@ -19,7 +17,6 @@ class Solver extends Component
     {
         $this->sympyDataArray = [];
         $this->createVariableVectors();
-        $this->testCheck = collect();
     }
 
     protected $listeners = [
@@ -41,12 +38,11 @@ class Solver extends Component
         $this->$variableSympySymbol[$type] = $value;
     }
 
-    public function checkProgress()
+    public function calculate()
     {
         $this->emit('validationEvent');
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
-            $this->testCheck = $this->testCheck->push($this->$sympy_symbol);
         };
 
         $dataForSympyInJson = $this->prepareDataForSympyInJson();

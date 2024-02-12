@@ -1,9 +1,9 @@
 <div>
-    <button wire:click="checkProgress">
+    <button wire:click="calculate">
         Try it
     </button>
 
-    <div wire:loading wire:target="checkProgress">
+    <div wire:loading wire:target="calculate">
         Calculating...
     </div>
 
