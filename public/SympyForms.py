@@ -48,6 +48,7 @@ class Formula:
         #formula string comes from sys.argv[2]
         self.formula_string = formula_string
         self.sympy_equation = sympy.sympify(self.formula_string)
+        
         #created during substitute_converted_values() if "none" found on "Value"
         self.variable_to_solve_for = ""
 

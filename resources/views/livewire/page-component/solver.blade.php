@@ -3,6 +3,10 @@
         Try it
     </button>
 
+    <div wire:loading>
+        Calculating...
+    </div>
+
     <div>
         @isset($this->answer)
             {{ $answer }}
@@ -19,4 +23,7 @@
         @endempty
         {{ $formulaSympy }}
     </div>
+
 </div>
+
+
