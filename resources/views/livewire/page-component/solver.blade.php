@@ -3,7 +3,7 @@
         Try it
     </button>
 
-    <div wire:loading>
+    <div wire:loading wire:target="checkProgress">
         Calculating...
     </div>
 
@@ -12,16 +12,9 @@
             {{ $answer }}
         @endisset
 
-        @empty($this->answer)
-        @endempty
-
         @isset($this->errorOut)
             {{ $errorOut }}
         @endisset
-
-        @empty($this->errorOut)
-        @endempty
-        {{ $formulaSympy }}
     </div>
 
 </div>
