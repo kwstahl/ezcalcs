@@ -63,10 +63,12 @@ class Variables extends SuperVariables implements Validation
     //necessary since the updatedInputValue is not picked up for changing inputValue to "null"
     public function sendData()
     {
+        $this->validate();
         $this->emit('dataSent', $this->variableSympySymbol, 'value', $this->inputValue);
     }
 
     public function updatedInputValue($newInputValue){
+        $this->validate();
         $this->emit('dataSent', $this->variableSympySymbol, 'value', $newInputValue);
     }
 
