@@ -22,7 +22,7 @@ class UnitOptions extends SuperOptions implements Validation
      */
     public function mount()
     {
-        $this->selectedOption = '';
+        $this->selectedOption = null;
         $this->optionsArray = $this->createUnitOptions($this->unitName);
     }
 
@@ -49,6 +49,7 @@ class UnitOptions extends SuperOptions implements Validation
 
     public function validation()
     {
+        dump($this->selectedOption);
         $this->validate();
         //$this->sendData();
     }
