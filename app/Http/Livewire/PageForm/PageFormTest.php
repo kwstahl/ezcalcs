@@ -13,11 +13,23 @@ use App\Http\Livewire\PageComponent\UnitOptions;
 
 class PageFormTest extends Component
 {
+    public $variables_json;
+    public $units;
+    public $unitOptions;
+    public $variableInputData;
+    public $formula_sympy;
     public $variableToSolveFor;
+    public $answer;
+    public $variables;
 
     public function mount()
     {
+        $this->variables_json = collect($this->variables_json);
+        $this->variableToSolveFor = $this->variables_json->keys()->first();
     }
+
+    protected $messages = [
+    ];
 
     protected $listeners = [
         'radioSelected' => 'setVariableToSolveFor',
@@ -26,6 +38,8 @@ class PageFormTest extends Component
     public function setVariableToSolveFor($name){
         $this->variableToSolveFor = $name;
     }
+
+
 
     public function render()
     {
