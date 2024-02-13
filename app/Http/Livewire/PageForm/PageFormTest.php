@@ -28,6 +28,10 @@ class PageFormTest extends Component
         'radioSelected' => 'setVariableToSolveFor',
     ];
 
+    protected $messages = [
+
+    ];
+
     public function setVariableToSolveFor($name){
         $this->variableToSolveFor = $name;
     }
