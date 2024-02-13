@@ -32,6 +32,12 @@ class PageFormTest extends Component
         $this->variableToSolveFor = $name;
     }
 
+    public function submit()
+    {
+        $this->emit('validationEvent');
+        $this->emit('submit');
+    }
+
     public function render()
     {
         return view('livewire.page-form.page-form-test');

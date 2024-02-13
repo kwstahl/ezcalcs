@@ -21,6 +21,7 @@ class Solver extends Component
 
     protected $listeners = [
         'dataSent' => 'pushData',
+        'submit' => 'calculate',
     ];
 
     //this function is meant to create a vector for each variable like: var1 = [value, unit_conversion]
@@ -40,7 +41,6 @@ class Solver extends Component
 
     public function calculate()
     {
-        $this->emit('validationEvent');
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
         };
