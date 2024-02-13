@@ -50,7 +50,9 @@ class Variables extends SuperVariables implements Validation
         }
     }
 
-    public function validation() {
+    public function validation()
+    {
+        dump('help');
         $this->validate();
     }
 
