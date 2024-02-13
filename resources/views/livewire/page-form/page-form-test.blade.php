@@ -1,5 +1,5 @@
 <div class="row p-2">
-    <form>
+    <form wire:submit.prevent="submit">
         <!-- Input Group Row Created for each variable -->
         @foreach ($variables_json as $variableName => $variable)
             <div>

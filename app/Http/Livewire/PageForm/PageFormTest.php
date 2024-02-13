@@ -17,6 +17,7 @@ class PageFormTest extends Component
     public $formula_sympy;
     public $variableToSolveFor;
 
+
     public function mount()
     {
         $this->variables_json = collect($this->variables_json);
