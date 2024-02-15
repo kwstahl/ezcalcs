@@ -49,7 +49,6 @@ class UnitOptions extends SuperOptions implements Validation
 
     public function validation()
     {
-        dump($this->selectedOption);
         $this->validate();
         //$this->sendData();
     }
