@@ -11,7 +11,7 @@
 
     <ul class="dropdown-menu" id="dropdown-container">
         @foreach ($optionsArray as $option => $value)
-            <li>
+            <li wire:key="option-{{$option}}">
                 <button class="dropdown-item" wire:click="changeSelectedOption('{{ $this->$option['id'] }}')">
                     {{ $this->$option['symbol'] }}
                     {{ $this->$option['id'] }}
@@ -19,9 +19,10 @@
             </li>
         @endforeach
     </ul>
-    @error('selectedOption')
-        <div class="alert alert-danger">
+    <div class="alert alert-danger">
+        @error('selectedOption')
             <span class="error">{{ $message }}</span>
-        </div>
-    @enderror
+        @enderror
+    </div>
+
 </div>
