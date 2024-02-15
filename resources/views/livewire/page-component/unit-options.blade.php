@@ -1,17 +1,21 @@
 <div class="col-4 dropdown">
     <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        @empty($selectedOption)
-            Select a Unit
-        @endempty
+        <span>
+            @empty($selectedOption)
+                Select a Unit
+            @endempty
+        </span>
 
-        @isset($selectedOption)
-            {{ $selectedOption['id'] }}
-        @endisset
+        <span>
+            @isset($selectedOption)
+                {{ $selectedOption['id'] }}
+            @endisset
+        </span>
     </button>
 
     <ul class="dropdown-menu" id="dropdown-container">
         @foreach ($optionsArray as $option => $value)
-            <li wire:key="option-{{$option}}">
+            <li wire:key="option-{{ $this->option['id'] }}">
                 <button class="dropdown-item" wire:click="changeSelectedOption('{{ $this->$option['id'] }}')">
                     {{ $this->$option['symbol'] }}
                     {{ $this->$option['id'] }}
@@ -19,9 +23,11 @@
             </li>
         @endforeach
     </ul>
-    <div class="alert alert-danger">
+    <div>
         @error('selectedOption')
-            <span class="error">{{ $message }}</span>
+            <div class="alert alert-danger">
+                <span class="error">{{ $message }}</span>
+            </div>
         @enderror
     </div>
 
