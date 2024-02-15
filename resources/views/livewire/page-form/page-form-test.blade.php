@@ -4,13 +4,13 @@
         @foreach ($variables_json as $variableName => $variable)
             <div>
                 <!--  Radio  -->
-                <livewire:page-component.radio :attributes-array="$variable" :wire:key="radio-{{$variableName}}"/>
+                <livewire:page-component.radio :attributes-array="$variable" wire:key="radio-{{$variableName}}"/>
 
                 <!-- Input -->
-                <livewire:page-component.variables :attributes-array="$variable" :wire:key="variable-{{$variableName}}"/>
+                <livewire:page-component.variables :attributes-array="$variable" wire:key="variable-{{$variableName}}"/>
 
                 <!-- Unit -->
-                <livewire:page-component.unit-options :unit-name="$variable['unit']" :variable-sympy-symbol="$variable['sympy_symbol']" :wire:key="unit-{{$variableName}}"/>
+                <livewire:page-component.unit-options :unit-name="$variable['unit']" :variable-sympy-symbol="$variable['sympy_symbol']" wire:key="unit-{{$variableName}}"/>
             </div>
         @endforeach
     </form>
