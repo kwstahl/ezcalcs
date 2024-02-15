@@ -1,4 +1,4 @@
-<div class="col-4 dropdown">
+<div class="col-4 dropdown" wire:key="unit-{{ $this->variableSympySymbol }}">
     <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
         <span>
             @empty($selectedOption)
