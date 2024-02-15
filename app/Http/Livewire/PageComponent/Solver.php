@@ -41,6 +41,7 @@ class Solver extends Component
 
     public function calculate()
     {
+        $this->emit("validationEvent");
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
         };
