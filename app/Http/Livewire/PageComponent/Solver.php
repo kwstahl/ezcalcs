@@ -24,32 +24,6 @@ class Solver extends Component
         'submit' => 'calculate',
     ];
 
-    //this function is meant to create a vector for each variable like: var1 = [value, unit_conversion]
-    public function createVariableVectors()
-    {
-        foreach ($this->variablesJson as $variableName => $variableArray) {
-            $sympy_symbol = $variableArray['sympy_symbol'];
-            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
-        };
-    }
-
-
-    public function pushData($variableSympySymbol, $type, $value)
-    {
-        $this->$variableSympySymbol[$type] = $value;
-    }
-
-    public function calculate()
-    {
-        $this->emit("validationEvent");
-        foreach ($this->variablesJson as $variableName => $variableArray) {
-            $sympy_symbol = $variableArray['sympy_symbol'];
-        };
-
-        $dataForSympyInJson = $this->prepareDataForSympyInJson();
-        $this->sendDataToSympy($dataForSympyInJson);
-    }
-
     private function prepareDataForSympyInJson()
     {
         $dataForSympyInJson = $this->variablesJson;
@@ -75,6 +49,35 @@ class Solver extends Component
         $command = 'python3 sympyScript.py' . ' ' . escapeshellarg($dataForSympyInJson) . ' ' . escapeshellarg($this->formulaSympy);
         $this->answer = (string) Process::run($command)->output();
         $this->errorOut = Process::run($command)->errorOutput();
+    }
+
+    //this function is meant to create a vector for each variable like: var1 = [value, unit_conversion]
+    public function createVariableVectors()
+    {
+        foreach ($this->variablesJson as $variableName => $variableArray) {
+            $sympy_symbol = $variableArray['sympy_symbol'];
+            $this->$sympy_symbol = ['variableSympySymbol' => $sympy_symbol, 'value' => '', 'unit_conversion' => ''];
+        };
+    }
+
+
+    public function pushData($variableSympySymbol, $type, $value)
+    {
+        $this->$variableSympySymbol[$type] = $value;
+    }
+
+    public function calculate()
+    {
+        $this->emit("validationEvent");
+        foreach ($errors->all() as $message) {
+            dump($message);
+        }
+        foreach ($this->variablesJson as $variableName => $variableArray) {
+            $sympy_symbol = $variableArray['sympy_symbol'];
+        };
+
+        $dataForSympyInJson = $this->prepareDataForSympyInJson();
+        $this->sendDataToSympy($dataForSympyInJson);
     }
 
     public function render()
