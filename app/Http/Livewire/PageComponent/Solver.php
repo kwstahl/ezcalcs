@@ -74,6 +74,7 @@ class Solver extends Component
         $this->withValidator(function (Validator $validator){
             $errors = $validator->errors();
             $this->dump($errors);
+            $this->dump('help');
         });
 
 
