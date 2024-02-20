@@ -4,6 +4,7 @@ namespace App\Http\Livewire\PageComponent;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Process;
+use Illuminate\Validation\Validator;
 
 class Solver extends Component
 {
@@ -69,9 +70,13 @@ class Solver extends Component
     public function calculate()
     {
         $this->emit("validationEvent");
-        foreach ($errors->all() as $message) {
-            dump($message);
-        }
+
+        $this->withValidator(function (Validator $validator){
+            $errors = $validator->errors();
+            dump($errors);
+        });
+
+
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
         };
