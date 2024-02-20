@@ -77,6 +77,8 @@ class Solver extends Component
             $this->dump('help');
         });
 
+        $this->dump('help');
+
 
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
