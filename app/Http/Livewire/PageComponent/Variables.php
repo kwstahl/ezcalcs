@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\PageComponent;
 
+use Illuminate\Validation\Validator;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -53,7 +54,10 @@ class Variables extends SuperVariables implements Validation
     public function validation()
     {
         $this->validate();
-        dump($this->errors());
+        $this->withValidator(function (Validator $validator) {
+            $validator->after(function ($validator) {
+                dump($validator->errors());
+            })->validate();
     }
 
     public function __get($attribute)
