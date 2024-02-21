@@ -70,12 +70,6 @@ class Solver extends Component
     public function calculate()
     {
         $this->emit("validationEvent");
-        $this->validate();
-        $this->withValidator(function (Validator $validator){
-            $errors = $validator->errors();
-            $this->dump($errors);
-            $this->dump('help');
-        });
 
 
 
