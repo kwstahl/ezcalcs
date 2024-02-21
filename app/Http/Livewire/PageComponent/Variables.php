@@ -54,10 +54,7 @@ class Variables extends SuperVariables implements Validation
     public function validation()
     {
         $this->validate();
-        $this->withValidator(function (Validator $validator) {
-            $validator->after(function ($validator) {
-                dump($validator->errors());
-            })->validate();
+        $this->withValidator(function (Validator $validator) {dump($validator->errors());});
     }
 
     public function __get($attribute)
