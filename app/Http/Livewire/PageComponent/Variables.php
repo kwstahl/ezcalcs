@@ -55,7 +55,7 @@ class Variables extends SuperVariables implements Validation
     {
         $this->withValidator(function (Validator $validator){
             $val = $validator->errors();
-            dump($val);
+            dump(count($val));
         })->validate();
     }
 
