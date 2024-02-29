@@ -57,7 +57,6 @@ class Variables extends SuperVariables implements Validation
             $val = $validator->errors();
             if(count($val) > 0){
                 $this->emit('hasError');
-                dump("hellop");
             }
         })->validate();
     }

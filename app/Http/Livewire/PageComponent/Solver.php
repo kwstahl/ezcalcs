@@ -84,6 +84,7 @@ class Solver extends Component
         $this->checkValidations();
 
         if($this->hasError == True){
+            dump("hellop");
             return;
         }
 
