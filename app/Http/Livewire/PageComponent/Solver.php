@@ -74,6 +74,7 @@ class Solver extends Component
 
     public function checkValidations()
     {
+        dump("hellop");
         $this->hasError = False;
         $this->emit("validationEvent");
 
@@ -84,7 +85,6 @@ class Solver extends Component
         $this->checkValidations();
 
         if($this->hasError == True){
-            dump("hellop");
             return;
         }
 
