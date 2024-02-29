@@ -13,6 +13,7 @@ class Solver extends Component
     public $formulaSympy;
     public $answer;
     public $errorOut;
+    public $hasError;
 
     public function mount()
     {
@@ -23,6 +24,7 @@ class Solver extends Component
     protected $listeners = [
         'dataSent' => 'pushData',
         'submit' => 'calculate',
+        'hasError' => 'handleError',
     ];
 
     private function prepareDataForSympyInJson()
@@ -61,17 +63,29 @@ class Solver extends Component
         };
     }
 
+    public function handleError(){
+        $this->hasError = True;
+    }
 
     public function pushData($variableSympySymbol, $type, $value)
     {
         $this->$variableSympySymbol[$type] = $value;
     }
 
-    public function calculate()
+    public function checkValidations()
     {
+        $this->hasError = False;
         $this->emit("validationEvent");
 
+    }
 
+    public function calculate()
+    {
+        $this->checkValidations();
+
+        if($this->hasError == True){
+            return;
+        }
 
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
