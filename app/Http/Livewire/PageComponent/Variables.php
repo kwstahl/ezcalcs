@@ -55,12 +55,9 @@ class Variables extends SuperVariables implements Validation
     {
         $this->withValidator(function (Validator $validator){
             $val = $validator->errors();
-            if(count($val) == 0){
-                return;
+            if(count($val) > 0){
+                $this->emit('hasError');
             }
-            
-            $this->emit('hasError');
-
         })->validate();
     }
 
