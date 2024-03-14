@@ -72,20 +72,31 @@ class Solver extends Component
         $this->$variableSympySymbol[$type] = $value;
     }
 
+    public function frankenstein()
+    {
+        $this->checkValidations();
+        $this->checkHasError();
+    }
+
     public function checkValidations()
     {
         $this->hasError = False;
         $this->emit("validationEvent");
         $this->render();
-        if($this->hasError == True){
-            dump("yay");
-        }
+    }
 
+    public function checkHasError()
+    {
+        $this->render();
+        $error = $this->hasError;
+        if($error){
+            dump('he;p[p');
+        }
     }
 
     public function calculate()
     {
-        $this->checkValidations();
+        $this->frankenstein();
 
         if($this->hasError == True){
             return;
