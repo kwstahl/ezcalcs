@@ -65,8 +65,6 @@ class Solver extends Component
 
     public function handleError(){
         $this->hasError = True;
-        dump("hellop");
-
     }
 
     public function pushData($variableSympySymbol, $type, $value)
@@ -78,6 +76,10 @@ class Solver extends Component
     {
         $this->hasError = False;
         $this->emit("validationEvent");
+        $this->render();
+        if($this->hasError == True){
+            dump("yay");
+        }
 
     }
 
