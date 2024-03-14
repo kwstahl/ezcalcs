@@ -98,10 +98,6 @@ class Solver extends Component
     {
         $this->frankenstein();
 
-        if($this->hasError == True){
-            return;
-        }
-
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
         };
