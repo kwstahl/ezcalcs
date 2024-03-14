@@ -72,11 +72,6 @@ class Solver extends Component
         $this->$variableSympySymbol[$type] = $value;
     }
 
-    public function frankenstein()
-    {
-        $this->checkValidations();
-        $this->checkHasError();
-    }
 
     public function checkValidations()
     {
@@ -96,7 +91,9 @@ class Solver extends Component
 
     public function calculate()
     {
-        $this->frankenstein();
+        $this->checkValidations();
+        $this->checkHasError();
+        dump($this->hasError);
 
         foreach ($this->variablesJson as $variableName => $variableArray) {
             $sympy_symbol = $variableArray['sympy_symbol'];
